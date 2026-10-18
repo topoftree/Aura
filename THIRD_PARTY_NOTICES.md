@@ -31,4 +31,14 @@ Aura includes the third-party components listed below. Their original copyrights
 
 License text copies are in [LICENSES](LICENSES/); additional original notices are retained in the APK/runtime packages. These notices do not replace any source-availability, replacement or relinking obligations imposed by a component's license.
 
-This APK contains no Pluvia or GameNative application source. Native dependencies whose upstream URLs use those project names retain their own licenses. Steam artwork is fetched from Steam's CDN and belongs to the respective publishers. Aura is not affiliated with Valve or those publishers.
+## Copyright scope and source availability
+
+Aura's [copyright notice](COPYRIGHT.md) applies only to its original material. It does not change the licenses of the components above, including their modifications, or restrict any applicable rights to source, library replacement, relinking or reverse engineering for debugging library modifications.
+
+A complete corresponding-source and relinking package for all applicable components has not been published with this public release. The existing review of those obligations and of the proprietary Qualcomm package's redistribution rights remains incomplete. Upstream links and license copies provide attribution; they do not by themselves fulfill every redistribution requirement. This documentation update adds no dependencies and makes no claim that those outstanding matters have been resolved.
+
+## Other project names and assets
+
+This APK contains no Pluvia or GameNative application source. Native dependencies whose upstream URLs use those project names retain their own licenses. Steam artwork is fetched from Steam's CDN and belongs to the respective publishers. Game content, fonts, icons and other external assets retain their respective owners' rights and applicable terms; Aura's notice does not relicense them.
+
+Aura is not affiliated with or endorsed by Valve, Ubisoft, Microsoft or the other projects and publishers mentioned here. Product names and trademarks belong to their respective owners.
