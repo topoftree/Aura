@@ -30,8 +30,18 @@ Gradle 9.6. The build resolves Android Gradle Plugin 9.4.1 and Kotlin 2.3.21 fro
 their normal repositories. Allow several GiB of disk and memory for the native
 build, dependencies and R8. Accept the Android SDK licenses yourself.
 
-Clone this public repository, ensure its Git LFS files are downloaded, and change
-into `relink/v0.1.82`. Set `JAVA_HOME` and `ANDROID_HOME` to your installed tools.
+Clone this public repository and run these commands from its root to obtain the
+object files rather than Git LFS pointers:
+
+```sh
+git lfs install --local
+git lfs pull --include="relink/v0.1.82/objects/*.jar" --exclude=""
+cd relink/v0.1.82
+sha256sum -c SHA256SUMS
+```
+
+Git and Git LFS must be installed. Download the matching base APK separately.
+Set `JAVA_HOME` and `ANDROID_HOME` to your installed tools.
 If needed, set `GRADLE_USER_HOME` to a writable dependency-cache directory.
 
 ```sh

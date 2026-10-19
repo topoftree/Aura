@@ -27,7 +27,8 @@ does not consume the private Aura Kotlin application source or signing setup.
   stripping; the modified Winlator JNI library was rebuilt from source.
 - `apksigner verify --verbose` accepted a copy signed with a new, local,
   verification-only key. `zipalign -c -P 16 4` passed on that signed copy.
-  The official production signing configuration/key was not read or changed.
+  The production signing key was not exported, regenerated or used to sign the
+  verification APK; test signing used only the separate verification key.
 - Android package inspection reported `com.android.aura`, version `0.1.82`,
   code `83`. The official APK and release tag were not replaced.
 - Publication checks found no independent Aura `.kt`/`.java` application source,
