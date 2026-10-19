@@ -103,3 +103,7 @@ These are resource-link checks, not a new full APK build or Android game test.
 The earlier full recombination checks above remain the validation of the
 unchanged application objects and engine implementation. The official APK and
 its signing identity are unchanged. `SHA256SUMS` covers the cleaned inputs.
+
+The cleaned recombination archive is distributed through this repository's
+`winlator-source-and-relink/archives/` directory using Git LFS. The release page
+links to this download and its checksums; the retired Release ZIP is withdrawn.

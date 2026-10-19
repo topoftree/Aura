@@ -30,7 +30,7 @@ These components serve different roles and are not all active simultaneously. Op
 
 For the Winlator Android engine, Aura uses the corresponding-source and application-object recombination approach described in **LGPL 2.1, section 6(a)**. Keeping independent Aura application source private depends on a valid boundary between independent application code and LGPL-derived code. Renaming packages, translating code or obfuscating an implementation does not make library-derived code independently proprietary.
 
-The matching materials are available in the [versioned kit](https://github.com/topoftree/Aura/tree/v0.1.83/winlator-source-and-relink/v0.1.83) and in this release's `Aura-0.1.83-relink.zip`. The ZIP contains the actual object JARs and does not require Git LFS.
+The matching materials are available in the [versioned kit](https://github.com/topoftree/Aura/tree/v0.1.83/winlator-source-and-relink/v0.1.83) and in the [cleaned recombination ZIP](https://media.githubusercontent.com/media/topoftree/Aura/main/winlator-source-and-relink/archives/Aura-0.1.83-relink.zip). The ZIP contains the actual object JARs and does not require Git LFS.
 
 The current repository index is [Winlator source and relinking kits](https://github.com/topoftree/Aura/tree/main/winlator-source-and-relink). The folder on the current branch has been renamed from `relink/` to `winlator-source-and-relink/`; the pinned release links and ZIP download above retain their original paths and contents.
 
@@ -79,13 +79,13 @@ No Android device upgrade/install test, license-dialog interaction, real Steam l
 | Asset | Purpose |
 | --- | --- |
 | `Aura-0.1.83-arm64-release.apk` | Officially signed ARM64 application package. |
-| `Aura-0.1.83-relink.zip` | Matching Winlator engine source, pre-obfuscated application objects, dependencies and build instructions. It excludes independent Aura Kotlin UI/business source, private mappings and signing keys. |
-| `SHA256SUMS.txt` | SHA-256 checksums for the APK and recombination ZIP. |
+| [Aura-0.1.83-relink.zip](https://media.githubusercontent.com/media/topoftree/Aura/main/winlator-source-and-relink/archives/Aura-0.1.83-relink.zip) | Matching Winlator engine source, pre-obfuscated application objects, dependencies and build instructions. It excludes independent Aura Kotlin UI/business source, private mappings and signing keys. |
+| [SHA256SUMS](https://raw.githubusercontent.com/topoftree/Aura/main/releases/v0.1.83/SHA256SUMS) | SHA-256 checksums for the APK and recombination ZIP. |
 
 Download all three files into the same directory and run:
 
 ```sh
-sha256sum -c SHA256SUMS.txt
+sha256sum -c SHA256SUMS
 ```
 
 After extracting the ZIP, enter `Aura-0.1.83-relink/` and run `sha256sum -c SHA256SUMS` to verify the kit's individual files. Follow its README to modify, rebuild and sign the combined application.
@@ -105,7 +105,11 @@ Project names and trademarks belong to their respective owners. Aura is not affi
 ## Recombination-material cleanup — October 19, 2026
 
 - Replaced the retired unobfuscated 0.1.82 application object in published branch/tag history with its tested, pre-obfuscated counterpart. Editable Winlator source, license notices and recombination permissions remain available.
-- Normalized 1,096 private absolute resource-build paths in each versioned kit. Rebuilt the 0.1.83 recombination ZIP and updated `SHA256SUMS.txt`.
+- Normalized 1,096 private absolute resource-build paths in each versioned kit. Rebuilt the 0.1.83 recombination ZIP and updated the published `SHA256SUMS`.
 - Actual `aapt2` linking and binary conversion produced identical binary resource entries and resource IDs before and after cleanup, including a modified-engine resource overlay test.
 - Official APK payloads and signatures are unchanged. This update is to the source/object delivery materials; it does not claim new Android device or game testing.
 - Git history rewriting does not itself purge retained GitHub LFS objects or cached old commits. Server-side removal must be verified separately; prior downloads cannot be recalled.
+
+The cleaned ZIP is hosted in the public repository through Git LFS; downloading
+it from the link above does not require installing Git LFS. The old Release ZIP
+has been withdrawn. The official APK remains attached to this release.

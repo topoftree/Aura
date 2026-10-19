@@ -47,8 +47,8 @@ sha256sum -c SHA256SUMS
 ```
 
 Git and Git LFS must be installed. Download the matching base APK separately.
-Alternatively, download [`Aura-0.1.83-relink.zip`](https://github.com/topoftree/Aura/releases/download/v0.1.83/Aura-0.1.83-relink.zip)
-from the same release, verify it against the release's `SHA256SUMS.txt`, extract
+Alternatively, download [`Aura-0.1.83-relink.zip`](https://media.githubusercontent.com/media/topoftree/Aura/main/winlator-source-and-relink/archives/Aura-0.1.83-relink.zip)
+from the public repository, verify it against the [published SHA256SUMS](https://raw.githubusercontent.com/topoftree/Aura/main/releases/v0.1.83/SHA256SUMS), extract
 it, and enter `Aura-0.1.83-relink/`. That archive contains the actual object JARs,
 so this route does not require Git LFS. Run `sha256sum -c SHA256SUMS` there too.
 
