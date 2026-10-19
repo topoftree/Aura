@@ -43,3 +43,7 @@ server-side removal requires separate verification. Prior downloads cannot
 be recalled. The official APKs are unchanged.
 
 See [VALIDATION.md](VALIDATION.md) for actual host checks and device-test limits.
+
+Compiled resource source paths are resource-relative after the 2026-10-19
+cleanup. Removing this metadata does not conceal resource names, runtime
+strings, application entry points or the implementation of compiled objects.

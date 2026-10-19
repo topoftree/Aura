@@ -81,3 +81,21 @@ it is not part of the already-published 0.1.82 binary or its frozen object input
 Obfuscated objects remain decompilable. Published-history cleanup does not
 guarantee deletion of server-side retained objects or prior downloads;
 see [PRIVACY.md](PRIVACY.md).
+
+## Resource metadata cleanup — 2026-10-19
+
+Removed 1,096 private absolute build-path occurrences from AAPT2 compiled-file
+source metadata, replacing them with resource-relative paths. Compiled XML,
+image payloads, resource tables, application objects and editable engine source
+were preserved. No resource identifier was renamed.
+
+The actual Android build-tools 37.0.0 `aapt2 link` and `convert` commands passed
+for both original and cleaned inputs. All 1,092 binary-resource ZIP entries were
+byte-identical, and all generated resource-symbol lines were identical. The same
+comparison also passed with an additional engine string resource, confirming
+that resource overlays still link and receive an identifier.
+
+These are resource-link checks, not a new full APK build or Android game test.
+The earlier full recombination checks above remain the validation of the
+unchanged application objects and engine implementation. The official APK and
+its signing identity are unchanged. `SHA256SUMS` covers the cleaned inputs.

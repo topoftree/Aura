@@ -30,7 +30,7 @@ These components serve different roles and are not all active simultaneously. Op
 
 For the Winlator Android engine, Aura uses the corresponding-source and application-object recombination approach described in **LGPL 2.1, section 6(a)**. Keeping independent Aura application source private depends on a valid boundary between independent application code and LGPL-derived code. Renaming packages, translating code or obfuscating an implementation does not make library-derived code independently proprietary.
 
-The matching materials are available in the [versioned kit](https://github.com/topoftree/Aura/tree/v0.1.83/relink/v0.1.83) and in this release's `Aura-0.1.83-relink.zip`. The ZIP contains the actual object JARs and does not require Git LFS.
+The matching materials are available in the [versioned kit](https://github.com/topoftree/Aura/tree/v0.1.83/winlator-source-and-relink/v0.1.83) and in this release's `Aura-0.1.83-relink.zip`. The ZIP contains the actual object JARs and does not require Git LFS.
 
 The current repository index is [Winlator source and relinking kits](https://github.com/topoftree/Aura/tree/main/winlator-source-and-relink). The folder on the current branch has been renamed from `relink/` to `winlator-source-and-relink/`; the pinned release links and ZIP download above retain their original paths and contents.
 
@@ -44,7 +44,7 @@ The current repository index is [Winlator source and relinking kits](https://git
 | In-app notices | A visible Winlator license entry, the complete offline LGPL text and a source/recombination link are included in this APK. |
 | Version correspondence | The 0.1.83 kit uses its own matching application objects and resources. The existing 0.1.82 kit remains available for that version and is not substituted for the new materials. |
 
-The LGPL-covered implementation remains editable source. Obfuscating independent application objects only increases the effort needed to inspect them; it does not prevent decompilation or remove the rights above. Previously published or downloaded 0.1.82 objects are not erased by this release.
+The LGPL-covered implementation remains editable source. Obfuscating independent application objects only increases the effort needed to inspect them; it does not prevent decompilation or remove the rights above. The published branch/tag history has been cleaned to use pre-obfuscated 0.1.82 objects. This does not purge GitHub server-side retention or retract previously downloaded copies.
 
 Recipients can sign modified APKs with their own keys. Android generally prevents an APK signed with a different key from updating the official installation. Use a separate test device/profile or back up data before installing a differently signed version. The production signing key is not required for building or signing a modified copy.
 
@@ -52,7 +52,7 @@ Recipients can sign modified APKs with their own keys. Android generally prevent
 
 The delivery above covers the **Winlator Android engine and its recombination with independent Aura objects**. It is not a declaration that the entire APK is fully compliant. Wine/Proton, statically included ntsync, Wine Mono, media/audio libraries and other runtime components have separate corresponding-source, build, recombination and potentially installation-information obligations. Redistribution permission for the proprietary Qualcomm package also remains to be established. Upstream links and license copies do not replace those requirements.
 
-See [SOURCE_CODE.md](https://github.com/topoftree/Aura/blob/main/SOURCE_CODE.md), the versioned kit's [NOTICE.md](https://github.com/topoftree/Aura/blob/v0.1.83/relink/v0.1.83/NOTICE.md), and the [third-party notices](https://github.com/topoftree/Aura/blob/main/THIRD_PARTY_NOTICES.md) for the scope and remaining work.
+See [SOURCE_CODE.md](https://github.com/topoftree/Aura/blob/main/SOURCE_CODE.md), the versioned kit's [NOTICE.md](https://github.com/topoftree/Aura/blob/v0.1.83/winlator-source-and-relink/v0.1.83/NOTICE.md), and the [third-party notices](https://github.com/topoftree/Aura/blob/main/THIRD_PARTY_NOTICES.md) for the scope and remaining work.
 
 ## Build and validation
 
@@ -70,7 +70,7 @@ Additional checks on the 0.1.83 public recombination kit passed:
 - Baseline and modified-engine Gradle `relinkRelease` builds succeeded. Temporary Java, native-code and resource changes appeared in the combined test APK. Those temporary changes are absent from the published engine source.
 - **7,781 original resource IDs** remained unchanged. Checks passed for **274 native payload hashes**, **24 Steam reflection contracts**, and **12 JNI fields across 8 classes**.
 - A modified test APK signed with an independent, temporary recipient key passed signature and ZIP-alignment checks. The production key was not used for these tests or included in public materials.
-- The kit includes **956 individual SHA-256 checksums**. See [VALIDATION.md](https://github.com/topoftree/Aura/blob/v0.1.83/relink/v0.1.83/VALIDATION.md) for the results and limits.
+- The kit includes **956 individual SHA-256 checksums**. See [VALIDATION.md](https://github.com/topoftree/Aura/blob/v0.1.83/winlator-source-and-relink/v0.1.83/VALIDATION.md) for the results and limits.
 
 No Android device upgrade/install test, license-dialog interaction, real Steam login or game execution was performed for this delivery. Host build success does not establish compatibility with every GPU, game or 16 KB-page device.
 
@@ -101,3 +101,11 @@ SHA-256:
 ```
 
 Project names and trademarks belong to their respective owners. Aura is not affiliated with or officially endorsed by Valve, Qualcomm or the upstream projects named here.
+
+## Recombination-material cleanup — October 19, 2026
+
+- Replaced the retired unobfuscated 0.1.82 application object in published branch/tag history with its tested, pre-obfuscated counterpart. Editable Winlator source, license notices and recombination permissions remain available.
+- Normalized 1,096 private absolute resource-build paths in each versioned kit. Rebuilt the 0.1.83 recombination ZIP and updated `SHA256SUMS.txt`.
+- Actual `aapt2` linking and binary conversion produced identical binary resource entries and resource IDs before and after cleanup, including a modified-engine resource overlay test.
+- Official APK payloads and signatures are unchanged. This update is to the source/object delivery materials; it does not claim new Android device or game testing.
+- Git history rewriting does not itself purge retained GitHub LFS objects or cached old commits. Server-side removal must be verified separately; prior downloads cannot be recalled.

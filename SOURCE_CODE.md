@@ -33,6 +33,18 @@ server-side removal requires separate verification. Prior downloads cannot
 be recalled. The official APKs are unchanged.
 See [PRIVACY.md](winlator-source-and-relink/v0.1.82/PRIVACY.md).
 
+## Publication cleanup — 2026-10-19
+
+The published branch/tag history now supplies the pre-obfuscated 0.1.82
+application object in place of the retired unobfuscated object. Both versioned
+kits have had their private absolute resource-build paths normalized. The 0.1.83
+recombination ZIP and its checksum have been updated accordingly; official APK
+payloads are unchanged. Git history cleanup alone does not purge server-retained
+LFS objects or caches, and cannot retract copies already downloaded.
+
+The engine source, its license and the recombination rights remain available.
+Resource-link verification is documented in each kit's `VALIDATION.md`.
+
 ## Rights and installation
 
 The Winlator-derived engine and Aura's modifications to it are provided under LGPL 2.1, with separately licensed embedded files retaining their original terms. The application objects are supplied with express permission to recombine with a modified LGPL engine, modify the combined work for personal use, and reverse engineer it for debugging LGPL-library modifications. These permissions are not restricted by Aura's general copyright notice.
