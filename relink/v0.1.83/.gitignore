@@ -1,0 +1,10 @@
+**/build/
+**/.cxx/
+.gradle/
+local.properties
+engine/src/main/jniLibs/
+engine/src/main/assets/
+*.jks
+*.keystore
+__pycache__/
+.kotlin/

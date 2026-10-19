@@ -1,10 +1,10 @@
 # Third-party notices
 
-Aura includes the third-party components listed below. Their original copyrights and license terms remain applicable; this repository does not relicense them. This is the first public binary distribution in this repository. This notice is not a declaration that all corresponding-source or relinking arrangements have been completed.
+Aura includes the third-party components listed below. Their original copyrights and license terms remain applicable; this repository does not relicense them. This notice is not a declaration that all corresponding-source or relinking arrangements have been completed.
 
 | Component | Purpose | Upstream / license |
 | --- | --- | --- |
-| Winlator 11.2 | Embedded Windows runtime integration, X server, graphics and input | [Winlator](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9), LGPL-2.1; [Aura 0.1.82 modified engine source and recombination materials](relink/v0.1.82/README.md). Original file-level licenses are retained. |
+| Winlator 11.2 | Embedded Windows runtime integration, X server, graphics and input | [Winlator](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9), LGPL-2.1; [Aura 0.1.83 modified engine source and recombination materials](relink/v0.1.83/README.md); [0.1.82 materials](relink/v0.1.82/README.md). Original file-level licenses are retained. |
 | Proton Wine 11.0-2 Bionic v14 | Windows compatibility | [Proton Wine](https://github.com/The412Banner/proton-wine), LGPL-2.1-or-later and included component licenses. Modified Wine ntdll and sechost components are included. |
 | ntsync-android | Backend included in the Wine build | [ntsync-android](https://github.com/GameNative/ntsync-android/tree/7ce6435e5979b1cb5341aa4b299f31e8937fe121), LGPL-3.0-only. |
 | Wine Mono 10.4.1 | Offline .NET Framework replacement | [Wine Mono](https://github.com/wine-mono/wine-mono/releases/tag/wine-mono-10.4.1), mixed LGPL/GPL/MIT and component licenses; see [COPYING](LICENSES/Wine-Mono-COPYING.txt). |
@@ -35,7 +35,7 @@ License text copies are in [LICENSES](LICENSES/); additional original notices ar
 
 Aura's [copyright notice](COPYRIGHT.md) applies only to its original material. It does not change the licenses of the components above, including their modifications, or restrict any applicable rights to source, library replacement, relinking or reverse engineering for debugging library modifications.
 
-The modified Winlator Android engine's source, per-file modification record, build scripts and Aura 0.1.82 recombination objects are now provided in [relink/v0.1.82](relink/v0.1.82/README.md). The original LGPL text is retained in that engine's `LICENSE`, with explicit application-object recombination and debugging permissions in its `NOTICE.md`.
+The modified Winlator Android engine's source, per-file modification record, build scripts and version-matched Aura recombination objects are provided in [relink/v0.1.83](relink/v0.1.83/README.md) and [relink/v0.1.82](relink/v0.1.82/README.md). The original LGPL text is retained in that engine's `LICENSE`, with explicit application-object recombination and debugging permissions in its `NOTICE.md`.
 
 This is not a complete corresponding-source package for every separately bundled runtime. Wine, ntsync, Mono and other applicable components still need their own matching source/build and, where required, installation/recombination materials. The review of the proprietary Qualcomm package's redistribution rights also remains incomplete. Upstream links and license copies provide attribution; they do not by themselves fulfill those requirements. See [SOURCE_CODE.md](SOURCE_CODE.md) for the exact scope and limits. This update introduces no application dependency and does not claim those separate matters are resolved.
 

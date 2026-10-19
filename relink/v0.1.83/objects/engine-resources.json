@@ -1,0 +1,1746 @@
+{
+  "drawable-hdpi/button_neutral_normal.9.png": {
+    "sha256": "eb0968cd181d00ad0c3d3783f89850d045ba1cfbc35c8580cb534f1e24a8cc1f"
+  },
+  "drawable-hdpi/button_neutral_pressed.9.png": {
+    "sha256": "2bda709b3afcfb527cac8a8037230e02d330c8946e406e1c80f70c5f22aeb836"
+  },
+  "drawable-hdpi/button_positive_normal.9.png": {
+    "sha256": "b6710ecdd03ab64a6e0f42959765fda64935ed925fa10a0bb1155a459b14dc22"
+  },
+  "drawable-hdpi/button_positive_pressed.9.png": {
+    "sha256": "c67cfece5e700ca01783ab03e81ebaff126afcd6d982d9b2e551dac3f3394de8"
+  },
+  "drawable-hdpi/color_frame.png": {
+    "sha256": "6a826de01c88c0c07a97656a46199f0e45f0683891fa9efa0774af667be9021b"
+  },
+  "drawable-hdpi/color_frame_selected.png": {
+    "sha256": "31bdc2fb1864a00a45aad15795aeaa39ad6eb6b664e1b5603bd3d19827683840"
+  },
+  "drawable-hdpi/combo_box_normal.9.png": {
+    "sha256": "9f4b12d3163056dcbb560d2f076d604a7a81ed4a7c8ef02e399ea880ac9f3a64"
+  },
+  "drawable-hdpi/combo_box_pressed.9.png": {
+    "sha256": "6635cdad72d0c1aa33594929d7f3c9eee23b27f3da79f34a5b90fa2c986ea61e"
+  },
+  "drawable-hdpi/container_drive.png": {
+    "sha256": "fe2aa787d69e2403ca8a27b03c6a4b4b3c421ca140054535eef6d0ac713137a5"
+  },
+  "drawable-hdpi/container_file.png": {
+    "sha256": "b02493d92ddaa0aad2558034cc63cf5165845134df5a4befc49527efef551a70"
+  },
+  "drawable-hdpi/container_file_library.png": {
+    "sha256": "601ddedb4e759f18c13d130b3d75e8a9a30cedfcfe10c98a20cc3cbd25673c06"
+  },
+  "drawable-hdpi/container_file_link.png": {
+    "sha256": "77cb261150cd0830f4e367b3be9e8b524043740ee7444e4f288d56d8e64f3826"
+  },
+  "drawable-hdpi/container_file_window.png": {
+    "sha256": "a0a6fa7bf920e1b00d3e67f6fa9fa986825abb7f7d33bd1032ad149fffd2709f"
+  },
+  "drawable-hdpi/container_folder.png": {
+    "sha256": "1229d0f728c11c71108f08d523356ebe7b0a38a955897e247336fe06d1cc5bad"
+  },
+  "drawable-hdpi/container_folder_documents.png": {
+    "sha256": "0ecf9b32323345f7c512fb9923a5082bbc5131b4744d27900a37b927a53825c4"
+  },
+  "drawable-hdpi/container_folder_favorites.png": {
+    "sha256": "0378e2cb9b165d90faddcb2abb908945397c03f21da07994236c1e2905077854"
+  },
+  "drawable-hdpi/content_dialog_background_dark.9.png": {
+    "sha256": "52cf83e16b64e3bc459fe381d03ea9557d9d3fb0f90fe7d65587c7b972f28c1c"
+  },
+  "drawable-hdpi/content_dialog_background_light.9.png": {
+    "sha256": "66d1bbc293cd7bb2a943fc7d1ebed5b7257bde4fdc7e3d5e87f135b91b831d67"
+  },
+  "drawable-hdpi/content_dialog_type_alert.png": {
+    "sha256": "d4548b27cc58070795531920885afb504b0b7818e5418ace4341d72a0560ce9c"
+  },
+  "drawable-hdpi/content_dialog_type_confirm.png": {
+    "sha256": "a6b0596d80b9ebfe8e9028c365224e674239b9c09f209d7e6914214aa4e5edd1"
+  },
+  "drawable-hdpi/cursor.png": {
+    "sha256": "bdd26930e96407a9dc6315a1c7413da09bbe74ab1a93f0692b17883cef6c96a3"
+  },
+  "drawable-hdpi/dashed_frame.png": {
+    "sha256": "d5ce9989e535e0aa0c6e934e314e5af710060cbc2ef90ae9beacae427058e9d3"
+  },
+  "drawable-hdpi/edit_text_focused.9.png": {
+    "sha256": "ef38c343d5a7a86fd13b046c2072e4b419f6290aa06bf56f830141813f98bbdb"
+  },
+  "drawable-hdpi/edit_text_normal.9.png": {
+    "sha256": "4658c50857a5ccf05b26cba33195f3cb7fb3afa9d4de617756b893389f361d10"
+  },
+  "drawable-hdpi/edit_text_pressed.9.png": {
+    "sha256": "372534966d5302f4b792143f9fc2b0c753bb9644638f6d2699c8fdc7c7240604"
+  },
+  "drawable-hdpi/gamepad_player_1.png": {
+    "sha256": "66e5adea7d56aa7c7581c0e6a2787727a5bba5d1ad47c2fd5545194d553b958b"
+  },
+  "drawable-hdpi/gamepad_player_2.png": {
+    "sha256": "87e0845e6c55f10dd5d8469f0005fbf78b60cb508a75045be9f5b0da9430d619"
+  },
+  "drawable-hdpi/gamepad_player_3.png": {
+    "sha256": "ac2b2dd89e23bb208f2826c024c871e02f52e6be6e443efeb71588a98e8002b8"
+  },
+  "drawable-hdpi/gamepad_player_4.png": {
+    "sha256": "9dfcaf78dea5f08256fd13842c60f6b45e7e2092ac1c25d1eddeeddd60b43113"
+  },
+  "drawable-hdpi/icon_about.png": {
+    "sha256": "4ad7a6629c9257bdbf8b85ab0afea3c2addaf28b9fd101b89888e1b6283e121e"
+  },
+  "drawable-hdpi/icon_active_windows.png": {
+    "sha256": "9baf80f722638d735e9093aad07bf01dc33aa284f30a6ad0fa8b66c3b289c1e7"
+  },
+  "drawable-hdpi/icon_add.png": {
+    "sha256": "a02941ce405ee37376a9ab9ea27fe9dbada83d2ee609ab509f2752842d6a52f5"
+  },
+  "drawable-hdpi/icon_audio_settings.png": {
+    "sha256": "dea0fff70a64ca0d4ede75d3bac0b523b9857032bca04e588b91187edee88113"
+  },
+  "drawable-hdpi/icon_confirm.png": {
+    "sha256": "743c7383d213b27e4b3be2df2b295624d4bbcf406311289922c19717bfb59b02"
+  },
+  "drawable-hdpi/icon_container.png": {
+    "sha256": "bc4e656e38bdd5c61748c13d76e9eff4703a641c507be91da71df1b0198eeac8"
+  },
+  "drawable-hdpi/icon_cpu.png": {
+    "sha256": "bd7dbe01bedf6258430b8e0e765e5cc8c9ece2f98cbd2a0756c82aff802c045a"
+  },
+  "drawable-hdpi/icon_debug.png": {
+    "sha256": "d23de62fcadd0b6adbc69ecdd376b801c9188a5f2f557eec088d3fb953050210"
+  },
+  "drawable-hdpi/icon_display_settings.png": {
+    "sha256": "ab6a80b3504864932e66efacbe18af1d83c1adcf803566301f561b9ffc6a311e"
+  },
+  "drawable-hdpi/icon_duplicate.png": {
+    "sha256": "e1dd7a4a3d4fcd5bcd47860a50006fd85a03eaafa62a9cff51d7487748dd5740"
+  },
+  "drawable-hdpi/icon_edit.png": {
+    "sha256": "ec94c644c882e35568b78fdf0441cbf4de7d68a2a40634deeaabea1239c68bfc"
+  },
+  "drawable-hdpi/icon_env_var.png": {
+    "sha256": "44642b407f409e0784579afa769bccfbde4482391be4359eae569e567a221382"
+  },
+  "drawable-hdpi/icon_exit.png": {
+    "sha256": "d1c0d7a33987e8211461fc483b60dac25dc44e6651753317ca9431a97e400496"
+  },
+  "drawable-hdpi/icon_export.png": {
+    "sha256": "ef9f5d48ae1fa2f1ad0def89c833ef4478f447bbc4d1976a6d414f908f45602f"
+  },
+  "drawable-hdpi/icon_folder_search.png": {
+    "sha256": "8752510035038e9699cae06ac4c706d5af38a04d649712ae886ae8d78557e6ce"
+  },
+  "drawable-hdpi/icon_fullscreen.png": {
+    "sha256": "d2fb4a219483e152e163af7db5da18914b9fac32aa138df02bed6aaf3f703162"
+  },
+  "drawable-hdpi/icon_gamepad.png": {
+    "sha256": "eb84216936828ba209cb25f24ebf1608b8a956cc1f0301e0de6f6226850100e3"
+  },
+  "drawable-hdpi/icon_help.png": {
+    "sha256": "55e64f876bf220d1e128edf20c9701416e85f448032e6a9cb8027ff186364250"
+  },
+  "drawable-hdpi/icon_hide.png": {
+    "sha256": "c0507068ccfcbab04c6f817ecf8b91db39cf5391c1cc1c1ee778f3c8f8ba72aa"
+  },
+  "drawable-hdpi/icon_image_picker.png": {
+    "sha256": "7d4a296c964b5648a29e3b19e3dc2bc43e45114de282387f636e10730227d97d"
+  },
+  "drawable-hdpi/icon_info.png": {
+    "sha256": "1422006842af7608d671272ef8d640341b6676b0d2244731a539f95c638f3aa4"
+  },
+  "drawable-hdpi/icon_input_controls.png": {
+    "sha256": "855393074c7e8a13c895b333e198c2c482160b08f4eb6ba11d343b270c1f1564"
+  },
+  "drawable-hdpi/icon_install.png": {
+    "sha256": "da8265106880d65747eab2eb5c7124c172a04f52f5b7a9edb1fbfba1034505ff"
+  },
+  "drawable-hdpi/icon_keyboard.png": {
+    "sha256": "d3cd68a43455798a4ea34864e9cc78b347ce0e94420c21b764229aef8126c850"
+  },
+  "drawable-hdpi/icon_list_item_menu.png": {
+    "sha256": "a88edd335591de86e6859b98160e6db53934b565f7f6d9ba065f6a1cb4ef96f2"
+  },
+  "drawable-hdpi/icon_magnifier.png": {
+    "sha256": "d41224a1dbbb66276af6611a43909fea917085330e469ed294ebb0cf7e0580ec"
+  },
+  "drawable-hdpi/icon_memory.png": {
+    "sha256": "4d99d173a2579392c3126ecdc9b0e415b73ade315c07c823617788425e239fdb"
+  },
+  "drawable-hdpi/icon_menu.png": {
+    "sha256": "d31ed72d7d341315f7d39ef66664d8a760104addf370d7fc0463bedf5f92288d"
+  },
+  "drawable-hdpi/icon_move.png": {
+    "sha256": "79632d1ffffc9fddde937e987e84a12ed48dc29092a7cea8b5be22342daca8ff"
+  },
+  "drawable-hdpi/icon_open.png": {
+    "sha256": "5d80225ca5b29429ced1a1d81ad59c4dd7aab1c2bd20a71784d06d89b1f1e6a7"
+  },
+  "drawable-hdpi/icon_paste.png": {
+    "sha256": "f82ff9d2de9870e55be8e89411790619d592d61efe964a25082fd89e0ca55fa1"
+  },
+  "drawable-hdpi/icon_pause.png": {
+    "sha256": "40f2bc5bd6283489af25fd337b4a355ca106772920ebecb0bc50539420cba09d"
+  },
+  "drawable-hdpi/icon_piano.png": {
+    "sha256": "5379f818a4bfaf9b250a3e343580f305691f5106b0470b51ee4b81f837695d5b"
+  },
+  "drawable-hdpi/icon_pip_mode.png": {
+    "sha256": "27c91ced04fb107947472866ae62d218ddd2daf66f37f139649a2698f5735fa1"
+  },
+  "drawable-hdpi/icon_play.png": {
+    "sha256": "a307b2dea71465771a872e72c085e89e111719d8e7bf0a8f6e86024c8ab352cf"
+  },
+  "drawable-hdpi/icon_power.png": {
+    "sha256": "ab7cfec408ab1f38c162cc7d86122ece36730c5b4c45009405edd5cc3867939f"
+  },
+  "drawable-hdpi/icon_remove.png": {
+    "sha256": "03f7a5fd5800c8d6527a32b1b3b31f6b726f5506ac92566ac7ef6b8d30dfd568"
+  },
+  "drawable-hdpi/icon_remove2.png": {
+    "sha256": "0e339284a89dc8932129f9b4e2b25b565131dea7ce5689f72389b19f111e3d73"
+  },
+  "drawable-hdpi/icon_reset.png": {
+    "sha256": "8a91c538c653100d108dcddf0fc2e4c9f06aeee6bb2f2c279e1b292976609158"
+  },
+  "drawable-hdpi/icon_run.png": {
+    "sha256": "c37d8c98e5378cb03617bfd85ac958f06da538c722abb96714a3808c3c1f0ab0"
+  },
+  "drawable-hdpi/icon_screen_effect.png": {
+    "sha256": "492be91e24ce4adc5b9e1815e902fd1153e98c123d7fa9c10a2efb743a02a4b9"
+  },
+  "drawable-hdpi/icon_settings.png": {
+    "sha256": "e3b17adfd2edd3a79d5a8e2ef107dcb6fcb8a6cfbdc8a05fe96e5414c8be4f7f"
+  },
+  "drawable-hdpi/icon_shortcut.png": {
+    "sha256": "44b48f6b030b4cb2e708a4007e6ef0103c046ccc313927022f12d7f8d85788a5"
+  },
+  "drawable-hdpi/icon_task_manager.png": {
+    "sha256": "2c1606a0c4e240dce211a0cf8488d9886999ebbc8733c1c56bc25bfabfc40b78"
+  },
+  "drawable-hdpi/icon_temperature.png": {
+    "sha256": "7e7218ab99d37335d2574362d3b362e4f274a84bc5777be309bafcf6cfd0c7bb"
+  },
+  "drawable-hdpi/icon_wine.png": {
+    "sha256": "0d1e8ff4451caa63202e8fb8b3ecc156e96698a607bb9242b710554c01ff4d33"
+  },
+  "drawable-hdpi/icon_zoom_minus.png": {
+    "sha256": "0fb0df5f424c149b2fe4b144a1cba840c5ab113279411b280ff19c43ed923908"
+  },
+  "drawable-hdpi/icon_zoom_plus.png": {
+    "sha256": "5a4f9b97a3266d702e4587d2248098ae29a2ec03c572ed084b173bff75c0bfcf"
+  },
+  "drawable-hdpi/logo.png": {
+    "sha256": "d7cc12a076afc7eedf6421035995c3b571e0ea65b09b5ce6e17fb28faef91966"
+  },
+  "drawable-hdpi/number_picker_decrement.png": {
+    "sha256": "3ce4334fbd8399583e95a23db4e1a9a88c41b8f00c6c49af91441333de14bead"
+  },
+  "drawable-hdpi/number_picker_increment.png": {
+    "sha256": "1bb909f77c91e2569b9b05d9e5b7070b609794ac7f6e2132b2f8469ed7803183"
+  },
+  "drawable-hdpi/panel_background_dark.9.png": {
+    "sha256": "f02ca22d8a31ad29b7c473c2e2aac350adc44435844535ce4f73274e6ddb097c"
+  },
+  "drawable-hdpi/panel_background_light.9.png": {
+    "sha256": "4d14cea1b0c3bf1c468d50a9dcc35d2e3837aceab50b74c114f0c9416cf21668"
+  },
+  "drawable-hdpi/panel_corner_arrow.png": {
+    "sha256": "f1c3f3d8b1cfb8db83568b7650818e7c6bb188f46853a6380b956f30589b146c"
+  },
+  "drawable-hdpi/preloader_background_dark.9.png": {
+    "sha256": "6a31b54d5c67fb8091de60808323139dcd4ead5ac29f1c98b5a9ad3fcdbf1d91"
+  },
+  "drawable-hdpi/preloader_background_light.9.png": {
+    "sha256": "24cba06678395f964b715869badf51ae0b1175719f48da85a6963986ea9d90e6"
+  },
+  "drawable-hdpi/preloader_spinner_dark.png": {
+    "sha256": "ee7c8791f71eee758914973736e822c666599419b7e9e06022d6598a363ac102"
+  },
+  "drawable-hdpi/preloader_spinner_light.png": {
+    "sha256": "c15db90c1fe9f845ac844ce976653d8fd35b74d9abef2eb4dad334130e552e9a"
+  },
+  "drawable-hdpi/remove_button.png": {
+    "sha256": "c823cb3bfdf44e9a6be9e45efb89e50215885512f013724fb5bf430b2a152b8a"
+  },
+  "drawable-hdpi/taskmgr_process.png": {
+    "sha256": "cc7ea279036f3efb6c9a6b3e1f419b5a7e81a74b72a22a5063c6a4493a57185f"
+  },
+  "drawable-hdpi/toggle_button_off.png": {
+    "sha256": "28cf180f2e89dceae87fef9a368b65e3f0328f1033c858b1e1f088f4d00bb3d1"
+  },
+  "drawable-hdpi/toggle_button_on.png": {
+    "sha256": "feff378df3e9aeb0a86f32951326bbc554e4cd9784decce7a21d82fa60062ba7"
+  },
+  "drawable-hdpi/touchpad_help_main_menu.png": {
+    "sha256": "79003369433d5d0d96751f4bcb765d0b3a07c404870197f45b86f728e7c65b8b"
+  },
+  "drawable-hdpi/touchpad_help_mouse_left_click.png": {
+    "sha256": "87b80b65890ea6956ada30b706d96cd3649044116b5af8b78ea6801bcd7d48b4"
+  },
+  "drawable-hdpi/touchpad_help_mouse_right_click.png": {
+    "sha256": "a674e6597c6608dcea266d837cba0bd6e4f35276609c427710ceb868c463b42c"
+  },
+  "drawable-hdpi/touchpad_help_mouse_scroll_wheel.png": {
+    "sha256": "99d63f7d8b1fcdbef2aa89d8d0f441d64bed58537c1e695cb082104bbbd056e7"
+  },
+  "drawable-xxhdpi/icon_action_bar_add.png": {
+    "sha256": "d73f03bba10a2279e18dcd61ac382b8bfb25a908ed5629266c629ef8e345b857"
+  },
+  "drawable-xxhdpi/icon_action_bar_back.png": {
+    "sha256": "4748a357fea32b8a4b875cf2658874a4bd300f2011b6dedc2f48f05464415f85"
+  },
+  "drawable-xxhdpi/icon_action_bar_grid.png": {
+    "sha256": "9f4045d7a485c878ebcf60229d2cc4ae5227bf4d999a8af5c4d15a2a2d0bc049"
+  },
+  "drawable-xxhdpi/icon_action_bar_home.png": {
+    "sha256": "1edc85140d9bb9a81550d0abd4c983aa2e07346d8e596e63ed86193c617e3373"
+  },
+  "drawable-xxhdpi/icon_action_bar_list.png": {
+    "sha256": "a7afec711b70c643a57c882be832e387e839ad89994b46f20b4a0916b963268f"
+  },
+  "drawable-xxhdpi/icon_action_bar_menu.png": {
+    "sha256": "f6a2f1ee65579af29c76adf776e70a1573dbfcb07f00f193c0a5a496a707d33c"
+  },
+  "drawable-xxhdpi/icon_action_bar_new_folder.png": {
+    "sha256": "46752b12bbcd98f393bb5676f708d785db82d3dd8be556aa7c7ea551b68b1e36"
+  },
+  "drawable-xxhdpi/icon_popup_menu_add_favorite.png": {
+    "sha256": "606ecb3466b848cb8a16fc0fda651b8c625c8222be6f1205a6479ab400aed480"
+  },
+  "drawable-xxhdpi/icon_popup_menu_bring_to_front.png": {
+    "sha256": "0161153cc4e9657a5de2437d2e8aba3551aeae31cb6571e56bd3847bdfa3fec5"
+  },
+  "drawable-xxhdpi/icon_popup_menu_copy.png": {
+    "sha256": "ccfd0caf7217f6540a775569d7c15b48defa882d5a5ff8df71031256b29efd9e"
+  },
+  "drawable-xxhdpi/icon_popup_menu_cpu.png": {
+    "sha256": "185c24931d7eda10c187b9603fe9f891087efa28fb12bb6edd2e8232c12ce706"
+  },
+  "drawable-xxhdpi/icon_popup_menu_cut.png": {
+    "sha256": "916cf60958cafb9fbfcc1b7a779084d503f824751252cb52a2a8c0ea0110c322"
+  },
+  "drawable-xxhdpi/icon_popup_menu_download.png": {
+    "sha256": "fe8c3d0b25fbf769b4a0665c059001193feed5962718835ae89a10d6638f5709"
+  },
+  "drawable-xxhdpi/icon_popup_menu_duplicate.png": {
+    "sha256": "966a4510dfc743ba282498b5c7d8ac399eaa45284a7f6965e8e8a5c18b37a51a"
+  },
+  "drawable-xxhdpi/icon_popup_menu_edit.png": {
+    "sha256": "4ec530aefa9c8167410bc39720da2c73195757febcc1896c9f3a1c65bfb3a5fb"
+  },
+  "drawable-xxhdpi/icon_popup_menu_file_manager.png": {
+    "sha256": "d9e3f40b69180405a6bcdb10776036d467a6ff5e05d3791be91a0d8faa03068e"
+  },
+  "drawable-xxhdpi/icon_popup_menu_folder_list.png": {
+    "sha256": "e591a699b91bb59dae3acccab081b9c48900b08e66b21b6415fda26449f55c0c"
+  },
+  "drawable-xxhdpi/icon_popup_menu_folder_open.png": {
+    "sha256": "1db9070d8dce133d7c2dee4f0bd4a2994b87d6453077c1550cbe7393228e1f9d"
+  },
+  "drawable-xxhdpi/icon_popup_menu_info.png": {
+    "sha256": "56632d9995b1d1993a7a8d352a34a0a05d7b2650815a0ea4c895629b65f8279a"
+  },
+  "drawable-xxhdpi/icon_popup_menu_remove.png": {
+    "sha256": "87ba49ebb80f5f17fe9b560eb0ccbc643cfde3cfe30ea9853424452ff6ddf87a"
+  },
+  "drawable-xxhdpi/icon_popup_menu_settings.png": {
+    "sha256": "c2b4847ef4e0c4ebf608a60c4ca622a06e2ab3278927637bd793f8067d8288a5"
+  },
+  "drawable-xxhdpi/toolbox_dark.9.png": {
+    "sha256": "c797711d735d01c5fcf7f2321e5144c5fcf7a66eb22132553b5c41b7df2ad2eb"
+  },
+  "drawable-xxhdpi/toolbox_light.9.png": {
+    "sha256": "62dcc6c5a3edb143bb7cb7c3d33c3ff5e62593eb73bc166f1f99d77679831f26"
+  },
+  "drawable/bordered_panel.xml": {
+    "sha256": "36a13043744bac0d6f4b83a5a3ab3f0d0e2bc51f5d255d07be88a96b70e9e151"
+  },
+  "drawable/button_neutral.xml": {
+    "sha256": "d0fb60f34a67535223eec06abd8941d86234d2849de10da9211a4be8815900f5"
+  },
+  "drawable/button_positive.xml": {
+    "sha256": "4941ac587014da5d29710edbc4761d3cb2c5deafca3269e6f826c821fa7d2a8d"
+  },
+  "drawable/combo_box.xml": {
+    "sha256": "b33ab5c6fedec87eb81b7991ef751e96e2c75ede87bc2750d7a67a86ee547e37"
+  },
+  "drawable/custom_toast_background.xml": {
+    "sha256": "475fcc83f697031d36a4ee2faac1d5a345b8a6014d7ffd2befba0ad0fcbc1770"
+  },
+  "drawable/edit_text.xml": {
+    "sha256": "3ed9da65639bbc3d224312002e062aa3c8952df84e980579c17558b62e66400d"
+  },
+  "drawable/file_grid_item_background.xml": {
+    "sha256": "cbbea1a150737be6abd895778f3063c018bbd33a1aaf3cd46e4468a6eeb38c1b"
+  },
+  "drawable/icon_background.xml": {
+    "sha256": "7d0dad958c4256de011dd12a5a448412343dad83e24b2fcb7e93e9555ea0b8fd"
+  },
+  "drawable/icon_notification.png": {
+    "sha256": "46e7d058675671c81ef6d158501501cfd98f02a6c28497fc52ba81ab8aeb8b29"
+  },
+  "drawable/input_controls_toolbar.xml": {
+    "sha256": "2f13fdd33f1ca4a552fa6d241cc9a97208b635db019c7be8f4c6dae9c927f3af"
+  },
+  "drawable/left_side_button.xml": {
+    "sha256": "07998fbc194c18c2556d02a5ac0cd1df8eb5cf793bf1d30eb5a52c219631031b"
+  },
+  "drawable/list_item_divider.xml": {
+    "sha256": "3899b3d61994d9ae43c274782f374fcf0cecfd06944b0d2d1d5845c2d78cd1b8"
+  },
+  "drawable/number_picker_background.xml": {
+    "sha256": "2761708785e3c928fb45b7452edff810fb4d2c030f33b3498256df3058a0f887"
+  },
+  "drawable/progress_bar_indeterminate_dark.xml": {
+    "sha256": "af49a4d326ea4fbd00372e405aee2b89dba25165a9a085a2996e4cd19a339fa7"
+  },
+  "drawable/progress_bar_indeterminate_light.xml": {
+    "sha256": "a092cbc532794737165488e9fdae10c23d1fa7312e5d56bcc5e56a95e334ed63"
+  },
+  "drawable/right_side_button.xml": {
+    "sha256": "624159a848067b6f231e5d35f5f05447df93067177fcdceb8f224420826872c4"
+  },
+  "drawable/tab_layout_background.xml": {
+    "sha256": "c63a349fe76e0329eacda04a9175065b0e5ef30d937281e6e96914f3c7cd6f13"
+  },
+  "drawable/table_head_background.xml": {
+    "sha256": "e7e261e72f5639e7b813654fb86d051e72347111a127e9f95c984c1aab8a3767"
+  },
+  "drawable/tagged_selection_box.xml": {
+    "sha256": "be9639772ffa09f7ba1a921fd668e6b0e6a589831bc6649fee928cc3e7d1e718"
+  },
+  "drawable/tagged_selection_box_button.xml": {
+    "sha256": "cf8fe9b42927e66c1fa8effe17ce86497b37e5fa66844deac718e27c75e6fbe3"
+  },
+  "drawable/toggle_button_selector.xml": {
+    "sha256": "f157d8300a4227a11ba7b935885449d0ba807cd7765a9466777b37f8a7ff7e8a"
+  },
+  "layout/about_dialog.xml": {
+    "sha256": "2e5efd5e2aed1ee7f334d7d3ac4d0a9e3d386377314874d45ea7f2706b8bcfa8"
+  },
+  "layout/active_window_list_item.xml": {
+    "sha256": "a9605f45bfc63e8c1b627e3428d452ba84378c13e95f04a9b3a74515416f09b7"
+  },
+  "layout/active_windows_dialog.xml": {
+    "sha256": "95f03c24fd77d8124706ff4ae84c24d03b968c1e9b4243cd0a6aa58d30990ff2"
+  },
+  "layout/add_env_var_dialog.xml": {
+    "sha256": "e74428b298e4df066e8e75986446c6e9662f3e3c9183039ae4afddad4ec3ca83"
+  },
+  "layout/audio_driver_config_dialog.xml": {
+    "sha256": "d23038649a00e6688af5539f7a0198624b9c5a4bde223680e83c6932ab795e2c"
+  },
+  "layout/base_file_manager_fragment.xml": {
+    "sha256": "bb35f1388746248e17a944a0b30d4c1239a2e291d9537b479abe0a9e0d83b5ec"
+  },
+  "layout/binding_field.xml": {
+    "sha256": "78dadf964b4812bdebe2eb730a41922a83afaa1533ff7f6dc3bd0067fbf7b07c"
+  },
+  "layout/box64_edit_preset_dialog.xml": {
+    "sha256": "abaa6cd2652521274ea1611dd6c49dfa07d3c9235d17638739357cf4aa8ae7a2"
+  },
+  "layout/box64_env_var_list_item.xml": {
+    "sha256": "f5b889c11fe1e596b99bbf14048e42cce22761aca9b0060b36ea370641887fc5"
+  },
+  "layout/container_detail_fragment.xml": {
+    "sha256": "20a59a259d567a86d13633063055819e1cd48cb2ab4530d733c74c8c47eee502"
+  },
+  "layout/container_list_item.xml": {
+    "sha256": "c93fde51a6a6d077dec89ead1d3569fe488c6aa7ec6da5a7cd87d07805b66ae8"
+  },
+  "layout/container_storage_info_dialog.xml": {
+    "sha256": "69e292c29528ebfe341b4fed3aba340f91edff019b0ea8cdb087ece320f6ce29"
+  },
+  "layout/containers_fragment.xml": {
+    "sha256": "98ad244aaaf230ca915f9bf7d7b50f86be4fc8e61d4efca326207a809fa7b7a4"
+  },
+  "layout/content_dialog.xml": {
+    "sha256": "bf134a56e98fb26d2088f784d37e65c67bed50589df698fea758f873b6a6d20e"
+  },
+  "layout/control_element_settings.xml": {
+    "sha256": "74e6c76b3fa76b7ba574f1d9409a0796f52dec2f6f1e12d5350abfa384bccb7a"
+  },
+  "layout/controls_editor_activity.xml": {
+    "sha256": "981903a7ab04d4b39b7969e0e42757b61beb8b2ff3157252e74081b79dfc129c"
+  },
+  "layout/cpu_list_dialog.xml": {
+    "sha256": "90dd25b76d1e4be72eb690c0f4eaa250541a3d9b5296d0129fe5d22e151da417"
+  },
+  "layout/cpu_list_item.xml": {
+    "sha256": "ca2675362bd5a61b1b68faf17e7582873d28bf450c3def9743855ddf47839165"
+  },
+  "layout/create_folder_dialog.xml": {
+    "sha256": "189609ce02c8546b67746c8e6808d6808f50c7bdd474956a29f304170876fbdc"
+  },
+  "layout/custom_toast.xml": {
+    "sha256": "e85757a1785acd50c2cca32377a7e548f9ef0a3c10daffe8ea95ecea4954fd4f"
+  },
+  "layout/debug_dialog.xml": {
+    "sha256": "973be161cad471e2f3d904631da02f75480e6af9292cde11a2c5c1d999c6ad1a"
+  },
+  "layout/debug_toolbar.xml": {
+    "sha256": "1bbc7b70d258c43133798026a8f36fafe2d0ba41e9344a79992a4dc4826730ea"
+  },
+  "layout/download_progress_dialog.xml": {
+    "sha256": "7da47625d65f6aecd9d93853b44406dc191d47418312f41c71951ff84284bdba"
+  },
+  "layout/drive_list_item.xml": {
+    "sha256": "a554fcfc84330ea44281ac522cc238aba5326f20a62d40da48be8e23901b480d"
+  },
+  "layout/dxvk_config_dialog.xml": {
+    "sha256": "2673447a0dd88e920e8491cc2d3d1cfa6956505c1d83ac97ca65b470009ec2a7"
+  },
+  "layout/env_vars_list_item.xml": {
+    "sha256": "90e747f41427d64aea70810c092c197f756d7600388cf8a0e8064ce414cd171f"
+  },
+  "layout/external_controller_binding_list_item.xml": {
+    "sha256": "b8140b71aeb0e0828ee81cdb2213bc7090ab20a855d8e029ce5cc19b65d71aa9"
+  },
+  "layout/external_controller_bindings_activity.xml": {
+    "sha256": "849a8d6a688fbaaf3cb51d78f11f644ffc072a4a9f56d80c5fa66517002bd476"
+  },
+  "layout/external_controller_list_item.xml": {
+    "sha256": "594f61b93ad860bb37be974fd1969e4ebecffe67ce25464aa8b4e61e9b8abda7"
+  },
+  "layout/file_grid_item.xml": {
+    "sha256": "6475e7a62111ab475a057b433814c55e6bd777b8715769c88fb1c5a4cf82621c"
+  },
+  "layout/file_info_dialog.xml": {
+    "sha256": "f3fc9d1e7f968488fac6470a505d4ba1787eeff1b3b1d454e040b8260d03b629"
+  },
+  "layout/file_list_item.xml": {
+    "sha256": "4ec73de31ec39298c8ee9ee1da089c5f7662f6d27b60f5c8b858fe51310ab0e3"
+  },
+  "layout/frame_rating.xml": {
+    "sha256": "02b27beccc7e0f10fd48cd83a78a6354d694685f66f5a982c98702d637e7e611"
+  },
+  "layout/gamepad_player_config_dialog.xml": {
+    "sha256": "543fa476314ccdf46504a028609bda2f60ae72505b72eb4d391c02c3f7dd9daf"
+  },
+  "layout/image_picker_list_item.xml": {
+    "sha256": "089132c79215537e4f191109fd9d7692e49e4f9afa9c99f33573fc8a19e939bb"
+  },
+  "layout/image_picker_view.xml": {
+    "sha256": "6485dfeebdd87cd0282fb6784d3832db367be01144805c028f9f3b4ed5d98899"
+  },
+  "layout/input_controls_dialog.xml": {
+    "sha256": "6dc1bd7a3742094fd31974c9a6f6279f957c69f3f81d95d8f0b916576d8b8dcc"
+  },
+  "layout/input_controls_fragment.xml": {
+    "sha256": "24db214ffcf1d4299c0fbd244ba644ae5f0755136909fd6808933b0805e8480d"
+  },
+  "layout/installed_wine_list_item.xml": {
+    "sha256": "62a4e2fc15af94d73fa062f92e8167436e52f2ace10b400885718e3f10d7f973"
+  },
+  "layout/magnifier_view.xml": {
+    "sha256": "6ee04c347243e1ba9b44259e6f4a5e61f8acd7b38929b0f33279618299e83fd6"
+  },
+  "layout/main_activity.xml": {
+    "sha256": "03120824f6a7017ddc9b7c1f9f4459e6f7879f9e0ac5e35637bf7383559b3725"
+  },
+  "layout/main_menu_header.xml": {
+    "sha256": "5287b9630dd7873bb55de2d2813912a9e53429ab0f43fe89debf3f3633cc8596"
+  },
+  "layout/number_picker.xml": {
+    "sha256": "61dca503af02cda137468b8357cfd22f7188c2641139f58597b713c7678210c7"
+  },
+  "layout/preloader_dialog.xml": {
+    "sha256": "821c54bb22f8c515191eb0ef6676b5ea3cc0430d78bf3026d657603a99721989"
+  },
+  "layout/process_info_list_item.xml": {
+    "sha256": "c777283715af5dce731b04d9ed9b6692a22936a7d5e7d15939d8120f5dd2bbe5"
+  },
+  "layout/screen_effect_dialog.xml": {
+    "sha256": "30d1d8c0aaae953677d0962a2b20ee409ff23d55ae54c9100cfa2a083144f8a9"
+  },
+  "layout/settings_fragment.xml": {
+    "sha256": "4b89c414ce51c170a967f15b6ebbb069cac479b31044836369fd63b8f60f0da0"
+  },
+  "layout/shortcut_settings_dialog.xml": {
+    "sha256": "144aa45217abd3527d449ab5f078e25397c1ffa0d8074f523479ad3e42a54856"
+  },
+  "layout/simple_list_item_multiple_choice.xml": {
+    "sha256": "15e577e9c8f12dfd28cb7b7c80c277ff7b1edc3d3bf63bc7d8da176c221706cd"
+  },
+  "layout/simple_list_item_single_choice.xml": {
+    "sha256": "709735bbd4587ad3126a80d2540b723059b6fec23ad8e8a80869c3ee3a6b9eac"
+  },
+  "layout/soundfont_test_dialog.xml": {
+    "sha256": "0c421c426eb3ee35cdd9142c8130b865652cb0181a09e2761a1dd5ab9b8db714"
+  },
+  "layout/tagged_selection_box.xml": {
+    "sha256": "76c783dde9296087a50bb6d2bc3015ee0288df6b7c96edfb6c46e05273d3149a"
+  },
+  "layout/task_manager_dialog.xml": {
+    "sha256": "fab6bc7cfa614ddcf299ed88332dcc77ff83d4d2dbdde1b304c5f6987769af69"
+  },
+  "layout/task_manager_panel.xml": {
+    "sha256": "0f3bacb6d824bc7d3b44f0365723abd0c246eb68c092a2933adf9d1facecda8f"
+  },
+  "layout/task_manager_panel_item.xml": {
+    "sha256": "c640fab8339f487e56abdb5d0d33296fb94d08280f72d039f1ab9b4d3729f835"
+  },
+  "layout/touchpad_help_dialog.xml": {
+    "sha256": "a1f97f6d75ddb14e99fabbc012c6d754d76422a626bdd5bc897f1eb77a8239e3"
+  },
+  "layout/turnip_config_dialog.xml": {
+    "sha256": "0be79b3eeefd86fe5c53cf524457a67711c375924ce3c796e6e44f8698266d53"
+  },
+  "layout/virgl_config_dialog.xml": {
+    "sha256": "c4658880a724c4e7fecfdb21f5ef1c63bb8e339d0b8b0681149d781d758cd606"
+  },
+  "layout/vkd3d_config_dialog.xml": {
+    "sha256": "31f69853494dd4d05630427e95265b42fc67e2c91a89ac894b7744264e17222d"
+  },
+  "layout/vortek_config_dialog.xml": {
+    "sha256": "15a2915c2fa4b2ee47e59404b0e66c91acc37f5de25e62d45d59f76c991c51d6"
+  },
+  "layout/wincomponent_list_item.xml": {
+    "sha256": "8a18791185170c259045cbe316ae621b66f1c2964a2758e8e332631d30a314f4"
+  },
+  "layout/wine_debug_channel_list_item.xml": {
+    "sha256": "1c9627eb4a64f29b5052f2bbbde607d2ff0a811e7cdbaa3d687d93a32f06e16e"
+  },
+  "layout/wine_install_dialog.xml": {
+    "sha256": "6b75fdf1c4dcbc2ee2d15061350304c8dd8d74d5a210c628113f8a81204301f9"
+  },
+  "layout/wined3d_config_dialog.xml": {
+    "sha256": "957dedc363a146333ff7c56e45a0f88c3a23b3ce4b350ffb4fade83a3cdb7caf"
+  },
+  "layout/xserver_display_activity.xml": {
+    "sha256": "56efedc031c0276553364dc83f004c981ed72c8a2af6bf6a636064ef740f39ec"
+  },
+  "menu/container_file_manager_menu.xml": {
+    "sha256": "f5858713706b75d1331ee039d6586d944dc8c387966d843ecc89ab79dff294b3"
+  },
+  "menu/container_popup_menu.xml": {
+    "sha256": "04834da5d27451666437fc997bb657df92ce16f630f53c8f4341fe84b74c31b0"
+  },
+  "menu/containers_menu.xml": {
+    "sha256": "27dd7e4a5081b83f9059ee4df0e60be01a359b288338b5fce74d1287c421aae5"
+  },
+  "menu/drive_search_popup_menu.xml": {
+    "sha256": "a09ccfd06568134be5e890e51514a6a55a77c673accfc7016584be7056711d2c"
+  },
+  "menu/extra_args_popup_menu.xml": {
+    "sha256": "2daaabbd937a6883c14bd72ff89803006b22e240eacdc51b9e015235d90be389"
+  },
+  "menu/file_manager_popup_menu.xml": {
+    "sha256": "9cad2cdafc1b6b100fd22857b8c4802ecd710514ce2aa08a3dbe7d5c74e7d5f3"
+  },
+  "menu/main_menu.xml": {
+    "sha256": "a95dade6e41e49bb3f202ffbaa1b4198a3de63ca9b8c7383abb3f39eb080426a"
+  },
+  "menu/open_file_popup_menu.xml": {
+    "sha256": "71c5ba7fa76139030325d63537eef047884c3124c877b919fd3ebd3c4a5a07d4"
+  },
+  "menu/process_popup_menu.xml": {
+    "sha256": "c613d2a8fcde7330d003a42979ac0d1c0afb069941e5c7130ecdc976a3bffa34"
+  },
+  "menu/shortcuts_menu.xml": {
+    "sha256": "92c6db00a5ca462e549aeb0125434ace1c232ed38c3d3608d4db81497be235af"
+  },
+  "menu/xserver_menu.xml": {
+    "sha256": "086f3f1564f528fa42a7f03c81e02e9fac21a516b49b7a7b75a5592f45ab5ff0"
+  },
+  "mipmap-anydpi-v26/ic_launcher.xml": {
+    "sha256": "9c3a7e0a6515c6e1a7ae834a9ae430311ebc3241f7b2e5e7f0460aa690709a7c"
+  },
+  "mipmap-anydpi-v26/ic_launcher_round.xml": {
+    "sha256": "9c3a7e0a6515c6e1a7ae834a9ae430311ebc3241f7b2e5e7f0460aa690709a7c"
+  },
+  "mipmap-hdpi/ic_launcher.png": {
+    "sha256": "0bc556fda83905ba9f56a2558c87b9e1d0adce04035db32ab99c068c6026a2b1"
+  },
+  "mipmap-hdpi/ic_launcher_foreground.png": {
+    "sha256": "51c408670e6c6f7304d40ce4de03a5b99679df670768fa8b5881ee869002217d"
+  },
+  "mipmap-hdpi/ic_launcher_round.png": {
+    "sha256": "0bc556fda83905ba9f56a2558c87b9e1d0adce04035db32ab99c068c6026a2b1"
+  },
+  "mipmap-mdpi/ic_launcher.png": {
+    "sha256": "9590d3a2e92800b046c32db4b6c24307e961f6012b1aabaad0879845a6615ab2"
+  },
+  "mipmap-mdpi/ic_launcher_foreground.png": {
+    "sha256": "5245670db5ab2698cd3b3c6d6c05e007460f746410d03cc69fb6361a5fd1f31a"
+  },
+  "mipmap-mdpi/ic_launcher_round.png": {
+    "sha256": "9590d3a2e92800b046c32db4b6c24307e961f6012b1aabaad0879845a6615ab2"
+  },
+  "mipmap-xhdpi/ic_launcher.png": {
+    "sha256": "802d509da3502a843971fcd6860a300ed69920e313ebec2ebbb16fd12505d1a9"
+  },
+  "mipmap-xhdpi/ic_launcher_foreground.png": {
+    "sha256": "5f775778f5fd7a798e3ef600e40374569d9527d50bdb3aa3be37008c7c5b1ce7"
+  },
+  "mipmap-xhdpi/ic_launcher_round.png": {
+    "sha256": "802d509da3502a843971fcd6860a300ed69920e313ebec2ebbb16fd12505d1a9"
+  },
+  "mipmap-xxhdpi/ic_launcher.png": {
+    "sha256": "23b1315b1571ee10d2947943b63fc14b4f1eb6544bb7563b2c4a295d5197a4c0"
+  },
+  "mipmap-xxhdpi/ic_launcher_foreground.png": {
+    "sha256": "44ebe9d9830328d10505aee2d1f2992fd11c96a752739deca3b79b12425f9711"
+  },
+  "mipmap-xxhdpi/ic_launcher_round.png": {
+    "sha256": "23b1315b1571ee10d2947943b63fc14b4f1eb6544bb7563b2c4a295d5197a4c0"
+  },
+  "mipmap-xxxhdpi/ic_launcher.png": {
+    "sha256": "49def94f7629f13a7d62815cd7c166ebac0613ce57cf497e99179c01a1c2b5c7"
+  },
+  "mipmap-xxxhdpi/ic_launcher_foreground.png": {
+    "sha256": "04861f9f1ed41433718f878804c2eb1f20b42a82435f74c9dceb8fe1c3737073"
+  },
+  "mipmap-xxxhdpi/ic_launcher_round.png": {
+    "sha256": "49def94f7629f13a7d62815cd7c166ebac0613ce57cf497e99179c01a1c2b5c7"
+  },
+  "values-pt/strings.xml": {
+    "entries": {
+      "string:_new": "56c2e013d6e8c7ab6670256a97e099811bb352cb545df84da579f48aa781ddc2",
+      "string:a_network_error_occurred": "cf17584bf59171ad84b8ce470e1cbef42e1f43e9e12dc85b1658cd17e7e6939f",
+      "string:about": "0303232ac0156d8b1f9dc25984c65743fa539dbc950dc62504c2e50701baae6c",
+      "string:active_windows": "beb3e1cf3000de589fcc75d080c37a4c3b7d7e19735ff223228c2ecaf3393627",
+      "string:add": "688dac5d8525db4375604a48bd15e7404316f914ac291b8c6f42b37b5efdb0f7",
+      "string:add_to_favorites": "81fb16252cbf3d76177bf5ab209488e0c489378c7265049c17b50cc93426ae3d",
+      "string:advanced": "164a6a28c673a458730591f416f6db58c91daff34c3f4566ede15328b7e169da",
+      "string:app_name": "c077d4741604f67d7bc120fff60bc10b0108729a985b87d032552eaa36ffd73c",
+      "string:audio": "b7e35702d2154729979072fe3a7703ec723e1ac02169187b979a651c6184655b",
+      "string:audio_driver": "110c0ee26cf361c4abeb99a5b54d99c8a88b7f9aa9605e526319a4e1afe356db",
+      "string:auto": "72df7c8ce92984973eda47cbc770da6baee62c0e2fd79408226fca1f3c0ada6a",
+      "string:average_latency": "b4823531a29bb3317005848f65bb85cddc1ac0a060aaf4f66e7677172eb9e0a8",
+      "string:background": "ab46569a0ea4f48d4bcd378e87f365b1133307eb871c10245e45790273ac07f4",
+      "string:battery": "7ebdadf75d4806456dc7bbcd28c4e3110f5c291673da9f627af2c625ab795298",
+      "string:binding": "d191daabcb5a2039336fdc397100c3606818870b01e6ada02f48b19df12a6124",
+      "string:binding_down": "61c86153d7e4dd1c5683796d6fd7a547e5e8cbdfd020b2a9dcc0d45de90f8a23",
+      "string:binding_left": "14db0d46e2c6c68b8f956f2365fa468546197100d90e84dab714933bd3f329cb",
+      "string:binding_right": "123e5b8a88bc9877f518011ae4ffc513d9d844323a2182da8a6d27138fbe6478",
+      "string:binding_up": "b39fc23ca1148b296406185da349edc9ea753f3c8c490401de9d2ec9ee2a8a09",
+      "string:bindings": "8a963329bbc52665238e614080a7c8ad05e6f959b1373e8580aaca800b85b986",
+      "string:both": "40c73016054166c94b468014ddc1be63c566a09532d39bb59b69056002de34c5",
+      "string:box64_logs": "f319a32bb984007155f2b689b227b2b345047baa9fca45220879580c140688f5",
+      "string:box64_preset": "411672ca09870daa225af4e87f596ba2a3aaa256f2df88716020e10d58f7d8d0",
+      "string:box64_version": "8d3d46a614e7235dea380c7071f41445945a8f5fe410e863cc3793b2ceb0d9ca",
+      "string:brightness": "1781006b9766ce14ea6eefbcae63888c10b1c8455b6dd1c444f5895f672627f6",
+      "string:bring_to_front": "ea801e684d2cc1ad7a1b39e0d4846d91ef90c90f278588db149186099944152c",
+      "string:browse": "acdb497b5645a9a1bc230a62cc3c4f989edadc41f99eb6ee084780c56eb50d11",
+      "string:builtin_wine": "a947423778f7c4119503e44e6b400f977b70a1ec193d2e31167243b3a7e9b0f4",
+      "string:cancel": "c92268ff4e6236ad6388c1e84867b6e32213cf6c83fdb3181fa6e08e83b57414",
+      "string:capacity": "61dff7df40aca76016387b9f2eec0cfb9ed5aa1905bda07d61529f7430b520c4",
+      "string:capture_pointer_on_external_mouse": "fb0e46324248418fa7abfa486db74afbcf2f1f10e65426efb1405c0b7e34d00a",
+      "string:channel": "9ab43066f3699a391a649d5a183bd09e2b1b055d22b22f80c734f2c330405253",
+      "string:clear_cache": "919f5dcdf80e788d0d70701d7b54b1800d83bb62eaed0dfd116d672c1c22dc6f",
+      "string:color": "fa37940610cb15d37fbeebaca0630c651a2b2d96f18b7597725867a9935d7c3b",
+      "string:color_adjustment": "d37820f4c2126638706719ad78c7504e5b1ada42a480fe0e878593f3f7598061",
+      "string:columns": "78a5351f3ca6769cbe0595a0dcb48dbde292f23eaf7a75f20d1b363d930e1708",
+      "string:configuration": "905b005cc78b84afa4137256407575c241d5a925238f178ba2a8f606bba2e350",
+      "string:conservative": "3af5b1f1a9bef3b66fd0c5c76b399d13a53dbf11a31d6742c4885a1622353f63",
+      "string:container": "04104261fe701a1e07c981111c4fb3f073b4b58e87fa0d6aa135e4fab8016cbd",
+      "string:containers": "bdf839ba0e2fee072e5fd2afa829a3b8ac291d2daa16a74e034f143d1a3356d8",
+      "string:contains": "ba47d3ba30e548d8a3614e1e63714cd7c71d39add117a70bf299b50b61ad5158",
+      "string:contrast": "aca9befaa31c7878e53ac6663b81df313321c171c0243b024d644a8cdcea20f8",
+      "string:controls_editor": "75db8949a8f3139cdc6eabec416868cc239d64bc189a1aa4b32ffb4bcf482257",
+      "string:controls_profile": "832519e1173c3af622b2e655061a55ffd8d41cbcd9f781bd0b527965a5dc090a",
+      "string:copy": "b6019b68200d7b6e468bb058f0927b07deefed5d7ecef46182ab3bbaaa3b07ea",
+      "string:copying_files": "3efb319532cf98e0a50c33e3958d6fe699a31930aa142edb5d7b8097f92d8608",
+      "string:creating_container": "fc823e724e0462ef5052c7010b3c72024ed12e84596a840a7a2f53a67308ac3e",
+      "string:credits_and_third_party_apps": "07514c6c0bf1d6331670e92b11b25888c0e6ac73b20d94f92b7965c4015eda89",
+      "string:current": "10da0129bcc3f582a22598d36e99ea80c9c6a386aad7cca9e6a925d037b7e4b9",
+      "string:cursor_size": "b992d8dbc8a636061c3dd8b50d66c4a0a59b8c1280a4ded8a84ef4286b6091d6",
+      "string:cursor_speed": "e56dcb0584c6464b4dcd1dbc91ca9726041d78b456bb8a224d47ab39a86ec4e3",
+      "string:custom": "828422d0e4b6effd62d0a299b7c88e4085ecdb3d8e54425031e766906c3d9c7c",
+      "string:custom_device": "188365f160a8270a9841acc05da70a75a63f7334f60b8fc777a4cc61c66a5542",
+      "string:custom_text": "11631e3e12632965bd5fa5bad66f39942383b03bc7ab8314bec68a6f7546c4d7",
+      "string:cut": "60df741974fa50a2ca57dc31612693de776d1ab9ab1b44e4db1e3352ee213c85",
+      "string:d3d_feature_level": "b4c64b72039b568b9489fd288d32a33a586c7d77821c3cf3074a9d62a58af29a",
+      "string:dark": "04d910f335ff40964808df4edc50d99f3d2992969a1f02f88eb677a93bd08906",
+      "string:default_no_override": "d71e655ab668e3bdcadbbf433447ba679badedd3fb550c95673537f968f5d556",
+      "string:desktop": "5bd67f93577a1d620b99fd7f47aafacfafaa0f8acc534633b8352c28077c3bef",
+      "string:directinput_mapper_type": "451df0274e65223ff2211452b2a2b9225b4e4a7986f0bfc28f9baeae5def5b10",
+      "string:disable": "e519600647f4c3d0bfb887a5e654c874d8c50ae3897446d9e3fa3c8b51d210e0",
+      "string:disable_mouse_input": "dfde3e77cef1d343e9d904d8b802967e872701810167f8dbdb158dca02231baa",
+      "string:disable_vertex_array_bgra": "e016ec8a850f5a0c276f64b60740d369fcd48b71461e5571e33ca26c89003087",
+      "string:disabled": "b9c5315da66d67c0bed4f81c4b4245094b0d3fae6a87e83dfb05654b3512df39",
+      "string:do_you_want_to_download_the_selected_profiles": "a8ee253db64f3793b1da272ada36eb0d48844cab00acfa9ef1c2286afff17ad6",
+      "string:do_you_want_to_duplicate_this_container": "3f88c964fb6c77e4266893d156ba732c7be0c5615f74a7512c4233856cc37c13",
+      "string:do_you_want_to_duplicate_this_preset": "612a8e8f089bce24aa029d254322a67ca9fe20d88acf097454241cecb19b07b9",
+      "string:do_you_want_to_duplicate_this_profile": "4acf85f655af50bd1491f4c7ee52344285886428864659a80ef35f83d6abc807",
+      "string:do_you_want_to_end_this_process": "8d15f71df14e37fa5260192495f62e0d8e946baa9af0be97b3ce958d9e2fc375",
+      "string:do_you_want_to_reinstall_system_files": "bce796596265eab528b1f708c8e5bcb8b59beb8fe9a4e443bf3120d4a7b989db",
+      "string:do_you_want_to_remove_this_component_version": "463579c529e826b1e00179ef59853b99c6796402957b4b94d0fcceaef3795fca",
+      "string:do_you_want_to_remove_this_container": "15b434fd5e9924552350e945d973b8271c93fdd4c0778cadd60d43fc4bec494f",
+      "string:do_you_want_to_remove_this_controller": "d461368a4ad046afe612f58461f1b9a90ff401d3b1e45ea83352c1ddfc921df2",
+      "string:do_you_want_to_remove_this_file": "79cc59d40f22f8a6d2adf4897f134a9f550af761da6a596af49f42cb4cc45511",
+      "string:do_you_want_to_remove_this_preset": "905dfe5e74fcc44a4774d017399fee76fae67f26b27e4e1db585872c7931353f",
+      "string:do_you_want_to_remove_this_profile": "5dc3a79af6ecfa3abaebdb8a9504b29f49bb971b14698e555ab598299efabc9b",
+      "string:do_you_want_to_remove_this_wine_version": "77cd86a920923d12838289664ff2fdba3e2d47a4befa5878c5384eb12ff035d8",
+      "string:do_you_want_to_reset_configurations": "624eb52470a2e9b2a18ac3ece8c364a25f03c7ecee08e92ba7ead0d83355af04",
+      "string:documents": "4b8654cd856dd6fb4e6000f8e1516fbbbf3d87b71812790073ffdb4f47e9f383",
+      "string:download_file": "28c225c61941c4ab5c9115d3d2b4f34ce68990d47c28ea84e416c31982229caa",
+      "string:downloading_file": "9c239026d4ef09999f1e4ec9c23ee5a2778ba0fd5422a48ea792a7446e57a4c1",
+      "string:downloads": "c80f04aa706b5e18a1b51c997df94f75234cb9a71800c482a3f5092e96774410",
+      "string:dpi_font_size": "451284c1c9fc618492b3c430d246df4924727a27191887cf60d5eee21e89a42b",
+      "string:drive": "2f44ad143d723d1fa1cc6cdc35e8e6023fbc5db415a571f27f3ce8fe3917b211",
+      "string:drive_c": "5ee87c91f9df0453263bff5c07341c87ac27c7110235c34163988969849c92d1",
+      "string:drives": "02dc31c1da937355df8c6cd83b19a24201f8825187bb74872c9b6b1bf291a671",
+      "string:duplicate": "0063239096e131ecc9479c855c0c17b201dbb23dc12ad19bd376a188e9ab1756",
+      "string:duplicating_container": "435de0c3c5e140538616b5a6598657d4ae0939b491e3a500afa8f3ce2901963e",
+      "string:dxwrapper_help_content": "386c3258447f59d0249b1c9ba16f81aacf6f0635aa10a3badf12912e39d02f9a",
+      "string:edit": "667ff70e73156d547e0e457315ecd489c3b86eb00da9bee3182bfb3d6d6e8ca7",
+      "string:edit_container": "fbf6d82c6d01451217cdaff33c329a89f1da863286482e4c9da7963b6a353e46",
+      "string:enable": "89656584a670fa3fcb83d6846676457347768e8e306d16f1cd34262530672f93",
+      "string:enable_background_protection": "0d7d28ee63aec18f5b286cb85b23b1b44f4c7c2b7723196dcb77a9da2f9cffd2",
+      "string:enable_background_protection_tooltip": "b721e70d2b22d03723eceba5d8623ab5a90c10ba168e54b0f76248e7da0bcc0a",
+      "string:enable_background_wakelock": "2d4041a4ec8c817053767596bfd3f6ad729fcdc6dd1935f76d08d75de3a3c77f",
+      "string:enable_background_wakelock_tooltip": "542e20c6702faaac45d090e0753b54f016f33cc0baf239d86e44f5e5edd96eee",
+      "string:enable_crt_shader": "e18984e8f786614f49baceec9f3a60e311d54baf2cab1ce62dacc6083cc88c19",
+      "string:enable_csmt": "62975f3b9a49efeab9b4e663e4af5a7404b59e927bfac186da8062735c778ffd",
+      "string:enable_direct_rendering": "ebc8f867dfc4b50bd8c4a9ef2e31126896bfdbfda879124e7e4a5108d0933dff",
+      "string:enable_fxaa": "18de3dcdde6722604fc6e89a8b294f3275a69b6bd030b93b0d151897dfdc6b78",
+      "string:enable_strict_shader_math": "17a47f6e53b3db89e6d84ffd35537c4b6949e4183c6bea4ffb0c07dcc82e3bc0",
+      "string:enable_vibration": "facf263d5bb522b86ed056cc36d3ac8bd9e02d75f06c942df2804c6dfb80face",
+      "string:enable_wine_debug": "076b4f1447c7f6b89d9db82baa99b7ea171babf8aa117dd6d0b96d474e7c6a98",
+      "string:enabled": "81d0a1376d758318c7b56abec051e46625c5306b10cfe52f4ac4b3379acebf49",
+      "string:end_process": "70105c0424921dc0849c6019492dbd47ae7a95e99b65f445971dd9b5166b75b6",
+      "string:environment_variables": "c2aef1698457763b5a7ab4dbd91735f2d14bce66fc2040ce02bc66981dfd2611",
+      "string:estimated_used_space": "9b3e0250368b6638d7b00008ce2bc56403187b2ad5ad73eb01c03f96534d78ed",
+      "string:exit": "3ca03f3fd6a85ef06a9571c3e3efb838517764da3e39855ddbb88ab0c674e9e3",
+      "string:export": "1747031fb7708d3d20354903e156b20ca06ef46fa40f2651b30355b2043a170a",
+      "string:export_profile": "2281efd06afbf20158eabfdce4d69375f017a6b9c8b99422ba8bd834770d3eb8",
+      "string:exposed_extensions": "5f2d8d7ab8b5ec5ac27d775c6238d87121482b697a5c8059a555151877f02567",
+      "string:external_controller": "8da9c422be136a23f4cd35919e6ff322ee070d9e70db33f31adbd6d40908e821",
+      "string:external_controllers": "d7bebdbab5474bb8d073c5084b840b4a5d3b546f7e8eaf5dd34589eacfffaa3d",
+      "string:favorites": "9872c002e88ff374bc833cdb1a9dfe937d010392a75eddd77d1241452dffa48d",
+      "string:fgs_notification_channel_desc": "6f7820c6686e15a4a991d903e25d3d3c3bc346e0fc5bda1f52853fedaf57796e",
+      "string:fgs_notification_content_container_background": "50943b4789c2e56248d5b68cdfebd817611090bafd59e2b64a63a476fd91241c",
+      "string:fgs_notification_content_container_foreground": "cb52339c45ca8ccacf50494b03070e0a7988ff27b71311ec4daa1244204fd9e9",
+      "string:fgs_notification_content_else": "723a5659e493f00520114bb170de0d19e549753346616452a3cc61b942737a86",
+      "string:file": "9faa44fb067a9133bc1f48725cd09a621f8d9d3abf0b04b8142ed23469628766",
+      "string:file_added_to_favorites": "bf4a6344ab7576a001218f163c1fcb8cf8904066a4d5123c19228ec31a68b703",
+      "string:file_manager": "d9ecde5342138a75ae3b9a6d78641bc5a2c4d49eaf94f451c83fe991f99b4eb0",
+      "string:finishing_installation": "feb9b400311c8a6a2951843d3fdfd9d7bc42e26ac20696d0450adb9fefeecbd1",
+      "string:folder": "46287e70cbff57589fda11a2418031489410c8b4c9cd50741cdbbbd3b653b2a2",
+      "string:force": "a94ece35bda1eb7715f82ff92a5e1974eca3941be3441bde75c9d6ee86c07973",
+      "string:force_fullscreen": "62056443d5da0a4791f3fa6fac0363b7274051c412e511d99f5ef84a6b31e75a",
+      "string:frame_rate": "c3a528a253d631283504cb519c021aecdb2933884410a2641b8f87bb698622dd",
+      "string:full": "7b430815096e714957d8c91de961d97aab690f4dde01af2609ae80853b30adeb",
+      "string:game_controllers": "b28ba7eb3c770682fa11d8bda64667ca24a5adfe50eadec0cbedb0af9e412090",
+      "string:gamepad": "2640667d8d08913c9c20840a0c0847834a8a762ff63123fc6bbf7e5c5e361f9c",
+      "string:gamepad_model": "ac72bd7d02a5fba1d97898053815f5a4e4e751f32e7e9cb96e4da36a38517a42",
+      "string:gamma": "4b6a40dc7b28461956565be2960e9460e055abb2b0f376c8998c28a5c7258abf",
+      "string:general": "1cc8c00861b59872c4d89636411ca149348b9b3bb922c244a8636f3a13560933",
+      "string:gpu_name": "28a500a0d9c475f188b3199e776a710cda420d7628193008a7391c3739699c5c",
+      "string:graphics_driver": "1c6f4a185bd0bde1a229532f0138d76d2d57683d69662eada8c38ba94d4ae317",
+      "string:height": "9268b93217fd6edd372c937aa781d7026f0db11caae3e919300b04c3d6a8efb4",
+      "string:home": "c620d2248e74dfdfbe6a6ab201c4fd807a89fdb693993b684f57b10d22ba60ed",
+      "string:horizontal": "1a0b974fe7288289c6fcaf91740bdb66d055cd44ef192cdf67190f18f424af63",
+      "string:hud_mode": "58dd9c1e4dae8136306b63b5e83d8e7484ce761e79f551d87dc8fe465c7894e5",
+      "string:icon": "7c688f6c5a169fe3578a47beb1b4caf003df2d75c5d34d383c70d032ad7470c6",
+      "string:image": "4b3e6bb2fa9b7fc3cd6f305ae3e201cb5372d00a2f6eb5cb1f6d608ecfa2e142",
+      "string:image_cache_size": "03c0ce032c9415907264de4afe23d13459b6eb98820abf67c54a0a8dd60b3569",
+      "string:import_profile": "fc298ed8c872a0dd96e066195d1b7aec8271a4b97df67cd0faa567dda7cc8895",
+      "string:information": "2c47d70e5e47e60953329dd6f8ed5871b6282e504b47c7ffceb3cc2de58958a2",
+      "string:input_controls": "1fa88564a2d2a05f3145d81f8f5cac08e8e3f69e7875548b333a3b9a8d2c4da5",
+      "string:install_component": "e81ae3a6d16098aba9faae72d46fdd3095f1ee11d57491567fc90b87604524f9",
+      "string:install_wine": "11e4052a3e8fb72258c16c0b026719f1821d629a268fcf8beb20235fe846a014",
+      "string:installed_version": "7eb6888235fafc1136132afeeb3b0a8e05e2871212e604693f37f1906c7e7a85",
+      "string:installing_system_files": "02cbbdd5ce13741f9e33230365a04296fc1a09bcad0796566510c8131a4ac212",
+      "string:instrument": "4f1c1aace9b9553493b945df5ae058cc1132d2ab7878348738dabf9387904087",
+      "string:intermediate": "895e8fac0aeb6561f92c1aae1770588ca3c543fcfd4be0c9036f6559947ab7d6",
+      "string:internal_storage": "fa761df645317393e730c15666e523ee5637a5f122d575ab4f5a0493ac64b8d3",
+      "string:items": "878ae8082d3a639ed55133e3a10c7ce36137993c6436739485887fa4dc2c103d",
+      "string:keyboard": "0ff7757dd30e1dfbee244ac4e53352088ab55d9a4727245ffc8f01e81e26bf51",
+      "string:language": "f5945547413f23560f5b6bab9206320f7325002df0353c88472995a85458213a",
+      "string:letter": "689fed6a295fb0600544e1da409c930e661800d9c28c8f8bb93194345eca9c52",
+      "string:light": "335537a5ef687908b5e12fd513dce1342a4115ab776b3c00b13cc96f3a1bc305",
+      "string:loading": "4b1bdb2bc6b5e9650f2797615ab322668c1911bfc5211168cade1ab1ab894d3a",
+      "string:location": "3f00d3408f961d620325e711cd2bb9e0b874348d9cbf6ebbe997adc1ff29636d",
+      "string:locations": "3f550742457bcb5d79ce8c7e5221a3d74c9ff26e887456b7e57b568af5eea971",
+      "string:logs": "be8c28b7188f02b6886536de7090cbea79325007c5253ec6e38759e141e3130b",
+      "string:logs_exported_to": "b85339c4aa46015b7635629f2c4ae4dc79bcff6cfc2685afea2f9d1a8d3528ce",
+      "string:low_latency": "0969f997d84f88b291380ccc57cbbf92528f0f009587616dbd6718f6a593b60e",
+      "string:magnifier": "59b3018b2f8f9e8f4da6b08a83bb41debf719725a619624edb1ff62b3040005b",
+      "string:max_device_memory": "975ec50db5b694c9fc5d4dd2ec4fa358efe309cc3c8878a5abe66746dabe8f25",
+      "string:memory": "ad0b14fd765b558b79ae485c8d8a507e7b3ce626167466052beaf703f34215d9",
+      "string:midi_input_device": "a38cc6658227575381e149a828ba16e53511f973fa3e3adac8357d7ccbf3e611",
+      "string:midi_soundfont": "771320b00d37495a4dd4b551a8697f475dba39f2c0a57eff8f3ca95272ad7389",
+      "string:minimal": "f95199b47dc215e06582ae50c13209179d525b71805bea8a96da010ab418a64c",
+      "string:mode": "8029c2ea6de75be2f7c74a2a40241888f0e04c83cf7fbef136b3bdd8a2a3cf42",
+      "string:modified": "f3ceeea9f8ef6867eea2535c37806b0bb089c74d707d7d736b942018d7ffb514",
+      "string:mouse": "b56e9840b8b46b07de9bbf35f97affda1f329d27ea1e8d8bdb356aff4c84ce64",
+      "string:move_cursor_to_touchpoint": "135a33fd920e5eef87fa54553607cffc6d611c9b13b37a598ced8d458bebb304",
+      "string:move_mouse_when_pressed": "a1bc3bfcea074dbd87cbfa52ba372f258c9d9c1f41471732ff43a7f79944062f",
+      "string:multiselection_combobox_display_text": "f0670457ab1c161de07d47cc0ddaecd719c70d1bb02584efbc009ce3e33aedff",
+      "string:name": "453717145cb74c621b8cc0e293d18bb3100a2f99afca9c5b5bf648a2a91fee7b",
+      "string:native_windows": "b0ff03b182f4b87cbf5eb2d9032c7cd8e5e4bed35b95c8f884e4de67f38c9deb",
+      "string:new_container": "2b73161038b1364489f73dea8aff863144219fed4d2e7289a228237b384c490d",
+      "string:new_environment_variable": "163b7c78864541456098574e86bc377eeb960bbbb2f97514f46569cabba05c7a",
+      "string:new_folder": "54ab15e831d0095e36b567ed2a2e67a428696d4eca3f21f7d2852892596bdb3e",
+      "string:new_task": "0126ea564aea7eaf23fc4a49238f49f2c2ffe6d34ba1f98e309b86f4564b9e81",
+      "string:no_control_element_selected": "b67fa5a9971ecddaa6b517f27a10e00bced9d69a66d22c8c3fce6ab4ea40186f",
+      "string:no_items_to_display": "04b83cb5714b71b54bd1f2a366616193d2ec86aff5081dab7adb6793f8db3331",
+      "string:no_profile_found": "89ab94695f112fba163d6527ca821b909f6a16c69177e7763cdf8237182d484a",
+      "string:no_profile_selected": "4e9e2df48e6842db9ffbd67ba73b7afc421506a3903491da9124e93793745eb1",
+      "string:none": "957fec0a0f76cbf270f864c2973ae1d4f83fbef8e38e28879e48758dc7397c14",
+      "string:note": "fc6690835c1138295fdff130ae7f6ee1132fd0db2e9955a7044a7fc0e2280d68",
+      "string:offscreen_rendering_mode": "d6547124f820e7578dadd8b732ae155bbf6a3bf809b0e2a57e583d82736e6ea6",
+      "string:ok": "624de07eb185367d637db24ca7f03efa3dbdd847cec93c96e098c4f20080e710",
+      "string:old": "3270df5af25d8111f4e7a37fb262223574187a6a10ed740df9e7b35964ce8a65",
+      "string:opacity": "72ce76cf6d635ac838e325e4d1a3511fa30d1e56cc157e17947b310e5228b697",
+      "string:open_android_browser_from_wine": "34f1abda694c5a571905867f227023bc51e089a13eeca60479872626e016df33",
+      "string:open_directory": "efc8934ac5e94ff7d96230c949c08c5f444fdbc3cade007a0db86169096054d6",
+      "string:open_file": "b4229196837103544f79e14990ac780c7e4b1308feb0e3f58e06baa99080b2ba",
+      "string:opengl_version": "9389c4848187df656a3975514b45f3bd260e59947b378549350534126a9dd4ea",
+      "string:options": "d3231781d0c1eb1924c4b049f4db2d8f82ed1f1210a1aeb1b8720a3ed29b79ed",
+      "string:orientation": "9e7d62839a3e87f9ec67e24082940f0e80d1b0ce8e88818a4e099a5370084a5b",
+      "string:overlay_opacity": "2971e7afa2c41af8c064dde1c16af05a6b000b74dbaa9e3bf6d2a2b57d6a8cd1",
+      "string:performance": "da726029fd712e8a276ea991c03dd7e3710320762698420c8e4f481936450a5d",
+      "string:performance_mode": "18229076246c23f7a82c170749519dc2ad8d8763d3b87dd16fce64085644a82b",
+      "string:pip_mode": "6cd221449158c3df6bcd5ff7eb640d10dd7671c7a0cdf6477fc8b413f128858c",
+      "string:player": "3eaf66a90e377a624f8b057d7e6dd887306e1984a6771f70874e2f219d0a5a51",
+      "string:power_saving": "3034f81adcb52b5accce2de8b3e85a9ab637e7813949320fdd7f6d70ea86e9ff",
+      "string:preparing_installation": "e3112281f4afded6a3452e8f059a4ee10ef5bc69c4317517030fefacf0372be0",
+      "string:present_mode": "ff771f1d0a440a28e55a7bb4b1349434692e26ff7d64b52c0e2ad22bece17519",
+      "string:preset": "48d235498da34421d3a55ca0519f44b87886192e4b68d17635ce905f9d620a57",
+      "string:press_any_button_on_your_controller": "8bb322559976a3de01e9fe371dd3552e660e222c766ac8bdb36c619b9315ec11",
+      "string:process_name": "48cf7dc8dce64b3ec01c7f8d0d987978b5519a7bad927ba518822dadb4320f09",
+      "string:processes": "774d2a7399f91cf8e487fab609e5b62fa370a8e8fcb8c33e1e510a6282e68f69",
+      "string:processor_affinity": "7b4d50bdbea186912f5aacf5296661c6801f0aa25b73e8b12d74ffa97a1a3d1e",
+      "string:processor_affinity_32_bit_apps": "b36a36a9c5706baff91d9a72af84072dea957ee094abbf321ea8aab15bb254df",
+      "string:profile": "73c69453c0d80479d054c57ff0d0d65939594cf7d5841451639d8b167c5b4b2e",
+      "string:profile_exported_to": "7a17c1c3ead35774ed95a3614189b17949f195a5a2dbde745a298cd215d3689f",
+      "string:profile_name": "af8f32e60e75cdb411c662172b9f254001df20b7e5cfb44026ed33aa270fac0c",
+      "string:range": "375274cd8665f68fa9eb50c2d116b94d821ed95424854ebea1da975da36e2da5",
+      "string:reinstall_system_files": "9f7cef176efb7a18f6a96021005063d1e623c0403ed6500c039ce338805222d2",
+      "string:relative_mouse_movement": "d8bc2343765b33dbaa1dbc156a3d8f64a8adcf653151cd90a7edc2a15011bf90",
+      "string:remove": "6fd49fdca69c9bfc9f2b5e8a2a4e93a25f6deb267b4834d9af6c5887b2385d1a",
+      "string:removing_container": "72922458f49f3711802b8de771a192a2eafc984cbe498a3c2e81d6e2855db0ed",
+      "string:removing_files": "cdb7b26b4f09a29415871f2f1857c6fd6aa6ae44c5dac702ab81cb762d333e5b",
+      "string:removing_wine": "9ec54aac70896870bdca612661394cbf916548fb90ff51d995788ba062e9d9e0",
+      "string:rename": "3d9636e044ca2d04c03e08d63d106f8a0ab4c4dc047ce9c73df65d3018aee411",
+      "string:renderer": "80f196c55082b7fe5dba4c9db04fcef5ceb63dfaae734c9cb83cbfc6bc710384",
+      "string:reset": "1bf2113e65951bffbfeee947987714db54bd21e600f720579fb444dfbad797a5",
+      "string:resource_memory_type": "28f76f4856d3614aa20fdc5c9131c0195ae8e48479cafa563cafa00bee757530",
+      "string:run": "41d95251cc52f9d73d1cca37c3b377af35c70a074b735cc559e00f711e4c1aed",
+      "string:save_logs_to_file": "4aaabc71eb87e14e3eaffb4d55f445d652ab96dac484352fa0965fed10399d43",
+      "string:save_mem_on_run_from_steam": "735d9536e69c91bca4d62dd8e078e689816a3e5dc06641c330321cc9cde4aad5",
+      "string:scale": "aa0b7e9acaa9a37ec0faa8b2f78bc4815098a3efcbec30a60ad217994cf1acd5",
+      "string:screen_effect": "7c3bbdae2f31d1ed84f100ebc38a7b7c07a05f6fc6a932ce037eb3dc7e8a9ce5",
+      "string:screen_size": "00ab70e3e7f79b2f20d0ed7c42402b2d3c8463e21cff04dab98487645915ab69",
+      "string:select_profile": "9a3a2d04c8d09140cf8f8a029cb0b564a31fb16506ff144c35215ec1eef883c6",
+      "string:settings": "228674d08bc5e913d6cd3b34e534af2b2895087b71eeacd32b1852b4fdb45b1c",
+      "string:shape": "ddf4d879251cc66061d6f1ec5dc01c0a843fac55feee3f8df0944a6737b0cb45",
+      "string:shortcuts": "50d3e9365fce7f65791978b77a0aa50b58e0e3204b3b1d6a28a4137cdefa60b0",
+      "string:show_desktop": "d8c2f04eda8bb6645d052e1287540897d0e97bd4a4674c0525de66d04955cfdc",
+      "string:show_touchscreen_controls": "003a64c2bbb28a8324f58c7834133c46ce76fa330112488145d1b3a56ac833cd",
+      "string:simple_fps": "68a65d0b5ac9083f62c60b961cf152748a8864ffef4385ce476b7c31e5ba82e7",
+      "string:size": "4f15a73815cfb9b0b5900c40438af7cbba6714bfb88bfb41929d7dbec940cfda",
+      "string:solid_color": "80a494fa97508cff14896c5ee8d46de8a7c7bdde262b2572e43cfcd728f1a7b2",
+      "string:sound": "eb651dbd32fc16cd6470e96862e4ea9a9507e582707e7a9ddfd25ce2f9c0a074",
+      "string:stability": "380998fc38c058a98b38ba73b868754ce4c135b7f664fb56ed229ec8740724cc",
+      "string:starting_up": "ee4bbe67183ab9a305c6598a5bfeb5d6bdd7c10d63f97dc19523835ecf01802c",
+      "string:startup_selection": "f3ec89af8bef27387764a1d7248ff57ff77ca1d057b4b6065b03015f2749389b",
+      "string:startup_selection_aggressive": "bdce90fa12f25e6ed4e520cb316793f573485cde5f7844e098b39218bc96019e",
+      "string:startup_selection_essential": "7459b0809615193af8a299cc137c88c4b6fd41952ca6ba1fc55d1c68a701e153",
+      "string:startup_selection_normal": "9b52d037754e6d1d74adb990210fad355be2aab00ceddc60869375491bfb37de",
+      "string:storage_info": "4657210cb2e3af8e59b246f0db3294e521bbcfd8e4806aedd288ca2d9ffc6c37",
+      "string:system": "7465b3c41f58cf62b885c20ad40b975948420da869f289ca3a408a7e800e4dbc",
+      "string:system_font": "40dcec10a8079bc67f71300e42f070fbafaf377dc92a2ad95103a2bad035676a",
+      "string:target_path": "6614b9436a2a43b479693fb17803847ee0fc5d339ae62410436845939bd657dc",
+      "string:task_manager": "578cd523454c0cecfa8b44717f944634ec9f239dc306b82a0981daa5599b505b",
+      "string:the_settings_have_been_changed_do_you_want_to_restart_the_app": "50903741e4d5d99e84f8d66f0ea34e139ff847d9f15fd09df7c9f61390e5f465",
+      "string:theme": "43a053508d77cbc72be9084af9caa800db48950b6d231d4f91cfe5f9e0fc9efc",
+      "string:there_already_file_with_that_name": "f716224dd626e19808e2bafd862b7c5b328499d672c21e1abead1b677fa1344d",
+      "string:there_are_no_items_to_download": "bd453901795ac4153e6edd97d5f1155d61c338357de147251f37382b44ac96ac",
+      "string:toggle_fullscreen": "43594768f2e686586f58cb90eb4c05a1ce45473c36085c17f1746d7a8c2e3f8b",
+      "string:toggle_switch": "cad74d0fe0ccf04b79d338bc9fe41434c83cb8a12409b6298a49d0f32f769a8e",
+      "string:total": "f95d247aa4878594f99cfd1ec44813c6db41c8dd6658131e2a3d7295f78dc20f",
+      "string:touchpad_help": "a9a4fe757437367a3cff40af793ccc0d6d468ff523c849c1eaeb7deca0af3407",
+      "string:touchpad_help_main_menu_description": "3e341821504755597156bbd9c2f845c3c9dc838b835e4337f9694e49c79d84d5",
+      "string:touchpad_help_main_menu_title": "7c6c8381a3c99efb3ecbdc9cd0497fd7011b2f7ff94a93727dac2cdf5ab032de",
+      "string:touchpad_help_mouse_left_click_description": "36419b9bba935a93664af319ce5046cb5501f4e6ad8763afd603a1b44eaa89a0",
+      "string:touchpad_help_mouse_left_click_title": "c3985d2fea4cac7184a4516668df37ea566d2c6620ac461d541fb1a64096b64c",
+      "string:touchpad_help_mouse_right_click_description": "e919a3e36409f716118f0ed876e1ad007c93fb3b584ecd1d1dc5ec892f82ef8e",
+      "string:touchpad_help_mouse_right_click_title": "108f9118fd2fb5992ab4d3a8d8af97655afe21dc4a9215f803f6512a95a4829a",
+      "string:touchpad_help_mouse_scroll_wheel_description": "9a993dd8d97f5c0d47459d0c0c1ca2259478b157bbbac6b50ba6326246c9d4f6",
+      "string:touchpad_help_mouse_scroll_wheel_title": "dd0ccbe7a08d3d3d2b0b3840b6b10397467d12b83695ec9d94c356c4542ef419",
+      "string:trace": "c2726aeaf10c38e14a9c0d10cdd210d5193651c1a4fc62f365c3245b9cbb8c3a",
+      "string:type": "cf4e83114171783afd07740d3af2b79daec3df7fc9c8dbc880172fb0fb57086c",
+      "string:unable_to_download_file": "1baec3a2fbf644980daff988b9a940ddefaf33cc0b7979f99c95feb2e0b27abf",
+      "string:unable_to_import_profile": "103ff7a24dedaa40fc5b6532959ab9c8a42e42d7f5d5f57cba377bd624be7dbc",
+      "string:unable_to_install_system_files": "9f2dd35614271fe4d1a857ec845084a1ae7ce7a7ecadbf914dd1b8163041ac21",
+      "string:unable_to_install_wine": "cf66a313e6b10272043cf5fef1a6e26269163e29f42b572213ff20f2857bcb8a",
+      "string:unable_to_remove_this_wine_version": "4fff2aaa83cee77f92c782d151548c9f5f7b598d21d6db66e10bab30517fbcf3",
+      "string:untitled": "70ea2f8d62950cec3a4994baf2238a5fc4e8990fa21e01d2eda5ea81bbb93d1a",
+      "string:updating_system_files": "cbb674e1b947a191a2b9476e28e7ad1034d164f038c7348a9a9c4f76d31af146",
+      "string:use_android_clipboard_on_Wine": "29f1eb6a6d20e14fda5ee9990cba839b0a20d88ae4c53c007f0cf8e8c2c5493d",
+      "string:value": "92eb8858044398fab9e323b10931278f0539b6bd336b519b2211e9aa5be4ae74",
+      "string:version": "92f9cc5dde91831f9d05872ad4bbd5a9e20cef87291b073e7dfba071c2fe4681",
+      "string:vertical": "628dd35a6fd250e666ec2f444547a9f4b4855f9f669fd4ecddd0d11c991b4de6",
+      "string:video_memory_size": "63296d769ae111655bb6487e4aca126321750c4f69f639c2d6ec6b8b86cdb1bf",
+      "string:view_style": "1be1c6e793365b97518732aeb649729ef73ddd837ec8ceb50e1cad1f641bf06f",
+      "string:voltage": "6c1e2ea07bf0d978eacf5911137059277f2833c04368935203f98f12bd0e6d93",
+      "string:volume": "7f5d9b84e5c4be8e12fbaa426ff3b2c0bd7f34242064061e942549ecd8dcdfa4",
+      "string:vulkan_version": "369f8ccf878b248b631e08b52894c6f9016d3034f31f62c429ff74ec3e0f5811",
+      "string:width": "78d83ad342b366346339e84b51aca585605c1f7c1cde181dab927e7dda2f47d4",
+      "string:windows_version": "3765845b5a472c3adf5fad91028560f647cb85d46966ce6828975d296835eff9",
+      "string:wine_configuration": "83802821e0169a3afd5751fc2a52befb5fed594868284d28da4abf1fc4b6c6f4",
+      "string:wine_debug_channel": "157a0a928af88058a866af6a04ffa5348035314f323a4a77d43a8a72a5dec681",
+      "string:wine_version": "0294c1ce737b32a01cd2bdf253188b90b4e65d87c18491439a2daa310504f02f",
+      "string:you_cannot_paste_files_here": "242156edd2122c8c2da19c831ce137e58ac882a63ff1c72a9caed4ea98947c8f",
+      "string:you_cannot_remove_this_component_version": "b26329a9d9597cd60a7c25deb36f436b3bea61b987e45abf1d35649682f47618",
+      "string:you_cannot_remove_this_preset": "459d1ef3d6f1d5bc2f7ed623a2067223e1315ed4d8da2d881a344ad4589475cc",
+      "string:zero_no_limit": "cbdcc80fd97c3f3ac8ccbf97adaa261cb91c36d7d93ed65c1f2a847f2ef87009"
+    },
+    "sha256": "bdddd7ce3498e51ab48dd7739c4719bbd2b3959a60bd9baebc489866f03f7e8a"
+  },
+  "values-ru/strings.xml": {
+    "entries": {
+      "string:_new": "ccaea8bff915556d27ead7e9c934a9e5f30b4291e150441bd566d03a1bcddc38",
+      "string:a_network_error_occurred": "bf48bc635f8c780d4e1b4f0bf87d46d8ec366443d89c9656ff746eeeba205416",
+      "string:about": "40ead1a2297f35d2942c913cc7ee5122b38ad8dfbfd427a4316570f94fe9f306",
+      "string:active_windows": "fda5c3d02bb68d5eb001b6a21d122062fc23c3ad1efec8fdeeaa6e0023db9e65",
+      "string:add": "12d9b62822629b20ca3e73406cfbb459571ac29b21a8e7603209ff633ef9831e",
+      "string:add_to_favorites": "ae7c937d59c133768c217ea7ab37176c32c09ddccd1389b9abb2ad54499d4d12",
+      "string:advanced": "7e5c87d082f299ca056299f5ef6d73d072beaae1b710ffa467742e77a7653097",
+      "string:app_name": "c077d4741604f67d7bc120fff60bc10b0108729a985b87d032552eaa36ffd73c",
+      "string:audio": "61b240c44c16143f4dbdbb003fa5b0f5c704ec8822ebdc7b1d9f91bd29f24d75",
+      "string:audio_driver": "ee3014c3800a9c99db0565431dfe492986d113bd1ebea8e21d0aa91b4de27be4",
+      "string:auto": "0c1757b9e1a74b26812fd2e92e770863e909a37a6b89c5c9c7e190c952883229",
+      "string:average_latency": "b87a6cb10987d2824bc7410de7e152e4bd331abbaebc70948601dccef951342d",
+      "string:background": "ca2d0a00fe280f33b2ea4ab7fe92ef9c16354bd9c5382e9b9e2436d21bea8373",
+      "string:battery": "a6f9251e6f3e258d701fe38029513a4252115c8198c29471ef45ef3835811635",
+      "string:binding": "bda424fe8b7456738654a829cc237dc063aa60f859eb0c3e6bbc4c89147bda19",
+      "string:binding_down": "f40e4c27b70cb4e5bacd58aa6f893938515a7c5123c16b8d6a965429fbdaede9",
+      "string:binding_left": "bef047dbdca67f1226f6f18abe5fcdc5da623e601b8729eddbcb9f446489d4d8",
+      "string:binding_right": "c0fb514628525953e2c16f778ea7fee5b39971e82317e2d42099536c5cc5740c",
+      "string:binding_up": "342afc51f6d8b9f177c40ad944c8a5df0208d8a9c0570337bfe27ccfb8b045fb",
+      "string:bindings": "a28abce4abbcc807f8b56d7b4505e019727a1a63adf2e8954e86e6d6c6595116",
+      "string:both": "388390efbfa4edaa75354f654db43aa5ac66356e8f07b535b9291b142a04c953",
+      "string:box64_logs": "c88df5036d518a78cc7e9b587249dcedf7bc29ef40d2e1849c6380d50725f582",
+      "string:box64_preset": "af17d0e17f486b33d61998af105c57609f33241025d115ff5371673f92a1c479",
+      "string:box64_version": "4c8b8a616f5709c0dfe2404c7f563bff1e408f10981d7e5efdbd9f7c0fba29ab",
+      "string:brightness": "30f6cc740a48b35f16e02c4effd02a064b75f42b27b22011b6bc05bab531cceb",
+      "string:bring_to_front": "cc319fcaf97d428b4dd3924221ca8712dae0192a65776d0434833690e950096b",
+      "string:browse": "0f468fc1b46d2d0a238ee5d7fab1c58715557cb46993a49a78bcafbeef8c4129",
+      "string:builtin_wine": "c9634e1e7935508e9058b014ac08495f376197f8a93dc50d2c682ce5dc2f37df",
+      "string:cancel": "b0c94a8f9b97d7a3105ede595ee4f8901389c0e1c8a396dd688521bf6489e2bc",
+      "string:capacity": "138472ae3e22c962a8e15dc405423b50283e90258c963e0a7d00dbb6a8074aff",
+      "string:capture_pointer_on_external_mouse": "ae4ce4b5b0efff2ad2ede3835f9f844f0d12bf78624f42ab80cebbac17ff818f",
+      "string:channel": "812b5be5ee6ba4d5997af4e6fb7c8b34e581bd6db3a37abe6ab8225d8ca77c40",
+      "string:clear_cache": "41da7c002b3072377495bd6b6a997d7dbe71c8231a478c34ebbe537d0bfa135d",
+      "string:color": "c61fc8fc13b53f4499988fcda591352609758f0c23d3eb0303134767f83d9cc6",
+      "string:color_adjustment": "e51ac6fe9b5b2bc84ae50f2808f31217a295e393404134e5f38edd4dfabbc520",
+      "string:columns": "c753702b8321283728c8a44c391d2efd27479f9a5a5a36e5ea1b9643eef7a848",
+      "string:configuration": "f49bae465ba155d72a6593473174d8445e9588d116b95cc41760e33d2d98375e",
+      "string:conservative": "322f65ff846a649d428f57e2e380993deae89033903e3d80d1ba69d84df2176b",
+      "string:container": "6a7e400ef9e071970418460e296a1e77fe6e9fd51b41032ff7637190a2849dc1",
+      "string:containers": "3f6b53f743c4f739f3f77adc0cc5180c44a47030b6ef14dfca00e2745771c19b",
+      "string:contains": "bf17e736f03cc4a8bf1cb039bd0e30a453c1c7b483dd779d6910263dba1d9875",
+      "string:contrast": "f62553fbb244d3475820d61fe700da362586cf96022baff445d12b168a9be3bf",
+      "string:controls_editor": "c9bed34c43716d6c87e0d0534d370fda46c1afc1d15c938f325a27a6e8d08e1f",
+      "string:controls_profile": "b29fed8cab56bef4c3d87864f94edbdc6996472717a6108cabcb10db27a158bd",
+      "string:copy": "8d96f593f302a44d5e22c31f60cb9790d55ddf16aa57db4613275b5c1b9bf2e3",
+      "string:copying_files": "da0f70c53ccdf516adb3116c83c6f9cdc6d64a3b1e7f4551699676318b706460",
+      "string:creating_container": "b23acdc6fad83a8ae3ab45b3829907786cf3021ae09d532b9a64365a575430b5",
+      "string:credits_and_third_party_apps": "0e88992adb01294e902b4e8e838721cd74e41bdb51c5cb8f723ce916c0c24beb",
+      "string:current": "085dbb3a362e06980c40caf241f3ae719763b851875a59b4c8164ae68170ef39",
+      "string:cursor_size": "ad1be276b5ada562c271f5a3d23e2ab823296e600731e54b5f235fe3880f27b9",
+      "string:cursor_speed": "657ff31ba8414192e230dffaeccbfb12de18b44ec5bf6b6946246bffb32bfc43",
+      "string:custom": "97483533247adac75d4dd434687eb48b63619dec2fc276fec725fcca8ce18173",
+      "string:custom_device": "e9206022097fb0aa10dfc1aa51697fdca7ad77d265c7f5d7a46c2485748f1433",
+      "string:custom_text": "769a6ee606dfaebea31ca824fafe9a3086db684f070b8e24c68129f6140c8d90",
+      "string:cut": "067b04b4f9152f5788ab3eecec96bd8521742e850ae91ddc93bfcc5378e7e87d",
+      "string:d3d_feature_level": "f83b031732d0593f112d3a33022353f4dce3f8e60d589d5d80e222e6177c432b",
+      "string:dark": "d0f16b6c6c703ca2e60b3999ae9bbcd84b003d247ac2d5098fd0ef1eaf10cb48",
+      "string:default_no_override": "36dc3801c3ad19804501de1361d71fd5cf2bcf6b7bd7010b087ba57f6c971ae6",
+      "string:desktop": "841c8c69757887d8d4b4f84077fd38a0f37a98fd2ff0567eccc428bc020875ec",
+      "string:directinput_mapper_type": "55bc7f5e200945df9ac3881231b1290f91ba21ef0bc51f6e4a7dccbad8ac5ad3",
+      "string:disable": "78dc66925b1f3a6750de1632b06275f38091517ec4bc3b7826c547c9d39d73db",
+      "string:disable_mouse_input": "7302bafeca00031035d73a6387c101177c0031e86f1a5dd2dea3a9ffdc740632",
+      "string:disable_vertex_array_bgra": "a52714b3ce8d183dee604135b3c6714b0f9e099c0d5bd29db3853d4d9b5420e9",
+      "string:disabled": "730db16ff9857d3a37dd9dfdf393602c46eebc5f4d9e65cb704a4aa1dbd17276",
+      "string:do_you_want_to_download_the_selected_profiles": "62b103edac3e8fd4177e1fdf40da82e453e2a0881c3f5ffd675ae0d1d9291818",
+      "string:do_you_want_to_duplicate_this_container": "c1d568ab76d2590889b23ca3c99626a38d038df6548fea701e693986519eb707",
+      "string:do_you_want_to_duplicate_this_preset": "45684761fcc09a616c67815e7584ad40e73e0c8e0faf944d42d23d4198f5a963",
+      "string:do_you_want_to_duplicate_this_profile": "e68181de7d5e9d0add72e1317f074b8dee9bc92d47763412e5a23ac7d37fde9b",
+      "string:do_you_want_to_end_this_process": "1d7b39d7a3a687dc722ba875330cb69eee822193db22e2150f475225a01eff1d",
+      "string:do_you_want_to_reinstall_system_files": "16f82c7ee30220b6eaf9de257db4efcb2c017b2f902fbe3d1e3c2ff282d30ecc",
+      "string:do_you_want_to_remove_this_component_version": "a25c7aaa948404ea6445ded068f88cb47cab597dfcd5fa1510e26d7e5842d51e",
+      "string:do_you_want_to_remove_this_container": "9a8133a2195da59e679cda21329019e90bb4be4b56d296a269b45556c3a846f4",
+      "string:do_you_want_to_remove_this_controller": "b40b444adbfc6a521eb066f66d27ed32876073daae83e87ea5b2bfa9a34386d5",
+      "string:do_you_want_to_remove_this_file": "1733bf15c70f787779998fb8659a7f846ebfab01fab5c24952d27df67da2e14c",
+      "string:do_you_want_to_remove_this_preset": "18af43d95559fb387af22b1ee9d07aa89ea84ae28d3a6520afc853115a660602",
+      "string:do_you_want_to_remove_this_profile": "8c29787ffd72ef41f54c15f9de3942bf299decbbfc58ffdbc19deb8dabeb6116",
+      "string:do_you_want_to_remove_this_wine_version": "a0240b4a38b329857ba1974e30220a76f088fecf72493260fb84101f4d76a6e2",
+      "string:do_you_want_to_reset_configurations": "807efd583a4aff6a0d827f5a2f67b8530a6dcbefb962de07ba2480951b760359",
+      "string:documents": "5ac8e0ea1f61669e3ed82ab6dfc9d2a2ff13a5f01483b52b8a7bbd21b8f96f45",
+      "string:download_file": "6da863eb25ced2f3c74f4255dd2f650230b72339a61d79c549fc2fadfe6fca41",
+      "string:downloading_file": "de61603eb57fb052b6dcafa911e9148a1c1c11068d27e69916cd59fed6ee4891",
+      "string:downloads": "cf721059b31c85af68ced620a19be36ca5aaaa7c6e9cbc9923b753556e82b0f9",
+      "string:dpi_font_size": "a408b17ade54c75221d9cd5c5ffaed384e807c5510a7529a8507255d98a26a8d",
+      "string:drive": "2f44ad143d723d1fa1cc6cdc35e8e6023fbc5db415a571f27f3ce8fe3917b211",
+      "string:drive_c": "070ad6fdaa4006da278da76f9d1882a902bdb3f6ca320c417b184fec6646de87",
+      "string:drives": "1f8ad42438c58b44af1c965e752ad49c7f00feb4fb74530a7628442a186780f0",
+      "string:duplicate": "2001e9c284aae99925e5a48851a1960bacc322da5dc4004fe1794bc5f72d4ae1",
+      "string:duplicating_container": "071ec4175f49ddf2914748f33dc357ca1dc4a68546f33a9ae45aa710ca802729",
+      "string:dxwrapper_help_content": "3378ccb503aa2461e9f89df5a2923f21798c41aca144e96b09af23b689568e8c",
+      "string:edit": "e1a4ab3bdd609422c2204d70f25ed4b3d5c749d6e8ee1589ca04100bc599067d",
+      "string:edit_container": "7e24b2fbd2591e3a336e9060e6aa6ccfc3e5a3bd80731dae285a94d61cda0b0d",
+      "string:enable": "0f1f976230422b80c7aa1f8f1e934f36dd207fc4b0ae478882b8e985bc112e92",
+      "string:enable_background_protection": "8ffff7016436d76e2fe98f6b4335d2ee3503a24dfd8e90c0d3e19f17210f6437",
+      "string:enable_background_protection_tooltip": "44237f7f816487400e9f28a98879bce49cbe9ee58dcea4df756f2aff75f169c8",
+      "string:enable_background_wakelock": "7c021e3df34d1f9fc8b0211da3fdfdbdfa8373a55949956053c053c3a446f7fc",
+      "string:enable_background_wakelock_tooltip": "b5a4d449d76cc871ba0d2cc29315722030d4e5a9fd1a820547028b5b60451a90",
+      "string:enable_crt_shader": "78f5e7650158ae22dbeb251ca766466e0bd728f9eaafeacc7fe36fd68c407c78",
+      "string:enable_csmt": "01370f0ad5ae95b7ddc3240ea1e9e988e59e4ee37a8e36bccf48605454043823",
+      "string:enable_direct_rendering": "0814a6dcfcfe02b94cd2cc5d83db7af0de9d64a8328ccac23efa64ea41c69a86",
+      "string:enable_fxaa": "f36931ac5739c5778beaf91731c37a7bc8d32d666d8e366913e697657a29f321",
+      "string:enable_strict_shader_math": "bc68a719a2f39e80b8a3e877dff0db9f6a6bae40c692c37c03d731bf4be05a7f",
+      "string:enable_vibration": "54342e13f8904fdd848a7170c6a9d7aeb085920540654bb3ace8d4dff3781d3b",
+      "string:enable_wine_debug": "c5657cf312a449a8fd51e630eecc472dc5a31a1158de27d133de173b01f68c24",
+      "string:enabled": "fc4c2884cda1990d59258bd012b5790f6fb3c84e04c255a241465870ef311f3d",
+      "string:end_process": "7526f948e6bd21405193840dfecb58d4394a93ea0d247066dcbb4a68819ef28f",
+      "string:environment_variables": "d5b5a6f2626c96ced6dff0ae0bce4fd18901d333ef64c97bd5401c11fce46cc0",
+      "string:estimated_used_space": "aa95de64d342d8155996f65889cdd8cc33f95b299baba81dc1d8c61b459ee092",
+      "string:exit": "e642dd1ae2cf338321714b86bbfe75c1cd28f3c2bff79656acb0d2cc006e9146",
+      "string:export": "8eeec063218c7aabc9a0084e11f4704327ee1979140df9ef1d6a4f8fd8e4f5e1",
+      "string:export_profile": "b33348fbab53db8fd4d16c92cacceccc4cc738851b48bda7599afcf963d5a7d2",
+      "string:exposed_extensions": "081a606890d8cfb8643ab248a686dc9c30e59359be4a7d462ac98de5cf3971b4",
+      "string:external_controller": "831e637e1e73ac0d816f91740d852d3556699e7b0a94ec162a89f208fc4874e4",
+      "string:external_controllers": "ab8cbb668af0e4d02b66020d6aac4899ed90871e901fb34b8dd71b87538baf5f",
+      "string:favorites": "06ba32918664d732e1b5e3e70e8b50b2f44beffa0a9471f216729d6d6939d606",
+      "string:fgs_notification_channel_desc": "77b3a6a3023db9af85b4f6a186a144363a2d1f76809d3fa164ebca191c401b1e",
+      "string:fgs_notification_content_container_background": "8a3c019e2b80bc0721ee80ffdb6ef0f2b6b91dc087a5769ab0397be17fe46573",
+      "string:fgs_notification_content_container_foreground": "0a4a1b10a8acc8f29f84f560df98954b69215d37f6f9983c7292be5f26c31286",
+      "string:fgs_notification_content_else": "c7db86f9c7f1a0d9e3b52219bbd7b0e5b56b3a39037ee66377c9155f9f686045",
+      "string:file": "e091b46839cdd2f515b7bac1dd5cdb6a8629c71396a41e586ed530fa4a6ed64c",
+      "string:file_added_to_favorites": "f4b0a7365d607f0a2dc9ac7733bede269cfe5aeb2b9ea4ca0f9ae4c65121ab68",
+      "string:file_manager": "ea207baa3c19c8f11673148f23121c4dfe9dd5c8538043a3f78dc1439154d0a5",
+      "string:finishing_installation": "847d191c0420f96979df324c684829c0e9b4dec8d902a81b26a1140071cf9517",
+      "string:folder": "745179ca6ed272a20cc1af3b14d7631073f061cc5d754b7d83b5726415e07a82",
+      "string:force": "7e170d6a797526f0f46701c86d0fecad91aad331563f3312494e1c2106f0fab9",
+      "string:force_fullscreen": "63499580f4a6357a0a1060f9344d543df28ce16b6a36b8208bee582420f66fa8",
+      "string:frame_rate": "e228e2989e2f113be55b8460cc3425186421b606dfe95de7c9f66badbae02d97",
+      "string:full": "fabac70a4e2fabc8cf62caeb9b01bdeb52377d77933cf3829047efd409fb7ecc",
+      "string:game_controllers": "965497cf3b6815af24ae7e874f4132a9366616a256d5023b701ef81e743e3f2d",
+      "string:gamepad": "f9ccea1cec3ed8e6d4d33429ec19372b7fed411854f7922f7e2d6c669d56af51",
+      "string:gamepad_model": "1162320355424dfcf76c9117b79b075c46b0eec8c27cf26f23871066fa6b4dc3",
+      "string:gamma": "832872807e5f8a6a2b9dc71ba793bdc948a49fa9a58f8180a61d415d2b3bd3bb",
+      "string:general": "816efa8c389202a40e1892a4941b7b0a0cf4e1714c23ff0e840a4790f24dcf8f",
+      "string:gpu_name": "77e15db3603c29e6bfdcb8e5eb1a70b65d81933452bfc320845adef3674fddc4",
+      "string:graphics_driver": "8a962310c712cc66274903f8534fbc405f1ae1812127f70d852284e8f4975ae3",
+      "string:height": "b2241d5849550411617fa81751558a7b08181af91dd9720678bc746de1de5659",
+      "string:home": "d1da344d8676578c9ffbbc0b66af52ee353aaf99082ad2864558609c78b75d0c",
+      "string:horizontal": "6bffc1da690613d93d6fcf26be6a9397f7ada40a65260afba5191b47d5b9788d",
+      "string:hud_mode": "951517cc8b2a5c733c0ba1af8c85243887947c1adf18fa1eaef8ec852a0c04d3",
+      "string:icon": "b28efa8581b9b7ffb70192e38783b31ec4e4b90b330ef725d02a79839b87dcbd",
+      "string:image": "8fe384a71e25141475c786205208b1c174e7e41250494a3e159f757763c40232",
+      "string:image_cache_size": "4599082ba55b15865cfad2853d5935901efab10ce6fef884e7bd11b7db587440",
+      "string:import_profile": "9e8dfc0304ef282d9d8109da85d41b9f6b83f61e8a3b41bb387ba098f3eee0a5",
+      "string:information": "1a6dfd11942ca6fc353f49782458ceaae8fca7a295c711ce0e550735cacaec40",
+      "string:input_controls": "3b48e25e8b3220ade08ebd221c5fb2f33b93cf6ef377a07cb180f0a62134e3e3",
+      "string:install_component": "2deb3d2ae385af073e987adf67f78ed2c8ec8aa6205acee765e431991313ef58",
+      "string:install_wine": "1a388cacb6dae3487f35caa9736c81e635bc00e8111bf263f4e4a5b31e7b1c07",
+      "string:installed_version": "16665880f85e290f7929c26a59d5648848871360bd7c5ad6b757c1e9afa71b50",
+      "string:installing_system_files": "b0e1b85345e3e70de52c4b591bf7dc55fadc8ccb5744f7d914021d094fe33a7b",
+      "string:instrument": "b01bc7c0e3936f25bf1e889ce4ef2cde3d85413040b08a8b3913cfbf60364763",
+      "string:intermediate": "398fb1bd23a139fb7fefd393e1d53be27f173f99d1e04cff753ad32c05ea3003",
+      "string:internal_storage": "c081b90c262a85982a49b98b44a5cc85629dd46d5bd2bdc64993fee7e9e358c6",
+      "string:items": "9f52790509b4317759c1dd4e5cd0fbec32e199090ff09f1d5d2d73d19fc33a5a",
+      "string:keyboard": "0b8773fc88ae239cf77df990c08de741ae4c5c5e25df4a2578fbbaa0e171e511",
+      "string:language": "b3236ce1c9cb074db873557919d591cd2d311f045e6328fadfbf08cf460b8d94",
+      "string:letter": "682a31ef322dbf72d60b770d683e4f44d0345dc2af74f489d80ca4355a8d6ee2",
+      "string:light": "27fee8eb6675f7eb4a3cc3d488205ce7847b7d37b5c6b6d64071605ea2072845",
+      "string:loading": "1f8d646df9dfd4287597ace4bb4946818ddfd3869917df7201014881d215331b",
+      "string:location": "cc587bcc6ab7ce18c865501e9debd3a4b28c5278aec64a02a152d16eda8e50f3",
+      "string:locations": "b81b481c04f9e0ee12c9f2e3d42184c5b5a9867e37bcbbaf992c9abb51c61d7f",
+      "string:logs": "2bd1871bbf0835ef12def4250f15bef130a395f97861f9d8064bed0d03e5140f",
+      "string:logs_exported_to": "7ea057bf2c7da38029a17e78740029c81db25ce1d78fd88e63ca46e319a32f22",
+      "string:low_latency": "9a4abd6d4667f0bb526c43c172bb80030923ccc9e06a1e30c3667ad29e2cdffb",
+      "string:magnifier": "04da280e4f617a4b736b2b7710eab40571c8a97da138011de76052d8df846840",
+      "string:max_device_memory": "c8074862d0b9599bd693d46a680afd79dffc3ecd26cdc0a144de73fade72fa39",
+      "string:memory": "79263edf2f22a7995f8bb2752266d362fe4d0d58f7e253ebdd699463a87df1d2",
+      "string:midi_input_device": "219109d37e90764109c7145cf9b8c1274f17fff04592365616de42df85f704a0",
+      "string:midi_soundfont": "771320b00d37495a4dd4b551a8697f475dba39f2c0a57eff8f3ca95272ad7389",
+      "string:minimal": "ec9b5c93a06d7fc868e7ca489302af5ec6b19e849ad80c1ea645088da1e75aac",
+      "string:mode": "7165ca7ca59fc2c1deea43b905cf1ba6b23d8302ea16cfffd5e5c80f362ad730",
+      "string:modified": "385c5fee303d4bc82caa8daffcc3f8e49aa07e427d893bfb25037665b347c8c5",
+      "string:mouse": "78f314c70171245397e7f3f30a6a9b43751d853fda1768392f98fc82963172d1",
+      "string:move_cursor_to_touchpoint": "360e5159c8c4268ba9a0692f26c54c8a2eb0543c761a1a655f930a269fcdb5a1",
+      "string:move_mouse_when_pressed": "a41d59f4f96555745d56d68ef1e9b90d0f0085ebe80b3025386be8c5bfb242e3",
+      "string:multiselection_combobox_display_text": "742c0accabd9cb92eabef91fe1ba58d0eb1311413da7512ca6990022ee9812eb",
+      "string:name": "d192635462374c5e020abb338568325db5bd67cf2d374a24ba547badb8360020",
+      "string:native_windows": "efcc62afee9b8c0aee4474ea7eecfe9ef3c0ef38a800bebd91656eb6c24ff179",
+      "string:new_container": "427dd536d509db2f34f34040c93178770dfbaa26711514266a759735e79e45e3",
+      "string:new_environment_variable": "79977ef6c9f85b03a46eeda7a648c6e4fff30f8fb2903ddce70b6434f1b131bd",
+      "string:new_folder": "3e5641281ca81156b62316ff7edff31283fc3119642bb4ad1814c87b504b7177",
+      "string:new_task": "25a227f622e8b1684d5d6e65667ac08bb956b113a44345b26c06bf00f7dfa7c9",
+      "string:no_control_element_selected": "36257d667a4e54b5938a942a8aad69f4ce6bed24a74ca9f65f8f8ad8cfa83ef9",
+      "string:no_items_to_display": "b53128fa132c9e906c7e42a5222ef8482b662c2a976e95e3a2cda894eb9e4475",
+      "string:no_profile_found": "bc0c1c19818c0408c0c753d07a4888fc3f169422bb775373a27e46bbdb95f030",
+      "string:no_profile_selected": "9163e05b78f002571b42fd8c98a4f34116e55b2286c8f63abf715626764fe1e2",
+      "string:none": "164360bd284d53f1f4f7c8600658fbc7647482abee6bdf73e57ae93fd7a17622",
+      "string:note": "db15ab71907970d6333ba2d6ca141eac2a2da6bbfb05d6a8d8d54d1f7d8753ae",
+      "string:offscreen_rendering_mode": "7bb1608a6a3b105d8c3091315d2c653c9b103de1fb4db6f658a82be1b46a31fa",
+      "string:ok": "624de07eb185367d637db24ca7f03efa3dbdd847cec93c96e098c4f20080e710",
+      "string:old": "86a920de7a31ad760f678c6dfbbedaaef51437dfca46608d3ab4db0064d782f0",
+      "string:opacity": "9b759c78207b892fb7a28b3d8d1a5d725d04187d6b135fac9cb54337bf69ee2b",
+      "string:open_android_browser_from_wine": "2a69d5a94e6d77bb3bdf8c470a6e71b610d86443fb8461dcafc818e98514cf63",
+      "string:open_directory": "5aceed6d6219ccce872c1d4ce755a1f1453a3ce3015e25de5d917155b05df81f",
+      "string:open_file": "85617e20ea4b8f6a91c33a3e60112690a18b54f23a6f377731fcdc4c043554ef",
+      "string:opengl_version": "f111fc247c812f9a9515713210f67c96aaaf177b91e6ea94d5c658154040e8ad",
+      "string:options": "3ebb24cc5c97a2025c37e0c818afc6900e70453f42b13fa5c9941b26c27f9742",
+      "string:orientation": "d315ba4f8ed362bca794e1032a580e026afbcb6a6edbdbc27ac51b5a6dfc54a2",
+      "string:overlay_opacity": "668128ecd209278cfdbb4f0934ed07f8ec1cba8fc7f0f75fedeb19ad68851438",
+      "string:performance": "2df5c4085c213aeae3d925d0497ea7c26d03bb074fa1a92a3da47611b41ef8f8",
+      "string:performance_mode": "8122f79938c9817e225cd421fff62e56c7b3ba303a18ca112b4c9ce5bbcc4418",
+      "string:pip_mode": "7ea498875edaeb2b2fae022921dafd242179442d57c448050ef76aeb88d9122d",
+      "string:player": "9bf7768c0302ca7826ce732718ca7dfd658dddc6672974d50ecd7dbbb8ca7384",
+      "string:power_saving": "472480a1dc080afb3cffb5cfcf4693fe735e16ff0e15a0808aa3bb39b4e86d12",
+      "string:preparing_installation": "a6bfac44a279063b5142805d0273554ae2eeb5ecaa258bba87eee59847cadfd0",
+      "string:present_mode": "a9c90b3c8b8894c870fed1cd7ac18d16d7f1984130c0bd36c300973ab6536a61",
+      "string:preset": "1f5ea4010eeb9b70d36e85de48449ef453491914d1a9f60915899b2cf183f15d",
+      "string:press_any_button_on_your_controller": "515c432126928506031ddbd14bf6f1822a092d286f71c02d83b5bc75b4a9a3f9",
+      "string:process_name": "f8711e977613758e3a5b8811b659ccf05b446389c3a9881670859a57f7e4aac4",
+      "string:processes": "722095657606f986abcee20af0ce3e5975457ba8aeb9f754718bede735f41ea6",
+      "string:processor_affinity": "62a2a51a1fe78c0b01cb6dc0db11b5e100d0990c8b83758b668aa9ed98c94a63",
+      "string:processor_affinity_32_bit_apps": "e49bb052a300955e42baaee3fb9ca74619fe28629eba3dbce69f19e67710a8e6",
+      "string:profile": "0c5caf8ad6e4546405c0614c5075f83ebf0a95ae8112355062350b2da5479cd9",
+      "string:profile_exported_to": "284146aa76a26f4b960247a799e6f18a916b908f6a42a05cd2a2511b971ce13c",
+      "string:profile_name": "b295ca6bedd04a2041d402880d804fc88b69ee8b5f67f2c1f95c0e95ede5c0cd",
+      "string:range": "cb8bbbc97c644bad96c04b80dfaa2f44101e8e8adce55f0b906a1cb14e0aa989",
+      "string:reinstall_system_files": "cdaaad7c3f464e41bbd0c1aa8968abe859512fbc0638a3d5671027dbf14347ef",
+      "string:relative_mouse_movement": "5934943e85fe75396cd1aa33e0a566ef6c62ea82f1e5e90d6ad39f3edbe7eac6",
+      "string:remove": "a43df6da4998bd51d45d72ce9f9db96ced80fa23eaaf0510de49c5628af61b1f",
+      "string:removing_container": "68e48aba73eb716668dfea910d8af4672c53ac4a44866096281c051cb4eebdab",
+      "string:removing_files": "28a3cd3355cd687c9ee5995a29b5b65453238498ca41bcb6b3cea8a8b37dae05",
+      "string:removing_wine": "06a0402b530802bbca27026a9033101e8682f47864f8a16e70016448e094e7e3",
+      "string:rename": "ac501047e637f9479944a07310e9dd863c7e7d69dc4115993d435654d16f37bb",
+      "string:renderer": "fb6aa3463289d270b18edc876a92ef238b98bca2b088230bb3688ab19a8fd26d",
+      "string:reset": "aa94a75acb31f56c072042b02abf6b467418682f987661520ebfeb3a1a4cf9f6",
+      "string:resource_memory_type": "221d5a9a69ff72fa43b447bdabff92bf472e3418351074f9dd9769dcca917faf",
+      "string:run": "be081fdc29f1b2b89641196bdc0aa94586f31ea187f7e0a89675f1c975195f90",
+      "string:save_logs_to_file": "59039f665b5c56997800e1fdcc7acc570358ab546c14af9372e5d7a973706ea5",
+      "string:save_mem_on_run_from_steam": "157faa5cee9801ce98d16c3bdb5b86f164dea41a35c309947286579a65b1a534",
+      "string:scale": "932c60a18b3d464b6171211010f3ea47fcb30e9cc7ba16f1c27acef5979a32a9",
+      "string:screen_effect": "c98765f9c2c368fc2a8891664d711c0f0406db86de83f6338093eb709c6b9f3f",
+      "string:screen_size": "fd92436977aec67bce7c25b58880b98dc60296ca067acaa4639a5dffbdcacc16",
+      "string:select_profile": "c70804141bc91623d21685aa7382a43228348579abb505bc7ed32955cc578fbc",
+      "string:settings": "a50021496f0903dcdab53557a61267efdd647be04e96f18ba2431290c534aa6c",
+      "string:shape": "55a98183398a1144b425fcacf2c67937ac6420433e316f5d57635d22e0373a24",
+      "string:shortcuts": "aea9584e27acf3ee79e06c76185cb14456f298542ba03fd82567d50f5b752535",
+      "string:show_desktop": "8aff45dedd0a45b5c40655ff2973e3fb3b264f6f16c74a5f258218800784c6f2",
+      "string:show_touchscreen_controls": "2dad01247bab632946305421478ff856b2f03daaad17c22a0d2f7dc7b7847276",
+      "string:simple_fps": "5c3e60d1f5de864ea56fe4f7291f21b6f7fa13b20fec42cc91779af93390acc4",
+      "string:size": "6458aa174c43901c55febbfc11b9acd44507b95caa22870f9c817804711126a3",
+      "string:solid_color": "6fc25fd4a07c7157286f552f8d7fe245199b4d1a132fbc14524b1852d65619d2",
+      "string:sound": "61a3790b8902dc9ad9ee2210ac3f8a02b6b23174c3cc5cb147704fc6201cfa53",
+      "string:stability": "eb68cbe51ac0c78059eb7f6624d7b6d2ca66c866bcdc78969fe2f8d4d1ff4aab",
+      "string:starting_up": "56594cc20568289bf418dd505372511117f52f2a4c65af0aca13d8832301ed54",
+      "string:startup_selection": "2f00b7ba585d2915bef3108ecaeaea7154203a6cdb4927771695632a76c2d058",
+      "string:startup_selection_aggressive": "496cbef7e31ae523b6cd3143d92e178ca99485e127adf4932ac76a8497ad6ffc",
+      "string:startup_selection_essential": "095e7bd74d23d13a9ba45dc87b98b9a4074289395b3b32850d4899ffb9c8839d",
+      "string:startup_selection_normal": "dc41de80c9013ba94cd59448981551ccdb7d3737db47f640d41c52e6b2d8157b",
+      "string:storage_info": "2acbc5ec35fb4e35da054953ffb7106ee21e60cc1a0c93e63bc8098ea90aab95",
+      "string:system": "60eaf8fde17f636f8026ef80a36f7c165051396cd44d3cec7e3cf53e819ce960",
+      "string:system_font": "48d0da90f39429e4c2e66f517d27f7124550b7547aac27df8322dd2eab1e0d4d",
+      "string:target_path": "c2cb243f67b345011d6ef8b67e9af9cf76261ef9a5225909b6bd6ddf56d2b633",
+      "string:task_manager": "30a419abada5e043b26a7e838bb94a7efc9c0da0b46d8f084b090c79403aea9b",
+      "string:the_settings_have_been_changed_do_you_want_to_restart_the_app": "18f67c8706718689de64fe2703bb7313b0ec38c2261ed14eaf52dd35f0fc1173",
+      "string:theme": "e9a44f5c5b88b126c8de472339eebc5113b6ae7c0d68db4867092aad9631be48",
+      "string:there_already_file_with_that_name": "2f3c6615d570e4ee935b656c03d9a9f6280812d33e3357d84355fc10febb8005",
+      "string:there_are_no_items_to_download": "dde441d612bf3af53be03271c8732df2188e48308674b9ebf4e35e26fad01f76",
+      "string:toggle_fullscreen": "46423ba44b09518412efae3e9f653321a88ec207d19bb67b52f641326f29349c",
+      "string:toggle_switch": "713444ca8ed9d7986196aead00783d66bb13e721d405e530f4c84fab6c1e8909",
+      "string:total": "f501a002763533fb845b3061fe7aab28ad0e3169acd7a55a79ce70ac46dfcdda",
+      "string:touchpad_help": "49404c6d7ae1a3c6a81a73a74cf618c0c15897fab434d100937d564fc5f19fc8",
+      "string:touchpad_help_main_menu_description": "326bc3c96a74866c3f40158ca1204e2b52eb903a504f8ac52f5b08393210c3e4",
+      "string:touchpad_help_main_menu_title": "3cde4a5495477b6b5f6db7e25fcfdc4922f3b9bdddea33a52a7969d7e1d4e94c",
+      "string:touchpad_help_mouse_left_click_description": "45744a84e0fe097428ebb87bb8c860a9e6687129f0dca00813ff4b63521a3d51",
+      "string:touchpad_help_mouse_left_click_title": "538abfe7f3bd260c71bdc0390d576bc9ea667eda18bab59fd10a9a9527c706b1",
+      "string:touchpad_help_mouse_right_click_description": "098722914df4f51e65154bdc7edc1d5a2e5a360fa38940235b9c331987f6f7c2",
+      "string:touchpad_help_mouse_right_click_title": "788f3d561c005b9e37e514a68ca8fc3060664dd8175598a504a4af02933890ec",
+      "string:touchpad_help_mouse_scroll_wheel_description": "f763be9210a766a147685da277de5f33eb257f5a5948c7125d4ff4734eeb33bd",
+      "string:touchpad_help_mouse_scroll_wheel_title": "b800eb2b54dc6ee77e5c1536ce5dc40acd1d25ff66c12d6a84702c81a50c380a",
+      "string:trace": "93a11c271305e60d920da149295e4f8edfbb563fd621e84af1b34429e5edc387",
+      "string:type": "49d5c29f6b36d49c9311612f10f50014b2509ae8329a167453167f552b3fa378",
+      "string:unable_to_download_file": "c8cd944b62537360d78c96a2b6741979505edf51adbd2e4f9511dfcbfcd402d2",
+      "string:unable_to_import_profile": "912fab8cd6170ab66ca68fe543753f1c8141fa528a61cb5d9b66014de76c2f81",
+      "string:unable_to_install_system_files": "0d8865729c91f7b5f9449940e8cee5d1e2173c9552091e5ca0b7071da2766194",
+      "string:unable_to_install_wine": "11bfd2313cb14800c3d99ec860d663d95f555408ff55714f5970ea31212e7c24",
+      "string:unable_to_remove_this_wine_version": "b691c94c200dfd59102afcbb51073704deaf2a819ef2cd55ba78237a81007eb8",
+      "string:untitled": "84ff26a4bdb08abeae7078a3057604775cb08333035f1a4d1752b10b8194911a",
+      "string:updating_system_files": "0a60cf85beac60383b8e97b3bd6e2c2dc6f14fac221b3e56891acea01666f730",
+      "string:use_android_clipboard_on_Wine": "6ba7c818daeab953457cca47cdb2e7f88a108a09c4adfea2734a17dff3aad3de",
+      "string:value": "8f80d0a1634b3c58812b4ba86eef8c9d9c482ed1543a29dec144d6ccaecfbe44",
+      "string:version": "23af07e6c07d71764ef15699f19736224ff193c190e9b58543e302bc2228e7cb",
+      "string:vertical": "a18cbd8b165e25e8150fb311260601a83091205eb7a20b681855c06cf3c27df5",
+      "string:video_memory_size": "7bb939bbf7d69c5c2444c118ea8bb9a55ad67680207afc9d2eca6e17507459e7",
+      "string:view_style": "3fd87425c7d844f77222c4f4abb183aec9e421022bf18c3385ec8ffdc29bfcf0",
+      "string:voltage": "e8821c3bbe728c5aaa8a96c6c3a8b3cfe73f8486e4a03089ef375b518976d487",
+      "string:volume": "14c955392ad28a88931b25ec1cece758a3c0c85573931d659fbd4ce4de16e78e",
+      "string:vulkan_version": "73846807114311ca9b3f85ef300df85b7f2f3af84c094508ca6b863af86b1ed7",
+      "string:width": "cc069fa1b8d4c1b32e3f604edc7eb92db1c8ea91920da1627303cde994731755",
+      "string:windows_version": "edeb59ea2914c730e08e7fb86e043ea488ec87cfe6946af9c3ed0e40838f1b73",
+      "string:wine_configuration": "23ede6b912b8c373a576b45815d10c77080972c9b764e041e8b5f4c7ce0bea1b",
+      "string:wine_debug_channel": "0cbdac8966f84cb31fdfdd501e7054c0548a47e7e6bc59ee027b5c2e410fdf61",
+      "string:wine_version": "e3339de3baf6733e9e2145e8f3a661600cd18a2259d8ad7a62e2399b551f9899",
+      "string:you_cannot_paste_files_here": "2c8c3b43c7625242e01c961365d47bdcec432b5868a8335869504a0cd05b12d3",
+      "string:you_cannot_remove_this_component_version": "259513fbde233130c386e6485522f252b52485738a20e434655964df20774a15",
+      "string:you_cannot_remove_this_preset": "fa10863e476b3f2faa48b96990e5606f5aedaf4d59ac1de46e6402c8c67fa8e0",
+      "string:zero_no_limit": "b29a0e9400851508bbcdc658d6adf7ea645c75f9aa8baf74073428a403770652"
+    },
+    "sha256": "6c4609ccb083a3603ceea7a61cc4e69acd0dfd05e03ff61888d90dcd13a12784"
+  },
+  "values-v27/styles.xml": {
+    "entries": {
+      "style:AppThemeFullscreenDark": "8e9f7df41b342b2b49ef916e2f0e1f0b29eda48ee2940bff2bca351dc08cfc2b",
+      "style:AppThemeFullscreenLight": "905d795ff2e209ea3a3ce76feaab8bc8bf0a84bd4704e480ac58af0e920fde8f"
+    },
+    "sha256": "8683c2194374d0abf75d4c87c7c64be0e6d8be755caf98fbe52b42f0ecb99b1f"
+  },
+  "values/arrays.xml": {
+    "entries": {
+      "string-array:audio_driver_entries": "0c0e65aeb06768f76d06c56141150e6a7c640ea7fda58c590843171bfc95c430",
+      "string-array:audio_performance_mode_entries": "6a56b0b601829ea9478ccedbf8b2edddac9ee1c2d07f4f87095cd8d2519ec793",
+      "string-array:binding_type_entries": "5324dfee99e351a9671f6693a5079f5d292bcfaab69556d32547fa78a2021c02",
+      "string-array:box64_logs": "d122c44fc7b6c774bfc968d59ddbdedabfe96e69bca0adcc313b25c415bee30a",
+      "string-array:d3d_feature_level_entries": "42dce6fbeb45a731b4609bce28d53b95ed158296bb0b346efb94d876c037de71",
+      "string-array:ddraw_wrapper_entries": "677707fe2ee67e780f598415905f362a2cb6b7537a70045157a7f6382df88162",
+      "string-array:desktop_background_type_entries": "79402cbc61978a08224d0e5ca0e71abd7893249cf830f215c3ae6b0773ad30c1",
+      "string-array:dinput_mapper_type_entries": "c8ca31ef3f90d3bc9c4723809eed8d782f537ccec4df9dabcd7f8201a2d3bf7f",
+      "string-array:dxvk_framerate_entries": "4f1987045c6d9365bc483cd11918586eecfc7b7484dd7d08ccd1cb04167c84fa",
+      "string-array:hud_mode_entries": "466aaaa170d2b1a7eb27bb97d1e2e9825f414e8d24b2ce0e68454e29e1a19e44",
+      "string-array:image_cache_size_entries": "7c4a6682f303de8fdeb88bd433bc121763d282f0c548cb44b2d666fe4f3a0d6a",
+      "string-array:language_entries": "a8efd632a34fbd4b8988b1541cbe7d85cc2841f664cc44f5f2bfb80e2ae0755e",
+      "string-array:max_device_memory_entries": "833c55ce2fd7c852f39baa868ebb17032d8e90e2521370250eeeb9cf8e297cb3",
+      "string-array:midi_channel_entries": "cb953e3b3a2cc18af0c45de95323c738154e807ce84d8c0ba87c58498d0849ec",
+      "string-array:opengl_version_entries": "c1c64e78e26749ad5b9a7581c0e3e35626469535aaf871ed950fb595463d9400",
+      "string-array:present_mode_entries": "94e2520afb5be1d9c80f6ac44d9d17f98d82ea11fbde857474cb34458561ee5f",
+      "string-array:resource_memory_type_entries": "3925e685a5ccc35ee09d2333d823b661f9a67b365df9b426298d32ce2d2a2f39",
+      "string-array:screen_size_entries": "24bcfd307230fe5ef0345977ac6e737a265bdc26744194c1ec71e40ff57444bf",
+      "string-array:startup_selection_entries": "d373060065f66f461b1a4af2221aef0aa447475ad1e1875765735d55b79c759e",
+      "string-array:system_font_entries": "2c6561b1a75d041fc7e88f2c8fda425f93fe090a4d91b2b9d140d23d474227a9",
+      "string-array:video_memory_size_entries": "ba01fc447c7fcc970585de03df05bf5c7767386c95933f679fad2f57d0aefb93",
+      "string-array:vk_version_entries": "f0ad9007438791b7b03660ce804612de5d4f5772640f8ca8c687db5ec06ce3e4",
+      "string-array:wincomponent_entries": "e112b365697265fc58079aa37b92824476efbbefd92326d4b5d3a13d8f424c91",
+      "string-array:wined3d_renderer_entries": "b4da95a576997ffe81f8f2854317589ca9a51a4afa2fd90907f3497831ec04fc"
+    },
+    "sha256": "5cb49b741cf8254aeafc1a65cc7a4161cd331494acba05f7ea5baa907b006723"
+  },
+  "values/attrs.xml": {
+    "entries": {
+      "attr:colorPrimaryText": "1d4c80ea6caa0d35b51a0790ad41885ed4e00a05a01cd2c204e1fed764721514",
+      "attr:colorSecondarySurface": "05ee8d6435f957b1ad1091559afb6a46bf613365c1d8159d1fe788f6e25ad815",
+      "attr:colorSecondaryText": "d330dd8fd56b092912bb6ced8ce8657a291cad9859358d803f84dcc267b91290",
+      "attr:maxValue": "3c9f781996f9f190eaebbc1bb50d52e83302b00fe93d53f198f70aca5419942b",
+      "attr:minValue": "b6a501771b65efce1667e1a8cabc051b6f730e99c0341be27e2d7ffffcd100f4",
+      "attr:preloaderBackground": "aca58829004e2a9eb44b6dbdd85ae6b5219a2a37c29b6a68bb0d50ed4ee8b161",
+      "attr:progressBarIndeterminateImage": "0254001b99e7260c9737c4003899965f4e579fc31e28dccc2f421a864e08f432",
+      "attr:step": "138a72734cacbd424b9df008c25283b1b66976d9e58d7b2881cd69e866f500b0",
+      "attr:textSize": "71b52d780697eb3aadabeb7e20f8479efe447c4aecc981aa7aef7208c0db6ddf",
+      "attr:toolboxBackground": "244be362a7ef3a3944e9c4502f480e5ba65d0ed42be678a25de20020a0df929b",
+      "attr:value": "8452ba0f29eaf3f2c9aab1714806ab9a64431234f6dbfc5a4c06e24f7c8c1498",
+      "declare-styleable:NumberPicker": "bde444bd830737d095b473349dc4ba76521ed1fee4b4bd22a5ad65d8de128899",
+      "declare-styleable:SeekBar": "d7ace235321c4dee33cc4a80a30494bd70a7061d64b08e5d5cfd5eddd244dfdb"
+    },
+    "sha256": "df9b29504267c8ed49dd7fef7ac25ed3b34d39e731dac9e6fe730c7b3948b110"
+  },
+  "values/colors.xml": {
+    "entries": {
+      "color:runtime_text_primary_dark": "b097bf1ba7eacc85530adb8aa5322e1aefed1ff12a0f9cd17d5fd9c60c248d2c",
+      "color:runtime_text_primary_light": "115c68ac4ffdf2511025f4a0cb98f6cbc3dd8b9954058ce155066131b433fb35",
+      "color:runtime_text_secondary_dark": "4bc6243fc8e8e180244c288007e7f2d788693df6fffc577aa6b3bbdf44c96ebd",
+      "color:runtime_text_secondary_light": "bc0c1851a0bfe2d4169d2765e1b9f76c50f21fb5a75741e71688bd94653aa5b6"
+    },
+    "sha256": "a0fda848867e87b3d61fbdebd01791d989e9f5407fe7063674c2c64cad908eaa"
+  },
+  "values/ic_launcher_background.xml": {
+    "entries": {
+      "color:ic_launcher_background": "78f29c76498587077f8b3a589de0605ba72d6988bae1af9eac21a5cbc2f5082e"
+    },
+    "sha256": "cd40bafe618ff506f4088778b135cb4faa15f25e0c9b475e22d730c74b7be115"
+  },
+  "values/strings.xml": {
+    "entries": {
+      "string:_new": "fa4fd3cedd8c4d279779fbbe56bcb54b5a6c7c9d40b331a2059a90d9a149bff3",
+      "string:a_network_error_occurred": "60944a72878b57bc498197a040a5b97352d08981d5766dd4664c3b2ae21cd1c4",
+      "string:about": "701f7932c0db44f9d0812b6623a7639f004dfa0015054678ecbf49a6acbd86f5",
+      "string:active_windows": "c0dc70d588c461e0c47f045fc46ca6dcac967f6d37383ef8593a331732704f5e",
+      "string:add": "f4714b38271e3383ceeb04540bd5fd0d053dc2b4c5bdfe6ff17990c02d2da1f3",
+      "string:add_to_favorites": "f49cdf90394c2e9bb97257a19f0eb407dfd084e187e119d6a2233b2d73e39db1",
+      "string:adrenotools_driver": "fb233e202c7cd4730ea334d85fb7c2f49ed4a2075a74acc046e9e308e38df425",
+      "string:advanced": "58ab78af13958d69458946f69db68e3db390115e8250aadbae0756f593046f91",
+      "string:app_name": "c077d4741604f67d7bc120fff60bc10b0108729a985b87d032552eaa36ffd73c",
+      "string:audio": "4d4dc7409b59d86fe5a945c979e7d6389883eb246892bf17b0cec5ca129cbf05",
+      "string:audio_driver": "b3552985a75d419862ad6c874754bd89d26ca5a7fa0f18476aad5888e9475296",
+      "string:aura_fexcore_version": "d17320116584761702c4e7abb47f5c0c19ad10154b23125da6ea1b08274f284c",
+      "string:auto": "72df7c8ce92984973eda47cbc770da6baee62c0e2fd79408226fca1f3c0ada6a",
+      "string:average_latency": "0fa2a4ae179d7fd78976feedbf3402403e3dafec87b21f52ab85addde5f5bff3",
+      "string:background": "ab46569a0ea4f48d4bcd378e87f365b1133307eb871c10245e45790273ac07f4",
+      "string:battery": "76721eaec9d314e9b9b170201712b9858d3bd005021c3a0ed95ec026bc5f8b62",
+      "string:binding": "0ffe7300dcd102e40b6db50b1b7b799cc08d8c3090f3e29564fdc13c29155ff6",
+      "string:binding_down": "edaab511577adb97050e7d181435903c78b440e1a067acbc0c93bc4930c26785",
+      "string:binding_left": "409f2a0232e6b5c0da2144ee8aa80c38689fca5b2acd2132e6c919d200d5fa7e",
+      "string:binding_right": "1cd37b52dbf640fa91afc3cd012561d27a2a3b85f4b25cdedce06abf93c218d5",
+      "string:binding_up": "dc59875f9d0ceb5d3222365e886352044341a11664e089393f1db920bfe149d5",
+      "string:bindings": "eedec284aba7fcc01c3b45b8cd56d6abe47ef4e79332d8cd645cca0b85aa7cce",
+      "string:both": "1fc0e0e7237619043e60b53d516815c32f6f096a2284212bc0bb59878355dbb3",
+      "string:box64": "767972075f3a145cca470eb767689a5da7bfb01c5747cc7ba0d1e9821f2707fd",
+      "string:box64_env_var_help__dynarec_bigblock": "f75df9c8da9ed294f7978dbe37d3cb47223ad6b8957de7fb899e8310ec08d650",
+      "string:box64_env_var_help__dynarec_callret": "151f42cf8ff698bb785d7c3b016b0428352d90cc7447737212f5c4a6fa23acd3",
+      "string:box64_env_var_help__dynarec_fastnan": "e689257436e5ea150f148f2e2edd686a17522dbaf2c9579521cc88debfbaaa32",
+      "string:box64_env_var_help__dynarec_fastround": "1ed708d800da3d5acb556f5964aed20762ed2647375fd27f0ee3bd0255e65d50",
+      "string:box64_env_var_help__dynarec_forward": "b80f523cb7d12182f4365ee7b590c7384b15fae852e495666a238d2d6a9079bc",
+      "string:box64_env_var_help__dynarec_nativeflags": "9ce032857c5011dc1c67092c5fb49955fb8de96b09a58e341ae2025f48e32b18",
+      "string:box64_env_var_help__dynarec_safeflags": "99d694ae68f9556661d0b0d987cd42778b80cc72838690202821b65a454cd2e8",
+      "string:box64_env_var_help__dynarec_strongmem": "83e6a4b2a80dbaa1bf041ed4daa801efadfe0d0f5ff9dc957a8f4f5565ab651a",
+      "string:box64_env_var_help__dynarec_wait": "17983d2a72495efa388f312d2f1ffd5a31a375cacae016b1f28a30f739b3bc0a",
+      "string:box64_env_var_help__dynarec_weakbarrier": "22718ba3123266ea53da864ac6de6c3b5af3a9d2a63aef7a0be488deb60d0406",
+      "string:box64_env_var_help__dynarec_x87double": "80a521fa3ae375fe4e7ce8a6c37dfadef0b4c6b50133c0f7d8b4a8654be63133",
+      "string:box64_logs": "88612111226fc173b0b995c63241404c356975a7ee20da3956092a9da79e7f32",
+      "string:box64_preset": "048fed38d64941568e2dd17731f9dd3c4415dca2f4b6c0846244641c66bce053",
+      "string:box64_version": "868f053e263d3b212aa74ab3e5e60292b20e18dae651cc784f090280511af1cf",
+      "string:brightness": "c2c4b9727c38daf5cc1b4c843523df4ef286dc6b2586d2a709207f5230238997",
+      "string:bring_to_front": "e66f8699b36b8ccdf69c6da9cf39700c28873d91468506e7a787f609f2df1a02",
+      "string:browse": "7462d7a937224d49beb8e3e4ba85ed3c51887f488bd04edd7c22183a68ff762f",
+      "string:builtin_wine": "fa27eec59139e9572a176f5ef041549be1045cd77229deede02e6a2c73707756",
+      "string:cache": "b3dc996de452aa50b5d58c670cb426e86cc8e0e7a8a501fb366ade3f59bd482f",
+      "string:cancel": "24d752ec8f59a998bfefe8dc83b284f3a45252d233ac586768fda1fa23c4c12c",
+      "string:capacity": "34e88d19ad8c43a53d68f7d051fb09b8de7d211d55486b20316fd152549c746f",
+      "string:capture_pointer_on_external_mouse": "234a08a73e33ecc15eda1b1a92ddeac6226ceac733ffbf8e43a1ab2317cec2b5",
+      "string:channel": "6ae7b374db07192e7fb422afb4ca18fd010fb2e3c1615d3c2fab818bf8acddf7",
+      "string:clear_cache": "328bf947f771d5f460d6bb106bdbf80a40cfd9130c803055b1a30168727b5246",
+      "string:color": "7143163390fde6659f03e78cb34a4be0f6ad5fed359ea418ab8adb0482f749c8",
+      "string:color_adjustment": "c1f6a9a95bf612aedc96872ba375633ce8a2c40bc9b360aee8edf19df90c110c",
+      "string:columns": "287829274503a668b6efe34f0f2245b057ad989d6a18586bff78c903f62737c6",
+      "string:configuration": "d24fef085b9ab7a9c2ffa11aaefd18ed6c0665d38689dd9590d2cd8973148386",
+      "string:conservative": "02cec3403f6bc7e3228da18511618ee1448569a80ba27fd1193261ac86000381",
+      "string:container": "04104261fe701a1e07c981111c4fb3f073b4b58e87fa0d6aa135e4fab8016cbd",
+      "string:containers": "bdf839ba0e2fee072e5fd2afa829a3b8ac291d2daa16a74e034f143d1a3356d8",
+      "string:contains": "beec1ca400fb051a22a8e7ab79bcff1c3666e8c3052812f8c27a5d5bfacc9995",
+      "string:contrast": "66537d1f504e649607861d37a8816e9a2cbd7f78456c473cab443ef5385b3835",
+      "string:controls_editor": "62e087b8675cd6483d7aaa954d1421195e9f78e05c9279e64b58a967cfde1d4f",
+      "string:controls_profile": "4640e8070e5602024c94f039d4b0386f6efbcfdfc24ddc223fc29ebead176853",
+      "string:copy": "5c2bce41faed199d60c8c969fbb8e72bd1e53202714188811e9b9bde49f5760a",
+      "string:copying_files": "61d9f706d15a56ce46721961caeaf5f1ce6c59cd1dee52819ea5bdb58fe9b834",
+      "string:creating_container": "01efa5ac428da79594aaef12ecc6482deb0ccc128c1086d2195477edaf63d9c1",
+      "string:credits_and_third_party_apps": "f3ff7e5ef1189764344d082457ff7f557ea0754fe669b34db68530c5b6d9e0b0",
+      "string:current": "e2a66d93ae447d8f2ed4b7b0e0d22028f4feebfae61a6b0f095d22fba8b0e9e3",
+      "string:cursor_size": "de5bc89e335f86dcc3ba21cf92875a14621d67b113225e53ee4003f79f7ddee8",
+      "string:cursor_speed": "5ea7987d50319294bb8bd4321a4e265e1f3aebf93450383afd488a064486945a",
+      "string:custom": "653b6e7a2b5a7906817fa98d8fa24e42e3be696f25a04386b43b4232e1643bd2",
+      "string:custom_device": "30522b32fc0ae5195b3c40c56ff2b37482581648f53fbc9e0d70bbc31fd444ff",
+      "string:custom_text": "19bcd5ee917ee4bc73ed14c7dec8f2132ac42fe9110bdfb43aa83e64b9f82230",
+      "string:cut": "ee35ab498fe3160ce2a272c9717374a36bc1fe6815250715ad7d22d86136f266",
+      "string:d3d_feature_level": "2b4357d2c79e6218153d7bf0f8fdddd3513bcde15b7e2abd27cd24801d3cf77d",
+      "string:dark": "02e9ad8058e1b39047b5b30589bcbde9555f9845d66fcf8d44640a9ca73b0ffa",
+      "string:ddraw_wrapper": "6347c784b69c470f9ec258368bd3bd1c07f2309456bca46b1e06cd6323b9daa3",
+      "string:default_no_override": "9854299f66228307619c3a0a0b6aa2c23de579bd23ee3bd39a79999cdd07e6b6",
+      "string:desktop": "5bd67f93577a1d620b99fd7f47aafacfafaa0f8acc534633b8352c28077c3bef",
+      "string:direct3d": "d0bdb169bbbeedb5d2c0c206f8dc0e4305e083cd25e242fa951f63913c4a964e",
+      "string:directinput": "33e20b48af1346a58758eb05086d0eb3c152c55d9571fcdd5c18095f6caf0d6b",
+      "string:directinput_mapper_type": "e46875ea4b48ad6b4be9e017890aae943ed27746568f423ab2b62c756335d9b3",
+      "string:directmusic": "b47ed657b0160ea6183e8db03859d8860a1f23e57ed373a354120e5972b92ae8",
+      "string:directplay": "4393ecb6aa3b18b73f5940f87c8ce7c4e0b3d3cc6b441dd07f79a6e9dbc6a808",
+      "string:directshow": "07c4c9f0a6e2281b33125cce765313827eaa453e4c5f42ff1bc5367603f7fde3",
+      "string:directsound": "9377a2a6a30497c8e0e2a26c62dc3cdc2f1c5aa321ed7a28846eda406dc901eb",
+      "string:directx": "948b72ceb5592f417a74139ac5308f6bb60bdcd43aac94c1566da417a9769909",
+      "string:disable": "de08d86d932c6ea42aa6fbf2b3952447a9bb18208026091d78b3f44d3362721c",
+      "string:disable_mouse_input": "ef6f16672ebe64ae47467d2ea7c59397e790a97f0f7b9380d7d797a6c2e6a9e9",
+      "string:disable_vertex_array_bgra": "d3976c1f4dc50dbb09c3fdc44a32576155e2c4d5637694e20cf1ab2ef2ed8a05",
+      "string:disabled": "d030c0627e9b6ab68ab53db2e1193c18d1ffe9ec985f01cf443ba938063f0c6e",
+      "string:do_you_want_to_download_the_selected_profiles": "c8350c6ef047c736d72032fe5a77ea97738736bf725487a28f74609e994e8c91",
+      "string:do_you_want_to_duplicate_this_container": "614cf9cf6c0c833c8e8043d240c6521d57e18f672f2759e8239ca25f5421976d",
+      "string:do_you_want_to_duplicate_this_preset": "482299fdbbd625f04fd7d1e65c2b887bf620586d18f46e2e8c9910e0e65b1bc3",
+      "string:do_you_want_to_duplicate_this_profile": "e2994f6ee1d9e865667f109995209badd97709f728600cbbc0ffc1eaf485942b",
+      "string:do_you_want_to_end_this_process": "f935b07d071fb39276eba47fbcb7299b077e9420ed18f4d6f71c1ffac0ef1008",
+      "string:do_you_want_to_reinstall_system_files": "c646ecb496551a1db14fb672eed67dd40bb16cfa4abdacaaac082c8d86c459b6",
+      "string:do_you_want_to_remove_this_component_version": "c1616bdfd1dc8bb0ad660475f18889ca9a86b3d255de60f761318afeb4acd335",
+      "string:do_you_want_to_remove_this_container": "896989a19c09e2c048b5380d29f0a43b62f369646ee30f176e24d525849e0d66",
+      "string:do_you_want_to_remove_this_controller": "25036b8128d67ecf1248584e33aedbbf94ad64645de154a0cd03519293034dda",
+      "string:do_you_want_to_remove_this_file": "f46e66e80c5f678a8783362de16deec1323009b61f340e3b82ff2f875618ad88",
+      "string:do_you_want_to_remove_this_preset": "3b8dec46b6180ffc94c56320b2957169d2edd53a7071c62e3da553f12718a7ef",
+      "string:do_you_want_to_remove_this_profile": "c8ecd8575683673385a1197f1324124bf9b621b126992beafff5695dc00b7735",
+      "string:do_you_want_to_remove_this_wine_version": "ca1b3aec8e9c9bc66a392609adcea0452a6a45ea47e3f3e0553323ceccc010c8",
+      "string:do_you_want_to_reset_configurations": "b05b85ba5eeaf4f7a0552d8aa1276389f5a8f83946a5f52056608043dfbdc7bd",
+      "string:documents": "37097cacdc284b3216511ccf32e0e15df37bd13f71e8204ff482c7400a8fd1dd",
+      "string:download_file": "b6990ee0738b8e67c47fe298355973698b016eace98896ef3e026b0ffdd58c10",
+      "string:downloading_file": "2b77a0650bb83713236d93afa0e5f736f55fa08511086098e0d5923c55187c6d",
+      "string:downloads": "c80f04aa706b5e18a1b51c997df94f75234cb9a71800c482a3f5092e96774410",
+      "string:dpi_font_size": "6362fcaad44d8a597dd8a7067c8f544cb719ebf3c591c78be7cd1a801a9f27b4",
+      "string:drive": "fcb5ea469154c3197848d6aed455703264ebfd768db5cf1a7205df8cd272da83",
+      "string:drive_c": "e59fac570dd3d8b01d169772fb7a81f4cec68b18b752806017b910d3f971633e",
+      "string:drives": "f3dcd37185778737ec8462e6c300b0489f41542be6f34d5c673f7030e21a035d",
+      "string:duplicate": "b25c7f3992679eb9e0d7c5a5b4184991b5a7b2f24bd3026ca91e428b3bfc494f",
+      "string:duplicating_container": "0685f3cebad448ddda80ff3e52c5ea1e5cdc22e7c03ab649fa3904f10d212346",
+      "string:dxwrapper": "b64989e636ae2d4d8b18f8508c1c96dcdc1e8c9865bc36299fdb2a1b3c9db708",
+      "string:dxwrapper_help_content": "cfaaec7523902f770838ea5f4cb3d8fc2724a6cc16541dac75effe5b474e12d0",
+      "string:edit": "75b3a812cedc71d1bcefde15d3bf6388f6f8f7d85f2557c41db516703133394b",
+      "string:edit_container": "eb0afda708bc55f1dbe0f5e3922515344bfdb43fd43be192a75075878e9a22b2",
+      "string:enable": "e1fbef32e1385c577d6ad12f5ee13cb7e3e78272a3f544106768b828cae49aeb",
+      "string:enable_background_protection": "964a181bc8f98a32c651875032d677241dc808983f625809b89d0eb8d2093063",
+      "string:enable_background_protection_tooltip": "289249116c2f64f24de2ee376a7ff7bce246b00ddad6b9433686e1bfe3764b65",
+      "string:enable_background_wakelock": "b967dfe9583dbd922cf3077e700f4cb17b63206e6b39a4146975ade19252a64d",
+      "string:enable_background_wakelock_tooltip": "1b03a0151fdbd0d234bb531906f2d73235cdca2cb8da866fce6036b31568b3f3",
+      "string:enable_crt_shader": "4f96606d12358c0a818fbc5943d69c8321d591c7bb165d9599f276aa14954cf9",
+      "string:enable_csmt": "53b3ff8aa6d984200c802a18913b6124609f57bfd239eefb05b5c636db9f80a8",
+      "string:enable_direct_rendering": "6be241d5fdce4159f6f4606a02421e9c34383c2f75d164a766665d98546e66dc",
+      "string:enable_fxaa": "a7b95f320c81db92689a156789c61ceb986b85e3e853d48dc3d7ea4551a6f961",
+      "string:enable_strict_shader_math": "49a949a862d8c33aaa9c13986272c4c5c4032419a950cac5e50ec9d9b6d701d7",
+      "string:enable_vibration": "b84ff91d1da010b5ff6879636f77594b117baa15c206af54ec2359eacb6e3329",
+      "string:enable_wine_debug": "9b68d40290004835414eff7fed8fc2cab64d60f0ae1b03fa983ce9e08aafccb5",
+      "string:enabled": "804d2272c0d3cd16c79eca80ab086a6f993f3bc057dc44baa1653c980bae9f6a",
+      "string:end_process": "77eedb1b71e1f9e2c210a17293acbbd72a0fa1527aa71ee8ebd7edc41773fb03",
+      "string:environment_variables": "c58ed3ab2a610a962fbfecae581541fcfb7218facf654106f1d22a93966bc106",
+      "string:estimated_used_space": "2f11888efbd9aff327d5e7be0f29b1a823e923e117ed36bc969ef830c7ee9c00",
+      "string:exec_arguments": "87f4aa4b8cadc1c0713697cad305202cf38822b7cbef52550233cef1fde3c3e9",
+      "string:exit": "a86244f797f1f7561672a58a747cb2650f926c5e20ff17cf4c08389ac28c6990",
+      "string:export": "947a7878848e0b863b743f8280bc1f05ef27f81f4901bc517184a964c334d48b",
+      "string:export_profile": "1a59cad4fbc2f264580d9798275f1c318aa4d4a8c2b60c3464e750430370e82a",
+      "string:exposed_extensions": "a10e5023ac0f125d593e5addf4c98ced957713c4c6534431763e84e95be6f9f7",
+      "string:external_controller": "23d1bc5772a0068b3b47044cd8d3cc380010d5a348cb82e620c365457eb1ed8d",
+      "string:external_controllers": "7220bd0e7753c3878327db30834046bf8ff9a2f271249974d717fa3154c7e761",
+      "string:favorites": "dfe48407b2d76003b0864d8d39ff7525564022e93456db9194a7bc8526296430",
+      "string:fgs_notification_channel_desc": "c37566841d65e11c3c688b66c46b5220b97e3e0eb0636fd5cf70c1aa028ed126",
+      "string:fgs_notification_content_container_background": "4a459317d6ef5d2307ca3f594a0b29a85269892414053b0441c854ceedc0e432",
+      "string:fgs_notification_content_container_foreground": "3e56d3375253d25b3c4c0267d553019c89c5036537e07b31e4d8a43d2541bdf4",
+      "string:fgs_notification_content_else": "0a196217e7f309db6320422d591df5283442940872c3c75d443e9505bbbbd4ce",
+      "string:file": "3553acad150adf90ce8edd4deb49d68f4fc263b22f48a6dd1273e4796de5d221",
+      "string:file_added_to_favorites": "9d3998375fc4de2fdaedf4239f9f90abc8276c3218476b3eb653a51c4b9b9be1",
+      "string:file_manager": "55434689c01700df8c4271d4f2b112d5a4675f2eac38fec4c9a5f6e0f8c41551",
+      "string:finishing_installation": "950a361d5012ff646939781cb212c78311675cd1e883610af9bd94a1ca50dceb",
+      "string:folder": "33142f5f2ee3240ed380fdae460058024f3ede52a8fea352a3d6b7710c4a5fbd",
+      "string:force": "4ed93ddd33c7332137c86fcc31f56a1f565610de4aeeefeeecd25a81de01aefe",
+      "string:force_fullscreen": "823ab4f04984c1d7e47f11d7678de9734316aadbad87f8c29282b7bfbaa2f4d7",
+      "string:frame_rate": "3fba83c995017f2840765f513b423bdb2adaacbc700e386202daeb82367028fe",
+      "string:full": "2e89fab8e78299476cd701e482b316603c78d4aaaf21a95851a9682bb44ef3fd",
+      "string:game_controllers": "f7d2d15357a541feef1c89e862716bc77bfc6e64d9c812d652176345bf1176e6",
+      "string:gamepad": "2640667d8d08913c9c20840a0c0847834a8a762ff63123fc6bbf7e5c5e361f9c",
+      "string:gamepad_model": "4e997ea59b487f6894045d1c1b9be5675573be6d22ecb86d5815e59317068c41",
+      "string:gamma": "9a9d9a389ac985e1e89855ff015728cb5193503477bf37a90ad7bee1ff67fa57",
+      "string:general": "491519a66ba2f4000dd8e439edc9fd211392f66e8cfecfe4f5fc7f0a8c770200",
+      "string:gpu_name": "08670226114c010747e21254c781c12731a162c68ccd0a1fc849551f09817e3f",
+      "string:graphics_driver": "be95c523707bd8262662ab6bd11a8e03b5d7d5374ef74692c9455543e068d329",
+      "string:guest_debug_log_fallback": "c9a0afb5e3ced4b928a522673f990281a43e9431e45123cdcba0a54fb9d13ba8",
+      "string:guest_debug_log_open_failed": "6da5b3d3c77cfa36313adaddfae79a26ad32e5fb6d2f9a2388dbedd60a6f91c5",
+      "string:guest_debug_log_path_reset": "f0366a1b67f879ee1d8957bbaf0a644a388d81b16721db5c34d49a344c69d689",
+      "string:guest_debug_log_write_failed": "eff62c9a5925927aebbc5e42893a064782961fbc66facde4cea800fd1456a98a",
+      "string:height": "9511740a2da89be6856afe2b42e7107b383a3919e71866a16fd69548aa7d3728",
+      "string:home": "95e7180cbe98882b2cf3a211315ac93564b8c5f9d885c69da264509894d5c9ab",
+      "string:horizontal": "1a0b974fe7288289c6fcaf91740bdb66d055cd44ef192cdf67190f18f424af63",
+      "string:hud_mode": "152a3ca2eb073c1bb9762a04240ce43604d75cc7b3978b9f15fbe62a2d76dcf3",
+      "string:icon": "79de79a3341698cee8ccc5b849245b824a6271526268d2ec61c92092f50a33b6",
+      "string:image": "001f0d200224516302e04ed7ea7d59626d3eaaece7d90b7df9cb239a27b37c97",
+      "string:image_cache_size": "15af9617c9e52c5e5c9d41ecf00daa28ad563ec13afe01a9e769eb054bec2221",
+      "string:import_profile": "45e025f136fd8607837c56fbacb01c0f285b4d0de341443276634328a37bdeb1",
+      "string:information": "cb3c48080271b8613f134ccb1c27797fabfcd6df930c3ea8a0bc7ad15823ab54",
+      "string:input_controls": "2476839ccc658fc78768d6fc49120d117481668187eb4981a93c33e01aa4fdd0",
+      "string:install_component": "f6e782c7ba2ebce38dc1dcfd480cadfbe76ae286baada5d1f54b2b35a2650b6d",
+      "string:install_wine": "4adb2623e6f157d8d21406e1ee6f686bae69acb934debc71e099322203506ef9",
+      "string:installed_version": "7bd2ec6f8106c1ac321502a026e6b5e8708f8a5349781f311cb1e92d65309a69",
+      "string:installing_system_files": "980d001812355e0709a43ff00fd02de1429ae2970a9cea597ad7b03ad59fa8ec",
+      "string:instrument": "9d714ac0c4dc5cde360e3fd968565659c45cbfb9f658a5ccfe4b10c25ddaed12",
+      "string:intermediate": "ef2ba8a356b770ccdd3778101f9801d8fe2aae25407cf9ac86539d38d09e3294",
+      "string:internal_storage": "05a34ec8c5b7c42c893728414679b3de499b883eb70482a6ba4faa6cf02d9647",
+      "string:items": "2992f797423dbf3b4cfde73b3c1b2ede7e7450656a19d360f9b99db60c370894",
+      "string:keyboard": "8acc4ae5bd52d34bc67c5bb05e0f2afb2c20bd141b87f85e6df33cba323aeb02",
+      "string:language": "5e16bfa23c0144dec495dd813361162efbcf1ba9eefaf059db94a08e10a1cc85",
+      "string:letter": "a99fa19ccb1baf6b0d99e5d8671952e32593892bdf755943d5e6c13af2369e59",
+      "string:light": "c7ff50f20454c75406b0fcf5002631469573ce373f85d638c3c36f3bed6b6411",
+      "string:loading": "fc084b49a282f438d4046955e67c05b4c43c2d18b74e5e216fd4f3e8bc306fb0",
+      "string:location": "49752b11ebf14aaa11b8efea8df3cd81886cfadc4d4c906217ea1b34632343f4",
+      "string:locations": "ebcbdab6df9728faa2fe6c25ed948056b47915270505112e174df292dd09e7d1",
+      "string:logs": "be8c28b7188f02b6886536de7090cbea79325007c5253ec6e38759e141e3130b",
+      "string:logs_exported_to": "a5fd1eb652a9e2516cb60f73b72e10d3090564e1c11c713bd7818a9616939169",
+      "string:low_latency": "18ce9ff1ec9327fb7dcb1aa5a61bc32e09fa2e67ff7dd73ed120e4251e6fb43d",
+      "string:magnifier": "21727c7563865d50ed58406b0a23bbc3d019432cbbd7665eeaee31715ac3913d",
+      "string:max_device_memory": "c8282963ab7a9a885acc8e217fbf60aff816340d12ae2936bf71b436fecb3e25",
+      "string:memory": "c6c871ec796c735f99cd8f9b7e3433fb35b66e76b308d454c4e9e9d326ce900b",
+      "string:midi_input_device": "bf3e33e7a78afe2e883397504608ee5f9d9b39b90a16f40cdd9c58943212a05a",
+      "string:midi_soundfont": "771320b00d37495a4dd4b551a8697f475dba39f2c0a57eff8f3ca95272ad7389",
+      "string:minimal": "53eaab17bf65c8d9483754a5cf307f81db40c2a3304d49945bc741234cdc362f",
+      "string:mode": "ac601882a89cc141b5092393388aa68ca1018aa3abe2589960216a523fe92c5a",
+      "string:modified": "f29717a403077542c0285464c7aeb678a62bb6bcfd604850be3d4f6b4373b684",
+      "string:mouse": "b56e9840b8b46b07de9bbf35f97affda1f329d27ea1e8d8bdb356aff4c84ce64",
+      "string:mouse_warp_override": "944913afd5b964104f0e12620ad9044fa15cccd0348b9bc74f670a3f1e0a41af",
+      "string:move_cursor_to_touchpoint": "3a2be8d2abae434740cbb6ae97f06cc86e8cf03d1c0c0b6ccb9af790a30ffc7b",
+      "string:move_mouse_when_pressed": "bf848a5a6defc2f0ce7c81aad79bd7a638dc082ef3b78d907ee444a9e730aa3f",
+      "string:multiselection_combobox_display_text": "4468261bef84d6c77b0bf90b2b5a54ea8374d748c76cf311586a262c2f08cad0",
+      "string:name": "f2ffbb2518ad61cee99a4ecdf60252f28951e5a8124e6f26488d780aeb072f56",
+      "string:native_resolution": "a1a4c4e16d0b1747b088cee4e13e5e5a83f810b5897f6b008b9510449f9fb4aa",
+      "string:native_windows": "e31186fe79f6285aca293d03efa3ec6d7610a60b4595487f11e6c9115e975402",
+      "string:new_container": "c267e217d1a323c551e12e36da1da4bae6fc95f63c35ed0a34cd71d73eb0b81c",
+      "string:new_environment_variable": "0777bb8197ca43e42e570fc11ebfae2506579c896f6338f8a90ba109b55ee2c6",
+      "string:new_folder": "13ba3cacceb966e2580e541aff644e38a0a4d7d65927316618d469fafed6eafb",
+      "string:new_task": "10961b7d9cf02c8ef1fe1ffb9e510cff4790e74f2bacf43972b1aa88c4690b15",
+      "string:no_control_element_selected": "cc5c711265e5fbcb59ad87189e3ef6bbae67146daa3b08dd7bda764f03242ba4",
+      "string:no_items_to_display": "5c9616026e331b736f0cb839b47b9fdec46fe5a64d220959524b8237f24f224b",
+      "string:no_profile_found": "097333f7b70d426d103a8e641b6ebed976ac9c681ebe093fb13132ab0b556138",
+      "string:no_profile_selected": "acb4cd5029496c96f92a1ca611768b1c02bd07027732c4976f0a2b4067092d6a",
+      "string:none": "9e66860190797cf95696295247e84391b692a311990b899dc998fc03ecb6edd4",
+      "string:note": "0c1379f0ec334dc804366941a1a97863897979d4e11c2d1049512bb7216e1b1e",
+      "string:offscreen_rendering_mode": "4212ea45ca0a492f102ed17f0eea39f01ae77072acb42af965c1b9561344496d",
+      "string:ok": "624de07eb185367d637db24ca7f03efa3dbdd847cec93c96e098c4f20080e710",
+      "string:old": "d4644cadcef97254c981de7088b0c6c0f09ef4894b6c92e2b960f410f57b96bc",
+      "string:opacity": "87e09cd47b59375627a9c8ce5ca390a35e303ad836b1b8bb4049878f9f202068",
+      "string:open_android_browser_from_wine": "05728072afb948e889fd88aa671ec29c2453a5e95502a8d9dd51eb4fa22f840e",
+      "string:open_directory": "c2aba4328f3559fbc65dfcba3abbf1fbad08f95c012667ba19693d4264ab8476",
+      "string:open_file": "918a27955dae728663fffb5a57ca53f41d7a9c0d3dafc05967227069d976c01e",
+      "string:opengl_version": "30b67abc74b78dc7617738c708a8ca3a49b12e7dcb6ad4f10a74ba815f95a4cc",
+      "string:options": "ab947b5a9dda9bee15ee41940d5e0c03366625a13ffadf2b49db6cc96b10b6e6",
+      "string:orientation": "b4ea71a389eb75339fce51c7f1f463113e10a6745e8020492421287e86746d2d",
+      "string:overlay_opacity": "d36f9522e89eb8da76eaaa6b2c5fddbf410518855d80e77ca2193b74a4c5bc70",
+      "string:performance": "fbd91426f797397f627902bb24e3683623fea862d21288b77f5ec1a443c060c7",
+      "string:performance_mode": "9c348b4728ea63b11c72816b3d8b10b201d30445b3bd202d4365e3684fd7d0f9",
+      "string:pid": "2e9cec796b6b8611683f17494a21aece9dfd66b5a8f3d341ac56ae8c431b47d5",
+      "string:pip_mode": "3b1f31fde54e52529d7bb598aa6aea24db2df05ee2229f46771833e1f3383709",
+      "string:player": "3eaf66a90e377a624f8b057d7e6dd887306e1984a6771f70874e2f219d0a5a51",
+      "string:power_saving": "acaba6aa87cf5984f8ad9d71c9d9b531026c1773e81547625ccd10fb7ef7fcd7",
+      "string:preparing_installation": "6a0e3eb06f4b7071ad1be8d8ff55c21b0c9267a240b11872098b6b5aeb13c243",
+      "string:present_mode": "753a99cfd2a084c2e7bbbe265eb867b2c51d38b9884d50fa2c81c2c5f5ff5ed3",
+      "string:preset": "663010ab4f9414417f81761e06b277068e01e6a266ac7ae83e7615e46270c3cb",
+      "string:press_any_button_on_your_controller": "a649e8cdd6e4f9d609d184007396364bacb04bf74a8cd101639e48da819a07d4",
+      "string:process_name": "45db1076f889bcfd894decfca1440b4687ff983f331756f9c52fae2028476bf2",
+      "string:processes": "9506e70c85771d8a4b91b1e42ca5c7b2a53fdf1e13efc52bbb6ac0e5d7232a71",
+      "string:processor_affinity": "7236cba84c02c012849ed364d537a78df6152b465b37b01d5c45be52f95fcfdb",
+      "string:processor_affinity_32_bit_apps": "b3b9287537a28e0551ae2a415eb5816b0264238adad8770f45b3825112341605",
+      "string:profile": "a194eb65e352c98ccc7dbee636f4a7e93645958e4579373c8a54538a827470fe",
+      "string:profile_exported_to": "34ba116698b75f12356a7cd70880fc9ae93d887f118ae9a3cd4ddba85e7f01e5",
+      "string:profile_name": "5d9ced95d2829ff55995df094e0c4be66cb3534d6d6bf428b974371027970d81",
+      "string:range": "cc55a93fc06eb240fb00c99b77b1de47c2f7b6ec1e1322ce9b855fc8b7c24de2",
+      "string:reinstall_system_files": "d1c375a499a363ed27011670e1ed3d6a9d8e42b6c237e5c81b4e5b6ad2eff3e9",
+      "string:relative_mouse_movement": "b0bdd16f78400a1124091e9b48805c2b725b61ef08a8518140b138d53f636fe9",
+      "string:remove": "f62a34bb627aebd38ffd153227ea11521a0034defcaf0d83c95613fdf62aa8c3",
+      "string:removing_container": "e925d9e43e36df986d103bfc1a125da0ffa2b100f356e651a37e4b557131b6ce",
+      "string:removing_files": "a1dbcaa21f2b77b7ebd81fd30ddef6715e44b6639831eefbfda0f0b7d85be8b4",
+      "string:removing_wine": "696200a9ca906c751f003c06adb5baf1313920adaba5e89de49e019f5f216881",
+      "string:rename": "d28ad1f25c7536a8874ddbe2dc3a9c91f949e8d84af3750cf956b2089dcf682c",
+      "string:renderer": "04fd8617b33f77425b54188fcfe7bc0050478d96965c9cae2ab2328fe33588b1",
+      "string:reset": "66ad41e7ed3bb15c615f53c2b5b619744bc084c87056940bd387a54af9055503",
+      "string:resource_memory_type": "ae1358d98bb5858cc1b2e8f4f2503dd2f9ecfbc0847b1612beff37146768e930",
+      "string:run": "73739208bb9564490ee67b2e69f6752e61a5be1ce4078d3fe2b0b7d05c29f488",
+      "string:save_logs_to_file": "4dea4190d07d79d6a178c8920eb03e1fe50618bec36ec8402b38f13464ce8fa6",
+      "string:save_mem_on_run_from_steam": "912ff52612c710f0c2c9e68135341ccbd04694f988032cba3703b64c2013b2fd",
+      "string:scale": "768bfb71ceb75324d8fd677e943597878c0dadced3d3e14e9f00c905579744a9",
+      "string:screen_effect": "3bb32a74ffe7d09825b5fa6b68427578684d23ed6500fb8d65201e586a111b27",
+      "string:screen_size": "2cbad3e4895daf3854bb9db07e0a82f07725cfdf5e62948fc35b385272244dc3",
+      "string:select_profile": "4857ee755fd9ae0150e6413efeb3aa52943f63a22aa849ebe272c433a626a4b2",
+      "string:settings": "0bef606e8c03c241eeefe3ee9dd63cd2e647555d45fee7f117cc1af00c2b9b5c",
+      "string:shape": "0408ed015f214e142f60291d5f7379b2405cd01c9bc9df5f16c0984dca815864",
+      "string:shortcuts": "281cae62cc59f1dca66c2006fae2cf1dd17cdb538b6f15eee36da85d09d2c2ae",
+      "string:show_desktop": "27e598cd0e34c7b1c2c2b5d049f52a46b6235e6eb39a93e0764c152e6ee13315",
+      "string:show_touchscreen_controls": "e0b298b168987b12db1f643495c28ef2279c480a0dcc53372d0162bb50ed8800",
+      "string:simple_fps": "7a2405b82375aace06ffbece91479f704f7c88dbfacc907a88996383927f4c6f",
+      "string:size": "646ead9996dc513e78f816e3baed0ca9c6ed766527b5d05c2d9079df8c17beef",
+      "string:solid_color": "c228f60d2307e3eca6ca05bc2f6fa031471558cfa467e7365368808e00e11d54",
+      "string:sound": "7b95fd1ae102a1e463188a8dcd3b8c419fe22df0c5a79ee852ad2bfd90fe5edf",
+      "string:stability": "b3202bbe497ae5f12d6c440de3f0e57856cd255b877567ade27c6a037f628363",
+      "string:starting_up": "9207b88acd345fc2a0dd589af5fc6d220840adcf16d26da451ff94170a37ea25",
+      "string:startup_selection": "18b06113ac6f780bf1d15032ba5635262da391c5dfc1924cae05392058c27fd5",
+      "string:startup_selection_aggressive": "697935cf61519909a1123d6626abb68c90b32a847bc2ccddf2abc262aa02290a",
+      "string:startup_selection_essential": "1b6b7df4ff59ee982d05581d6abaf603bf2035f43173b2c20b56c02d589dea6d",
+      "string:startup_selection_normal": "23c61df9a9c59d7bc18fa5ae84f87645b3785de008049b1b9116cbac0f952425",
+      "string:storage_info": "6ff75e8ede7118315a5ecece4921645ec80474417f5d04a7318cee1e9807c86b",
+      "string:system": "80fda282e0a9962a63559bfb0a30f5e592bf188db83ebb1c2f00329c377e8457",
+      "string:system_font": "e527876c37915d669a0f916458fb594aa2f8fcab2e81f032aad7222008291bbb",
+      "string:target_path": "f99c01b95b13abbd5b8c479fbe1f1e5582f3ccdc071093770945342e40ab3ac7",
+      "string:task_manager": "244f76c0cc42d04ba72178964f2ddabc570d163fec2f7419ab1355f3ecd1e516",
+      "string:the_settings_have_been_changed_do_you_want_to_restart_the_app": "09b8e23093db8a3b3132c20a632612c6c5bb6a147a97f9002e3b196ea49912b8",
+      "string:theme": "8390613a0348b396079fef02b2d4c4dbda5982afd55892eead80061b04a91909",
+      "string:there_already_file_with_that_name": "1e807101823eed6752b6517d64b73780797f605ad5a2c9dc2a97423163836249",
+      "string:there_are_no_items_to_download": "de03117f459da234b0a6a0cde0c90f030cb34de1f531fa4e71fa6ad1d33db4c3",
+      "string:toggle_fullscreen": "682cedd8faa761c070a7306b4ce12a68ffe89bc24a74ba0e328dffe17a013c6f",
+      "string:toggle_switch": "ef55b35d66fae1faf1328686b7a066859ae1a2fe49e81d53afe5080c942c7044",
+      "string:total": "f95d247aa4878594f99cfd1ec44813c6db41c8dd6658131e2a3d7295f78dc20f",
+      "string:touchpad_help": "06da56cf156559a8c47a78e327554d3bfdf5860c38ec3a4cbfdfe27d82ef029f",
+      "string:touchpad_help_main_menu_description": "fc6b69e1785e7384e984d5b4229a897a9f0afd4997ea16682a817461db1bd690",
+      "string:touchpad_help_main_menu_title": "2a4be8ff592af2b90a774ac4e9d3552604eef947bdfbdd3601badf9676e289f2",
+      "string:touchpad_help_mouse_left_click_description": "bb47962640dbb8f9f5704df2875cc1526aaa7b8c9e0449cae666db848a1b13d0",
+      "string:touchpad_help_mouse_left_click_title": "9f9bc487ebe83a11a405d93e314f9521c8fc27b9dfef6066b1b1aa1fe25bec21",
+      "string:touchpad_help_mouse_right_click_description": "fed90e75c2837a1fff23b017e8fcf666420985e819aa4889c123b17c4c3fae4f",
+      "string:touchpad_help_mouse_right_click_title": "190f469ee9848edeba5e7b08bc682552fcf9f31df9d1e9ea4187794358e191a2",
+      "string:touchpad_help_mouse_scroll_wheel_description": "475d4051c88589523b97d45a7aef85c0ae468fe704b5472d5d0875b28d6627f1",
+      "string:touchpad_help_mouse_scroll_wheel_title": "b4b3f580d64e56675030c039e06e682e096f6e5d7ae72f14ebd7fd353d337d56",
+      "string:trace": "c2726aeaf10c38e14a9c0d10cdd210d5193651c1a4fc62f365c3245b9cbb8c3a",
+      "string:type": "239d8b394df6feeae0097a7385fb63c0a0e4b9478bc42e8031d75cf54d090626",
+      "string:unable_to_download_file": "9cacc228fd1ed1edb85c26b43f3839035b3a8bd8df5ce518555aceea7d4bac2e",
+      "string:unable_to_import_profile": "4f16a130ff74d263b4ed429540debe71eecc7abe0e23401dd81beeb275bd16c3",
+      "string:unable_to_install_system_files": "728cf817075c72653b6cc20057ab78f204ae77521c1bd24e50ced09d93449a60",
+      "string:unable_to_install_wine": "22c6b4bb2e49862d1c423d09232fcaa6f6998a651671cebbc2c2f9696bb19b55",
+      "string:unable_to_remove_this_wine_version": "4278ee06e54193f7173fcefa888cff114acbe655bd16659e7e9fb4f1fcc351e2",
+      "string:untitled": "91f6c816723166040666e9b0ff07dbfc6b810babe392d43ab684a087ca90511a",
+      "string:updating_system_files": "db8453fec7629a6e6ffbe3ba516d69eb9af3a93351174fc9c00829805126d8a6",
+      "string:use_android_clipboard_on_Wine": "8a8bc46ee40fb9846b117a76d8d3df215ccd49f5ba6efbe1f8eb1379850eaa59",
+      "string:value": "d1fc6969ee90aee321b8a35ed3988c995c8b40dd10aa84b53a4eddd019b42f1b",
+      "string:vcrun2005": "892bc4f9e0ced2390a7efd18a1cce7112806eb0019d885c2add714d09946ca10",
+      "string:vcrun2010": "a3b571b93f7aa25e9b64e4a2228fed0237b3ad15cc7e4fb1181d13d01a7a052e",
+      "string:version": "ab0c03362d3105ac7ab342ef2dc8a7cdcf6511a7cc576a84310b413b001b2e84",
+      "string:vertical": "628dd35a6fd250e666ec2f444547a9f4b4855f9f669fd4ecddd0d11c991b4de6",
+      "string:video_memory_size": "58a7982abf0f176e1d3282f02143a0e36a0aa60a379d934718f5bf545ff23b29",
+      "string:view_style": "e967d12e6b40d1f3831b7217ec6cf663fc5a1a3ad82916b9145419bb10a65ccc",
+      "string:voltage": "d0a195f5d4ca11e77a13ec80f85ba8d1e9f6e5bdd75263ca1731983d8479f2a2",
+      "string:volume": "7f5d9b84e5c4be8e12fbaa426ff3b2c0bd7f34242064061e942549ecd8dcdfa4",
+      "string:vulkan_version": "daf2a6c42015db42b4a92c73df44744ef54af76074dea0b1f9d1c3f2f08a64be",
+      "string:width": "2d7d5ec529c6aeaeb6e8cbc73f7cd9ec56335dae195d2121f0125b00778291b5",
+      "string:win_components": "6a9a5a7a9e8743279d1217489ed3d6276017a4229791b906d2812f09996eca5b",
+      "string:windows_version": "2e5f556e5fd1d395e1fc3dadebccc6f6bfdd494aa71a579793f227f847428e4e",
+      "string:wine_configuration": "9ae59598a039c7582f84d60a240770485fbd0f9cabfccf3e29b8dec474108be1",
+      "string:wine_debug_channel": "1d1ae78c84df4115c52c14d61317a1dff3008b6171a087d13318ef49d9c117a0",
+      "string:wine_version": "fdc67010ca8951775fdda4acae9a7c00226aed1cd536522c9a9972533d620181",
+      "string:wmdecoder": "755d255ceaeced01bbd0609331358a517d8cccb47f03a40c881ac39862879abd",
+      "string:xaudio": "e87195ccbe62e3c02205603ed083b0a1a50f6ecd6d254738cf41ba817c3efbf2",
+      "string:you_cannot_paste_files_here": "28fb1bd08dc6ce42d06fe19bce14247aa7e35e30c153317b298b68a29a3dc7c4",
+      "string:you_cannot_remove_this_component_version": "93e1fec76696148c9da45a0680d0ba5ddda24ba7957da686bfc19ae5bfea6737",
+      "string:you_cannot_remove_this_preset": "cc68a5b95a68a086b4ae23f7d09dfc8822e7f92902437e0a2e8fddae04f3e54b",
+      "string:zero_no_limit": "abaff02e935364f7f524d2804eeb5dba5ad81f26717d5366eabf283408623e6a"
+    },
+    "sha256": "2a1330d71c0efeecfda8a50e47a6004e9072193040aef1121eba2aaee530be7c"
+  },
+  "values/styles.xml": {
+    "entries": {
+      "style:AppThemeBase": "83edc278c43fd8b0bd999e9a7ae315036ea8360633e8f6284e39e6356444c889",
+      "style:AppThemeDark": "fc9b11be2bf24b105cedff42811db98986d9181eeb7497e32ea56a568a7f65ef",
+      "style:AppThemeFullscreenDark": "2087e797a0398721b307a2ad22a4379e017e3607c5f47ae2c9553b139bfccf78",
+      "style:AppThemeFullscreenLight": "8845571c1e99c7bd6fd381e4d34af6b688645dcd030d9d4767e2adaafb6464aa",
+      "style:AppThemeLight": "2508893ff2eae878bcb0f5c88f25c258d331e12310a0fa4df3b3e9e93a453644",
+      "style:BaseButton": "05d830de0275c66abdb4e25bc41dcdc1d96803854819163b5bf13e0d21ee5405",
+      "style:BaseImageButton": "d288d765bde12f5d081349eab1c13a00d85a0c251fda0f3f89fc06b97158bf48",
+      "style:ButtonNeutral": "0ac2592c1a1eb627fca1f41f654e31e22d894eeecbcfe21fe4617c3b266444fb",
+      "style:ButtonPositive": "03070f2a1907965f9e30b1f0abb91126d1ca5a86615d318eaeb8ebdb8a5f3520",
+      "style:CheckBox": "c3b6a376bb13e0aa1c01a39d50d13e438ef10b1a1504f944a9a14a95e751cbf9",
+      "style:ComboBox": "a2b495460d88d500bf3c15bc8f373d8aa65ab0f566137e60b25e8ce0f0194e7f",
+      "style:ContentDialog": "65d97fd976c4a2c0f0b811f52328c0291cf3cb52d0be2af9b6e45b11047850ea",
+      "style:EditText": "d96473354a66ebcdc4e186b39b7a631622ae930b2222e1cd8a623ace4a9330ab",
+      "style:FieldSeparator": "41f59b8c104d0f66e1cdeb86cb1a8bd78b36e98bace75edc6e236926e2b53f15",
+      "style:FieldSet": "7b15266acee3aef6ce4a24d7ebd67a9848fa35b622f5ed2fe2e592db4572b89b",
+      "style:FieldSetLabel": "4720b8f1bd8434cb2c313ef27017b27b7f2e00a51f1398a4bdbdf4f35b54749c",
+      "style:HelpButton": "cb106c6b2d999bf36d4db8675820a6b87445a7386f4407a3fdf4c1932fcc80d5",
+      "style:HorizontalLine": "7dc31e0f5f4331c21e8d5099e60ced39f47c75d8c57f6ca801bbd81769e1d034",
+      "style:LeftSideButton": "a87b271ea7331b502a8ba110277ed9e65c064de6e845ffb4a594376d9798ca66",
+      "style:ListMenuButton": "d7d91c534652a3a0a1e6ae232a20172bfff0a7cadfd6b61d2af0ad2123fbf9af",
+      "style:ListPopupWindow": "4574929f327cd7a3cfde31be88f68631b827522fb92da9926b5b045cccfc869a",
+      "style:MultiSelectionComboBox": "2a8dfbe678a273866993afcec64b9c451e24b9576ddbe0da9f118dd7626f319b",
+      "style:PopupMenu": "553234a77db1591d513d5b97ad93925e5c17f961f66f1733d6ff156a2f4ad18a",
+      "style:PopupWindow": "724563430d02ceaa90097d01aeadd76a284d6d8f0e00c70ff249fdc957f10c2d",
+      "style:RadioButton": "8a30ffde3bfa5b13b5bf99214f4d049a50c3ee2a1e6b9172193e561be720c00c",
+      "style:RightSideButton": "4c639fc00eeeebe3f94ba7e668ad2187644c26e37edf4a1d89599060e03a2fa5",
+      "style:SpinnerDropDownItem": "57aef24f9a7a4682ce055bfd080e4341ea8b3d817ca6755ecdb06279d9b70688",
+      "style:TableBodyRightLine": "fdd431c042abc85604301a9c4a3149f30110bb628046cb403e596205300c026f",
+      "style:TableHead": "0e6a2dfbcc39bd8366df2ac260b7dc172078b1803cacacd87dd79e9d22fdb181",
+      "style:TableHeadBottomLine": "d0575adf264292270f4fb35ff36193149395a5f991d7370b98fc6918249ae754",
+      "style:TableHeadRightLine": "d7a413e2292a93e6de29ea2b19c2c4643ec2229283a6fee77d819787f86e4e03",
+      "style:TextView": "6159b4dd95cb4d9797eeec228021e60011b7dbae8a3e70733db6d2d16e03068a",
+      "style:TitleTextAppearance": "8242825db2a9159b7ee9073a9dfacbabbc769bca93e4d2639f51f1c60544fe06",
+      "style:ToolButton": "d607a0af89f3d1c111cf785c01e86824de3570d953c1958ce6fe0c433ee851f1",
+      "style:Toolbar": "f4ae09df34b84874515495501ffe203b6bd58274a6599e4231b09963f0ad728b",
+      "style:Toolbox": "c0e39978025f3533d036e6d7e7755d14ff73dc80f412460f3f40d90ad1321ddf",
+      "style:VerticalLine": "742b3fd9811a5ea1190c3afea19df147b4676749046b4713093ffe0b0d893ef8"
+    },
+    "sha256": "4aec52dd0eb7b341eebae69ff93d9837f7cb0020269c0ee7f7d51d1dd39fcda7"
+  },
+  "xml/file_paths.xml": {
+    "sha256": "bfb79b38c39320fc5df1abccd053fe478551c69600b8ac9a9dc3b839c5914a83"
+  }
+}

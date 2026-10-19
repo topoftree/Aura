@@ -1,5 +1,15 @@
 # Source availability and library recombination
 
+## Aura 0.1.83 / version code 84
+
+[Open the matching 0.1.83 source and recombination kit](relink/v0.1.83/README.md). The matching APK, detailed release notes and checksums are on the [0.1.83 release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83).
+
+The same release provides [`Aura-0.1.83-relink.zip`](https://github.com/topoftree/Aura/releases/download/v0.1.83/Aura-0.1.83-relink.zip), containing the full versioned kit and actual object JARs. Verify the archive with the release's `SHA256SUMS.txt`, then verify its individual files with the included `SHA256SUMS`. This download does not require Git LFS.
+
+This version supplies its own pre-obfuscated application objects, manifest, stable resource IDs, compiled resources and matching dependency objects. The Winlator engine implementation is unchanged from 0.1.82; its editable source, build scripts, LGPL text and file-level provenance remain included. The independent Aura Kotlin UI/business source, private mapping, private Git history and production signing material are not published. See the kit's [notice](relink/v0.1.83/NOTICE.md), [privacy details](relink/v0.1.83/PRIVACY.md), [modification record](relink/v0.1.83/MODIFICATIONS.tsv) and [validation record](relink/v0.1.83/VALIDATION.md).
+
+The APK now includes a visible Winlator license entry under **Settings → Version**, offline LGPL 2.1 text and a source/recombination link. This fulfills the previously pending in-app-notice change for 0.1.83; it does not alter the older 0.1.82 APK or resolve the separate runtime obligations below.
+
 ## Aura 0.1.82 / version code 83
 
 [Open the Winlator engine source and recombination kit](relink/v0.1.82/README.md).
@@ -41,6 +51,6 @@ This publication addresses the Winlator Android engine/recombination portion. It
 | Wine Mono, media/audio libraries and other runtime packages | Finish the exact shipped-component/source inventory and fulfill each applicable license's source-delivery terms. |
 | Qualcomm proprietary graphics package | Establish redistribution permission or remove/replace it from distribution. |
 | Independent Aura / derived Winlator boundary | The private-source arrangement depends on this boundary being legally valid. Copying or translating library-derived code into an Aura-named file would not make it independent. Technical recombination tests do not certify that legal boundary. |
-| In-app notice | The next application build needs the visible LGPL notice, offline license text and corresponding-source entry. These additions are implemented and compile-checked in the private app; the published 0.1.82 APK has not been replaced. |
+| In-app notice | Included in 0.1.83: visible Winlator notice, offline LGPL text and corresponding-source/recombination link. The older 0.1.82 APK has not been replaced. |
 
 The [third-party notices](THIRD_PARTY_NOTICES.md) and [copyright scope](COPYRIGHT.md) remain applicable. A complete legal compliance determination should review the actual distribution and component boundaries, not only this README or a successful build.

@@ -4,11 +4,11 @@ Run supported Windows PC games on your Android device, with a library and launch
 
 ## Download
 
-[**Download Aura 0.1.82 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.82/Aura-0.1.82-arm64-release.apk) · [GitHub Release](https://github.com/topoftree/Aura/releases/tag/v0.1.82) · [Checksums](releases/v0.1.82/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
+[**Download Aura 0.1.83 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.83/Aura-0.1.83-arm64-release.apk) · [GitHub Release](https://github.com/topoftree/Aura/releases/tag/v0.1.83) · [Checksums](releases/v0.1.83/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
 
-Current version: **0.1.82**, Android version code **83**. Download `Aura-0.1.82-arm64-release.apk` from the release's **Assets** section. It is a signed production APK, not a debug build.
+Current version: **0.1.83**, Android version code **84**. Download `Aura-0.1.83-arm64-release.apk` from the release's **Assets** section. It is a signed production APK, not a debug build.
 
-For the modified Winlator engine's source and the materials to recombine it with Aura 0.1.82, see [Source and recombination](SOURCE_CODE.md). Aura's independent application source remains private. The old `v0.1.82` tag has not been moved; its automatically generated source archives predate these added materials. Use the linked versioned directory on `main` instead.
+For the modified Winlator engine's source and the materials to recombine it with Aura 0.1.83, see [Source and recombination](SOURCE_CODE.md). Aura's independent application source remains private. Use the matching `relink/v0.1.83` directory; the older 0.1.82 kit remains available for that release. Clone with Git LFS to obtain the full object JARs.
 
 ## Overview
 
@@ -81,7 +81,7 @@ The Android version alone does not establish compatibility. Graphics-driver supp
 
 ## Installation and updates
 
-1. Download the APK from the [official release page](https://github.com/topoftree/Aura/releases/tag/v0.1.82) and verify its checksum below.
+1. Download the APK from the [official release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83) and verify its checksum below.
 2. Before updating Aura, fully exit any running game or Wine session.
 3. Open the APK from your browser's downloads or Android file manager. If prompted, allow that app to install unknown apps, then return to the installer.
 4. Install and open Aura. Complete any runtime or game-dependency setup requested by the app.
@@ -115,7 +115,7 @@ Only components offered by Aura's update catalog can be updated separately. Pinn
 
 ## Debug mode and troubleshooting
 
-Keep **Settings → Advance → Debug mode** off for ordinary play. In 0.1.82, this switch controls optional Aura log collection, session/performance sampling and native execution diagnostics. Essential launch checks, session cleanup and runtime safeguards continue to operate.
+Keep **Settings → Advance → Debug mode** off for ordinary play. In 0.1.83, this switch controls optional Aura log collection, session/performance sampling and native execution diagnostics. Essential launch checks, session cleanup and runtime safeguards continue to operate.
 
 To collect a new report, enable Debug mode before starting a fresh game session. After reproducing the issue, use the available diagnostic export in Settings. You do not need to force a crash to create a report. Turn Debug mode off after troubleshooting; already saved reports can remain available. Android, Steam and games can create their own logs independently of this switch.
 
@@ -123,7 +123,7 @@ Low total CPU or GPU usage alone does not identify a fault. A busy individual th
 
 ## Current release and limitations
 
-Version **0.1.82** adds installed-game update checks and confirmations, one-time Steam minimization, a unified optional-diagnostics switch, a simpler startup animation and darker dark-mode glass and edge effects. It also improves display-path and thread-timing diagnostics. See the [release notes](releases/v0.1.82/README.md).
+Version **0.1.83** adds an offline Winlator LGPL 2.1 license page, source/recombination links and clearer attribution in **Settings → Version**. It retains the previous game-management and diagnostic features without changing the game runtime or graphics dependencies. See the [detailed release notes](releases/v0.1.83/README.md).
 
 Build and automated checks do not establish device compatibility or measured FPS gains. This release does not claim to resolve Stardew Valley's reported performance issue or all Steam/ESync startup problems. Games with unsupported graphics features, anti-cheat, DRM or launcher requirements may not work. Workshop, private beta branches and cloud-save behavior should not be assumed to have full support.
 
@@ -131,19 +131,19 @@ Aura is under active development. Use the release notes and issue tracker for kn
 
 ## APK verification
 
-SHA-256 for the current **Release asset**, `Aura-0.1.82-arm64-release.apk`:
+SHA-256 for the current **Release asset**, `Aura-0.1.83-arm64-release.apk`:
 
 ```text
-a6890e736ddf5dab59cce02db99dfcdc1b5534b2edbc9b3849286c94d6ee8f8c
+10becdd7562bdb6df3a2e9c94a501750c48a9bb60698605982dee85fe7e58190
 ```
 
 In a shell with `sha256sum`, run:
 
 ```sh
-sha256sum Aura-0.1.82-arm64-release.apk
+sha256sum Aura-0.1.83-arm64-release.apk
 ```
 
-Compare the result with the value above. On Windows PowerShell, use `Get-FileHash .\Aura-0.1.82-arm64-release.apk -Algorithm SHA256`. A matching hash verifies the published bytes; obtain the APK and checksum from the official repository. Android separately checks the APK signature during installation.
+Compare the result with the value above. On Windows PowerShell, use `Get-FileHash .\Aura-0.1.83-arm64-release.apk -Algorithm SHA256`. A matching hash verifies the published bytes; obtain the APK and checksum from the official repository. Android separately checks the APK signature during installation.
 
 The older repository download, [`Aura-0.1.82.apk`](https://github.com/topoftree/Aura/raw/refs/heads/main/apk/Aura-0.1.82.apk), remains available. It is a separately packaged 0.1.82 build with a **different checksum**. Match the exact filename against [SHA256SUMS](releases/v0.1.82/SHA256SUMS); do not use one file's hash to verify the other.
 
@@ -161,7 +161,7 @@ Issues are public. Remove passwords, tokens, account identifiers and other perso
 
 ## Source availability and third-party software
 
-The [versioned Winlator source and recombination kit](relink/v0.1.82/README.md) contains the modified engine's Java/Kotlin and native source, resources, build instructions and independently obfuscated Aura application objects. It allows building a combined APK with an edited engine without the private application source or production signing key. The LGPL-covered engine and modifications remain open under their applicable terms. Aura's independent application object code has the specific recombination permissions in the kit's [notice](relink/v0.1.82/NOTICE.md); its Kotlin business/UI source is not published.
+The [versioned Winlator source and recombination kit](relink/v0.1.83/README.md) contains the modified engine's Java/Kotlin and native source, resources, build instructions and independently obfuscated Aura application objects. It allows building a combined APK with an edited engine without the private application source or production signing key. The LGPL-covered engine and modifications remain open under their applicable terms. Aura's independent application object code has the specific recombination permissions in the kit's [notice](relink/v0.1.83/NOTICE.md); its Kotlin business/UI source is not published.
 
 Bundled third-party components, including modified components, retain their own licenses. Modification for personal use and reverse engineering for debugging LGPL-library modifications are expressly permitted; Aura's copyright notice does not restrict the libraries' own rights. See [SOURCE_CODE.md](SOURCE_CODE.md) for the scope, validation and outstanding work, [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attributions, and [LICENSES/](LICENSES/) for retained license texts. The Winlator kit does not complete every separate runtime component's source obligations or certify the whole APK's legal compliance.
 
