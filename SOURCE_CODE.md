@@ -2,17 +2,17 @@
 
 ## Aura 0.1.83 / version code 84
 
-[Open the matching 0.1.83 source and recombination kit](relink/v0.1.83/README.md). The matching APK, detailed release notes and checksums are on the [0.1.83 release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83).
+[Open the matching 0.1.83 source and recombination kit](winlator-source-and-relink/v0.1.83/README.md). The matching APK, detailed release notes and checksums are on the [0.1.83 release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83).
 
 The same release provides [`Aura-0.1.83-relink.zip`](https://github.com/topoftree/Aura/releases/download/v0.1.83/Aura-0.1.83-relink.zip), containing the full versioned kit and actual object JARs. Verify the archive with the release's `SHA256SUMS.txt`, then verify its individual files with the included `SHA256SUMS`. This download does not require Git LFS.
 
-This version supplies its own pre-obfuscated application objects, manifest, stable resource IDs, compiled resources and matching dependency objects. The Winlator engine implementation is unchanged from 0.1.82; its editable source, build scripts, LGPL text and file-level provenance remain included. The independent Aura Kotlin UI/business source, private mapping, private Git history and production signing material are not published. See the kit's [notice](relink/v0.1.83/NOTICE.md), [privacy details](relink/v0.1.83/PRIVACY.md), [modification record](relink/v0.1.83/MODIFICATIONS.tsv) and [validation record](relink/v0.1.83/VALIDATION.md).
+This version supplies its own pre-obfuscated application objects, manifest, stable resource IDs, compiled resources and matching dependency objects. The Winlator engine implementation is unchanged from 0.1.82; its editable source, build scripts, LGPL text and file-level provenance remain included. The independent Aura Kotlin UI/business source, private mapping, private Git history and production signing material are not published. See the kit's [notice](winlator-source-and-relink/v0.1.83/NOTICE.md), [privacy details](winlator-source-and-relink/v0.1.83/PRIVACY.md), [modification record](winlator-source-and-relink/v0.1.83/MODIFICATIONS.tsv) and [validation record](winlator-source-and-relink/v0.1.83/VALIDATION.md).
 
 The APK now includes a visible Winlator license entry under **Settings → Version**, offline LGPL 2.1 text and a source/recombination link. This fulfills the previously pending in-app-notice change for 0.1.83; it does not alter the older 0.1.82 APK or resolve the separate runtime obligations below.
 
 ## Aura 0.1.82 / version code 83
 
-[Open the Winlator engine source and recombination kit](relink/v0.1.82/README.md).
+[Open the Winlator engine source and recombination kit](winlator-source-and-relink/v0.1.82/README.md).
 
 The public kit accompanies both documented 0.1.82 APK packagings. It contains:
 
@@ -21,7 +21,7 @@ The public kit accompanies both documented 0.1.82 APK packagings. It contains:
 - Aura's independently obfuscated application **object code**, third-party dependency objects, compiled resource inputs, stable resource IDs, and optimization rules. The independent Aura Kotlin UI/business source, private Git history, private name mapping, credentials and production signing keys are not included.
 - A Gradle release recombination task, R8 optimization and resource shrinking, native rebuild, and instructions for signing a modified copy with the recipient's own key.
 
-The source and objects are available from the same public repository as the APK. Read the kit's [NOTICE.md](relink/v0.1.82/NOTICE.md), [build instructions](relink/v0.1.82/README.md), [modification record](relink/v0.1.82/MODIFICATIONS.tsv) and [verification record](relink/v0.1.82/VALIDATION.md). LGPL 2.1 is available [in full](relink/v0.1.82/engine/LICENSE).
+The source and objects are available from the same public repository as the APK. Read the kit's [NOTICE.md](winlator-source-and-relink/v0.1.82/NOTICE.md), [build instructions](winlator-source-and-relink/v0.1.82/README.md), [modification record](winlator-source-and-relink/v0.1.82/MODIFICATIONS.tsv) and [verification record](winlator-source-and-relink/v0.1.82/VALIDATION.md). LGPL 2.1 is available [in full](winlator-source-and-relink/v0.1.82/engine/LICENSE).
 
 The existing `v0.1.82` tag and release APK are unchanged. They predate this source-delivery addition, so use the versioned kit on `main` rather than the release page's old automatically generated source archive. Each future binary release needs its own matching source/object materials; the 0.1.82 kit must not be assumed to match later binaries.
 
@@ -31,7 +31,7 @@ editable engine source and usable recombination materials remain supplied.
 Git history cleanup does not purge GitHub server-side LFS objects or caches;
 server-side removal requires separate verification. Prior downloads cannot
 be recalled. The official APKs are unchanged.
-See [PRIVACY.md](relink/v0.1.82/PRIVACY.md).
+See [PRIVACY.md](winlator-source-and-relink/v0.1.82/PRIVACY.md).
 
 ## Rights and installation
 

@@ -32,6 +32,8 @@ For the Winlator Android engine, Aura uses the corresponding-source and applicat
 
 The matching materials are available in the [versioned kit](https://github.com/topoftree/Aura/tree/v0.1.83/relink/v0.1.83) and in this release's `Aura-0.1.83-relink.zip`. The ZIP contains the actual object JARs and does not require Git LFS.
 
+The current repository index is [Winlator source and relinking kits](https://github.com/topoftree/Aura/tree/main/winlator-source-and-relink). The folder on the current branch has been renamed from `relink/` to `winlator-source-and-relink/`; the pinned release links and ZIP download above retain their original paths and contents.
+
 | Requirement or right | Materials and permissions supplied |
 | --- | --- |
 | Modified Winlator engine | Editable Java/Kotlin, C/C++, Android resources and build definitions, including Aura's modifications to the derived engine. Upstream attribution, copyright notices, the LGPL text and other original file-level licenses are retained. |
