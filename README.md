@@ -28,7 +28,41 @@ This is Aura's public repository for APK distribution, documentation, release no
 | Runtime settings | Manage containers and the available graphics, audio and compatibility options. |
 | Optional diagnostics | Enable Debug mode when troubleshooting to collect session reports and export available diagnostic files. |
 
-Windows compatibility uses Winlator integration, Wine/Proton, FEX and graphics translation components. These projects and their contributors are credited in the [third-party notices](THIRD_PARTY_NOTICES.md).
+## Built on open-source projects
+
+Aura builds on **Winlator** for Android-side Windows runtime integration, **JavaSteam** for Steam protocol access, and **FEXCore** for CPU translation. Wine/Proton and the graphics components below provide the Windows and rendering compatibility layers. Credit for these foundations belongs to their upstream authors and contributors.
+
+| Project / bundled version | Role in Aura | Upstream |
+| --- | --- | --- |
+| Winlator 11.2 | Runtime and container integration, X server/display, input and Android/native integration; Aura includes modifications to this engine. | [Winlator](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9) |
+| JavaSteam 1.8.0 | Steam authentication, account/library access and content-download protocol integration. Some games also need the official Steam client running inside Wine. | [JavaSteam](https://github.com/Longi94/JavaSteam) |
+| Proton Wine 11.0-2 / ARM64EC | Windows API compatibility and the Wine environment used to start Windows programs. | [Proton Wine build project](https://github.com/The412Banner/proton-wine) · [Wine](https://www.winehq.org/) |
+| FEXCore 2610 | Translates supported x86/x86-64 code for the ARM64 runtime; it works alongside Wine rather than providing Windows APIs itself. | [FEX](https://github.com/FEX-Emu/FEX) |
+| DXVK 2.7.1 / ARM64EC | Direct3D 8/9/10/11 translation to Vulkan where selected and supported. | [DXVK](https://github.com/doitsujin/dxvk) |
+| VKD3D-Proton 3.0.1 / ARM64EC | Direct3D 12 translation to Vulkan. | [VKD3D-Proton](https://github.com/HansKristian-Work/vkd3d-proton) |
+| Mesa Turnip and Zink | Adreno Vulkan support and OpenGL-on-Vulkan rendering; see the driver inventory below. | [Mesa](https://www.mesa3d.org/) |
+| AdrenoTools / linkernsbypass | Loads supported alternate Android graphics drivers through the runtime's Bionic Wrapper integration. | [AdrenoTools](https://github.com/bylaws/libadrenotools) |
+| SDL 2.32.10, ALSA/PulseAudio, GStreamer 1.28.0 and FFmpeg components | Controller, audio and media support, including Aura's runtime integration changes. | [SDL](https://github.com/libsdl-org/SDL) · [ALSA](https://www.alsa-project.org/) · [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) · [GStreamer](https://gstreamer.freedesktop.org/) · [FFmpeg](https://ffmpeg.org/) |
+| Wine Mono 10.4.1 | Bundled .NET compatibility support for applicable Windows software. | [Wine Mono](https://github.com/wine-mono/wine-mono) |
+| Kotlin, AndroidX / Compose / WorkManager and Material | Android application, interface and background-work foundations. | [Kotlin](https://kotlinlang.org/) · [AndroidX](https://developer.android.com/jetpack/androidx) |
+
+The current runtime uses FEXCore with ARM64EC Wine. Version labels here describe the bundled baseline; installed component updates and the selected game configuration can differ. The [third-party notices](THIRD_PARTY_NOTICES.md) include additional dependencies, copyright information and license terms. Upstream links provide attribution; matching source and recombination obligations are addressed separately in [Source availability](SOURCE_CODE.md).
+
+## Graphics drivers and rendering layers
+
+Direct3D translation, CPU translation and the phone's GPU driver perform different jobs. The current ARM64EC graphics path uses **Turnip or Bionic Wrapper** for Vulkan and **Zink** for OpenGL. Driver selection depends on the device and game; these components are not all used simultaneously.
+
+| Component / option | Included baseline and purpose | Compatibility / origin |
+| --- | --- | --- |
+| Mesa Turnip · Bionic | `25.2.0-devel`, revision `6defe2244c`; built-in Vulkan driver for Adreno. | Requires an Adreno GPU; [Mesa](https://www.mesa3d.org/). |
+| Mesa Turnip 26.0 R8 | Optional bundled community package, `26.0.0 - R8`, by KIMCHI. | Offered for Adreno 6xx/7xx on 4 KB-page devices; a development comparison option. [Community builds](https://github.com/K11MCH1/AdrenoToolsDrivers). |
+| Mesa Turnip 25.3 PROFILED | Optional bundled `25.3.0 - new autotuner` package by KIMCHI. | Experimental; offered for Adreno 6xx/7xx on 4 KB-page devices, excluding Adreno 710/720. [Community builds](https://github.com/K11MCH1/AdrenoToolsDrivers). |
+| Qualcomm Adreno v863.1 | Optional bundled community-extracted/adapted package credited to Hugo / StevenMX. | Offered for Adreno 6xx/7xx on 4 KB-page devices. It contains **proprietary Qualcomm components** and is not an official Qualcomm distribution. [Package origin](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/tag/v863.1_a7xx). |
+| System Vulkan driver | Uses the driver supplied by the phone's Android/vendor firmware through Bionic Wrapper. | Its version, license and supported features depend on the device; Aura does not supply a replacement system driver through this option. |
+| Mesa Zink · Bionic | `24.3.0-devel`; implements OpenGL over Vulkan. | Uses the chosen Vulkan backend; it is a rendering layer, not a separate hardware driver package. |
+| Bionic Wrapper / AdrenoTools | Connects the Wine Vulkan runtime to a supported selected driver or the system driver. | Driver loading and device/vendor ABI support must succeed; selecting a name in Settings alone does not prove that the requested driver loaded. |
+
+Mesa's open-source terms do not apply to Qualcomm's proprietary components. Redistribution permission for the bundled Qualcomm package remains an outstanding item documented in [Source availability](SOURCE_CODE.md). Driver options and build checks do not establish support for every GPU, game or 16 KB-page device.
 
 ## Android requirements
 
