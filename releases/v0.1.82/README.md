@@ -2,7 +2,7 @@
 
 [Download APK](https://github.com/topoftree/Aura/releases/download/v0.1.82/Aura-0.1.82-arm64-release.apk) · [GitHub Release](https://github.com/topoftree/Aura/releases/tag/v0.1.82) · [SHA-256](SHA256SUMS)
 
-[Winlator corresponding engine source and recombination materials](../../SOURCE_CODE.md) were added on 2026-10-19. The APK and existing release tag remain unchanged. Use the versioned kit on `main`; the tag's original source archives predate that addition.
+[Winlator corresponding engine source and recombination materials](../../SOURCE_CODE.md) were added on 2026-10-19. The APK and existing release tag remain unchanged. Use the fixed-commit kit linked from SOURCE_CODE.md during replacement; the tag's original source archives predate that addition.
 
 Initial public release of Aura, version 0.1.82 (83).
 

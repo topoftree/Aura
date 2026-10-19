@@ -8,7 +8,7 @@ Run supported Windows PC games on your Android device, with a library and launch
 
 Current version: **0.1.82**, Android version code **83**. Download `Aura-0.1.82-arm64-release.apk` from the release's **Assets** section. It is a signed production APK, not a debug build.
 
-For the modified Winlator engine's source and the materials to recombine it with Aura 0.1.82, see [Source and recombination](SOURCE_CODE.md). Aura's independent application source remains private. The old `v0.1.82` tag has not been moved; its automatically generated source archives predate these added materials. Use the linked versioned directory on `main` instead.
+For the modified Winlator engine's source and the materials to recombine it with Aura 0.1.82, see [Source and recombination](SOURCE_CODE.md). Aura's independent application source remains private. The old `v0.1.82` tag has not been moved; its automatically generated source archives predate these added materials. Use the fixed-commit source and recombination links below while the replacement kit is being prepared.
 
 ## Overview
 
@@ -127,7 +127,7 @@ Issues are public. Remove passwords, tokens, account identifiers and other perso
 
 ## Source availability and third-party software
 
-The [versioned Winlator source and recombination kit](relink/v0.1.82/README.md) contains the modified engine's Java/Kotlin and native source, resources, build instructions and pre-R8 Aura application objects. It allows building a combined APK with an edited engine without the private application source or production signing key. The LGPL-covered engine and modifications remain open under their applicable terms. Aura's independent application object code has the specific recombination permissions in the kit's [notice](relink/v0.1.82/NOTICE.md); its Kotlin business/UI source is not published.
+The [versioned Winlator source and recombination kit](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/README.md) contains the modified engine's Java/Kotlin and native source, resources, build instructions and pre-R8 Aura application objects. It allows building a combined APK with an edited engine without the private application source or production signing key. The LGPL-covered engine and modifications remain open under their applicable terms. Aura's independent application object code has the specific recombination permissions in the kit's [notice](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/NOTICE.md); its Kotlin business/UI source is not published.
 
 Bundled third-party components, including modified components, retain their own licenses. Modification for personal use and reverse engineering for debugging LGPL-library modifications are expressly permitted; Aura's copyright notice does not restrict the libraries' own rights. See [SOURCE_CODE.md](SOURCE_CODE.md) for the scope, validation and outstanding work, [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attributions, and [LICENSES/](LICENSES/) for retained license texts. The Winlator kit does not complete every separate runtime component's source obligations or certify the whole APK's legal compliance.
 
