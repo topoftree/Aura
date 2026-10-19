@@ -2,20 +2,26 @@
 
 ## Aura 0.1.82 / version code 83
 
-The `relink/` directory has been removed from the current `main` tree while a replacement with obfuscated independent-application objects is prepared. The complete previously released kit remains available at the fixed commit linked below so recipients of the existing APK retain access to its corresponding materials. No replacement has been validated or published yet. Removing a current directory does not erase Git history, Git LFS objects, or downloaded copies; obfuscation does not make distributed bytecode impossible to reverse engineer.
-
-[Open the Winlator engine source and recombination kit](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/README.md).
+[Open the Winlator engine source and recombination kit](relink/v0.1.82/README.md).
 
 The public kit accompanies both documented 0.1.82 APK packagings. It contains:
 
 - The modified Winlator Android engine's Java/Kotlin and C/C++ source, Android resources, retained copyright/license texts, and build configuration.
 - A file-level comparison against pinned Winlator 11.2: 723 unchanged files, 86 modified files and 122 added files. Modified source files carry publication notices; the source manifest preserves the original production-source hashes.
-- Aura's pre-R8 application **object code**, third-party dependency objects, compiled resource inputs, stable resource IDs, and optimization rules. The independent Aura Kotlin UI/business source, private Git history, credentials and production signing keys are not included.
+- Aura's independently obfuscated application **object code**, third-party dependency objects, compiled resource inputs, stable resource IDs, and optimization rules. The independent Aura Kotlin UI/business source, private Git history, private name mapping, credentials and production signing keys are not included.
 - A Gradle release recombination task, R8 optimization and resource shrinking, native rebuild, and instructions for signing a modified copy with the recipient's own key.
 
-The source and objects are available from the same public repository as the APK. Read the kit's [NOTICE.md](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/NOTICE.md), [build instructions](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/README.md), [modification record](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/MODIFICATIONS.tsv) and [verification record](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/VALIDATION.md). LGPL 2.1 is available [in full](https://github.com/topoftree/Aura/blob/0e070f5503e9de36cd8c79bb84714683638fecaf/relink/v0.1.82/engine/LICENSE).
+The source and objects are available from the same public repository as the APK. Read the kit's [NOTICE.md](relink/v0.1.82/NOTICE.md), [build instructions](relink/v0.1.82/README.md), [modification record](relink/v0.1.82/MODIFICATIONS.tsv) and [verification record](relink/v0.1.82/VALIDATION.md). LGPL 2.1 is available [in full](relink/v0.1.82/engine/LICENSE).
 
-The existing `v0.1.82` tag and release APK are unchanged. They predate this source-delivery addition, so use the fixed-commit kit linked above rather than the release page's old automatically generated source archive. Each future binary release needs its own matching source/object materials; the 0.1.82 kit must not be assumed to match later binaries.
+The existing `v0.1.82` tag and release APK are unchanged. They predate this source-delivery addition, so use the versioned kit on `main` rather than the release page's old automatically generated source archive. Each future binary release needs its own matching source/object materials; the 0.1.82 kit must not be assumed to match later binaries.
+
+The earlier unobfuscated 0.1.82 application object has been replaced in the
+published branch/tag history with the pre-obfuscated object. The matching
+editable engine source and usable recombination materials remain supplied.
+Git history cleanup does not purge GitHub server-side LFS objects or caches;
+server-side removal requires separate verification. Prior downloads cannot
+be recalled. The official APKs are unchanged.
+See [PRIVACY.md](relink/v0.1.82/PRIVACY.md).
 
 ## Rights and installation
 

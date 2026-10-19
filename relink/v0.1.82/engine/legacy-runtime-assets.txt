@@ -1,0 +1,11 @@
+# Aura 0.1.82 added integration file; notice dated 2026-10-19. See NOTICE.md and MODIFICATIONS.tsv.
+# Preserved as source/migration inputs, excluded from the ARM64EC APK.
+rootfs.tzst
+rootfs_patches.tzst
+container_pattern.tzst
+box64/**
+wine-startup-index.json
+graphics_driver/**
+dxwrapper/dxvk-*.tzst
+dxwrapper/vkd3d-*.tzst
+dxwrapper/wined3d-*.tzst
