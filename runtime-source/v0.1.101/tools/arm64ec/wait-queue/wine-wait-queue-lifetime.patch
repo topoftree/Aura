@@ -1,0 +1,59 @@
+From 81e52628b25ac173d04796e8a9b9cda637d3e233 Mon Sep 17 00:00:00 2001
+From: Paul Gofman <pgofman@codeweavers.com>
+Date: Mon, 12 Oct 2026 09:23:34 -0600
+Subject: [PATCH] ntdll: Make sure entry is removed from queue if unlocked
+ entry.addr precheck in RtlWaitOnAddress() suggests so.
+
+---
+ dlls/ntdll/sync.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/dlls/ntdll/sync.c b/dlls/ntdll/sync.c
+index ca6dd4a7d934..8bd5a29d4984 100644
+--- a/dlls/ntdll/sync.c
++++ b/dlls/ntdll/sync.c
+@@ -909,7 +909,7 @@ NTSTATUS WINAPI RtlWaitOnAddress( const void *addr, const void *cmp, SIZE_T size
+     ret = NtWaitForAlertByThreadId( NULL, timeout );
+ 
+     /* We may have already been removed by a call to RtlWakeAddressSingle() or RtlWakeAddressAll(). */
+-    if (entry.addr)
++    if (ReadPointerAcquire( (void * volatile *)&entry.addr ))
+     {
+         spin_lock( &queue->lock );
+         if (entry.addr)
+@@ -932,6 +932,7 @@ void WINAPI RtlWakeAddressAll( const void *addr )
+     struct futex_entry *entry, *next;
+     unsigned int count = 0;
+     HANDLE tids[256];
++    DWORD tid;
+ 
+     TRACE("%p\n", addr);
+ 
+@@ -946,14 +947,15 @@ void WINAPI RtlWakeAddressAll( const void *addr )
+     {
+         if (entry->addr == addr)
+         {
+-            entry->addr = NULL;
++            tid = entry->tid;
+             list_remove( &entry->entry );
++            WritePointerRelease( (void * volatile *)&entry->addr, NULL );
+             if (count == ARRAY_SIZE(tids))
+             {
+                 NtAlertMultipleThreadByThreadId( tids, count, NULL, NULL );
+                 count = 0;
+             }
+-            tids[count++] = (HANDLE)(ULONG_PTR)entry->tid;
++            tids[count++] = (HANDLE)(ULONG_PTR)tid;
+         }
+     }
+ 
+@@ -993,8 +995,8 @@ void WINAPI RtlWakeAddressSingle( const void *addr )
+             /* Remove this entry from the queue, so that a simultaneous call to
+              * RtlWakeAddressSingle() will not also wake it—two simultaneous
+              * calls must wake at least two waiters if they exist. */
+-            entry->addr = NULL;
+             list_remove( &entry->entry );
++            WritePointerRelease( (void * volatile *)&entry->addr, NULL );
+             break;
+         }
+     }

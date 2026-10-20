@@ -1,0 +1,84 @@
+{
+  "legacyInputs": {
+    "rootfs.tzst": "11b9460570ea7bcd929a3968adb44296e3980e89992050b14ea99aeb4eb530f0",
+    "rootfs_patches.tzst": "069cab2aa78612026b030939f8785b9e5de559b9fe5f200230e13da29a3cd2db"
+  },
+  "schema": 1,
+  "sources": {
+    "sdl2": {
+      "url": "https://codeload.github.com/libsdl-org/SDL/tar.gz/refs/tags/release-2.32.10",
+      "sha256": "03f9d7c191a837525c9cda6406af2f2e48be02b5e7eb03d949cc9f1e9ca41c8b",
+      "bytes": 7883298
+    },
+    "dxvk-arm64ec": {
+      "bytes": 8551941,
+      "sha256": "6e31d3c30d58f6871ff0f61dd4ba072e881b95ee23b7a2038033d9accf53d454",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/Dxvk-arm64ec/dxvk-arm64ec-2.7.1.wcp"
+    },
+    "extra_libs.tzst": {
+      "bytes": 21125721,
+      "sha256": "965314378f251157af33bde6e33f10c464b88e981bda78062c69cdfb34e80ce9",
+      "url": "https://raw.githubusercontent.com/Pipetto-crypto/winlator/da12b7a0a9168261656a71a6d68f9f08f77d6304/app/src/main/assets/graphics_driver/extra_libs.tzst"
+    },
+    "fexcore": {
+      "bytes": 1311421,
+      "sha256": "e6cf7367071301b72cbb64e1b3199624ae4f6304e544f09097427c384a81d530",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/FexCore/FEXCore-2610-unix.wcp"
+    },
+    "proton-arm64ec": {
+      "bytes": 119736514,
+      "sha256": "f73ef59e421c40f429e2d7fa66c606a929dc837601dc68d80d1aa43700dd8292",
+      "url": "https://github.com/The412Banner/winlator-contents/releases/download/bionic-layers-20261007-v14/proton-11.0-2-arm64ec.wcp"
+    },
+    "termux-dependencies": {
+      "bytes": 1190645760,
+      "sha256": "b088df560c9395d7c2cc797d208d8a727d1f06fc70e5ea34eef6118ef64a7e42",
+      "url": "https://github.com/GameNative/termux-on-gha/releases/download/build-20260218/termuxfs-aarch64.tar"
+    },
+    "vkd3d-arm64ec": {
+      "bytes": 3910839,
+      "sha256": "084a60462f4b170e42bff3ec258bf1b74ac6c66a98e33762658df978b68476d9",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/VKD3D-PROTON-ARM/vkd3d-proton-arm64ec-3.0.1.wcp"
+    },
+    "wine-mono": {
+      "bytes": 85504000,
+      "sha256": "071f4b2887e1c97a11d791ff3d65be9429eed6dec4c2708888bfd546ba358e23",
+      "url": "https://github.com/wine-mono/wine-mono/releases/download/wine-mono-10.4.1/wine-mono-10.4.1-x86.msi"
+    },
+    "wrapper.tzst": {
+      "bytes": 5725821,
+      "sha256": "9e5b2539c1b86afdfd8c144a165cfa03b9c500fe0d82ae6216a6859c00bf460f",
+      "url": "https://raw.githubusercontent.com/Pipetto-crypto/winlator/da12b7a0a9168261656a71a6d68f9f08f77d6304/app/src/main/assets/graphics_driver/wrapper.tzst"
+    },
+    "xcb-keysyms": {
+      "sha256": "7c260a5294412aed429df1da2f8afd3bd07b7cba3fec772fba15a613a6d5c638",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/xcb-util-keysyms_0.4.1.orig.tar.xz"
+    },
+    "icu-win64": {
+      "url": "https://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-Win64-MSVC2019.zip",
+      "bytes": 23823978,
+      "sha256": "4d17a70dab1059f333b1f321a8c7bcdb4b8bfbf7c5ac32705397af6da3a0c81a"
+    },
+    "icu-win32": {
+      "url": "https://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-Win32-MSVC2019.zip",
+      "bytes": 23124521,
+      "sha256": "33d7603c7e59e81347583fce5b98ee53b66d5a87a5b6b12f906b6f7908868b69"
+    }
+  },
+  "sourcesCommit": {
+    "fex-tag": "FEX-2610",
+    "winlator-bionic": "da12b7a0a9168261656a71a6d68f9f08f77d6304"
+  },
+  "builtOverrides": {
+    "dxvk-d3d9": {
+      "manifest": "tools/arm64ec/dxvk/build.json",
+      "sourceBase": "v2.7.1",
+      "revision": "2.7.1-arm64ec-aura1",
+      "files": [
+        "system32/d3d9.dll",
+        "syswow64/d3d9.dll"
+      ],
+      "originalWcpRetainedForOtherDlls": true
+    }
+  }
+}

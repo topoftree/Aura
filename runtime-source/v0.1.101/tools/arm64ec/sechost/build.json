@@ -1,0 +1,21 @@
+{
+  "source": {
+    "url": "https://codeload.github.com/The412Banner/proton-wine/tar.gz/256288853b206373cbf65b775143d33bb11035dd",
+    "sha256": "9776c760f250926d777224ed662a30b32a6a3fc241c680c58e280ffe1bcefae5"
+  },
+  "toolchain": {
+    "url": "https://github.com/bylaws/llvm-mingw/releases/download/20250920/llvm-mingw-20250920-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "sha256": "8dd8c34fc051a50c2fae86015f35057f8aae93fe1e19b34537ef1269a8b4c772"
+  },
+  "fixReference": "https://github.com/GameNative/proton-wine/commit/5c8e34567130bea90a695be51fa581f26e1267c9",
+  "llvmBugReference": "https://github.com/llvm/llvm-project/commit/16bd5ce1184bb5683ea96290478e5912cf2975b9",
+  "file": "sechost.dll",
+  "bytes": 786432,
+  "sha256": "91e849c3015e28cc811d5b3a8325e25a1b24a32cba154949da10a28931edf62f",
+  "architectures": [
+    "ARM64",
+    "ARM64EC"
+  ],
+  "rpcImport": "DIRECT",
+  "androidOrSteamTested": false
+}

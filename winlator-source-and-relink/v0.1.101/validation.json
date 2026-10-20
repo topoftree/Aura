@@ -1,0 +1,73 @@
+{
+  "version": "0.1.101",
+  "versionCode": 102,
+  "officialApkSha256": "18b76257c253e5f441ccc579cc646a0e505b554f736c217c2c601406977a0af5",
+  "applicationObjects": {
+    "sha256": "92276b7976b24d4eb7a8806bea515cb7b2765f0367906168c390ec5db3acce8a",
+    "size": 2183686,
+    "classes": 1197,
+    "renamed_classes": 1178,
+    "engine_classes": 0,
+    "debug_metadata_markers": {
+      "SourceFile": 0,
+      "SourceDebugExtension": 0,
+      "LineNumberTable": 0,
+      "LocalVariableTable": 0,
+      "Lkotlin/Metadata;": 0,
+      "Lkotlin/coroutines/jvm/internal/DebugMetadata;": 0
+    },
+    "preparation_optimization": false,
+    "engine_as_library_only": true
+  },
+  "objectVerification": {
+    "originalAndObfuscated": true,
+    "classes": 1197,
+    "serializerLookupsPerRun": 25,
+    "behaviorAssertionsPerRun": 49
+  },
+  "baselineRebuild": {
+    "base_apk_sha256": "18b76257c253e5f441ccc579cc646a0e505b554f736c217c2c601406977a0af5",
+    "relinked_apk_sha256": "f50a43658c1442115bf67023ba0cc6d04b3fcbbc3e3d1d707e816ea11a1f230d",
+    "versionName": "0.1.101",
+    "versionCode": 102,
+    "r8_optimized": true,
+    "resource_shrinking": true,
+    "engine_aar_sha256": "e6ae4c2387408534823c334101b7eaab00e928f6660862c3d4f87fc6b8adc56d",
+    "signed": false,
+    "device_installation_tested": false,
+    "indexed_native_payloads_verified": 274
+  },
+  "modifiedEngineRebuild": {
+    "base_apk_sha256": "18b76257c253e5f441ccc579cc646a0e505b554f736c217c2c601406977a0af5",
+    "relinked_apk_sha256": "2e4fed5d098e3a799c0e90bc1c2d53e6863e93c4f27366f8f3bef08bc9961deb",
+    "versionName": "0.1.101",
+    "versionCode": 102,
+    "r8_optimized": true,
+    "resource_shrinking": true,
+    "engine_aar_sha256": "9aee3d222cec08f66addd25d4963165437cda8612f441046504a6fd879570411",
+    "signed": false,
+    "device_installation_tested": false,
+    "indexed_native_payloads_verified": 274,
+    "temporary_java_marker_verified": true,
+    "temporary_native_marker_verified": true,
+    "temporary_resource_marker_verified": true,
+    "original_stable_resource_ids_verified": 7829,
+    "stable_input_entries_not_linked_in_either_build": 741,
+    "new_resource_id": "0x7f1205d1",
+    "resource_archive_bytes": {
+      "resources-proto.ap_": 2626124,
+      "resources-shrunk.ap_": 1820295
+    },
+    "test_signature_verified": true,
+    "test_signed_zip_alignment_verified": true,
+    "test_signed_apk_sha256": "42129e42e293cf46bfb34849180c913c6803319a5267476f280cdb5198279ff2",
+    "application_objects_sha256": "92276b7976b24d4eb7a8806bea515cb7b2765f0367906168c390ec5db3acce8a",
+    "production_key_used": false,
+    "official_apk_replaced": false
+  },
+  "publishedSourceRestoredAfterProbes": true,
+  "jniFieldsVerified": 12,
+  "steamReflectionContractsVerified": 24,
+  "navigationThemesVerified": 8,
+  "androidHardwareTested": false
+}

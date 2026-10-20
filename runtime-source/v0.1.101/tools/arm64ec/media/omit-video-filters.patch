@@ -1,0 +1,37 @@
+--- a/subprojects/gst-libav/meson.build
++++ b/subprojects/gst-libav/meson.build
+@@ -20,11 +20,10 @@
+ api_version = '1.0'
+ libavcodec_dep = dependency('libavcodec', version: '>= 58.18.100', allow_fallback: true,
+     default_options: ['suppress_warnings=true'])
+-libavfilter_dep = dependency('libavfilter', version: '>= 7.16.100')
+ libavformat_dep = dependency('libavformat', version: '>= 58.12.100')
+ libavutil_dep = dependency('libavutil', version: '>= 56.14.100')
+ 
+-libav_deps = [libavcodec_dep, libavfilter_dep, libavformat_dep, libavutil_dep]
++libav_deps = [libavcodec_dep, libavformat_dep, libavutil_dep]
+ 
+ cc = meson.get_compiler('c')
+ static_build = get_option('default_library') == 'static'
+--- a/subprojects/gst-libav/ext/libav/meson.build
++++ b/subprojects/gst-libav/ext/libav/meson.build
+@@ -10,8 +10,6 @@
+     'gstavcfg.c',
+     'gstavdemux.c',
+     'gstavmux.c',
+-    'gstavdeinterlace.c',
+-    'gstavvidcmp.c',
+ ]
+ 
+ libav_headers = [
+--- a/subprojects/gst-libav/ext/libav/gstav.c
++++ b/subprojects/gst-libav/ext/libav/gstav.c
+@@ -149,8 +149,6 @@
+   gst_ffmpegviddec_register (plugin);
+   gst_ffmpegdemux_register (plugin);
+   gst_ffmpegmux_register (plugin);
+-  gst_ffmpegdeinterlace_register (plugin);
+-  gst_ffmpegvidcmp_register (plugin);
+ 
+   /* Now we can return the pointer to the newly created Plugin object. */
+   return TRUE;

@@ -7,6 +7,7 @@ Choose the kit that matches your Aura version:
 
 | Aura version | Source and build instructions | Official release |
 | --- | --- | --- |
+| 0.1.101 | [Open the 0.1.101 kit](v0.1.101/README.md) | [APK and standalone kit ZIP](https://github.com/topoftree/Aura/releases/tag/v0.1.101) |
 | 0.1.83 | [Open the 0.1.83 kit](v0.1.83/README.md) | [APK and standalone kit ZIP](https://github.com/topoftree/Aura/releases/tag/v0.1.83) |
 | 0.1.82 | [Open the 0.1.82 kit](v0.1.82/README.md) | [APK](https://github.com/topoftree/Aura/releases/tag/v0.1.82) |
 

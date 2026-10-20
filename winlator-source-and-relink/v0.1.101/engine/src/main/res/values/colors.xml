@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aura integration changes for 0.1.101, 2026-10-20; see NOTICE.md. -->
+
+<resources>
+    <!-- NavigationView loads resolved text colors by TypedValue.resourceId.
+         Keep these as resource references instead of inline theme color ints. -->
+    <color name="runtime_text_primary_light">#424242</color>
+    <color name="runtime_text_secondary_light">#757575</color>
+    <color name="runtime_text_primary_dark">#fafafa</color>
+    <color name="runtime_text_secondary_dark">#9e9e9e</color>
+</resources>

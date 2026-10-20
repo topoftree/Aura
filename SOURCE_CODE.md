@@ -1,5 +1,17 @@
 # Source availability and library recombination
 
+## Aura 0.1.101 / version code 102
+
+[Open the matching Winlator source and recombination kit](winlator-source-and-relink/v0.1.101/README.md), [runtime source/build inputs](runtime-source/v0.1.101/README.md), or the [0.1.101 release](https://github.com/topoftree/Aura/releases/tag/v0.1.101).
+
+The new kit has this APK's editable Winlator engine source and modification record, independently obfuscated application objects, dependency objects, manifest, stable resource IDs, compiled resources and build rules. The standalone `Aura-0.1.101-relink.zip` contains the actual objects; a Git clone needs Git LFS. Every kit file has a SHA-256 entry.
+
+The independent application has 1,197 classes, with 1,178 names transformed and source/debug/Kotlin metadata removed. The LGPL-covered engine remains editable. Original application objects, private application source/history, private R8 mappings, signing material and user diagnostic captures are not included. This follows the library-source/application-object recombination approach in LGPL 2.1 section 6(a), with the permissions in [NOTICE.md](winlator-source-and-relink/v0.1.101/NOTICE.md).
+
+Separate runtime materials now include the pinned full Wine sources used for native ntdll and sechost, ntsync source and its locked vendor dependency, Wine wait-queue/completion and stack patches, source/build metadata, complete GStreamer/SDL source inputs and the DXVK backport/build recipe. They expand the previous release's source coverage; they are not a claim that every other upstream-prebuilt runtime has been reconstructed or its legal status certified.
+
+See [VALIDATION.md](winlator-source-and-relink/v0.1.101/VALIDATION.md) for independent recombination, modified-library and signature checks. The Winlator source/recombination link in the application points to this version index. Earlier kits remain available below and must not be substituted for 0.1.101.
+
 ## Aura 0.1.83 / version code 84
 
 [Open the matching 0.1.83 source and recombination kit](winlator-source-and-relink/v0.1.83/README.md). The matching APK, detailed release notes and checksums are on the [0.1.83 release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83).
@@ -55,12 +67,12 @@ Host build, resource and signature checks are distinct from installing and runni
 
 ## Outstanding obligations and app changes
 
-This publication addresses the Winlator Android engine/recombination portion. It does **not** declare the entire Aura APK legally compliant. In particular:
+The Winlator kits and the 0.1.101 runtime supplement have the scope above. They do **not** declare the entire Aura APK legally compliant. In particular:
 
 | Item | Remaining work |
 | --- | --- |
-| Modified Wine / Proton and statically included ntsync | Deliver matching component source, patches and build/recombination materials; assess the LGPL-3.0 installation-information requirements for the actual distribution arrangement. |
-| Wine Mono, media/audio libraries and other runtime packages | Finish the exact shipped-component/source inventory and fulfill each applicable license's source-delivery terms. |
+| Modified Wine / Proton and statically included ntsync | 0.1.101 now supplies the pinned sources, patches, build scripts and replacement guidance for the listed modifications. Complete the correspondence review for other upstream-prebuilt Wine parts and assess LGPL-3.0 installation-information requirements for the actual distribution arrangement. |
+| Wine Mono, FFmpeg/Termux, VKD3D and other runtime packages | Finish the exact shipped-component/source inventory and fulfill each applicable license's source-delivery terms. The new GStreamer/SDL sources do not substitute for separately bundled FFmpeg or other library sources. |
 | Qualcomm proprietary graphics package | Establish redistribution permission or remove/replace it from distribution. |
 | Independent Aura / derived Winlator boundary | The private-source arrangement depends on this boundary being legally valid. Copying or translating library-derived code into an Aura-named file would not make it independent. Technical recombination tests do not certify that legal boundary. |
 | In-app notice | Included in 0.1.83: visible Winlator notice, offline LGPL text and corresponding-source/recombination link. The older 0.1.82 APK has not been replaced. |

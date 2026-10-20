@@ -1,172 +1,129 @@
 # Aura
 
-Run supported Windows PC games on your Android device, with a library and launcher designed for touch and controller navigation.
+Run supported Windows PC games on Android, with a library and launcher designed for touch and controller navigation.
 
 ## Download
 
-[**Download Aura 0.1.83 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.83/Aura-0.1.83-arm64-release.apk) · [GitHub Release](https://github.com/topoftree/Aura/releases/tag/v0.1.83) · [Checksums](releases/v0.1.83/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
+[**Download Aura 0.1.101 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.101/Aura-0.1.101-arm64-release.apk) · [Release notes and assets](https://github.com/topoftree/Aura/releases/tag/v0.1.101) · [Checksums](releases/v0.1.101/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
 
-Current version: **0.1.83**, Android version code **84**. Download `Aura-0.1.83-arm64-release.apk` from the release's **Assets** section. It is a signed production APK, not a debug build.
+**Android 14+ · ARM64 · version code 102 · `com.android.aura`**
 
-For the modified Winlator engine's source and the materials to recombine it with Aura 0.1.83, see [Winlator source and relinking kits](winlator-source-and-relink/README.md) and [source availability details](SOURCE_CODE.md). Aura's independent application source remains private. Use the matching `winlator-source-and-relink/v0.1.83` directory; the older 0.1.82 kit remains available for that release. Clone with Git LFS to obtain the full object JARs.
+The APK is a signed Gradle Release build with R8 optimization, obfuscation and resource shrinking. It uses the existing upgrade signing certificate. Fully exit any game before installing the update; keep the existing installation and app data.
 
-## Overview
+The matching [Winlator source and relinking kit](winlator-source-and-relink/v0.1.101/README.md) and [runtime source/build materials](runtime-source/v0.1.101/README.md) are available separately. Use materials matching your APK version. Aura's independent application source remains private, subject to the scope in [Source availability](SOURCE_CODE.md).
 
-Aura brings game installation, launch settings, controller navigation and supported Windows compatibility components together in one Android app. Games run locally on your device; performance depends on the game, runtime, graphics driver and phone.
+## New since the previous public release
 
-This is Aura's public repository for APK distribution, documentation, release notes, issue tracking and required third-party source/recombination materials. Aura's independent application source is maintained privately. Third-party software retains its own licenses and recipient rights; see [Copyright](COPYRIGHT.md) and [Third-party notices](THIRD_PARTY_NOTICES.md).
+Aura 0.1.101 brings together the changes made since public version 0.1.83:
 
-## Main features
-
-| Area | What you can do |
+| Area | Added or improved |
 | --- | --- |
-| Launcher | Open installed games, return to a retained session, or close a running session. |
-| Library | Browse your Steam library, install available Windows game content, manage installed games and check for updates. Local game imports are also supported. |
-| Game management | Set a game's render resolution, frame limit, stability mode, ESync, shader compiler threads and Steam-client launch preference. |
-| Controllers | Navigate with touch or supported controllers and configure controller mappings. |
-| Updates and Messages | Review game and supported component updates, then confirm installation. Brief side notifications leave a persistent entry in Messages. |
-| Runtime settings | Manage containers and the available graphics, audio and compatibility options. |
-| Optional diagnostics | Enable Debug mode when troubleshooting to collect session reports and export available diagnostic files. |
+| CPU optimization | Per-game **Default**, **Thread waiting only**, **x87 calculations only**, and **Both** choices for installed Steam and Local games. Existing Mirror's Edge choices migrate. |
+| Mirror's Edge compatibility | Startup-time compatibility, display-mode handling, an empty Direct3D 9 image-copy fix, and a paired Wine wait-completion fix for the reported multi-second picture pauses. |
+| Display scaling | Choose aspect-preserving fit or stretch in the game menu. Scaling follows the current game viewport. |
+| Controller shortcuts | Double-press the Select-equivalent button for the game menu; hold it to return to Aura. In Aura, a single press focuses the running-game entry. |
+| Loading hints | Transparent hints with solid icons and labels appropriate to the connected controller. Hidden on the debug loading screen. |
+| Launcher and Library | Slightly rounded covers, selected-cover glow, larger full-width swipe actions aligned with the game title, and a raised running-game cover when focused. |
+| Game menu | Compact floating menu, smaller corners, stronger elevation, concise labels and navigation that wraps between the first and last items. |
+| Dependency setup | Transparent loading progress. Successful setup is remembered after dependency validation and sustained output from the selected game; relevant game or runtime changes trigger checking again. |
+| Updates | A Settings **Updates** page groups game updates and built-in components/drivers. Check all installed Steam games and independently enable daily checks. Library results appear beside the Update title. |
+| Storage | An Aura page shows internal capacity, game files, saves, caches, Aura/runtime files, Other used space and available space. Export recognized saves to ZIP, associate a save folder, or confirm deletion of recognized saves/caches. |
+| Settings and diagnostics | Global Stability mode, dedicated Mirror's Edge/Ubisoft startup capture pages and separate VC++/Unity capture/export flows are removed. General diagnostics, VC++ installation results and DLL checks remain. |
+| Open-source notice | A separate Winlator license page supports controller navigation and links to corresponding source materials. |
 
-## Built on open-source projects
+The earlier Mirror's Edge intermittent-pause repair was confirmed by the reporting user. This does not establish performance for all games or devices. The new 0.1.101 storage, update and dependency workflows passed host checks but have not yet been tested on a phone. See [detailed release notes](releases/v0.1.101/README.md).
 
-Aura builds on **Winlator** for Android-side Windows runtime integration, **JavaSteam** for Steam protocol access, and **FEXCore** for CPU translation. Wine/Proton and the graphics components below provide the Windows and rendering compatibility layers. Credit for these foundations belongs to their upstream authors and contributors.
+## Getting started
 
-| Project / bundled version | Role in Aura | Upstream |
+1. Download the APK from the official release page and verify its checksum.
+2. Fully exit any game/Wine session before updating Aura.
+3. Open the APK from Android's file manager or browser downloads and install over the existing app.
+4. Sign in to Steam to browse and install available Windows game content, or import an existing Local game.
+5. Select the correct executable in the game's details, then start the game and complete required dependency or client setup.
+
+Use your own legally acquired games and any accounts they require. Some titles need the official Steam client or another launcher inside Wine. **Skip Steam client** is for compatible games; it does not bypass ownership checks or DRM.
+
+Back up important saves before updating. Uninstalling Aura or clearing app data can remove games, containers and saves. If an upgrade fails, retain the installed app and report the exact error rather than uninstalling as the first step.
+
+## Controller controls
+
+“Select” means the corresponding button identified for the connected controller.
+
+| Context | Gesture | Result |
 | --- | --- | --- |
-| Winlator 11.2 | Runtime and container integration, X server/display, input and Android/native integration; Aura includes modifications to this engine. | [Winlator](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9) |
-| JavaSteam 1.8.0 | Steam authentication, account/library access and content-download protocol integration. Some games also need the official Steam client running inside Wine. | [JavaSteam](https://github.com/Longi94/JavaSteam) |
-| Proton Wine 11.0-2 / ARM64EC | Windows API compatibility and the Wine environment used to start Windows programs. | [Proton Wine build project](https://github.com/The412Banner/proton-wine) · [Wine](https://www.winehq.org/) |
-| FEXCore 2610 | Translates supported x86/x86-64 code for the ARM64 runtime; it works alongside Wine rather than providing Windows APIs itself. | [FEX](https://github.com/FEX-Emu/FEX) |
-| DXVK 2.7.1 / ARM64EC | Direct3D 8/9/10/11 translation to Vulkan where selected and supported. | [DXVK](https://github.com/doitsujin/dxvk) |
-| VKD3D-Proton 3.0.1 / ARM64EC | Direct3D 12 translation to Vulkan. | [VKD3D-Proton](https://github.com/HansKristian-Work/vkd3d-proton) |
-| Mesa Turnip and Zink | Adreno Vulkan support and OpenGL-on-Vulkan rendering; see the driver inventory below. | [Mesa](https://www.mesa3d.org/) |
-| AdrenoTools / linkernsbypass | Loads supported alternate Android graphics drivers through the runtime's Bionic Wrapper integration. | [AdrenoTools](https://github.com/bylaws/libadrenotools) |
-| SDL 2.32.10, ALSA/PulseAudio, GStreamer 1.28.0 and FFmpeg components | Controller, audio and media support, including Aura's runtime integration changes. | [SDL](https://github.com/libsdl-org/SDL) · [ALSA](https://www.alsa-project.org/) · [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) · [GStreamer](https://gstreamer.freedesktop.org/) · [FFmpeg](https://ffmpeg.org/) |
-| Wine Mono 10.4.1 | Bundled .NET compatibility support for applicable Windows software. | [Wine Mono](https://github.com/wine-mono/wine-mono) |
-| Kotlin, AndroidX / Compose / WorkManager and Material | Android application, interface and background-work foundations. | [Kotlin](https://kotlinlang.org/) · [AndroidX](https://developer.android.com/jetpack/androidx) |
+| In a game | Single press | Forwarded to the game after the approximately 0.3-second double-press window. |
+| In a game | Double press | Open or close Aura's floating menu. |
+| In a game | Hold approximately 0.7 seconds | Return to Aura with the session paused. |
+| In Aura with a retained game | Single press | Focus the running-game entry at the bottom of Launcher; confirm to resume. |
+| Floating menu | Up on the first item / down on the last | Wrap to the opposite end. |
 
-The current runtime uses FEXCore with ARM64EC Wine. Version labels here describe the bundled baseline; installed component updates and the selected game configuration can differ. The [third-party notices](THIRD_PARTY_NOTICES.md) include additional dependencies, copyright information and license terms. Upstream links provide attribution; matching source and recombination obligations are addressed separately in [Source availability](SOURCE_CODE.md).
+Ordinary loading screens show the menu and return gestures. Debug loading screens omit those hints.
 
-## Graphics drivers and rendering layers
+## Game settings
 
-Direct3D translation, CPU translation and the phone's GPU driver perform different jobs. The current ARM64EC graphics path uses **Turnip or Bionic Wrapper** for Vulkan and **Zink** for OpenGL. Driver selection depends on the device and game; these components are not all used simultaneously.
+Open **Settings → Games Management** and choose a game. Settings are saved per game. Fully exit and restart to apply launch options; resuming a retained session keeps its original settings.
 
-| Component / option | Included baseline and purpose | Compatibility / origin |
-| --- | --- | --- |
-| Mesa Turnip · Bionic | `25.2.0-devel`, revision `6defe2244c`; built-in Vulkan driver for Adreno. | Requires an Adreno GPU; [Mesa](https://www.mesa3d.org/). |
-| Mesa Turnip 26.0 R8 | Optional bundled community package, `26.0.0 - R8`, by KIMCHI. | Offered for Adreno 6xx/7xx on 4 KB-page devices; a development comparison option. [Community builds](https://github.com/K11MCH1/AdrenoToolsDrivers). |
-| Mesa Turnip 25.3 PROFILED | Optional bundled `25.3.0 - new autotuner` package by KIMCHI. | Experimental; offered for Adreno 6xx/7xx on 4 KB-page devices, excluding Adreno 710/720. [Community builds](https://github.com/K11MCH1/AdrenoToolsDrivers). |
-| Qualcomm Adreno v863.1 | Optional bundled community-extracted/adapted package credited to Hugo / StevenMX. | Offered for Adreno 6xx/7xx on 4 KB-page devices. It contains **proprietary Qualcomm components** and is not an official Qualcomm distribution. [Package origin](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/tag/v863.1_a7xx). |
-| System Vulkan driver | Uses the driver supplied by the phone's Android/vendor firmware through Bionic Wrapper. | Its version, license and supported features depend on the device; Aura does not supply a replacement system driver through this option. |
-| Mesa Zink · Bionic | `24.3.0-devel`; implements OpenGL over Vulkan. | Uses the chosen Vulkan backend; it is a rendering layer, not a separate hardware driver package. |
-| Bionic Wrapper / AdrenoTools | Connects the Wine Vulkan runtime to a supported selected driver or the system driver. | Driver loading and device/vendor ABI support must succeed; selecting a name in Settings alone does not prove that the requested driver loaded. |
+- **CPU optimization:** Try the four modes independently. The x87 option reduces floating-point precision; suitability and performance vary. Thread-waiting optimization is separate from ESync.
+- **ESync:** Changes Wine synchronization. It is separate from VSync, which concerns frame presentation. Neither setting guarantees higher FPS.
+- **Render resolution / frame limit:** Choose values appropriate to the game and device. Aura's limit does not override the game's own VSync or frame limit.
+- **Fit / stretch:** Fit preserves the viewport's aspect ratio; stretch fills the host display. Letterboxing drawn by the game itself can remain.
+- **Mirror's Edge startup compatibility:** A targeted per-game option. The CPU selector is available to other games independently.
 
-Mesa's open-source terms do not apply to Qualcomm's proprietary components. Redistribution permission for the bundled Qualcomm package remains an outstanding item documented in [Source availability](SOURCE_CODE.md). Driver options and build checks do not establish support for every GPU, game or 16 KB-page device.
+After changing Mirror's Edge PhysX settings, completely exit the session and relaunch from Aura if the game's internal restart causes flickering. This release does not claim a universal fix for that internal restart path.
 
-## Android requirements
+## Dependencies, updates and storage
 
-| Requirement | Current release |
+Dependency download/installation progress floats over the loading screen without a panel background. Completion is remembered after validation and sustained output from the selected game; a static startup poster or installer alone does not qualify. Later launches of that version skip the full scan. Game updates, relevant executable/dependency changes or container reconstruction invalidate the record. Ordinary graphics settings and saves do not by themselves count as a game update.
+
+Open **Settings → Updates** for **Game updates** and **Built-in components and drivers**. Run a manual batch check or enable daily game checks. Checks do not automatically download updates, and game files are not replaced while the game is running. Background checks depend on Android scheduling and an available Steam session. Imported Local games have no universal update provider. Only catalog-supported components update separately; other pinned runtime changes arrive through APK updates.
+
+**Settings → Storage** displays Aura's view of internal storage instead of opening Android's system storage manager. Space used outside Aura is grouped as **Other**. Recognized saves can be exported to ZIP or deleted after confirmation; dedicated save folders can be associated manually. Ambiguous shared folders are not deleted for a single game. Recognized caches can be cleared, but rebuilding them may temporarily cause longer loading or stutter. Save discovery does not cover every game's cloud, registry or external save format.
+
+## Runtime foundations
+
+| Project | Role |
 | --- | --- |
-| Minimum Android version | Android 14 (API 34) |
-| CPU architecture | ARM64 (`arm64-v8a`) |
-| Application ID | `com.android.aura` |
-| Distribution build | Signed release APK with R8 optimization and resource shrinking |
-| Storage | Space for Aura, its runtime, downloaded clients and your games; installations and updates need additional working space. |
-| Accounts and content | Your own legally acquired games and any Steam or publisher accounts required by those games. |
+| [Winlator 11.2](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9) | Android runtime, display, input, container and native integration, with Aura modifications. |
+| [Wine / Proton 11.0-2 ARM64EC](https://github.com/The412Banner/proton-wine) | Windows API compatibility, including the supplied Aura Wine patches. |
+| [FEXCore 2610](https://github.com/FEX-Emu/FEX) | CPU translation alongside Wine. |
+| [DXVK 2.7.1 ARM64EC](https://github.com/doitsujin/dxvk) | Direct3D translation; D3D9 includes Aura's empty-rectangle backport. |
+| [VKD3D-Proton 3.0.1 ARM64EC](https://github.com/HansKristian-Work/vkd3d-proton) | Direct3D 12 translation. |
+| [Mesa](https://www.mesa3d.org/) / [AdrenoTools](https://github.com/bylaws/libadrenotools) | Supported graphics drivers, OpenGL-on-Vulkan and Android driver-loading integration. |
+| [JavaSteam 1.8.0](https://github.com/Longi94/JavaSteam) | Steam protocol integration for accounts, libraries and content. |
+| [SDL](https://github.com/libsdl-org/SDL), [GStreamer](https://gstreamer.freedesktop.org/), [Wine Mono](https://github.com/wine-mono/wine-mono) and other libraries | Input, audio, media and .NET compatibility. |
 
-Internet access is required for sign-in, downloads, update checks and games that use online services. Offline play depends on the game and its launchers.
+Credit belongs to the respective upstream authors and contributors. Installed updates can differ from these bundled baselines. See [Third-party notices](THIRD_PARTY_NOTICES.md), [LICENSES](LICENSES/) and [Source availability](SOURCE_CODE.md) for individual terms and delivered materials.
 
-The Android version alone does not establish compatibility. Graphics-driver support, available memory and device temperature affect which games run and how well they perform. Full compatibility with devices using 16 KB memory pages has not been verified; some bundled native components still have 4 KB alignment constraints.
+## Diagnostics and compatibility
 
-## Installation and updates
+Keep **Settings → Advanced → Debug mode** off for ordinary play. To investigate a problem, enable it before a fresh session, reproduce the issue and use general game diagnostic capture/export. Turn it off after troubleshooting. Mirror's Edge automatic stall capture remains a separate optional per-game setting.
 
-1. Download the APK from the [official release page](https://github.com/topoftree/Aura/releases/tag/v0.1.83) and verify its checksum below.
-2. Before updating Aura, fully exit any running game or Wine session.
-3. Open the APK from your browser's downloads or Android file manager. If prompted, allow that app to install unknown apps, then return to the installer.
-4. Install and open Aura. Complete any runtime or game-dependency setup requested by the app.
-5. For Steam games, sign in with your own account, select a game in Library and install it. Open an installed game from Library or Launcher and complete any required client sign-in.
+A visible window does not prove that a game has reached its menu. Low total CPU/GPU utilization alone does not identify a bottleneck. Individual threads, synchronization, shader compilation, memory pressure or thermal throttling can limit performance.
 
-For an existing `com.android.aura` installation with a compatible signing certificate, install the newer APK over the existing app. Android checks the package identity, version and signature. If installation fails, retain the existing app and report the exact error rather than uninstalling as a first step.
-
-Back up important saves and imported files before updating. Uninstalling Aura or clearing its app data can remove app-private games, containers and saves. Do not assume that a game supports cloud saves or that its latest save has synced.
-
-## Game settings and Steam behavior
-
-Open **Settings → Games Management** and choose a game to change its options. **Use defaults** inherits the applicable global or container setting. Fully exit and relaunch the game to apply launch-setting changes; resuming a background session keeps that session's settings.
-
-- **Render resolution:** Lower resolutions reduce the amount of image data to render and transfer. A higher resolution may cost performance even when the total CPU or GPU reading is low.
-- **Frame limit:** Sets Aura's per-game limit. **Unlimited** does not override a game's own limit, VSync, display refresh behavior or a runtime bottleneck.
-- **ESync:** Changes Wine's thread and process synchronization. It is separate from the game's **vertical sync (VSync)**, which concerns frame presentation and tearing. ESync affects the whole Wine session, including Steam, and is not a guaranteed FPS boost. If enabling it prevents a required client from starting, turn it off and fully restart the session.
-- **Shader compiler threads:** Controls supported shader-compilation concurrency. Increasing it is not a general fix for low game FPS.
-- **Skip Steam client:** A compatibility option for games that can start without the official client. Leave it off for games that require Steam. It does not grant ownership or bypass a game's authentication or DRM.
-
-When **Skip Steam client** is off, Aura starts or reuses Steam and waits for its client session before launching the game. Once the selected game's visible window appears, Aura attempts to minimize the Steam main window once. It keeps the client and Steamworks session running. Restoring Steam manually does not cause repeated automatic minimization. Games that require another launcher, such as Ubisoft Connect, still need that launcher.
-
-## Game and component updates
-
-For an installed Steam game, open its Library details and choose **Update** to check for available changes. Local imports do not use Steam's update service.
-
-With daily update checking enabled, Aura checks installed games and the supported component catalog when a usable session is available. Background checks depend on Android scheduling and an available Steam session; they are not guaranteed while the app is stopped or signed out. Older installations without a recorded version may offer verification instead of claiming to be current.
-
-Available updates appear in a side notification for about **three seconds** and remain in **Messages**. Open the message and confirm to start the update. Notifications do not start downloads automatically and are suppressed during a running game. Game files are not replaced while that game is running; an interrupted update can require completion before the game starts again.
-
-Only components offered by Aura's update catalog can be updated separately. Pinned Wine, FEX, DXVK and VKD3D components are delivered through Aura releases. Steam and Ubisoft Connect manage their own client updates.
-
-## Debug mode and troubleshooting
-
-Keep **Settings → Advance → Debug mode** off for ordinary play. In 0.1.83, this switch controls optional Aura log collection, session/performance sampling and native execution diagnostics. Essential launch checks, session cleanup and runtime safeguards continue to operate.
-
-To collect a new report, enable Debug mode before starting a fresh game session. After reproducing the issue, use the available diagnostic export in Settings. You do not need to force a crash to create a report. Turn Debug mode off after troubleshooting; already saved reports can remain available. Android, Steam and games can create their own logs independently of this switch.
-
-Low total CPU or GPU usage alone does not identify a fault. A busy individual thread, synchronization waits, image transfers, memory pressure or thermal throttling can limit frame rate. Compare the same scene and resolution when reporting performance, and distinguish game FPS from a counter observed on Aura's settings screen.
-
-## Current release and limitations
-
-Version **0.1.83** adds an offline Winlator LGPL 2.1 license page, source/recombination links and clearer attribution in **Settings → Version**. It retains the previous game-management and diagnostic features without changing the game runtime or graphics dependencies. See the [detailed release notes](releases/v0.1.83/README.md).
-
-Build and automated checks do not establish device compatibility or measured FPS gains. This release does not claim to resolve Stardew Valley's reported performance issue or all Steam/ESync startup problems. Games with unsupported graphics features, anti-cheat, DRM or launcher requirements may not work. Workshop, private beta branches and cloud-save behavior should not be assumed to have full support.
-
-Aura is under active development. Use the release notes and issue tracker for known behavior and report reproducible problems with the details below.
+Host tests do not establish compatibility with every game, controller or device. Some third-party native libraries still need 16 KiB-page compatibility review. Unsupported graphics features, anti-cheat, DRM or launcher requirements can prevent a game from working. Workshop, private beta branches and cloud saves should not be assumed to have full support.
 
 ## APK verification
 
-SHA-256 for the current **Release asset**, `Aura-0.1.83-arm64-release.apk`:
+SHA-256 for `Aura-0.1.101-arm64-release.apk`:
 
 ```text
-10becdd7562bdb6df3a2e9c94a501750c48a9bb60698605982dee85fe7e58190
+18b76257c253e5f441ccc579cc646a0e505b554f736c217c2c601406977a0af5
 ```
 
-In a shell with `sha256sum`, run:
+Run `sha256sum Aura-0.1.101-arm64-release.apk`, or PowerShell's `Get-FileHash -Algorithm SHA256`. Match the exact filename against [the release checksums](releases/v0.1.101/SHA256SUMS). Android separately verifies the APK signature.
 
-```sh
-sha256sum Aura-0.1.83-arm64-release.apk
-```
+## Source availability
 
-Compare the result with the value above. On Windows PowerShell, use `Get-FileHash .\Aura-0.1.83-arm64-release.apk -Algorithm SHA256`. A matching hash verifies the published bytes; obtain the APK and checksum from the official repository. Android separately checks the APK signature during installation.
+The [0.1.101 Winlator kit](winlator-source-and-relink/v0.1.101/README.md) supplies editable LGPL-covered engine source, its modification record, build scripts, independently obfuscated application objects, resources and dependency objects. Users can modify the engine, recombine it with the application and sign their build with their own key.
 
-The older repository download, [`Aura-0.1.82.apk`](https://github.com/topoftree/Aura/raw/refs/heads/main/apk/Aura-0.1.82.apk), remains available. It is a separately packaged 0.1.82 build with a **different checksum**. Match the exact filename against [SHA256SUMS](releases/v0.1.82/SHA256SUMS); do not use one file's hash to verify the other.
+Independent Aura Kotlin UI/business source, private obfuscation mappings, production signing material and user diagnostic archives are not included. Obfuscation does not prevent decompilation or restrict applicable modification and debugging rights.
 
-## Bug reports and feature requests
+[Runtime materials](runtime-source/v0.1.101/README.md) cover supplied Wine/ntsync changes and additional runtime build inputs. Other components retain separate obligations. The package is not a certification of the entire APK's legal compliance; [SOURCE_CODE.md](SOURCE_CODE.md) records coverage and outstanding items.
 
-Search [existing issues](https://github.com/topoftree/Aura/issues) before [opening a report](https://github.com/topoftree/Aura/issues/new). Include:
+## Feedback and copyright
 
-- Aura version, device model and Android version.
-- Game name, graphics driver, resolution and relevant per-game settings.
-- Steps to reproduce, expected behavior and what happened instead.
-- For performance reports, FPS in a named scene and whether changing resolution changes it.
-- A relevant screenshot or diagnostic export, when available.
+Search [existing issues](https://github.com/topoftree/Aura/issues) before [opening a report](https://github.com/topoftree/Aura/issues/new). Include the Aura/device/Android versions, game, settings, reproduction steps and expected versus actual behavior. For performance, name the scene and describe whether changing resolution helps.
 
-Issues are public. Remove passwords, tokens, account identifiers and other personal information before sharing logs or screenshots. Do not attach copyrighted game files. For feature requests, describe the task and the behavior you want; a request does not imply a delivery commitment.
+Issues are public. Remove account identifiers, credentials and personal information from reports. Do not attach copyrighted game files.
 
-## Source availability and third-party software
-
-The [versioned Winlator source and recombination kit](winlator-source-and-relink/v0.1.83/README.md) contains the modified engine's Java/Kotlin and native source, resources, build instructions and independently obfuscated Aura application objects. It allows building a combined APK with an edited engine without the private application source or production signing key. The LGPL-covered engine and modifications remain open under their applicable terms. Aura's independent application object code has the specific recombination permissions in the kit's [notice](winlator-source-and-relink/v0.1.83/NOTICE.md); its Kotlin business/UI source is not published.
-
-Bundled third-party components, including modified components, retain their own licenses. Modification for personal use and reverse engineering for debugging LGPL-library modifications are expressly permitted; Aura's copyright notice does not restrict the libraries' own rights. See [SOURCE_CODE.md](SOURCE_CODE.md) for the scope, validation and outstanding work, [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attributions, and [LICENSES/](LICENSES/) for retained license texts. The Winlator kit does not complete every separate runtime component's source obligations or certify the whole APK's legal compliance.
-
-## Copyright
-
-Copyright © 2026 Aura. All rights reserved for Aura's original material, subject to applicable law and the separate rights of third-party contributors. See [COPYRIGHT.md](COPYRIGHT.md) for the scope of this notice.
-
-Third-party software, game artwork, names and trademarks belong to their respective owners. Aura is not affiliated with or endorsed by Valve, Ubisoft, Microsoft or the other projects and publishers mentioned here.
+Copyright © 2026 Aura for its original material, subject to third-party contributors' rights. See [Copyright](COPYRIGHT.md). Third-party software, artwork, names and trademarks belong to their owners. Aura is not affiliated with or endorsed by Valve, Ubisoft, Microsoft or the other projects and publishers named here.

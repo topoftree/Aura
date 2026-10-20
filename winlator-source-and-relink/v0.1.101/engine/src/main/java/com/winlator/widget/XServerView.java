@@ -1,0 +1,44 @@
+/* Aura integration changes for 0.1.101, 2026-10-20.
+ * Original notices and individual file licenses remain applicable.
+ * See the accompanying NOTICE.md and MODIFICATIONS.tsv.
+ */
+package com.winlator.widget;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import com.winlator.renderer.GLRenderer;
+import com.winlator.xserver.XServer;
+
+@SuppressLint("ViewConstructor")
+public class XServerView extends GLSurfaceView {
+    private final GLRenderer renderer;
+    private final XServer xServer;
+
+    public XServerView(Context context, XServer xServer) {
+        super(context);
+        this.xServer = xServer;
+        setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        setEGLContextClientVersion(3);
+        setEGLConfigChooser(8, 8, 8, 8, 0, 0);
+        setPreserveEGLContextOnPause(true);
+        renderer = new GLRenderer(this, xServer);
+        setRenderer(renderer);
+        setRenderMode(RENDERMODE_WHEN_DIRTY);
+    }
+
+    public GLRenderer getRenderer() {
+        return renderer;
+    }
+
+    @Override
+    public void requestRender() {
+        final com.winlator.core.RuntimePerformanceCounters performance = xServer != null ? xServer.performance : null;
+        if (performance != null && com.winlator.core.RuntimeDiagnostics.enabled())
+            performance.renderRequested(System.nanoTime());
+        super.requestRender();
+    }
+}

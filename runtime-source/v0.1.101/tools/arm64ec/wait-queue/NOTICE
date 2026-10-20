@@ -1,0 +1,14 @@
+Wine wait-queue lifetime backport for Aura
+
+Wine is Copyright the Wine project authors, LGPL-2.1-or-later.
+Base: https://github.com/The412Banner/proton-wine/tree/dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+Includes the Android vendor patches listed in build.json.
+Upstream fix by Paul Gofman, commit 81e52628b25ac173d04796e8a9b9cda637d3e233:
+https://github.com/wine-mirror/wine/commit/81e52628b25ac173d04796e8a9b9cda637d3e233
+Only PE ntdll.dll is rebuilt; native ntdll.so and wineserver are unchanged.
+Source archive: releases/0.1.69/Wine-ntdll-dcc50c55e2-source.tar.gz in the private source repository.
+Reproduction: tools/arm64ec/build_wait_queue.py and wait-queue/README.md.
+The original upstream patch and COPYING.LIB are distributed with this component.
+
+This is a correction of an upstream queue-lifetime race, not a confirmed fix
+of every Mirror's Edge pause. Phone validation remains required.

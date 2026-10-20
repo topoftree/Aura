@@ -1,3 +1,4 @@
 *.apk filter=lfs diff=lfs merge=lfs -text
 winlator-source-and-relink/**/objects/*.jar filter=lfs diff=lfs merge=lfs -text
 winlator-source-and-relink/archives/*.zip filter=lfs diff=lfs merge=lfs -text
+runtime-source/**/sources/*.tar.gz filter=lfs diff=lfs merge=lfs -text
