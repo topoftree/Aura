@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/aura-icon.png" alt="Aura" width="240" />
+</p>
+
 # Aura
 
 Run supported Windows PC games on Android, with a library and launcher designed for touch and controller navigation.
