@@ -1,0 +1,100 @@
+{
+  "nativeSha256": "091586ec99aa9aa25e1cb786d5a8c1215b7673da1afb753740d8f4b09d53aeac",
+  "symbolsSha256": "be13d297f261b206359398089c54108b14ebec87796f441fa8a3d1b943a4371a",
+  "before": {
+    "NtAlertThreadByThreadId": {
+      "rva": "0xf5fac",
+      "size": 360,
+      "fnv64": "15291833780092925767"
+    },
+    "NtWaitForAlertByThreadId": {
+      "rva": "0xf6114",
+      "size": 728,
+      "fnv64": "9838130541946745358"
+    },
+    "NtAlertMultipleThreadByThreadId": {
+      "rva": "0xf5eb0",
+      "size": 252,
+      "fnv64": "3229217557870019904"
+    },
+    "NtCurrentTeb": {
+      "rva": "0x101c98",
+      "size": 12,
+      "fnv64": "15725814003289649945"
+    },
+    "wow64_wait_address_completion": {
+      "rva": "0xf640c",
+      "size": 32,
+      "fnv64": "17446221209677784933"
+    },
+    "unixcall_wait_address_completion": {
+      "rva": "0xf63ec",
+      "size": 32,
+      "fnv64": "18330404027709492773"
+    },
+    "syscalls": {
+      "rva": "0x1bb968",
+      "size": 2064
+    },
+    "unix_call_wow64_funcs": {
+      "rva": "0x1bc178",
+      "size": 120
+    },
+    "unix_call_funcs": {
+      "rva": "0x1bc208",
+      "size": 120
+    },
+    "tid_alert_blocks": {
+      "rva": "0x217a50",
+      "size": 32768
+    }
+  },
+  "after": {
+    "NtAlertThreadByThreadId": {
+      "rva": "0xf5ffc",
+      "size": 360,
+      "fnv64": "14332999053627913351"
+    },
+    "NtWaitForAlertByThreadId": {
+      "rva": "0xf6164",
+      "size": 728,
+      "fnv64": "9838130541946745358"
+    },
+    "NtAlertMultipleThreadByThreadId": {
+      "rva": "0xf5f00",
+      "size": 252,
+      "fnv64": "17210632278635158807"
+    },
+    "NtCurrentTeb": {
+      "rva": "0x101ce8",
+      "size": 12,
+      "fnv64": "12710364291176814025"
+    },
+    "wow64_wait_address_completion": {
+      "rva": "0xf645c",
+      "size": 32,
+      "fnv64": "17446221209677784933"
+    },
+    "unixcall_wait_address_completion": {
+      "rva": "0xf643c",
+      "size": 32,
+      "fnv64": "18330404027709492773"
+    },
+    "syscalls": {
+      "rva": "0x1bb9b8",
+      "size": 2064
+    },
+    "unix_call_wow64_funcs": {
+      "rva": "0x1bc1c8",
+      "size": 120
+    },
+    "unix_call_funcs": {
+      "rva": "0x1bc258",
+      "size": 120
+    },
+    "tid_alert_blocks": {
+      "rva": "0x217aa0",
+      "size": 32768
+    }
+  }
+}

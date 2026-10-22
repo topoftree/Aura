@@ -1,0 +1,15 @@
+FEX-2610 image-page compatibility candidate for Aura
+
+Upstream: https://github.com/FEX-Emu/FEX
+Revision: 14c92681f4d62cf84d901460e0358de09c8847a7 (FEX-2610)
+License: MIT; see LICENSE. Submodule versions and archives are in sources.json.
+
+Aura changes: image-pages.patch and ImageExecutableRanges.h add a disabled-by-
+default option, FEX_WINDOWSIMAGEPAGES. It applies only to MgsGroundZeroes.exe,
+registering the loader's committed executable image pages in the translator.
+It does not modify Windows page permissions or game files. Unreadable queries
+leave unknown pages excluded. Both Windows translators are rebuilt; their
+exports/imports and the existing Unix bridge remain unchanged.
+
+This is a compatibility candidate based on an observed entry execute fault.
+Host tests do not establish successful Android game startup or gameplay.

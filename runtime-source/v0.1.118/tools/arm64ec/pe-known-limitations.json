@@ -1,0 +1,1976 @@
+{
+  "description": "Unchanged upstream Wine 11 PE forwarders (icmp, MAPI, usp10, WMI) and legacy 16-bit kernel32/VXD references. These are NOT certified implementations. No ICU or modern regular/delay import gap is allowed here.",
+  "system32": [
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "do_echo_rep",
+      "target": "iphlpapi.do_echo_rep",
+      "error": "missing export: iphlpapi.dll!do_echo_rep"
+    },
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "do_echo_req",
+      "target": "iphlpapi.do_echo_req",
+      "error": "missing export: iphlpapi.dll!do_echo_req"
+    },
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "register_icmp",
+      "target": "iphlpapi.register_icmp",
+      "error": "missing export: iphlpapi.dll!register_icmp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "CbOfEncoded@4",
+      "target": "mapi32.CbOfEncoded",
+      "error": "missing export: mapi32.dll!CbOfEncoded"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "CreateIProp@24",
+      "target": "mapi32.CreateIProp",
+      "error": "missing export: mapi32.dll!CreateIProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "DeinitMapiUtil@0",
+      "target": "mapi32.DeinitMapiUtil",
+      "error": "missing export: mapi32.dll!DeinitMapiUtil"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadColumnSet@4",
+      "target": "mapi32.FBadColumnSet",
+      "error": "missing export: mapi32.dll!FBadColumnSet"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadEntryList@4",
+      "target": "mapi32.FBadEntryList",
+      "error": "missing export: mapi32.dll!FBadEntryList"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadProp@4",
+      "target": "mapi32.FBadProp",
+      "error": "missing export: mapi32.dll!FBadProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadPropTag@4",
+      "target": "mapi32.FBadPropTag",
+      "error": "missing export: mapi32.dll!FBadPropTag"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRglpszA@8",
+      "target": "mapi32.FBadRglpszA",
+      "error": "missing export: mapi32.dll!FBadRglpszA"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRglpszW@8",
+      "target": "mapi32.FBadRglpszW",
+      "error": "missing export: mapi32.dll!FBadRglpszW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRow@4",
+      "target": "mapi32.FBadRow",
+      "error": "missing export: mapi32.dll!FBadRow"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRowSet@4",
+      "target": "mapi32.FBadRowSet",
+      "error": "missing export: mapi32.dll!FBadRowSet"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBinFromHex@8",
+      "target": "mapi32.FBinFromHex",
+      "error": "missing export: mapi32.dll!FBinFromHex"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FEqualNames@8",
+      "target": "mapi32.FEqualNames",
+      "error": "missing export: mapi32.dll!FEqualNames"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropCompareProp@12",
+      "target": "mapi32.FPropCompareProp",
+      "error": "missing export: mapi32.dll!FPropCompareProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropContainsProp@12",
+      "target": "mapi32.FPropContainsProp",
+      "error": "missing export: mapi32.dll!FPropContainsProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropExists@8",
+      "target": "mapi32.FPropExists",
+      "error": "missing export: mapi32.dll!FPropExists"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FreePadrlist@4",
+      "target": "mapi32.FreePadrlist",
+      "error": "missing export: mapi32.dll!FreePadrlist"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FreeProws@4",
+      "target": "mapi32.FreeProws",
+      "error": "missing export: mapi32.dll!FreeProws"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtAddFt@16",
+      "target": "mapi32.MAPI32_FtAddFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtAddFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtMulDw@12",
+      "target": "mapi32.MAPI32_FtMulDw",
+      "error": "missing export: mapi32.dll!MAPI32_FtMulDw"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtMulDwDw@8",
+      "target": "mapi32.MAPI32_FtMulDwDw",
+      "error": "missing export: mapi32.dll!MAPI32_FtMulDwDw"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtNegFt@8",
+      "target": "mapi32.MAPI32_FtNegFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtNegFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtSubFt@16",
+      "target": "mapi32.MAPI32_FtSubFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtSubFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HexFromBin@12",
+      "target": "mapi32.HexFromBin",
+      "error": "missing export: mapi32.dll!HexFromBin"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrGetOneProp@12",
+      "target": "mapi32.HrGetOneProp",
+      "error": "missing export: mapi32.dll!HrGetOneProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrQueryAllRows@24",
+      "target": "mapi32.HrQueryAllRows",
+      "error": "missing export: mapi32.dll!HrQueryAllRows"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrSetOneProp@8",
+      "target": "mapi32.HrSetOneProp",
+      "error": "missing export: mapi32.dll!HrSetOneProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrThisThreadAdviseSink@8",
+      "target": "mapi32.HrThisThreadAdviseSink",
+      "error": "missing export: mapi32.dll!HrThisThreadAdviseSink"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "IsBadBoundedStringPtr@8",
+      "target": "mapi32.IsBadBoundedStringPtr",
+      "error": "missing export: mapi32.dll!IsBadBoundedStringPtr"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "LPropCompareProp@8",
+      "target": "mapi32.LPropCompareProp",
+      "error": "missing export: mapi32.dll!LPropCompareProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "LpValFindProp@12",
+      "target": "mapi32.LpValFindProp",
+      "error": "missing export: mapi32.dll!LpValFindProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MAPIGetDefaultMalloc@0",
+      "target": "mapi32.MAPIGetDefaultMalloc",
+      "error": "missing export: mapi32.dll!MAPIGetDefaultMalloc"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_CompareStringW@24",
+      "target": "mapi32.MNLS_CompareStringW",
+      "error": "missing export: mapi32.dll!MNLS_CompareStringW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrcmpW@8",
+      "target": "mapi32.MNLS_lstrcmpW",
+      "error": "missing export: mapi32.dll!MNLS_lstrcmpW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrcpyW@8",
+      "target": "mapi32.MNLS_lstrcpyW",
+      "error": "missing export: mapi32.dll!MNLS_lstrcpyW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrlenW@4",
+      "target": "mapi32.MNLS_lstrlenW",
+      "error": "missing export: mapi32.dll!MNLS_lstrlenW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "PpropFindProp@12",
+      "target": "mapi32.PpropFindProp",
+      "error": "missing export: mapi32.dll!PpropFindProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "PropCopyMore@16",
+      "target": "mapi32.PropCopyMore",
+      "error": "missing export: mapi32.dll!PropCopyMore"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScCopyProps@16",
+      "target": "mapi32.ScCopyProps",
+      "error": "missing export: mapi32.dll!ScCopyProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScCountProps@12",
+      "target": "mapi32.ScCountProps",
+      "error": "missing export: mapi32.dll!ScCountProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScDupPropset@16",
+      "target": "mapi32.ScDupPropset",
+      "error": "missing export: mapi32.dll!ScDupPropset"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScInitMapiUtil@4",
+      "target": "mapi32.ScInitMapiUtil",
+      "error": "missing export: mapi32.dll!ScInitMapiUtil"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScRelocProps@20",
+      "target": "mapi32.ScRelocProps",
+      "error": "missing export: mapi32.dll!ScRelocProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "SwapPlong@8",
+      "target": "mapi32.SwapPlong",
+      "error": "missing export: mapi32.dll!SwapPlong"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "SwapPword@8",
+      "target": "mapi32.SwapPword",
+      "error": "missing export: mapi32.dll!SwapPword"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UFromSz@4",
+      "target": "mapi32.UFromSz",
+      "error": "missing export: mapi32.dll!UFromSz"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlAddRef@4",
+      "target": "mapi32.UlAddRef",
+      "error": "missing export: mapi32.dll!UlAddRef"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlFromSzHex@4",
+      "target": "mapi32.UlFromSzHex",
+      "error": "missing export: mapi32.dll!UlFromSzHex"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlPropSize@4",
+      "target": "mapi32.UlPropSize",
+      "error": "missing export: mapi32.dll!UlPropSize"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlRelease@4",
+      "target": "mapi32.UlRelease",
+      "error": "missing export: mapi32.dll!UlRelease"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "WrapProgress@20",
+      "target": "mapi32.WrapProgress",
+      "error": "missing export: mapi32.dll!WrapProgress"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "LpkPresent",
+      "target": "gdi32.LpkPresent",
+      "error": "missing export: gdi32.dll!LpkPresent"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "ScriptPositionSingleGlyph",
+      "target": "gdi32.ScriptPositionSingleGlyph",
+      "error": "missing export: gdi32.dll!ScriptPositionSingleGlyph"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "ScriptSubstituteSingleGlyph",
+      "target": "gdi32.ScriptSubstituteSingleGlyph",
+      "error": "missing export: gdi32.dll!ScriptSubstituteSingleGlyph"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspAllocCache",
+      "target": "gdi32.UspAllocCache",
+      "error": "missing export: gdi32.dll!UspAllocCache"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspAllocTemp",
+      "target": "gdi32.UspAllocTemp",
+      "error": "missing export: gdi32.dll!UspAllocTemp"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspFreeMem",
+      "target": "gdi32.UspFreeMem",
+      "error": "missing export: gdi32.dll!UspFreeMem"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "CreateTraceInstanceId",
+      "target": "advapi32.CreateTraceInstanceId",
+      "error": "missing export: advapi32.dll!CreateTraceInstanceId"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "RemoveTraceCallback",
+      "target": "advapi32.RemoveTraceCallback",
+      "error": "missing export: advapi32.dll!RemoveTraceCallback"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "SetTraceCallback",
+      "target": "advapi32.SetTraceCallback",
+      "error": "missing export: advapi32.dll!SetTraceCallback"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiDevInstToInstanceNameA",
+      "target": "advapi32.WmiDevInstToInstanceNameA",
+      "error": "missing export: advapi32.dll!WmiDevInstToInstanceNameA"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiDevInstToInstanceNameW",
+      "target": "advapi32.WmiDevInstToInstanceNameW",
+      "error": "missing export: advapi32.dll!WmiDevInstToInstanceNameW"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiEnumerateGuids",
+      "target": "advapi32.WmiEnumerateGuids",
+      "error": "missing export: advapi32.dll!WmiEnumerateGuids"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiFileHandleToInstanceNameA",
+      "target": "advapi32.WmiFileHandleToInstanceNameA",
+      "error": "missing export: advapi32.dll!WmiFileHandleToInstanceNameA"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiFileHandleToInstanceNameW",
+      "target": "advapi32.WmiFileHandleToInstanceNameW",
+      "error": "missing export: advapi32.dll!WmiFileHandleToInstanceNameW"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiQuerySingleInstanceA",
+      "target": "advapi32.WmiQuerySingleInstanceA",
+      "error": "missing export: advapi32.dll!WmiQuerySingleInstanceA"
+    }
+  ],
+  "syswow64": [
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "do_echo_rep",
+      "target": "iphlpapi.do_echo_rep",
+      "error": "missing export: iphlpapi.dll!do_echo_rep"
+    },
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "do_echo_req",
+      "target": "iphlpapi.do_echo_req",
+      "error": "missing export: iphlpapi.dll!do_echo_req"
+    },
+    {
+      "importer": "icmp.dll",
+      "kind": "forward",
+      "symbol": "register_icmp",
+      "target": "iphlpapi.register_icmp",
+      "error": "missing export: iphlpapi.dll!register_icmp"
+    },
+    {
+      "importer": "ifsmgr.vxd",
+      "kind": "import",
+      "module": "krnl386.exe16",
+      "symbols": {
+        "__wine_call_int_handler16": "missing module: krnl386.exe16"
+      }
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#1",
+      "target": "krnl386.exe16.VxDCall0",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#2",
+      "target": "krnl386.exe16.VxDCall1",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#3",
+      "target": "krnl386.exe16.VxDCall2",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#4",
+      "target": "krnl386.exe16.VxDCall3",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#5",
+      "target": "krnl386.exe16.VxDCall4",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#6",
+      "target": "krnl386.exe16.VxDCall5",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#7",
+      "target": "krnl386.exe16.VxDCall6",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#8",
+      "target": "krnl386.exe16.VxDCall7",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#9",
+      "target": "krnl386.exe16.VxDCall8",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#10",
+      "target": "krnl386.exe16.k32CharToOemA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#11",
+      "target": "krnl386.exe16.k32CharToOemBuffA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#12",
+      "target": "krnl386.exe16.k32OemToCharA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#13",
+      "target": "krnl386.exe16.k32OemToCharBuffA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#14",
+      "target": "krnl386.exe16.k32LoadStringA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#15",
+      "target": "krnl386.exe16.k32wsprintfA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#16",
+      "target": "krnl386.exe16.k32wvsprintfA",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#17",
+      "target": "krnl386.exe16.CommonUnimpStub",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#18",
+      "target": "krnl386.exe16.GetProcessDword",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#20",
+      "target": "krnl386.exe16.DosFileHandleToWin32Handle",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#21",
+      "target": "krnl386.exe16.Win32HandleToDosFileHandle",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#22",
+      "target": "krnl386.exe16.DisposeLZ32Handle",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#24",
+      "target": "krnl386.exe16.GlobalAlloc16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#25",
+      "target": "krnl386.exe16.GlobalLock16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#26",
+      "target": "krnl386.exe16.GlobalUnlock16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#27",
+      "target": "krnl386.exe16.GlobalFix16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#28",
+      "target": "krnl386.exe16.GlobalUnfix16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#29",
+      "target": "krnl386.exe16.GlobalWire16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#30",
+      "target": "krnl386.exe16.GlobalUnWire16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#31",
+      "target": "krnl386.exe16.GlobalFree16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#32",
+      "target": "krnl386.exe16.GlobalSize16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#33",
+      "target": "krnl386.exe16.HouseCleanLogicallyDeadHandles",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#34",
+      "target": "krnl386.exe16.GetWin16DOSEnv",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#35",
+      "target": "krnl386.exe16.LoadLibrary16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#36",
+      "target": "krnl386.exe16.FreeLibrary16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#37",
+      "target": "krnl386.exe16.GetProcAddress16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#38",
+      "target": "krnl386.exe16.AllocMappedBuffer",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#39",
+      "target": "krnl386.exe16.FreeMappedBuffer",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#40",
+      "target": "krnl386.exe16.OT_32ThkLSF",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#41",
+      "target": "krnl386.exe16.ThunkInitLSF",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#42",
+      "target": "krnl386.exe16.LogApiThkLSF",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#43",
+      "target": "krnl386.exe16.ThunkInitLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#44",
+      "target": "krnl386.exe16.LogApiThkSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#45",
+      "target": "krnl386.exe16.Common32ThkLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#46",
+      "target": "krnl386.exe16.ThunkInitSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#47",
+      "target": "krnl386.exe16.LogCBThkSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#48",
+      "target": "krnl386.exe16.ReleaseThunkLock",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#49",
+      "target": "krnl386.exe16.RestoreThunkLock",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#51",
+      "target": "krnl386.exe16.W32S_BackTo32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#52",
+      "target": "krnl386.exe16.GetThunkBuff",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#53",
+      "target": "krnl386.exe16.GetThunkStuff",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#54",
+      "target": "krnl386.exe16.K32WOWCallback16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#55",
+      "target": "krnl386.exe16.K32WOWCallback16Ex",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#56",
+      "target": "krnl386.exe16.K32WOWGetVDMPointer",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#57",
+      "target": "krnl386.exe16.K32WOWHandle32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#58",
+      "target": "krnl386.exe16.K32WOWHandle16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#59",
+      "target": "krnl386.exe16.K32WOWGlobalAlloc16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#60",
+      "target": "krnl386.exe16.K32WOWGlobalLock16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#61",
+      "target": "krnl386.exe16.K32WOWGlobalUnlock16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#62",
+      "target": "krnl386.exe16.K32WOWGlobalFree16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#63",
+      "target": "krnl386.exe16.K32WOWGlobalAllocLock16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#64",
+      "target": "krnl386.exe16.K32WOWGlobalUnlockFree16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#65",
+      "target": "krnl386.exe16.K32WOWGlobalLockSize16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#66",
+      "target": "krnl386.exe16.K32WOWYield16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#67",
+      "target": "krnl386.exe16.K32WOWDirectedYield16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#68",
+      "target": "krnl386.exe16.K32WOWGetVDMPointerFix",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#69",
+      "target": "krnl386.exe16.K32WOWGetVDMPointerUnfix",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#70",
+      "target": "krnl386.exe16.K32WOWGetDescriptor",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#86",
+      "target": "krnl386.exe16._KERNEL32_86",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#87",
+      "target": "krnl386.exe16.SSOnBigStack",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#88",
+      "target": "krnl386.exe16.SSCall",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#89",
+      "target": "krnl386.exe16.FT_PrologPrime",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#90",
+      "target": "krnl386.exe16.QT_ThunkPrime",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#91",
+      "target": "krnl386.exe16.PK16FNF",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#92",
+      "target": "krnl386.exe16.GetPK16SysVar",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#93",
+      "target": "krnl386.exe16.GetpWin16Lock",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#94",
+      "target": "krnl386.exe16._CheckNotSysLevel",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#95",
+      "target": "krnl386.exe16._ConfirmSysLevel",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#96",
+      "target": "krnl386.exe16._ConfirmWin16Lock",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#97",
+      "target": "krnl386.exe16._EnterSysLevel",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#98",
+      "target": "krnl386.exe16._LeaveSysLevel",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#99",
+      "target": "krnl386.exe16._KERNEL32_99",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "#100",
+      "target": "krnl386.exe16._KERNEL32_100",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "AllocSLCallback",
+      "target": "krnl386.exe16.AllocSLCallback",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit0",
+      "target": "krnl386.exe16.FT_Exit0",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit12",
+      "target": "krnl386.exe16.FT_Exit12",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit16",
+      "target": "krnl386.exe16.FT_Exit16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit20",
+      "target": "krnl386.exe16.FT_Exit20",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit24",
+      "target": "krnl386.exe16.FT_Exit24",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit28",
+      "target": "krnl386.exe16.FT_Exit28",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit32",
+      "target": "krnl386.exe16.FT_Exit32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit36",
+      "target": "krnl386.exe16.FT_Exit36",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit4",
+      "target": "krnl386.exe16.FT_Exit4",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit40",
+      "target": "krnl386.exe16.FT_Exit40",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit44",
+      "target": "krnl386.exe16.FT_Exit44",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit48",
+      "target": "krnl386.exe16.FT_Exit48",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit52",
+      "target": "krnl386.exe16.FT_Exit52",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit56",
+      "target": "krnl386.exe16.FT_Exit56",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Exit8",
+      "target": "krnl386.exe16.FT_Exit8",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Prolog",
+      "target": "krnl386.exe16.FT_Prolog",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FT_Thunk",
+      "target": "krnl386.exe16.FT_Thunk",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "FreeSLCallback",
+      "target": "krnl386.exe16.FreeSLCallback",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "Get16DLLAddress",
+      "target": "krnl386.exe16.Get16DLLAddress",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "K32Thk1632Epilog",
+      "target": "krnl386.exe16.K32Thk1632Epilog",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "K32Thk1632Prolog",
+      "target": "krnl386.exe16.K32Thk1632Prolog",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHInstLS",
+      "target": "krnl386.exe16.MapHInstLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHInstLS_PN",
+      "target": "krnl386.exe16.MapHInstLS_PN",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHInstSL",
+      "target": "krnl386.exe16.MapHInstSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHInstSL_PN",
+      "target": "krnl386.exe16.MapHInstSL_PN",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHModuleLS",
+      "target": "krnl386.exe16.MapHModuleLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapHModuleSL",
+      "target": "krnl386.exe16.MapHModuleSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapLS",
+      "target": "krnl386.exe16.MapLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapSL",
+      "target": "krnl386.exe16.MapSL",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "MapSLFix",
+      "target": "krnl386.exe16.MapSLFix",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "PrivateFreeLibrary",
+      "target": "krnl386.exe16.PrivateFreeLibrary",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "PrivateLoadLibrary",
+      "target": "krnl386.exe16.PrivateLoadLibrary",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "QT_Thunk",
+      "target": "krnl386.exe16.QT_Thunk",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS",
+      "target": "krnl386.exe16.SMapLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_12",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_12",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_16",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_20",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_20",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_24",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_24",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_28",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_28",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_32",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_36",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_36",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_40",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_40",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SMapLS_IP_EBP_8",
+      "target": "krnl386.exe16.SMapLS_IP_EBP_8",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS",
+      "target": "krnl386.exe16.SUnMapLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_12",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_12",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_16",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_16",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_20",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_20",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_24",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_24",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_28",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_28",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_32",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_36",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_36",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_40",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_40",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "SUnMapLS_IP_EBP_8",
+      "target": "krnl386.exe16.SUnMapLS_IP_EBP_8",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "ThunkConnect32",
+      "target": "krnl386.exe16.ThunkConnect32",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "UTRegister",
+      "target": "krnl386.exe16.UTRegister",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "UTUnRegister",
+      "target": "krnl386.exe16.UTUnRegister",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "UnMapLS",
+      "target": "krnl386.exe16.UnMapLS",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "kernel32.dll",
+      "kind": "forward",
+      "symbol": "UnMapSLFixArray",
+      "target": "krnl386.exe16.UnMapSLFixArray",
+      "error": "missing module: krnl386.exe16"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "CbOfEncoded@4",
+      "target": "mapi32.CbOfEncoded",
+      "error": "missing export: mapi32.dll!CbOfEncoded"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "CreateIProp@24",
+      "target": "mapi32.CreateIProp",
+      "error": "missing export: mapi32.dll!CreateIProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "DeinitMapiUtil@0",
+      "target": "mapi32.DeinitMapiUtil",
+      "error": "missing export: mapi32.dll!DeinitMapiUtil"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadColumnSet@4",
+      "target": "mapi32.FBadColumnSet",
+      "error": "missing export: mapi32.dll!FBadColumnSet"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadEntryList@4",
+      "target": "mapi32.FBadEntryList",
+      "error": "missing export: mapi32.dll!FBadEntryList"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadProp@4",
+      "target": "mapi32.FBadProp",
+      "error": "missing export: mapi32.dll!FBadProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadPropTag@4",
+      "target": "mapi32.FBadPropTag",
+      "error": "missing export: mapi32.dll!FBadPropTag"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRglpszA@8",
+      "target": "mapi32.FBadRglpszA",
+      "error": "missing export: mapi32.dll!FBadRglpszA"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRglpszW@8",
+      "target": "mapi32.FBadRglpszW",
+      "error": "missing export: mapi32.dll!FBadRglpszW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRow@4",
+      "target": "mapi32.FBadRow",
+      "error": "missing export: mapi32.dll!FBadRow"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBadRowSet@4",
+      "target": "mapi32.FBadRowSet",
+      "error": "missing export: mapi32.dll!FBadRowSet"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FBinFromHex@8",
+      "target": "mapi32.FBinFromHex",
+      "error": "missing export: mapi32.dll!FBinFromHex"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FEqualNames@8",
+      "target": "mapi32.FEqualNames",
+      "error": "missing export: mapi32.dll!FEqualNames"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropCompareProp@12",
+      "target": "mapi32.FPropCompareProp",
+      "error": "missing export: mapi32.dll!FPropCompareProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropContainsProp@12",
+      "target": "mapi32.FPropContainsProp",
+      "error": "missing export: mapi32.dll!FPropContainsProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FPropExists@8",
+      "target": "mapi32.FPropExists",
+      "error": "missing export: mapi32.dll!FPropExists"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FreePadrlist@4",
+      "target": "mapi32.FreePadrlist",
+      "error": "missing export: mapi32.dll!FreePadrlist"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FreeProws@4",
+      "target": "mapi32.FreeProws",
+      "error": "missing export: mapi32.dll!FreeProws"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtAddFt@16",
+      "target": "mapi32.MAPI32_FtAddFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtAddFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtMulDw@12",
+      "target": "mapi32.MAPI32_FtMulDw",
+      "error": "missing export: mapi32.dll!MAPI32_FtMulDw"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtMulDwDw@8",
+      "target": "mapi32.MAPI32_FtMulDwDw",
+      "error": "missing export: mapi32.dll!MAPI32_FtMulDwDw"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtNegFt@8",
+      "target": "mapi32.MAPI32_FtNegFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtNegFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "FtSubFt@16",
+      "target": "mapi32.MAPI32_FtSubFt",
+      "error": "missing export: mapi32.dll!MAPI32_FtSubFt"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HexFromBin@12",
+      "target": "mapi32.HexFromBin",
+      "error": "missing export: mapi32.dll!HexFromBin"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrGetOneProp@12",
+      "target": "mapi32.HrGetOneProp",
+      "error": "missing export: mapi32.dll!HrGetOneProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrQueryAllRows@24",
+      "target": "mapi32.HrQueryAllRows",
+      "error": "missing export: mapi32.dll!HrQueryAllRows"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrSetOneProp@8",
+      "target": "mapi32.HrSetOneProp",
+      "error": "missing export: mapi32.dll!HrSetOneProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "HrThisThreadAdviseSink@8",
+      "target": "mapi32.HrThisThreadAdviseSink",
+      "error": "missing export: mapi32.dll!HrThisThreadAdviseSink"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "IsBadBoundedStringPtr@8",
+      "target": "mapi32.IsBadBoundedStringPtr",
+      "error": "missing export: mapi32.dll!IsBadBoundedStringPtr"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "LPropCompareProp@8",
+      "target": "mapi32.LPropCompareProp",
+      "error": "missing export: mapi32.dll!LPropCompareProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "LpValFindProp@12",
+      "target": "mapi32.LpValFindProp",
+      "error": "missing export: mapi32.dll!LpValFindProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MAPIGetDefaultMalloc@0",
+      "target": "mapi32.MAPIGetDefaultMalloc",
+      "error": "missing export: mapi32.dll!MAPIGetDefaultMalloc"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_CompareStringW@24",
+      "target": "mapi32.MNLS_CompareStringW",
+      "error": "missing export: mapi32.dll!MNLS_CompareStringW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrcmpW@8",
+      "target": "mapi32.MNLS_lstrcmpW",
+      "error": "missing export: mapi32.dll!MNLS_lstrcmpW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrcpyW@8",
+      "target": "mapi32.MNLS_lstrcpyW",
+      "error": "missing export: mapi32.dll!MNLS_lstrcpyW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "MNLS_lstrlenW@4",
+      "target": "mapi32.MNLS_lstrlenW",
+      "error": "missing export: mapi32.dll!MNLS_lstrlenW"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "PpropFindProp@12",
+      "target": "mapi32.PpropFindProp",
+      "error": "missing export: mapi32.dll!PpropFindProp"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "PropCopyMore@16",
+      "target": "mapi32.PropCopyMore",
+      "error": "missing export: mapi32.dll!PropCopyMore"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScCopyProps@16",
+      "target": "mapi32.ScCopyProps",
+      "error": "missing export: mapi32.dll!ScCopyProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScCountProps@12",
+      "target": "mapi32.ScCountProps",
+      "error": "missing export: mapi32.dll!ScCountProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScDupPropset@16",
+      "target": "mapi32.ScDupPropset",
+      "error": "missing export: mapi32.dll!ScDupPropset"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScInitMapiUtil@4",
+      "target": "mapi32.ScInitMapiUtil",
+      "error": "missing export: mapi32.dll!ScInitMapiUtil"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "ScRelocProps@20",
+      "target": "mapi32.ScRelocProps",
+      "error": "missing export: mapi32.dll!ScRelocProps"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "SwapPlong@8",
+      "target": "mapi32.SwapPlong",
+      "error": "missing export: mapi32.dll!SwapPlong"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "SwapPword@8",
+      "target": "mapi32.SwapPword",
+      "error": "missing export: mapi32.dll!SwapPword"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UFromSz@4",
+      "target": "mapi32.UFromSz",
+      "error": "missing export: mapi32.dll!UFromSz"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlAddRef@4",
+      "target": "mapi32.UlAddRef",
+      "error": "missing export: mapi32.dll!UlAddRef"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlFromSzHex@4",
+      "target": "mapi32.UlFromSzHex",
+      "error": "missing export: mapi32.dll!UlFromSzHex"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlPropSize@4",
+      "target": "mapi32.UlPropSize",
+      "error": "missing export: mapi32.dll!UlPropSize"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "UlRelease@4",
+      "target": "mapi32.UlRelease",
+      "error": "missing export: mapi32.dll!UlRelease"
+    },
+    {
+      "importer": "mapistub.dll",
+      "kind": "forward",
+      "symbol": "WrapProgress@20",
+      "target": "mapi32.WrapProgress",
+      "error": "missing export: mapi32.dll!WrapProgress"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "LpkPresent",
+      "target": "gdi32.LpkPresent",
+      "error": "missing export: gdi32.dll!LpkPresent"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "ScriptPositionSingleGlyph",
+      "target": "gdi32.ScriptPositionSingleGlyph",
+      "error": "missing export: gdi32.dll!ScriptPositionSingleGlyph"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "ScriptSubstituteSingleGlyph",
+      "target": "gdi32.ScriptSubstituteSingleGlyph",
+      "error": "missing export: gdi32.dll!ScriptSubstituteSingleGlyph"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspAllocCache",
+      "target": "gdi32.UspAllocCache",
+      "error": "missing export: gdi32.dll!UspAllocCache"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspAllocTemp",
+      "target": "gdi32.UspAllocTemp",
+      "error": "missing export: gdi32.dll!UspAllocTemp"
+    },
+    {
+      "importer": "usp10.dll",
+      "kind": "forward",
+      "symbol": "UspFreeMem",
+      "target": "gdi32.UspFreeMem",
+      "error": "missing export: gdi32.dll!UspFreeMem"
+    },
+    {
+      "importer": "vwin32.vxd",
+      "kind": "import",
+      "module": "krnl386.exe16",
+      "symbols": {
+        "__wine_call_int_handler16": "missing module: krnl386.exe16"
+      }
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "CreateTraceInstanceId",
+      "target": "advapi32.CreateTraceInstanceId",
+      "error": "missing export: advapi32.dll!CreateTraceInstanceId"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "RemoveTraceCallback",
+      "target": "advapi32.RemoveTraceCallback",
+      "error": "missing export: advapi32.dll!RemoveTraceCallback"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "SetTraceCallback",
+      "target": "advapi32.SetTraceCallback",
+      "error": "missing export: advapi32.dll!SetTraceCallback"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiDevInstToInstanceNameA",
+      "target": "advapi32.WmiDevInstToInstanceNameA",
+      "error": "missing export: advapi32.dll!WmiDevInstToInstanceNameA"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiDevInstToInstanceNameW",
+      "target": "advapi32.WmiDevInstToInstanceNameW",
+      "error": "missing export: advapi32.dll!WmiDevInstToInstanceNameW"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiEnumerateGuids",
+      "target": "advapi32.WmiEnumerateGuids",
+      "error": "missing export: advapi32.dll!WmiEnumerateGuids"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiFileHandleToInstanceNameA",
+      "target": "advapi32.WmiFileHandleToInstanceNameA",
+      "error": "missing export: advapi32.dll!WmiFileHandleToInstanceNameA"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiFileHandleToInstanceNameW",
+      "target": "advapi32.WmiFileHandleToInstanceNameW",
+      "error": "missing export: advapi32.dll!WmiFileHandleToInstanceNameW"
+    },
+    {
+      "importer": "wmi.dll",
+      "kind": "forward",
+      "symbol": "WmiQuerySingleInstanceA",
+      "target": "advapi32.WmiQuerySingleInstanceA",
+      "error": "missing export: advapi32.dll!WmiQuerySingleInstanceA"
+    }
+  ]
+}

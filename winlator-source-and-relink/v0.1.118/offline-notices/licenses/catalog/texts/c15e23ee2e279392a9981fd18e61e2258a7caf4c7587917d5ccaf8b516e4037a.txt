@@ -1,0 +1,27 @@
+Aura ARM64EC initial stack repair
+
+Wine source: The412Banner/proton-wine
+Branch: proton_11.0-2
+Commit: dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+https://github.com/The412Banner/proton-wine
+Wine is LGPL-2.1-or-later; see COPYING.WINE.
+
+The original Android adaptation statically links ntsync-android by Joshua Tam.
+This build retains that backend, from commit 7ce6435e5979b1cb5341aa4b299f31e8937fe121.
+https://github.com/GameNative/ntsync-android
+ntsync-android is LGPL-3.0-only; see COPYING.NTSYNC.
+Its locked libc dependency is 0.2.189 (MIT OR Apache-2.0).
+This is a runtime library dependency; no GameNative application source is included.
+
+Corresponding Wine source:
+releases/0.1.69/Wine-ntdll-dcc50c55e2-source.tar.gz
+https://codeload.github.com/The412Banner/proton-wine/tar.gz/dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+SHA-256: a6bec61fbe4ff4bc5fa73d6693a0455a3144fe5272a9342ddb751e7715d70a3a
+Other source: releases/0.1.66/ntsync-android-7ce6435-source.tar.gz and
+releases/0.1.66/ntsync-libc-vendor.tar.gz.
+Aura patch and build instructions: tools/arm64ec/ntdll, build_ntdll.py.
+The stack patch changes Wine's ARM64EC initial stack only. The native build now
+uses the matching 11.0-2 source, including its cooperative suspend handshake,
+instead of the 11.0 source used by Aura 0.1.66/0.1.68. No client/game files,
+account checks or ownership checks are modified. Historical releases retain
+their original source and build records.

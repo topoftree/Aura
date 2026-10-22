@@ -1,0 +1,10 @@
+Wine Android locale adapter for Aura
+Copyright 2026 Aura contributors
+
+Changes to Wine dlls/ntdll/unix/env.c are licensed under the GNU Lesser General
+Public License version 2.1 or later, retaining upstream Wine authorship.
+This adapter selects en-US or zh-CN for the Windows user/system/UI language
+without changing Android Bionic's UTF-8 Unix codepage or numeric formatting.
+
+Base source and prior Android/wait/stack changes: tools/arm64ec/wait-completion/README.md.
+Additional patch and reproducible build/packaging: tools/arm64ec/android-locale/README.md.

@@ -1,0 +1,159 @@
+diff --git a/src/d3d11/d3d11_context_imm.cpp b/src/d3d11/d3d11_context_imm.cpp
+index f638844..bef9bfb 100644
+--- a/src/d3d11/d3d11_context_imm.cpp
++++ b/src/d3d11/d3d11_context_imm.cpp
+@@ -18,11 +18,14 @@ namespace dxvk {
+   : D3D11CommonContext<D3D11ImmediateContext>(pParent, Device, 0, DxvkCsChunkFlag::SingleUse),
+     m_csThread(Device, Device->createContext()),
+     m_submissionFence(new sync::CallbackFence()),
+-    m_flushTracker(GetMaxFlushType(pParent, Device)),
++    m_flushTracker(GetMaxFlushType(pParent, Device), pParent->GetOptions()->auraBatchSubmissions),
+     m_stagingBufferFence(new sync::Fence(0)),
+     m_multithread(this, false, pParent->GetOptions()->enableContextLock),
+     m_videoContext(this, Device),
+     m_destructionNotifier(this) {
++    Logger::info(str::format("AURA_D3D11_BATCH_V1 enabled=",
++      pParent->GetOptions()->auraBatchSubmissions ? "YES" : "NO",
++      "; policy=HINTS_6_PENDING_2; required_sync=PRESERVED"));
+     EmitCs([
+       cDevice                 = m_device,
+       cBarrierControlFlags    = pParent->GetOptionsBarrierControlFlags()
+@@ -1128,6 +1131,11 @@ namespace dxvk {
+     if (!GetPendingCsChunks() && !hEvent)
+       return;
+ 
++    if (!m_auraBatchReported && m_flushTracker.hasBatchedHint()) {
++      Logger::info("AURA_D3D11_BATCH_V1 state=HINT_BATCHED; required_sync=PRESERVED");
++      m_auraBatchReported = true;
++    }
++
+     // Unbind unused resources
+     ApplyDirtyNullBindings();
+ 
+@@ -1215,7 +1223,8 @@ namespace dxvk {
+       // rejected before, we should do it now in order to avoid read-back delays.
+       GpuFlushType pending = m_flushTracker.getPendingType();
+ 
+-      if (pending != GpuFlushType::None)
++      if (pending != GpuFlushType::None && !m_flushTracker.shouldBatchHint(
++          pending, GetCurrentSequenceNumber(), m_submissionFence->value()))
+         ExecuteFlush(pending, nullptr, false);
+     } else {
+       // Doing this makes it less likely to flush during render passes
+diff --git a/src/d3d11/d3d11_context_imm.h b/src/d3d11/d3d11_context_imm.h
+index 4a7b4e9..8f22deb 100644
+--- a/src/d3d11/d3d11_context_imm.h
++++ b/src/d3d11/d3d11_context_imm.h
+@@ -125,6 +125,7 @@ namespace dxvk {
+ 
+     uint64_t                m_flushSeqNum = 0ull;
+     GpuFlushTracker         m_flushTracker;
++    bool                    m_auraBatchReported = false;
+ 
+     Rc<sync::Fence>         m_stagingBufferFence;
+ 
+diff --git a/src/d3d11/d3d11_options.cpp b/src/d3d11/d3d11_options.cpp
+index 575750b..99b1f59 100644
+--- a/src/d3d11/d3d11_options.cpp
++++ b/src/d3d11/d3d11_options.cpp
+@@ -30,6 +30,7 @@ namespace dxvk {
+     this->maxFrameLatency       = config.getOption<int32_t>("dxgi.maxFrameLatency", 0);
+     this->exposeDriverCommandLists = config.getOption<bool>("d3d11.exposeDriverCommandLists", true);
+     this->reproducibleCommandStream = config.getOption<bool>("d3d11.reproducibleCommandStream", false);
++    this->auraBatchSubmissions = config.getOption<bool>("d3d11.auraBatchSubmissions", false);
+     this->disableDirectImageMapping = config.getOption<bool>("d3d11.disableDirectImageMapping", false);
+     this->sincosEmulation       = config.getOption<Tristate>("d3d11.sincosEmulation", Tristate::Auto);
+ 
+diff --git a/src/d3d11/d3d11_options.h b/src/d3d11/d3d11_options.h
+index e7961b2..4d687ef 100644
+--- a/src/d3d11/d3d11_options.h
++++ b/src/d3d11/d3d11_options.h
+@@ -104,6 +104,10 @@ namespace dxvk {
+     /// can negatively affect performance.
+     bool reproducibleCommandStream = false;
+ 
++    /// Aura opt-in experiment. Batch small submission hints while at least two
++    /// submissions are pending. Does not alter barriers or required flushes.
++    bool auraBatchSubmissions = false;
++
+     /// Whether to force a staging buffer for mapped images.
+     /// Some games are broken and ignore row pitch.
+     bool disableDirectImageMapping = false;
+diff --git a/src/util/util_flush.cpp b/src/util/util_flush.cpp
+index 66b1e36..87580c8 100644
+--- a/src/util/util_flush.cpp
++++ b/src/util/util_flush.cpp
+@@ -2,11 +2,30 @@
+ 
+ namespace dxvk {
+ 
+-  GpuFlushTracker::GpuFlushTracker(GpuFlushType maxType)
+-  : m_maxType(maxType) {
++  GpuFlushTracker::GpuFlushTracker(GpuFlushType maxType, bool batchHints)
++  : m_maxType(maxType), m_batchHints(batchHints) {
+ 
+   }
+ 
++  bool GpuFlushTracker::shouldBatchHint(
++          GpuFlushType flushType,
++          uint64_t chunkId,
++          uint64_t lastCompleteSubmissionId) const {
++    if (!m_batchHints || (flushType != GpuFlushType::ImplicitStrongHint
++                      && flushType != GpuFlushType::ImplicitWeakHint))
++      return false;
++
++    // Completion may advance concurrently; never underflow to a huge backlog.
++    if (lastCompleteSubmissionId >= m_lastFlushSubmissionId)
++      return false;
++
++    bool batch = m_lastFlushSubmissionId - lastCompleteSubmissionId >= 2
++        && chunkId > m_lastFlushChunkId
++        && chunkId - m_lastFlushChunkId < 6;
++    m_batchHintObserved |= batch;
++    return batch;
++  }
++
+   bool GpuFlushTracker::considerFlush(
+           GpuFlushType          flushType,
+           uint64_t              chunkId,
+@@ -42,7 +61,8 @@ namespace dxvk {
+ 
+       case GpuFlushType::ImplicitStrongHint: {
+         // Flush aggressively with a strong hint to reduce readback latency.
+-        return chunkCount >= minChunkCount;
++        return chunkCount >= minChunkCount
++            && !shouldBatchHint(flushType, chunkId, lastCompleteSubmissionId);
+       }
+ 
+       case GpuFlushType::ImplicitWeakHint: {
+diff --git a/src/util/util_flush.h b/src/util/util_flush.h
+index fb069cf..943518e 100644
+--- a/src/util/util_flush.h
++++ b/src/util/util_flush.h
+@@ -37,7 +37,16 @@ namespace dxvk {
+ 
+   public:
+ 
+-    GpuFlushTracker(GpuFlushType maxAllowed);
++    GpuFlushTracker(GpuFlushType maxAllowed, bool batchHints = false);
++
++    /** Aura experiment: coalesce small hints only while work is already queued.
++     * Explicit flushes and synchronization requests are never deferred. */
++    bool shouldBatchHint(
++            GpuFlushType          flushType,
++            uint64_t              chunkId,
++            uint64_t              lastCompleteSubmissionId) const;
++
++    bool hasBatchedHint() const { return m_batchHintObserved; }
+ 
+     /**
+      * \brief Queries type of last missed submission request
+@@ -80,6 +89,8 @@ namespace dxvk {
+   private:
+ 
+     GpuFlushType  m_maxType               = GpuFlushType::ImplicitWeakHint;
++    bool          m_batchHints            = false;
++    mutable bool  m_batchHintObserved     = false;
+     GpuFlushType  m_lastMissedType        = GpuFlushType::None;
+ 
+     uint64_t      m_lastFlushChunkId      = 0ull;

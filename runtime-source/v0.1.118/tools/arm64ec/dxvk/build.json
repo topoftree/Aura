@@ -1,0 +1,55 @@
+{
+  "schema": "AURA_DXVK_D3D9_BUILD_V1",
+  "version": "v2.7.1-arm64ec-aura1",
+  "source_url": "https://github.com/doitsujin/dxvk",
+  "source_commit": "c3dd74be6baec53786d4e064a572185b70347a17",
+  "submodules": {
+    "include/native/directx": "9df86f2341616ef1888ae59919feaa6d4fad693d",
+    "include/spirv": "8b246ff75c6615ba4532fe4fde20f1be090c3764",
+    "include/vulkan": "234c4b7370a8ea3239a214c9e871e4b17c89f4ab",
+    "subprojects/libdisplay-info": "275e6459c7ab1ddd4b125f28d0440716e4888078"
+  },
+  "patch_sha256": "d97cef673b1547b937d7c4e869b62ce6e9dae10a21f0e9981893065d397d741e",
+  "device_source_sha256": "c679ee6ee413f94142981cdc999d72155535be3cc97d4234bcf42690a5e78e1c",
+  "version_template_sha256": "d4c530b124fafd6a545ca5331db605d5aefc7c3943d4b593393b997f549166ae",
+  "source_date_epoch": "1756549193",
+  "architectures": [
+    "x86",
+    "ARM64EC"
+  ],
+  "other_dxvk_dlls_rebuilt": false,
+  "files": {
+    "syswow64/d3d9.dll": {
+      "bytes": 3903488,
+      "sha256": "d1069ea69417e098f8ef2259067cb5ea18372ed5dc8a7a8edb31ef0fd9dd30ac",
+      "pe_machine": "0x14c",
+      "unstripped_sha256": "efa7c90d18c1002d622a0c00fe4f455d3f97a02192163a889806aac39a3da3fe",
+      "chpe_metadata": false
+    },
+    "system32/d3d9.dll": {
+      "bytes": 3706880,
+      "sha256": "c9b43f9da2f95f8043bdf9bc0f0368389b75a9560b75f74fec78cec8aa1157a9",
+      "pe_machine": "0x8664",
+      "unstripped_sha256": "92e965a0572b639c403355e55c203936b43a8415540460c891e674223bd21e04",
+      "chpe_metadata": true
+    }
+  },
+  "meson": "1.9.1",
+  "llvm_mingw_release": "20251104",
+  "android_game_execution": "not run",
+  "toolchain": {
+    "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20251104/llvm-mingw-20251104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "sha256": "3aed6fa47be909884cb3e5634d6b7254604d7104832d6312f8435fb23d5a9bab",
+    "bytes": 80003412,
+    "compiler": "clang 21.1.5"
+  },
+  "glslang": {
+    "url": "https://github.com/KhronosGroup/glslang/releases/download/master-tot/glslang-master-linux-Release.zip",
+    "asset_id": 92763268,
+    "sha256": "580121f647b0f2b33c8ae952e948840020d1fef23c05ff4300ef45baa7646c55",
+    "bytes": 6696873,
+    "reported_version": "12.0.0",
+    "note": "Pinned downloaded bytes; master-tot URL is mutable."
+  },
+  "script_sha256": "e77707b911e38492886055ef96148c17819195809b05338e3071f92fe6506caa"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "WINE_ARM64EC_BREAKPOINT_BUILD_V1",
+  "revision": "11.0-2-aura-ec-breakpoint1",
+  "sourceCommit": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+  "baselineBuildSha256": "f9627d55f417a8a7e9fcdc5765e65e4f7e7b0b3cb56340e4f11884df693a3a4a",
+  "sourceSignalSha256": "09c946931ed9e9e23fe1af8be9304517a08bbcf609af5752cf8ac2b4c8d511a1",
+  "patchSha256": "37d63f4079cb15091018beec220d21cdea07dee36e0266140a2fd3a6357fa582",
+  "buildScriptSha256": "57d4f231603348629b05fe69ca08bed33ae4dcda7e493c873e0d00728e2daa82",
+  "baseline": {
+    "bytes": 2228224,
+    "sha256": "9d7aa3f166f78f5b77a91c0f4f6b105ac9489ded6641579f2c578aca6c06dc3a"
+  },
+  "candidate": {
+    "bytes": 2228224,
+    "sha256": "cfd79a57c5cd0d9f506736f0f10f7474a1378eaa4803207d514fd0abc1a7d5ad"
+  },
+  "handlerRva": "0xc3a58",
+  "changedFileOffsets": [
+    "0xc3a59",
+    "0xc3a61",
+    "0x12aa00",
+    "0x12aa01",
+    "0x12aa02",
+    "0x12aa03",
+    "0x12aa04",
+    "0x12aa05",
+    "0x12aa06",
+    "0x12aa07"
+  ],
+  "contentBuildId": {
+    "fileOffset": "0x12aa00",
+    "previous": "cf4e184cea029f4c",
+    "current": "e2275a2ef34dfe8a"
+  },
+  "publicExportsAndImportsUnchanged": true,
+  "i386NativeAndFexUnchanged": true,
+  "contextPcOffset": "0xf8",
+  "instructionStepBytes": 4,
+  "scope": "ARM64EC loader process_breakpoint SEH handler only",
+  "debuggerAndExceptionDispatchPreserved": true,
+  "androidGameExecuted": false
+}

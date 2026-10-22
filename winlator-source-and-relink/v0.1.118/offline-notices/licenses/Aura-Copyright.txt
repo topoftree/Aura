@@ -1,0 +1,32 @@
+Aura — Copyright and attribution
+
+Copyright © 2026 Aura. All rights reserved for Aura's original material.
+
+Scope
+
+This notice covers original Aura application material, branding and documentation to the extent owned by the Aura project. It does not claim ownership of third-party code, modifications derived from that code, fonts, icons, artwork, game content or other externally licensed material.
+
+Aura's independent application source is not placed under an open-source license by this notice. This reservation does not apply to the Winlator-derived engine, which retains its LGPL and other applicable component terms.
+
+Third-party rights
+
+Third-party components retain their original copyright notices and license terms, including where Aura distributes modified versions. Those terms govern the relevant components and are not replaced or restricted by this notice. The License page provides the retained license texts and component notices for offline reading.
+
+Any applicable rights to obtain corresponding source, modify or replace a library, relink an application, or reverse engineer for debugging library modifications remain governed by the relevant licenses and law. The privacy of Aura's original source does not remove obligations for bundled third-party components.
+
+To the extent of Aura's rights, recipients are expressly permitted to modify the combined work for their own use and reverse engineer it for debugging modifications to LGPL-covered components. Aura permits copying and redistribution of the published recombination materials with their notices and use of its supplied application object code to recombine/relink with a modified LGPL engine. These permissions override any inconsistent Aura notice or EULA; they do not narrow the separate redistribution rights granted by a third-party license.
+
+Source and recombination information:
+https://github.com/topoftree/Aura/blob/main/SOURCE_CODE.md
+
+Games, artwork and trademarks
+
+Games, game artwork and publisher assets remain the property of their respective owners. Users must obtain their own game licenses and comply with the terms of the services they use. Aura does not grant rights to those games or assets.
+
+Steam and Valve; Xbox, Windows and Microsoft; PlayStation and Sony; Nintendo and Switch; Ubisoft and Ubisoft Connect; Electronic Arts and EA; Rockstar Games; and other referenced product names and marks belong to their respective owners. Mentioning a product or using it for compatibility does not imply affiliation, sponsorship or endorsement.
+
+Copyright or attribution corrections:
+https://github.com/topoftree/Aura/issues/new
+
+Based on Aura's published copyright statement:
+https://github.com/topoftree/Aura/blob/main/COPYRIGHT.md

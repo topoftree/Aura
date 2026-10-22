@@ -1,0 +1,12 @@
+Brand artwork used in Aura
+
+Steam, Ubisoft, EA, Rockstar Games, Battle.net, Epic Games, PlayStation, 2K, Paradox Interactive and Square Enix paths: Simple Icons 15.20.0 (CC0-1.0).
+Xbox path: Simple Icons 9.21.0 (CC0-1.0).
+https://github.com/simple-icons/simple-icons/tree/15.20.0/icons
+https://github.com/simple-icons/simple-icons/blob/9.21.0/icons/xbox.svg
+
+Bethesda and Wargaming paths: SVG Repo, marked CC0; monochrome foreground adapted for Aura.
+https://www.svgrepo.com/svg/331307/bethesda
+https://www.svgrepo.com/svg/331639/wargaming
+
+The CC0 text is included below. Product names and trademarks remain the property of their respective owners; icon display does not imply affiliation or endorsement.

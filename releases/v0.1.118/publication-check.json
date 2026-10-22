@@ -1,0 +1,39 @@
+{
+  "version": "0.1.118",
+  "versionCode": 119,
+  "publicationCandidates": 1442,
+  "kitFiles": 1319,
+  "runtimeFiles": 123,
+  "privacyFindings": [],
+  "relinkMaterialsLocation": "main/winlator-source-and-relink/v0.1.118",
+  "releaseAssetsOnlyApkAndChecksum": true,
+  "temporaryProbeSourcesRestored": true,
+  "assets": [
+    {
+      "name": "Aura-0.1.118-arm64-release.apk",
+      "bytes": 369681621,
+      "sha256": "cfb0e55e580d09e97c2aa2a7b09a0b74284b4b544e21036a1e3b26c3f650df44"
+    }
+  ],
+  "hardwareValidation": "not performed for new 0.1.118 workflows",
+  "comparisonBaseline": "0.1.101",
+  "cumulativeVersions": [
+    "0.1.102",
+    "0.1.103",
+    "0.1.104",
+    "0.1.105",
+    "0.1.106",
+    "0.1.107",
+    "0.1.108",
+    "0.1.109",
+    "0.1.110",
+    "0.1.111",
+    "0.1.112",
+    "0.1.113",
+    "0.1.114",
+    "0.1.115",
+    "0.1.116",
+    "0.1.117",
+    "0.1.118"
+  ]
+}

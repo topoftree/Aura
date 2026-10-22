@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(aura_wake_trace C)
+add_library(aura_wake_trace SHARED wake_ring.c wine_alert_trace.c)
+target_link_libraries(aura_wake_trace dl)
+target_compile_options(aura_wake_trace PRIVATE -Wall -Wextra -Werror -g0 -fno-omit-frame-pointer)
+target_link_options(aura_wake_trace PRIVATE -Wl,-z,max-page-size=16384 -Wl,--no-undefined)

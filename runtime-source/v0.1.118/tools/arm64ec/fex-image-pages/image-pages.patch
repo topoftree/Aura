@@ -1,0 +1,84 @@
+--- a/FEXCore/Source/Interface/Config/Config.json.in
++++ b/FEXCore/Source/Interface/Config/Config.json.in
+@@ -1,6 +1,12 @@
+ {
+   "Options": {
+     "CPU": {
++      "WindowsImagePages": {
++        "Type": "bool",
++        "Default": "false",
++        "AffectsCodeGen": "true",
++        "Desc": ["Opt-in committed image-page ranges for MgsGroundZeroes.exe"]
++      },
+       "Multiblock": {
+         "Type": "bool",
+         "Default": "true",
+--- a/Source/Windows/Common/InvalidationTracker.h
++++ b/Source/Windows/Common/InvalidationTracker.h
+@@ -63,6 +63,7 @@
+   std::shared_mutex IntervalsLock;
+   FEXCore::Context::Context& CTX;
+   const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads;
++  bool UseImagePages {false};
+   bool SMCDetectionDisabled {false};                    // Protected by IntervalsLock
+   bool DEPDisabled {false};                             // Protected by IntervalsLock
+   FEXCore::IntervalList<uint64_t> DEPPromotedIntervals; // Protected by IntervalsLock
+--- a/Source/Windows/Common/InvalidationTracker.cpp
++++ b/Source/Windows/Common/InvalidationTracker.cpp
+@@ -7,6 +7,8 @@
+ #include <FEXCore/Config/Config.h>
+ #include <FEXCore/Debug/InternalThreadState.h>
+ #include "InvalidationTracker.h"
++#include "ImageExecutableRanges.h"
++#include "Module.h"
+ #include <windef.h>
+ #include <winternl.h>
+ 
+@@ -14,6 +16,8 @@
+ InvalidationTracker::InvalidationTracker(FEXCore::Context::Context& CTX, const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads)
+   : CTX {CTX}
+   , Threads {Threads} {
++  FEX_CONFIG_OPT(ImagePages, WINDOWSIMAGEPAGES);
++  UseImagePages = MgsImagePagesEnabled(ImagePages(), GetExecutableFilePath());
+   FEX_CONFIG_OPT(SMCChecks, SMCCHECKS);
+   SMCDetectionDisabled = (SMCChecks == FEXCore::Config::CONFIG_SMC_NONE);
+ 
+@@ -137,15 +141,36 @@
+   auto* SectionsEnd = SectionsBegin + Nt->FileHeader.NumberOfSections;
+   uint64_t LastExecutableSectionEnd = 0;
+ 
++  if (UseImagePages) {
++    bool Complete;
++    {
++      std::unique_lock Lock(IntervalsLock);
++      Complete = UpdateImageExecutableRanges(Address, Nt->OptionalHeader.SizeOfImage, XIntervals, RWXIntervals,
++        [](uint64_t Cursor, ImagePageRegion& Region) {
++          MEMORY_BASIC_INFORMATION Info;
++          if (NtQueryVirtualMemory(NtCurrentProcess(), reinterpret_cast<void*>(Cursor), MemoryBasicInformation,
++                                   &Info, sizeof(Info), nullptr)) return false;
++          const bool Accessible = !(Info.Protect & (PAGE_GUARD | PAGE_NOACCESS));
++          Region = {reinterpret_cast<uint64_t>(Info.BaseAddress), Info.RegionSize,
++                    reinterpret_cast<uint64_t>(Info.AllocationBase), Info.State == MEM_COMMIT,
++                    Accessible && ProtHasExec(Info.Protect), Accessible && ProtIsWritable(Info.Protect)};
++          return true;
++        });
++    }
++    // Discard any previously compiled NoExec stub after publishing the ranges.
++    InvalidateAlignedInterval(Address, Nt->OptionalHeader.SizeOfImage, false);
++    if (!Complete) LogMan::Msg::EFmt("AURA_FEX_IMAGE_PAGES_V1 query incomplete at image {:X}", Address);
++  }
++
+   for (auto* Section = SectionsBegin; Section != SectionsEnd; Section++) {
+     if (Section->Characteristics & IMAGE_SCN_MEM_EXECUTE) {
+       std::unique_lock Lock(IntervalsLock);
+ 
+       uint64_t SectionBase = Address + Section->VirtualAddress;
+       uint64_t SectionEnd = SectionBase + Section->Misc.VirtualSize;
+-      XIntervals.Insert({SectionBase, SectionEnd});
++      if (!UseImagePages) XIntervals.Insert({SectionBase, SectionEnd});
+       LastExecutableSectionEnd = std::max(LastExecutableSectionEnd, SectionEnd);
+-      if (Section->Characteristics & IMAGE_SCN_MEM_WRITE) {
++      if (!UseImagePages && (Section->Characteristics & IMAGE_SCN_MEM_WRITE)) {
+         LogMan::Msg::DFmt("Add image SMC interval: {:X} - {:X}", SectionBase, SectionBase + Section->Misc.VirtualSize);
+         RWXIntervals.Insert({SectionBase, SectionBase + Section->Misc.VirtualSize});
+       }

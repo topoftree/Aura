@@ -1,5 +1,17 @@
 # Source availability and library recombination
 
+## Aura 0.1.118 / version code 119
+
+[Winlator source and relinking kit](winlator-source-and-relink/v0.1.118/README.md) · [Runtime sources and build inputs](runtime-source/v0.1.118/README.md) · [Release](https://github.com/topoftree/Aura/releases/tag/v0.1.118)
+
+The matching materials are in versioned folders on **main**, not Release attachments. Clone with Git LFS as described in the kit; automatic GitHub source ZIPs may contain LFS pointers. Release assets are the official APK and its checksum file.
+
+The kit supplies 968 editable Winlator engine source/resource files, with retained attribution and a file-level modification record. Independent application object code contains 1,528 classes, with 1,508 renamed; source/debug/Kotlin metadata is removed. Dependency objects, compiled resources, stable IDs, manifest, build rules and offline notices are included. Private application source/history, original application objects, mappings, signing material and user diagnostic captures are excluded. The library modification/recombination permissions are in [NOTICE.md](winlator-source-and-relink/v0.1.118/NOTICE.md).
+
+The runtime supplement retains the pinned Wine/ntsync/GStreamer/SDL sources and adds the corresponding Wine locale, isolated clock-entry, ARM64EC breakpoint and DXVK D3D11 batching patches/build inputs, plus complete pinned FEX source and its required submodule archives for the executable-image-page changes. It does not expand the claim to every separately bundled upstream-prebuilt runtime. The coverage and outstanding issues below still apply.
+
+[Validation](winlator-source-and-relink/v0.1.118/VALIDATION.md) covers independent baseline recombination and a modified Java/native/resource build, stable IDs, runtime hashes, JNI/Steam/navigation contracts and recipient-key signing. The official APK is unchanged by these tests. Earlier versioned kits remain available and must not be substituted for this APK.
+
 ## Aura 0.1.101 / version code 102
 
 [Open the matching Winlator source and recombination kit](winlator-source-and-relink/v0.1.101/README.md), [runtime source/build inputs](runtime-source/v0.1.101/README.md), or the [0.1.101 release](https://github.com/topoftree/Aura/releases/tag/v0.1.101).
@@ -67,7 +79,7 @@ Host build, resource and signature checks are distinct from installing and runni
 
 ## Outstanding obligations and app changes
 
-The Winlator kits and the 0.1.101 runtime supplement have the scope above. They do **not** declare the entire Aura APK legally compliant. In particular:
+The Winlator kits and the versioned runtime supplements have the scope above. They do **not** declare the entire Aura APK legally compliant. In particular:
 
 | Item | Remaining work |
 | --- | --- |

@@ -1,0 +1,125 @@
+From: Aura contributors
+Subject: [PATCH] ntdll: recheck i386 address-wait completion after the native transition
+
+Requires wine-wait-queue-lifetime.patch. Appends a private Unix-call entry; the
+rebuilt i386 PE DLL requires the matching native ntdll. No public NT API or
+timeout changes. Candidate pending Android validation.
+
+diff --git a/dlls/ntdll/sync.c b/dlls/ntdll/sync.c
+--- a/dlls/ntdll/sync.c
++++ b/dlls/ntdll/sync.c
+@@ -907,7 +907,16 @@
+ 
+     spin_unlock( &queue->lock );
+ 
++#ifdef __i386__
++    /* Recheck after the emulator-to-native transition, where a nested native
++     * address wait can have consumed the same thread's guest alert. */
++    {
++        struct wait_address_completion_params params = { &entry.addr, timeout };
++        ret = WINE_UNIX_CALL( unix_wait_address_completion, &params );
++    }
++#else
+     ret = NtWaitForAlertByThreadId( NULL, timeout );
++#endif
+ 
+     /* We may have already been removed by a call to RtlWakeAddressSingle() or RtlWakeAddressAll(). */
+     if (ReadPointerAcquire( (void * volatile *)&entry.addr ))
+diff --git a/dlls/ntdll/unixlib.h b/dlls/ntdll/unixlib.h
+--- a/dlls/ntdll/unixlib.h
++++ b/dlls/ntdll/unixlib.h
+@@ -108,6 +108,12 @@
+     unsigned int disposition;
+ };
+ 
++struct wait_address_completion_params
++{
++    const void **addr;
++    const LARGE_INTEGER *timeout;
++};
++
+ enum ntdll_unix_funcs
+ {
+     unix_load_so_dll,
+@@ -124,6 +130,7 @@
+     unix_steamclient_setup_trampolines,
+     unix_debugstr_pc,
+     unix_compat_wine_nt_to_unix_file_name,
++    unix_wait_address_completion,
+ };
+ 
+ extern unixlib_handle_t __wine_unixlib_handle;
+diff --git a/dlls/ntdll/unix/unix_private.h b/dlls/ntdll/unix/unix_private.h
+--- a/dlls/ntdll/unix/unix_private.h
++++ b/dlls/ntdll/unix/unix_private.h
+@@ -403,8 +403,10 @@
+ extern NTSTATUS unixcall_wine_server_fd_to_handle( void *args );
+ extern NTSTATUS unixcall_wine_server_handle_to_fd( void *args );
+ extern NTSTATUS unixcall_wine_spawnvp( void *args );
++extern NTSTATUS unixcall_wait_address_completion( void *args );
+ #ifdef _WIN64
+ extern NTSTATUS wow64_wine_dbg_write( void *args );
++extern NTSTATUS wow64_wait_address_completion( void *args );
+ extern NTSTATUS wow64_wine_server_call( void *args );
+ extern NTSTATUS wow64_wine_server_fd_to_handle( void *args );
+ extern NTSTATUS wow64_wine_server_handle_to_fd( void *args );
+diff --git a/dlls/ntdll/unix/loader.c b/dlls/ntdll/unix/loader.c
+--- a/dlls/ntdll/unix/loader.c
++++ b/dlls/ntdll/unix/loader.c
+@@ -1427,6 +1427,7 @@
+     steamclient_setup_trampolines,
+     debugstr_pc,
+     unixcall_compat_wine_nt_to_unix_file_name,
++    unixcall_wait_address_completion,
+ };
+ 
+ 
+@@ -1526,6 +1527,7 @@
+     wow64_steamclient_setup_trampolines,
+     wow64_debugstr_pc,
+     wow64_compat_wine_nt_to_unix_file_name,
++    wow64_wait_address_completion,
+ };
+ 
+ #endif  /* _WIN64 */
+diff --git a/dlls/ntdll/unix/sync.c b/dlls/ntdll/unix/sync.c
+--- a/dlls/ntdll/unix/sync.c
++++ b/dlls/ntdll/unix/sync.c
+@@ -3742,6 +3742,37 @@
+ }
+ 
+ 
++/* Private companion to the i386 RtlWaitOnAddress queue. The waker removes the
++ * stack entry before publishing addr == NULL with release ordering. Recheck in
++ * Unix code, after the FEX transition and before consuming the thread alert.
++ * A PE-side check is insufficient: native address waits during that transition
++ * can consume/coalesce the guest's alert after its queue entry was removed.
++ * Direct NtWaitForAlertByThreadId callers retain their original semantics.
++ */
++NTSTATUS unixcall_wait_address_completion( void *args )
++{
++    const struct wait_address_completion_params *params = args;
++
++    if (!ReadPointerAcquire( (void * volatile *)params->addr )) return STATUS_ALERTED;
++    return NtWaitForAlertByThreadId( NULL, params->timeout );
++}
++
++#ifdef _WIN64
++NTSTATUS wow64_wait_address_completion( void *args )
++{
++    const struct
++    {
++        ULONG addr;
++        ULONG timeout;
++    } *params = args;
++
++    /* The queue entry stores a 32-bit pointer. Do not read the adjacent TID. */
++    if (!ReadAcquire( (LONG *)ULongToPtr( params->addr ) )) return STATUS_ALERTED;
++    return NtWaitForAlertByThreadId( NULL, ULongToPtr( params->timeout ) );
++}
++#endif
++
++
+ /***********************************************************************
+  *           NtCreateTransaction (NTDLL.@)
+  */

@@ -1,0 +1,81 @@
+{
+  "schema": "WINE_ANDROID_LOCALE_BUILD_V1",
+  "revision": "11.0-2-aura-locale1",
+  "baseNativeSha256": "77e3942211cfadbed242b8ef184fb04bae80ddef04d33d0799d76966e0afe983",
+  "baseBuildRecordSha256": "6e33cecb4fc846649a8d27a86468d20e66c62ae66273334928ef5ec30dc72ead",
+  "baseReproduced": true,
+  "patchSha256": "36d25d6b19bfe4796261507dd12fd29edccf0924dcb6b662128640a1617ae7c0",
+  "builderSha256": "f19f123116f3359830e0be48acab5f2732eab39cceda8ac3991200ccfe6a1690",
+  "beforeEnvSha256": "f41b1cb964f95415c30a5b88b6705e7dc15f061669f6db60183688f2717b21db",
+  "afterEnvSha256": "9bffa4f4acd6b17abcee5f8b1d1f987b048540654c90c2f1e60ac53f6e12c230",
+  "nativeSha256": "091586ec99aa9aa25e1cb786d5a8c1215b7673da1afb753740d8f4b09d53aeac",
+  "nativeBytes": 2385184,
+  "symbolsSha256": "be13d297f261b206359398089c54108b14ebec87796f441fa8a3d1b943a4371a",
+  "elf": {
+    "format": "ELF64",
+    "machine": "0xb7",
+    "abi": "bionic",
+    "interpreter": null,
+    "needed": [
+      "libdl.so",
+      "libc.so"
+    ],
+    "soname": [
+      "ntdll.so"
+    ],
+    "searchPaths": [
+      "/data/data/com.android.aura/f/r/lib"
+    ],
+    "minimumLoadAlignment": 16384
+  },
+  "compiledLayout": {
+    "ntdllSha256": "091586ec99aa9aa25e1cb786d5a8c1215b7673da1afb753740d8f4b09d53aeac",
+    "compiledLibDirectory": "/data/data/com.android.aura/f/opt/wine/lib/wine",
+    "compiledDataDirectory": "/data/data/com.android.aura/f/opt/wine/share/wine",
+    "relativeDataDirectory": "../../share/wine",
+    "resolvedDataDirectory": "opt/wine/share/wine",
+    "nlsPaths": [
+      "opt/wine/share/wine/nls/locale.nls",
+      "opt/wine/share/wine/nls/l_intl.nls"
+    ],
+    "missingPaths": [],
+    "passed": true,
+    "androidExecuted": false
+  },
+  "unixCodepage": "UTF-8",
+  "windowsLocales": [
+    "en-US",
+    "zh-CN"
+  ],
+  "privateUnixOpcode": 14,
+  "unixTableEntries": 15,
+  "peBinariesChanged": false,
+  "nativeObjects": {
+    "dlls/ntdll/unix/cdrom.o": "9251e0444a69411d2475d2e84f40b5b098bfa851ee74d3d326922a1aa27b7a0c",
+    "dlls/ntdll/unix/debug.o": "6e9e938b6acf080e7a528d1e71077008dcce94eea14a86f4ea45936dcf10e03d",
+    "dlls/ntdll/unix/env.o": "7b14729bf53e2119127fac2253602ade7e8d0215368e0cda15691bd61c89d18a",
+    "dlls/ntdll/unix/file.o": "061a2e4ea3818d58591a0db985cc27e25116801fa7e0ebcce68df39ee0e84a57",
+    "dlls/ntdll/unix/esync.o": "1da3adcf6687546dcf78077d4fc41a14e700a2c808d403b2dae4ac7e364695c2",
+    "dlls/ntdll/unix/fsync.o": "66587c954532ac5e4340efc9afddb28d956aa8cac73228789cce484a1511d97c",
+    "dlls/ntdll/unix/loader.o": "952babac1a389d000b8d07d05f1f319f17aa25a54269f3a8a0e6f63b3660d9bc",
+    "dlls/ntdll/unix/loadorder.o": "3ce748146ec5b50fe2bcfe101d0eb3c8489648dfc099b0ba5fd69a7376651b73",
+    "dlls/ntdll/unix/process.o": "8fb8dbdc49eaa69c376dbf9c75c89df594ac673bc94db938427e81980703c538",
+    "dlls/ntdll/unix/registry.o": "806bc060657ffc7a43726246439905e51a1b98edebee2328b780f331ee8b1234",
+    "dlls/ntdll/unix/security.o": "4f5665ec65cc91a2835c979b61947a603bad09778be7ca16451de878e84076b6",
+    "dlls/ntdll/unix/serial.o": "5ff6df61a54dbda4a958fb55c899bb62b7970d15b2ec519810d027ac301c0397",
+    "dlls/ntdll/unix/server.o": "4f63f6464642dfe76f1935c8965e20d1fe4bd013c457902569ef4db80c556db7",
+    "dlls/ntdll/unix/signal_arm.o": "d0801fa13f868a92bae4b95462d01d206de71f22d02fe7bfa717804f6c2d550d",
+    "dlls/ntdll/unix/signal_arm64.o": "be102c19a3463244c166b10fb266c5d9eb119180da1892243bca771d8a6cdee4",
+    "dlls/ntdll/unix/signal_i386.o": "60e907a7b23a1eb96bdb637c5077ef6ced9717608a6b764854e6ffe999172ac9",
+    "dlls/ntdll/unix/signal_x86_64.o": "f38a752adcd3135606db5429bd482a38748f25abf44ddb0a6383a6630d61321c",
+    "dlls/ntdll/unix/socket.o": "b9ffe520a6fd24829afb175d4cdc518ba414a4bb28fd6876f9d9e2a7dfadda2d",
+    "dlls/ntdll/unix/sync.o": "86298462c4c4c05cc62a0317108e349a33396a728a4e3c4dd9931b8d39052a55",
+    "dlls/ntdll/unix/system.o": "a8c65ced59f16d034ba01d86774b2567a65c994d118e57729e9591b502e988da",
+    "dlls/ntdll/unix/tape.o": "6a5d96420a72035d040e68cd37cbd09f1ab4765dd75ea01741f1471dfdce012e",
+    "dlls/ntdll/unix/thread.o": "dfe6e25217a7177c44f1a2ba8a460cd8c2b468002b10991e96933dfea4aec6a7",
+    "dlls/ntdll/unix/virtual.o": "880f72f58d44c7aeb41a9ef48906124ff3e8d42fba5644fb312600303862b731",
+    "dlls/ntdll/unix/version.o": "a249bcbc86ad45d2ac214ed2f0830b803189c2e06343d8675e51acdbd8c3adbe"
+  },
+  "replacementEnvObjectSha256": "602f1f33bbe84852cf28c1998ad091f31264f6ecea7a85f802bf8e67d0ba88bc",
+  "androidDeviceTested": false
+}
