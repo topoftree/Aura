@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/aura-icon.png" alt="Aura" width="240" />
+  <img src="assets/aura-icon.png" alt="Aura gaming mascot" width="240" />
 </p>
 
 # Aura
