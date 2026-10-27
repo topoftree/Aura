@@ -1,0 +1,19 @@
+ntsync-android - userspace ntsync for Android
+Copyright (C) 2026 Joshua Tam (joshuatam, GameNative)
+https://github.com/GameNative/ntsync-android
+Built from commit 7ce6435e5979b1cb5341aa4b299f31e8937fe121.
+
+Licensed under the GNU Lesser General Public License, version 3 only
+(LGPL-3.0-only); the full text is in the LICENSE file next to this one.
+
+This layer links the library statically (libntsync_android.a) into
+lib/wine/*-unix/ntdll.so and bin/wineserver. The complete corresponding
+source of the library is at the URL and commit above, and the Wine side
+(including the build scripts that produce and link the archive) is in the
+proton-wine repository this layer was built from, so the combined work can be
+rebuilt and relinked against a modified copy of the library.
+
+The backend is only used when WINENTSYNC=1 is set for the Wine processes;
+without it the layer uses esync (WINEESYNC=1) or server-side sync as before.
+The Wine integration is adapted from GameNative/proton-wine (proton_11.0-2,
+commits d67ac1e0 and 0971187).

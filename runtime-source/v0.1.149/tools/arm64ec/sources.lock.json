@@ -1,0 +1,310 @@
+{
+  "legacyInputs": {
+    "rootfs.tzst": "11b9460570ea7bcd929a3968adb44296e3980e89992050b14ea99aeb4eb530f0",
+    "rootfs_patches.tzst": "069cab2aa78612026b030939f8785b9e5de559b9fe5f200230e13da29a3cd2db"
+  },
+  "schema": 1,
+  "sources": {
+    "sdl2": {
+      "url": "https://codeload.github.com/libsdl-org/SDL/tar.gz/refs/tags/release-2.32.10",
+      "sha256": "03f9d7c191a837525c9cda6406af2f2e48be02b5e7eb03d949cc9f1e9ca41c8b",
+      "bytes": 7883298
+    },
+    "dxvk-arm64ec": {
+      "bytes": 8551941,
+      "sha256": "6e31d3c30d58f6871ff0f61dd4ba072e881b95ee23b7a2038033d9accf53d454",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/Dxvk-arm64ec/dxvk-arm64ec-2.7.1.wcp"
+    },
+    "extra_libs.tzst": {
+      "bytes": 21125721,
+      "sha256": "965314378f251157af33bde6e33f10c464b88e981bda78062c69cdfb34e80ce9",
+      "url": "https://raw.githubusercontent.com/Pipetto-crypto/winlator/da12b7a0a9168261656a71a6d68f9f08f77d6304/app/src/main/assets/graphics_driver/extra_libs.tzst"
+    },
+    "fexcore": {
+      "bytes": 1311421,
+      "sha256": "e6cf7367071301b72cbb64e1b3199624ae4f6304e544f09097427c384a81d530",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/FexCore/FEXCore-2610-unix.wcp"
+    },
+    "proton-arm64ec": {
+      "bytes": 119736514,
+      "sha256": "f73ef59e421c40f429e2d7fa66c606a929dc837601dc68d80d1aa43700dd8292",
+      "url": "https://github.com/The412Banner/winlator-contents/releases/download/bionic-layers-20261007-v14/proton-11.0-2-arm64ec.wcp"
+    },
+    "termux-dependencies": {
+      "bytes": 1190645760,
+      "sha256": "b088df560c9395d7c2cc797d208d8a727d1f06fc70e5ea34eef6118ef64a7e42",
+      "url": "https://github.com/GameNative/termux-on-gha/releases/download/build-20260218/termuxfs-aarch64.tar"
+    },
+    "vkd3d-arm64ec": {
+      "bytes": 3910839,
+      "sha256": "084a60462f4b170e42bff3ec258bf1b74ac6c66a98e33762658df978b68476d9",
+      "url": "https://github.com/The412Banner/Nightlies/releases/download/VKD3D-PROTON-ARM/vkd3d-proton-arm64ec-3.0.1.wcp"
+    },
+    "wine-mono": {
+      "bytes": 85504000,
+      "sha256": "071f4b2887e1c97a11d791ff3d65be9429eed6dec4c2708888bfd546ba358e23",
+      "url": "https://github.com/wine-mono/wine-mono/releases/download/wine-mono-10.4.1/wine-mono-10.4.1-x86.msi"
+    },
+    "wrapper.tzst": {
+      "bytes": 5725821,
+      "sha256": "9e5b2539c1b86afdfd8c144a165cfa03b9c500fe0d82ae6216a6859c00bf460f",
+      "url": "https://raw.githubusercontent.com/Pipetto-crypto/winlator/da12b7a0a9168261656a71a6d68f9f08f77d6304/app/src/main/assets/graphics_driver/wrapper.tzst"
+    },
+    "xcb-keysyms": {
+      "sha256": "7c260a5294412aed429df1da2f8afd3bd07b7cba3fec772fba15a613a6d5c638",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/xcb-util-keysyms_0.4.1.orig.tar.xz"
+    },
+    "icu-win64": {
+      "url": "https://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-Win64-MSVC2019.zip",
+      "bytes": 23823978,
+      "sha256": "4d17a70dab1059f333b1f321a8c7bcdb4b8bfbf7c5ac32705397af6da3a0c81a"
+    },
+    "icu-win32": {
+      "url": "https://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-Win32-MSVC2019.zip",
+      "bytes": 23124521,
+      "sha256": "33d7603c7e59e81347583fce5b98ee53b66d5a87a5b6b12f906b6f7908868b69"
+    }
+  },
+  "sourcesCommit": {
+    "fex-tag": "FEX-2610",
+    "winlator-bionic": "da12b7a0a9168261656a71a6d68f9f08f77d6304"
+  },
+  "builtOverrides": {
+    "dxvk-d3d11": {
+      "manifest": "tools/arm64ec/dxvk/batching-build.json",
+      "sourceBase": "v2.7.1",
+      "revision": "2.7.1-arm64ec-aura-batch1",
+      "files": [
+        "system32/d3d11.dll",
+        "syswow64/d3d11.dll"
+      ],
+      "defaultEnabled": false,
+      "scope": "D3D11_SUBMISSION_HINTS"
+    },
+    "dxvk-d3d9": {
+      "manifest": "tools/arm64ec/dxvk/build.json",
+      "sourceBase": "v2.7.1",
+      "revision": "2.7.1-arm64ec-aura-flow1",
+      "files": [
+        "system32/d3d9.dll",
+        "syswow64/d3d9.dll"
+      ],
+      "originalWcpRetainedForOtherDlls": true
+    },
+    "fex-image-pages": {
+      "manifest": "tools/arm64ec/fex-image-pages/build.json",
+      "revision": "FEX-2610-aura-ip1-smc2-ir1-ca1",
+      "sourceBase": "14c92681f4d62cf84d901460e0358de09c8847a7",
+      "files": [
+        "opt/wine/lib/wine/aarch64-windows/libarm64ecfex.dll",
+        "opt/wine/lib/wine/aarch64-windows/libwow64fex.dll"
+      ],
+      "defaultEnabled": false,
+      "scope": "Gated image/SMC compatibility; general IR block-tail maintenance; bounded manual JIT diagnostics",
+      "crysisInlineSmc": {
+        "process": "Crysis2.exe",
+        "frontend": "WOW64",
+        "requestedBy": "AURA_FEX_CRYSIS2_INLINE_SMC",
+        "defaultEnabled": false,
+        "checks": "FULL_INSTRUCTION",
+        "diskCache": false,
+        "monoHacks": false,
+        "androidDeviceTested": false
+      },
+      "crysisFastSmc": {
+        "requestedBy": "AURA_FEX_CRYSIS2_FAST_SMC",
+        "defaultEnabled": false,
+        "requiresVerifiedInlineSmc": true,
+        "exactByteLengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "fallback": "CRC",
+        "preservesNZCV": true,
+        "overread": false,
+        "androidDeviceTested": false
+      },
+      "irBlockTail": {
+        "scope": "IREmitter linked block maintenance",
+        "checksUnchanged": true,
+        "cachePolicyUnchanged": true,
+        "androidDeviceTested": false
+      },
+      "jitCapture": {
+        "shmVersion": 4,
+        "headerBytes": 128,
+        "threadBytes": 1280,
+        "defaultEnabled": false,
+        "manualWindowSeconds": 10,
+        "operationsPerThread": 50000,
+        "repeatKeysPrivate": true,
+        "cachePolicyUnchanged": true,
+        "androidDeviceTested": false
+      },
+      "crysisJitBudget": {
+        "requiresVerifiedInlineSmc": true,
+        "maxInstructions": 512,
+        "preservesSmallerUserLimit": true,
+        "rollback": "AURA_FEX_CRYSIS2_BOUNDED_JIT=0",
+        "checksUnchanged": true,
+        "cacheCapacityUnchanged": true,
+        "androidDeviceTested": false
+      },
+      "crysisSharedSmcExits": {
+        "requiresVerifiedInlineSmc": true,
+        "frontend": "WOW64",
+        "scope": "same translation attempt and ordered physical register pair",
+        "rollback": "AURA_FEX_CRYSIS2_SHARED_SMC_EXITS=0",
+        "checksUnchanged": true,
+        "spillSequenceUnchanged": true,
+        "cacheCapacityUnchanged": true,
+        "crossGenerationPointers": false,
+        "androidDeviceTested": false,
+        "supersededBy": "sharedSmcExits"
+      },
+      "sharedSmcExits": {
+        "frontends": [
+          "WOW64",
+          "ARM64EC"
+        ],
+        "appDefaultEnabled": true,
+        "nativeDefaultEnabled": false,
+        "requiresSelectedExecutable": true,
+        "requiresFullChecks": true,
+        "changesCheckMode": false,
+        "affectsCodeGenerationCacheKey": true,
+        "requestedBy": "AURA_FEX_SHARED_SMC_EXITS",
+        "executable": "AURA_FEX_SHARED_SMC_EXITS_EXE",
+        "scope": "same translation attempt and ordered physical register pair",
+        "checksUnchanged": true,
+        "spillSequenceUnchanged": true,
+        "cacheCapacityUnchanged": true,
+        "crossGenerationPointers": false,
+        "androidDeviceTested": false
+      },
+      "cacheAudit": {
+        "unixAbiSha256": "de2f8d54d0bb38aba07bb8bfff4173bae37db8e3d9111491ae971fef14391b71",
+        "cpuCapabilities": "ANDROID_AUXV_WINE_REGISTRY_FEX_EFFECTIVE",
+        "sveEnabled": false,
+        "cacheBufferMiB": [
+          0,
+          32,
+          64
+        ],
+        "defaultMiB": 0,
+        "targetProcessOnly": true,
+        "preservesSmcChecks": true,
+        "memoryCopyFix": true,
+        "androidDeviceTested": false
+      }
+    },
+    "mgs-tick-thunk": {
+      "manifest": "tools/arm64ec/mgs-tick-thunk/build.json",
+      "revision": "11.0-2-aura-mgs-tick1",
+      "sourceBase": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+      "files": [
+        "opt/wine/lib/wine/aarch64-windows/ntdll.dll"
+      ],
+      "defaultEnabled": false,
+      "scope": "MgsGroundZeroes.exe"
+    },
+    "arm64ec-breakpoint": {
+      "manifest": "tools/arm64ec/arm64ec-breakpoint/build.json",
+      "revision": "11.0-2-aura-ec-breakpoint1",
+      "sourceBase": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+      "files": [
+        "opt/wine/lib/wine/aarch64-windows/ntdll.dll"
+      ],
+      "scope": "ARM64EC loader process_breakpoint SEH handler"
+    },
+    "wine-crypt32-fd": {
+      "manifest": "tools/arm64ec/crypt32-fd/build.json",
+      "sourceCommit": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+      "files": [
+        "opt/wine/lib/wine/aarch64-unix/crypt32.so"
+      ],
+      "scope": "CERTIFICATE_FILE_DESCRIPTOR_OWNERSHIP",
+      "sha256": "96aa3db4317b4e354da164c43498fb47702a6ce2285c4478af519a6189443454"
+    },
+    "adrenotools-loader": {
+      "revision": "libdl-handle-1",
+      "source": "engine/src/main/cpp/libadrenotools",
+      "build": "adrenotools-loader/build.json",
+      "files": {
+        "usr/lib/libadrenotools.so": {
+          "bytes": 46104,
+          "sha256": "112634b9761e6c056c189b5291135bf4df108ded9bfec45768147e0cd431cf67"
+        },
+        "usr/lib/libhook_impl.so": {
+          "bytes": 41480,
+          "sha256": "996efd2833622d5d641aacbc56efc56c25ac9af097070adc1a42be8b4b793a8a"
+        }
+      }
+    },
+    "dxvk-dxgi": {
+      "manifest": "tools/arm64ec/dxvk/initialization-build.json",
+      "sourceBase": "v2.7.1",
+      "revision": "2.7.1-arm64ec-aura-init3",
+      "files": [
+        "system32/dxgi.dll",
+        "syswow64/dxgi.dll"
+      ],
+      "scope": "SINGLETON_EXCEPTION_RETRY",
+      "traceDefaultEnabled": false
+    },
+    "wine-system-info": {
+      "manifest": "tools/arm64ec/system-info/build.json",
+      "sourceBase": "proton_11.0-2",
+      "revision": "11.0-2-aura-system-info1",
+      "files": [
+        "opt/wine/lib/wine/aarch64-windows/kernelbase.dll"
+      ],
+      "scope": "GET_NATIVE_SYSTEM_INFO_ARM64EC",
+      "upstreamCommit": "c5a96a0b6c635995718602ca0d0792833de1f46f"
+    },
+    "mesa-bo-cache": {
+      "revision": "mesa-zink-bocache1",
+      "method": "EXACT_ARM64_INSTRUCTION_TRANSFORM",
+      "build": "../mesa-bo-cache/build.json",
+      "files": {
+        "usr/lib/libGL.so.1.5.0": {
+          "bytes": 15834760,
+          "sha256": "811def9def371c60396b4f9430ffaf4d47e4dc5c45fb08c27a799938736b8e9c"
+        }
+      }
+    },
+    "wine-virtual-modes": {
+      "revision": "11.0-2-aura-aspect-modes1",
+      "manifest": "tools/arm64ec/virtual-modes/build.json",
+      "files": [
+        "opt/wine/lib/wine/aarch64-unix/win32u.so"
+      ],
+      "preservesGpuMemoryFix": true
+    },
+    "dxvk-qualcomm": {
+      "manifest": "tools/arm64ec/dxvk/compatibility-build.json",
+      "sourceBase": "v2.6.2",
+      "sourceCommit": "9d6f54a1ade20d1d27dd421024717a636f3d8c68",
+      "revision": "2.6.2-arm64ec-aura-qcom3",
+      "scope": "PROPRIETARY_ADRENO_MATCHED_COHORT",
+      "files": [
+        "system32/d3d10core.dll",
+        "system32/d3d11.dll",
+        "system32/d3d8.dll",
+        "system32/d3d9.dll",
+        "system32/dxgi.dll",
+        "syswow64/d3d10core.dll",
+        "syswow64/d3d11.dll",
+        "syswow64/d3d8.dll",
+        "syswow64/d3d9.dll",
+        "syswow64/dxgi.dll"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+Aura downstream FEX IR block-tail maintenance optimization
+
+Based on FEX-Emu/FEX revision 14c92681f4d62cf84d901460e0358de09c8847a7
+(FEX-2610), MIT. https://github.com/FEX-Emu/FEX
+
+This Aura downstream change is not an upstream contribution. It caches the tail
+of the current emitter's linked code-block list, updates it on tail insertion,
+and invalidates it on reset, copy and tail removal. It retains block ordering,
+instruction checks, invalidation exits, guest memory accesses and cache policy.
+No game code, game resources or user diagnostics are included.
+
+The host differential tests compile the actual before/after IREmitter and compare
+synthetic IR output. Host timings are not Android frame-rate measurements.

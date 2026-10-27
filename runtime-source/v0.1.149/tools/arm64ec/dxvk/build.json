@@ -1,0 +1,68 @@
+{
+  "schema": "AURA_DXVK_D3D9_BUILD_V1",
+  "version": "v2.7.1-arm64ec-aura-flow1",
+  "source_url": "https://github.com/doitsujin/dxvk",
+  "source_commit": "c3dd74be6baec53786d4e064a572185b70347a17",
+  "submodules": {
+    "include/native/directx": "9df86f2341616ef1888ae59919feaa6d4fad693d",
+    "include/spirv": "8b246ff75c6615ba4532fe4fde20f1be090c3764",
+    "include/vulkan": "234c4b7370a8ea3239a214c9e871e4b17c89f4ab",
+    "subprojects/libdisplay-info": "275e6459c7ab1ddd4b125f28d0440716e4888078"
+  },
+  "patch_sha256": "d97cef673b1547b937d7c4e869b62ce6e9dae10a21f0e9981893065d397d741e",
+  "device_source_sha256": "9c7ca410dc2f8bb32c0c31828a2ddd9ce95e03ca223739dbad36ee9fef3afa2e",
+  "version_template_sha256": "eee06a960128be3d71703a4dda1b660833ef71eca7fe512c824281f9243b3207",
+  "source_date_epoch": "1756549193",
+  "architectures": [
+    "x86",
+    "ARM64EC"
+  ],
+  "other_dxvk_dlls_rebuilt": false,
+  "files": {
+    "syswow64/d3d9.dll": {
+      "bytes": 3911680,
+      "sha256": "31cb8e1da96f4c7343af36dedfe70c0a5aa9f846ebf62c333e4a1ed90f89d455",
+      "pe_machine": "0x14c",
+      "chpe_metadata": false,
+      "unstripped_sha256": "6a63f014bf79561b1741dcca7677327bfdbd304c74d5500f7edb3fda05b94bc8"
+    },
+    "system32/d3d9.dll": {
+      "bytes": 3715072,
+      "sha256": "7c7cb0eeb9eeb4669fed9be485e29e89b4bce0485ed6cb284160fe3c9ea6fcad",
+      "pe_machine": "0x8664",
+      "chpe_metadata": true,
+      "unstripped_sha256": "c0bc19f9f9e76b757901c31da30bf2effb42f44f7228dad16f7925e47a303eb5"
+    }
+  },
+  "meson": "1.9.1",
+  "llvm_mingw_release": "20251104",
+  "android_game_execution": "not run",
+  "script_sha256": "4392f3447c3090a11ce64686bcbcf065645d3df25160f94d12382d0702bc8b6c",
+  "flow_sources": {
+    "flow.patch": "ffdf63fb2c2c53a6c5715f3b8f5399577323b0e6e3701bf357e5e6aaaf7e0659",
+    "flow_core.h": "b5ecc2b8478a067257f695a5a1d9de45e68c66a4b4de62f1da9cd56fd3398470",
+    "flow_trace.h": "1bbd671ee261ce24254a7d90d762b9c3e4f94a3254f03e8e8af09e910e3bb392"
+  },
+  "patched_sources": {
+    "src/d3d9/d3d9_device.cpp": "9c7ca410dc2f8bb32c0c31828a2ddd9ce95e03ca223739dbad36ee9fef3afa2e",
+    "src/d3d9/d3d9_query.cpp": "936dcac757bb43543345c3fb3df47b4782f6ccaaf780a15fba3280daedf05d7f",
+    "src/d3d9/d3d9_swapchain.cpp": "c8e67fddb9be5b7ccce437b47fb3a7acfe79f44fccc6cddeb4463cdaf68313e6",
+    "src/dxvk/dxvk_graphics.cpp": "711ea284a4486ec54a7238e1fdd21a257494bdf5ac1bd33e53e701c4fedaa62e",
+    "src/dxvk/dxvk_queue.cpp": "413660d9a6a104edd0e89b37f4169c12c852cfe93df287328c0a30c6a99dd5da"
+  },
+  "compiler": "clang version 21.1.5 (https://github.com/llvm/llvm-project.git 8e2cd28cd4ba46613a46467b0c91b1cabead26cd)",
+  "toolchain": {
+    "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20251104/llvm-mingw-20251104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "sha256": "3aed6fa47be909884cb3e5634d6b7254604d7104832d6312f8435fb23d5a9bab",
+    "bytes": 80003412,
+    "compiler": "clang 21.1.5"
+  },
+  "glslang": {
+    "url": "https://github.com/KhronosGroup/glslang/releases/download/master-tot/glslang-master-linux-Release.zip",
+    "asset_id": 92763268,
+    "sha256": "580121f647b0f2b33c8ae952e948840020d1fef23c05ff4300ef45baa7646c55",
+    "bytes": 6696873,
+    "reported_version": "12.0.0",
+    "note": "Pinned downloaded bytes; master-tot URL is mutable."
+  }
+}

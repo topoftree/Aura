@@ -1,0 +1,101 @@
+--- a/FEXCore/Source/Interface/Config/Config.json.in
++++ b/FEXCore/Source/Interface/Config/Config.json.in
+@@ -6,6 +6,12 @@
+         "Default": "false",
+         "AffectsCodeGen": "true",
+         "Desc": ["Opt-in committed image-page ranges for MgsGroundZeroes.exe"]
++      },
++      "CrysisFastSMC": {
++        "Type": "bool",
++        "Default": "false",
++        "AffectsCodeGen": "true",
++        "Desc": ["Exact-byte short instruction checks; gated by verified Crysis 2 WOW64 launch"]
+       },
+       "Multiblock": {
+         "Type": "bool",
+--- a/FEXCore/Source/Interface/Context/Context.h
++++ b/FEXCore/Source/Interface/Context/Context.h
+@@ -358,6 +358,7 @@
+     FEX_CONFIG_OPT(VectorTSOEnabled, VECTORTSOENABLED);
+     FEX_CONFIG_OPT(MemcpySetTSOEnabled, MEMCPYSETTSOENABLED);
+     FEX_CONFIG_OPT(SMCChecks, SMCCHECKS);
++    FEX_CONFIG_OPT(CrysisFastSMC, CRYSISFASTSMC);
+     FEX_CONFIG_OPT(MaxInstPerBlock, MAXINST);
+     FEX_CONFIG_OPT(RootFSPath, ROOTFS);
+     FEX_CONFIG_OPT(GlobalJITNaming, GLOBALJITNAMING);
+--- a/FEXCore/Source/Interface/IR/IR.json
++++ b/FEXCore/Source/Interface/IR/IR.json
+@@ -195,7 +195,7 @@
+         "HasSideEffects": true
+       },
+ 
+-      "GPR = ValidateCode GPR:$crc, GPR:$Address, u8:$CodeLength": {
++      "GPR = ValidateCode GPR:$crc, GPR:$Address, u8:$CodeLength, i1:$DirectBytes": {
+         "HasSideEffects": true,
+         "HasDest": true,
+         "DestSize": "OpSize::i64Bit"
+--- a/FEXCore/Source/Interface/Core/Core.cpp
++++ b/FEXCore/Source/Interface/Core/Core.cpp
+@@ -645,11 +645,20 @@
+           auto ExistingCodePtr = reinterpret_cast<uint8_t*>(Block.Entry + BlockInstructionsLength);
+           auto InstAddressReg = Thread->OpDispatcher->_EntrypointOffset(GPRSize, InstAddress - GuestRIP);
+ 
+-          auto Value = FEXCore::Utils::crc32(ExistingCodePtr, DecodedInfo->InstSize);
++          // Keep FULL coverage and the existing invalidation branch. Only the comparison
++          // for short instructions changes; persistent-cache relocations retain CRC.
++          const bool DirectBytes = Config.CrysisFastSMC() && !Config.Is64BitMode() && !WantsDiskCachePatching &&
++                                   DecodedInfo->InstSize > 0 && DecodedInfo->InstSize <= 8;
++          uint64_t Value {};
++          if (DirectBytes) {
++            memcpy(&Value, ExistingCodePtr, DecodedInfo->InstSize);
++          } else {
++            Value = FEXCore::Utils::crc32(ExistingCodePtr, DecodedInfo->InstSize);
++          }
+           auto CRC = WantsDiskCachePatching ?
+                        Thread->OpDispatcher->_PatchableGuestCRC(IR::OpSize::i64Bit, Value, (int64_t)ExistingCodePtr, DecodedInfo->InstSize) :
+                        Thread->OpDispatcher->Constant(Value);
+-          auto CodeChanged = Thread->OpDispatcher->_ValidateCode(CRC, InstAddressReg, DecodedInfo->InstSize);
++          auto CodeChanged = Thread->OpDispatcher->_ValidateCode(CRC, InstAddressReg, DecodedInfo->InstSize, DirectBytes);
+ 
+           auto InvalidateCodeCond = Thread->OpDispatcher->CondJump(CodeChanged);
+ 
+--- a/FEXCore/Source/Interface/Core/JIT/BranchOps.cpp
++++ b/FEXCore/Source/Interface/Core/JIT/BranchOps.cpp
+@@ -10,6 +10,7 @@
+ #include "Interface/Core/LookupCache.h"
+ 
+ #include "Interface/Core/JIT/JITClass.h"
++#include "Interface/Core/JIT/FastCodeValidation.h"
+ 
+ #include <FEXCore/Core/Thunks.h>
+ #include <FEXCore/Core/X86Enums.h>
+@@ -328,6 +329,11 @@
+   const auto Dst = GetReg(Node);
+   const auto CRC32Reg = GetReg(Op->crc);
+ 
++  if (Op->DirectBytes) {
++    EmitFastCodeValidation(*this, Dst.X(), Base, CRC32Reg.X(), TMP1, TMP3, len);
++    return;
++  }
++
+   // Changes to TMP1
+   auto WorkingReg = ARMEmitter::XReg::zr;
+   auto BaseReg = TMP2;
+--- a/Source/Windows/WOW64/Module.cpp
++++ b/Source/Windows/WOW64/Module.cpp
+@@ -515,6 +515,15 @@
+     LogMan::Msg::IFmt("AURA_FEX_CRYSIS2_SMC_V1 state=ACTIVE; checks=FULL_INSTRUCTION; write_traps=OFF; disk_cache=OFF; game_ready=UNCONFIRMED");
+   }
+ 
++  // Set both outcomes after user/config layers: inherited or external FEX settings
++  // cannot activate this experiment for another executable or an unverified launch.
++  const bool CrysisFastSMC = FEX::Windows::CrysisFastSmcRequested(getenv("AURA_FEX_CRYSIS2_FAST_SMC"), CrysisInlineSMC);
++  FEXCore::Config::Set(FEXCore::Config::CONFIG_CRYSISFASTSMC, CrysisFastSMC ? "1" : "0");
++  if (CrysisInlineSMC) {
++    LogMan::Msg::IFmt("AURA_FEX_CRYSIS2_FAST_SMC_V1 state={}; short_instructions=EXACT_BYTES_1_8; fallback=CRC; game_ready=UNCONFIRMED",
++                     CrysisFastSMC ? "ACTIVE" : "OFF");
++  }
++
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_INTERPRETER_INSTALLED, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_IS64BIT_MODE, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_FILENAME, ExecutablePath);

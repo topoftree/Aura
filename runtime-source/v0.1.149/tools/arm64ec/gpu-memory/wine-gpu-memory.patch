@@ -1,0 +1,14 @@
+diff --git a/dlls/win32u/sysparams.c b/dlls/win32u/sysparams.c
+--- a/dlls/win32u/sysparams.c
++++ b/dlls/win32u/sysparams.c
+@@ -1688,7 +1688,9 @@
+     set_reg_value( hkey, dac_typeW, REG_SZ, ramdacW, sizeof(ramdacW) );
+ 
+     set_reg_value( hkey, qw_memory_sizeW, REG_QWORD, &memory_size, sizeof(memory_size) );
+-    value = (ULONG)min( memory_size, (ULONGLONG)ULONG_MAX );
++    /* ULONG is a Windows DWORD; native unsigned long is 64-bit on LP64.
++     * Keep the full QWORD, and saturate the legacy DWORD instead of wrapping. */
++    value = (ULONG)min( memory_size, (ULONGLONG)MAXDWORD );
+     set_reg_value( hkey, memory_sizeW, REG_DWORD, &value, sizeof(value) );
+ 
+     set_reg_ascii_value( hkey, "DriverVersion", driver_vendor_to_version( pci->vendor ) );

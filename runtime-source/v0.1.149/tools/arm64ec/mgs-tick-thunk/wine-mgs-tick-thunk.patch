@@ -1,0 +1,37 @@
+--- a/dlls/ntdll/loader.c
++++ b/dlls/ntdll/loader.c
+@@ -199,6 +199,11 @@
+ static FARPROC find_named_export( HMODULE module, const IMAGE_EXPORT_DIRECTORY *exports, DWORD exp_size,
+                                   const char *name, int hint, LPCWSTR load_path,
+                                   WINE_MODREF *importer, BOOL is_dynamic );
++
++#ifdef __arm64ec__
++static FARPROC aura_mgs_tick_export( HMODULE module, const IMAGE_EXPORT_DIRECTORY *exports,
++                                    DWORD ordinal, FARPROC proc );
++#endif
+ 
+ /* check whether the file name contains a path */
+ static inline BOOL contains_path( LPCWSTR name )
+@@ -1056,6 +1061,11 @@
+         ((const char *)proc < (const char *)exports + exp_size))
+         return find_forwarded_export( module, (const char *)proc, load_path, importer, is_dynamic );
+ 
++#ifdef __arm64ec__
++    if (!TRACE_ON(snoop) && !TRACE_ON(relay))
++        proc = aura_mgs_tick_export( module, exports, ordinal, proc );
++#endif
++
+     if (TRACE_ON(snoop))
+     {
+         const WCHAR *user = !is_dynamic ? importer->ldr.BaseDllName.Buffer : NULL;
+@@ -1092,6 +1102,10 @@
+     return -1;
+ }
+ 
++
++#ifdef __arm64ec__
++#include "aura_mgs_tick_thunk.h"
++#endif
+ 
+ /*************************************************************************
+  *		find_named_export

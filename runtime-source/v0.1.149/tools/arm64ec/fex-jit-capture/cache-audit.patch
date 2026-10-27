@@ -1,0 +1,347 @@
+--- a/FEXCore/Source/Interface/Core/Core.cpp
++++ b/FEXCore/Source/Interface/Core/Core.cpp
+@@ -892,6 +892,7 @@
+   std::optional<uint64_t> DiskCacheGuestCodeKey;
+   {
+     FEXCORE_PROFILE_ACCUMULATION(Thread, AccumulatedDiskCacheLookupTime);
++    const auto CacheEpoch = AuraJit::ActiveEpoch(Thread->ThreadStats);
+     Hit = DiskCache.Lookup(Thread, Region, GuestRIP, DiskCacheGuestCodeKey);
+     if (Hit && !DiskCache.IsValidating()) {
+       auto LoadedCode = Thread->CPUBackend->LoadCachedCode(Hit->HostCode);
+@@ -915,6 +916,7 @@
+ 
+         LOGMAN_THROW_A_FMT(CachedHostCode != 0, "Couldn't find GuestRIP in Disk Cache entrypoints!");
+ 
++        AuraJit::RecordCache(Thread->ThreadStats, AuraJit::CodeLoaded, 0, CacheEpoch);
+         FEXCORE_PROFILE_INSTANT_INCREMENT(Thread, AccumulatedDiskCacheHitCount, 1);
+         Thread->FrontendDecoder->DelayedDisownBuffer();
+ 
+@@ -923,6 +925,7 @@
+         return CachedHostCode;
+       }
+     }
++    if (Hit) AuraJit::RecordCache(Thread->ThreadStats, DiskCache.IsValidating() ? AuraJit::ValidationOnly : AuraJit::LoadAllocationFailed, 0, CacheEpoch);
+     FEXCORE_PROFILE_INSTANT_INCREMENT(Thread, AccumulatedDiskCacheMissCount, 1);
+   }
+ 
+--- a/FEXCore/Source/Interface/Core/DiskCache.cpp
++++ b/FEXCore/Source/Interface/Core/DiskCache.cpp
+@@ -18,6 +18,7 @@
+ #include <FEXCore/Utils/TypeDefines.h>
+ #include <FEXHeaderUtils/Filesystem.h>
+ 
++#include <FEXCore/Utils/JitCaptureFex.h>
+ #include <cstdint>
+ #include <cstring>
+ #include <atomic>
+@@ -395,6 +396,11 @@
+ 
+   void DiskCache::Init(FEXCore::Context::ContextImpl* CTX) {
+     this->CTX = CTX;
++    // Startup-only audit, before guest threads receive their statistics slots.
++    static std::atomic<bool> AuditInitialized {};
++    const bool PublishAudit = !AuditInitialized.exchange(true, std::memory_order_relaxed);
++    if (PublishAudit) AuraJit::ProcessAudit[AuraJit::DiskFlags] = uint64_t(EnableDiskCache()) | (uint64_t(Validation()) << 3);
++    if (PublishAudit) AuraJit::ProcessAudit[AuraJit::MemoryBudget] = EnableDiskCache() ? MemoryLRUMaxSize() : 0;
+ 
+     if (!EnableDiskCache) {
+       return;
+@@ -470,6 +476,7 @@
+ 
+     WritingDiskCache = (bool)RWCacheDB;
+     ReadingDiskCache = !ROCacheDBs.empty() || RWCacheDB != nullptr;
++    if (PublishAudit) AuraJit::ProcessAudit[AuraJit::DiskFlags] |= (uint64_t(ReadingDiskCache) << 1) | (uint64_t(WritingDiskCache) << 2);
+ 
+     if (IsWritingDiskCache()) {
+       FEXCore::Threads::Flags WriterThreadFlags = {.LowPriority = true, .Internal = true};
+@@ -545,8 +552,13 @@
+ 
+   std::optional<CodeHitData> DiskCache::Lookup(Core::InternalThreadState* Thread, std::optional<ExecutableFileSectionInfo> Region,
+                                                uint64_t GuestRIP, std::optional<uint64_t>& GuestCodeKey) {
++    const auto CaptureEpoch = AuraJit::ActiveEpoch(Thread->ThreadStats);
++    auto Miss = [&](AuraJit::CacheField Reason) -> std::optional<CodeHitData> {
++      AuraJit::RecordCache(Thread->ThreadStats, Reason, MemoryLRUCurrentSize.load(std::memory_order_relaxed), CaptureEpoch);
++      return std::nullopt;
++    };
+     if (!IsReadingDiskCache()) {
+-      return std::nullopt;
++      return Miss(AuraJit::Disabled);
+     }
+     if (Region && Region->FileStartVA) {
+       struct __attribute__((packed)) {
+@@ -556,7 +568,7 @@
+       GuestCodeKey = XXH3_64bits(&FileBackedKey, sizeof(FileBackedKey));
+     } else {
+       if (!AnonCaching) {
+-        return std::nullopt;
++        return Miss(AuraJit::AnonymousDisabled);
+       }
+       Thread->FrontendDecoder->DecodeLoop(reinterpret_cast<const uint8_t*>(GuestRIP), AnonPrefixGuestBytes);
+       const auto* BlockInfo = Thread->FrontendDecoder->GetDecodedBlockInfo();
+@@ -565,7 +577,7 @@
+       XXH3_64bits_reset(&HashState);
+       for (auto& SubBlock : BlockInfo->Blocks) {
+         if (SubBlock.BlockStatus != Frontend::Decoder::DecodedBlockStatus::SUCCESS) {
+-          return std::nullopt;
++          return Miss(AuraJit::DecodeRejected);
+         }
+         uint64_t HashStart = SubBlock.Entry;
+         // skip over masked in-block data and data/etc gaps between blocks
+@@ -580,14 +592,14 @@
+       GuestCodeKey = XXH3_64bits_digest(&HashState);
+       // if (TotalSize < AnonPrefixGuestBytes) {
+       //   GuestCodeKey = 0;
+-      //   return std::nullopt;
++      //   return {};
+       // }
+       // LogMan::Msg::IFmt("anon lookup! length {:d} {}", GuestCodeKey, TotalSize);
+     }
+ 
+     auto RangeInfo = CTX->SyscallHandler->QueryGuestExecutableRange(Thread, GuestRIP);
+     if (RangeInfo.Size == 0 || RangeInfo.Base > GuestRIP) {
+-      return std::nullopt;
++      return Miss(AuraJit::RangeRejected);
+     }
+     uint64_t Available = RangeInfo.Base + RangeInfo.Size - GuestRIP;
+ 
+@@ -611,7 +623,7 @@
+       auto It = Index.find(LookupKey);
+       if (It == Index.end()) {
+         // definite miss
+-        return std::nullopt;
++        return Miss(AuraJit::KeyMissing);
+       }
+ 
+       MainEntry = It->second.MainEntry;
+@@ -752,7 +764,7 @@
+     }
+ 
+     if (!FoundMatchingHash || !EntryUnderReview) {
+-      return std::nullopt;
++      return Miss(AuraJit::ContentMismatch);
+     }
+ 
+     IndexEntry& Entry = *EntryUnderReview;
+@@ -785,11 +797,11 @@
+         MemoryLRU.splice(MemoryLRU.begin(), MemoryLRU, *LRUIter);
+       }
+     } else if (!Entry.DB->ReadCacheBlob(Entry.Offset, {HitData.Blob.data() + BlobOffset, EntrySizeWithoutGuestCode})) {
+-      return std::nullopt;
++      return Miss(AuraJit::ReadFailed);
+     }
+ 
+     if (EntrySizeWithoutGuestCode < sizeof(BlobFixedHeader)) {
+-      return std::nullopt;
++      return Miss(AuraJit::BlobRejected);
+     }
+     BlobFixedHeader Header;
+     memcpy(&Header, HitData.Blob.data() + BlobOffset, sizeof(Header));
+@@ -798,21 +810,21 @@
+     uint32_t SizeNeeded = sizeof(Header) + Header.HostSize + Header.EntryPointCount * (sizeof(uint64_t) + sizeof(uint32_t));
+     SizeNeeded += Header.SmallRelocCount * sizeof(BlobSmallRelocation) + Header.ThunkRelocCount * sizeof(BlobThunkRelocation);
+     if (EntrySizeWithoutGuestCode != SizeNeeded) {
+-      return std::nullopt;
++      return Miss(AuraJit::BlobRejected);
+     }
+ 
+     if (Entry.GuestSize != Header.GuestSize || !XXH128_isEqual(Header.GuestHash, Entry.GuestHash)) {
+-      return std::nullopt;
+-    }
+-
+-    bool StoreInMemory = !FoundInLRU;
++      return Miss(AuraJit::BlobRejected);
++    }
++
++    bool StoreInMemory = !FoundInLRU && Writer != nullptr;
+     if (EntrySizeWithoutGuestCode > MemoryLRUMaxSize) {
+       StoreInMemory = false;
+     }
+ 
+     if (StoreInMemory) {
+       auto NewBlobRef = fextl::make_shared<fextl::vector<uint8_t>>(EntrySizeWithoutGuestCode);
+-      memcpy(NewBlobRef->data(), HitData.Blob.data() + BlobOffset, EntrySizeWithoutGuestCode);
++      memcpy(NewBlobRef->data(), HitData.Blob.data() + GuestPages.size() * sizeof(uint64_t), EntrySizeWithoutGuestCode);
+       std::lock_guard Guard(IndexLock);
+       auto CurrentIndexEntry = LookupLocked(LookupKey, Header.GuestHash, LastFootprintHashed);
+       if (CurrentIndexEntry && !CurrentIndexEntry->MemoryBlob) {
+@@ -848,9 +860,11 @@
+     }
+ 
+     if (!CTX->CodeCache.ApplyPackedCodeRelocations(GuestRIP, std::as_writable_bytes(HitData.HostCode), SmallRelocs, ThunkRelocs)) {
+-      return std::nullopt;
+-    }
+-
++      return Miss(AuraJit::RelocationRejected);
++    }
++
++    AuraJit::RecordCache(Thread->ThreadStats, FoundInLRU ? AuraJit::RamBlobHit : AuraJit::StorageBlobHit,
++                         MemoryLRUCurrentSize.load(std::memory_order_relaxed), CaptureEpoch, LRUIter.has_value());
+     return HitData;
+   }
+ 
+--- a/FEXCore/include/FEXCore/Utils/SHMStats.h
++++ b/FEXCore/include/FEXCore/Utils/SHMStats.h
+@@ -33,7 +33,7 @@
+ }
+ #endif
+ // FEXCore live-stats
+-constexpr uint8_t STATS_VERSION = 3;
++constexpr uint8_t STATS_VERSION = 4;
+ enum class AppType : uint8_t {
+   LINUX_32,
+   LINUX_64,
+@@ -80,7 +80,7 @@
+   AuraJit::Record Aura;
+ };
+ 
+-static_assert(sizeof(ThreadStatsHeader) == 128 && sizeof(ThreadStats) == 1024);
++static_assert(sizeof(ThreadStatsHeader) == 128 && sizeof(ThreadStats) == 1280);
+ 
+ // Ensure 16-byte alignment to take advantage of ARM single-copy atomicity.
+ static_assert(sizeof(ThreadStats) % 16 == 0, "Needs to be 16-byte aligned!");
+--- a/Source/Common/SHMStats.cpp
++++ b/Source/Common/SHMStats.cpp
+@@ -20,7 +20,7 @@
+   strncpy(Head->fex_version, GitString.data(), std::min(GitString.size(), sizeof(Head->fex_version)));
+ 
+   Head->Aura.MagicValue = AuraJit::Magic;
+-  Head->Aura.Capabilities = 1;
++  Head->Aura.Capabilities = 3;
+ #ifdef ARCHITECTURE_arm64
+   __asm volatile("mrs %0, cntfrq_el0" : "=r"(Head->Aura.Frequency));
+ #endif
+@@ -68,6 +68,7 @@
+   // Slot might be reused, just zero it now.
+   memset(AllocatedSlot, 0, sizeof(*AllocatedSlot));
+ 
++  AllocatedSlot->Aura.Audit = AuraJit::ProcessAudit;
+   AllocatedSlot->Aura.Values[AuraJit::Slot] = OffsetFromStat(AllocatedSlot);
+   AllocatedSlot->Aura.Values[AuraJit::Serial] = std::atomic_ref(Head->Aura.NextSerial).fetch_add(1, std::memory_order_relaxed) + 1;
+ 
+--- a/Source/Windows/ARM64EC/Module.cpp
++++ b/Source/Windows/ARM64EC/Module.cpp
+@@ -7,6 +7,7 @@
+ */
+ 
+ #include "Windows/Common/SharedSmcPolicy.h"
++#include "Windows/Common/CacheBufferPolicy.h"
+ #include <FEXCore/fextl/fmt.h>
+ #include <FEXCore/Core/X86Enums.h>
+ #include <FEXCore/Core/SignalDelegator.h>
+@@ -660,6 +661,7 @@
+                      SharedExitChecks() == FEXCore::Config::CONFIG_SMC_FULL ? "ACTIVE" : "INACTIVE_CHECK_MODE");
+   }
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_FILENAME, ExecutablePath);
++  FEX::Windows::ConfigureCacheBuffer(ExecutablePath);
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_CONFIG_NAME, AppConfigName);
+ 
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_IS64BIT_MODE, "1");
+--- a/Source/Windows/Common/CPUFeatures.cpp
++++ b/Source/Windows/Common/CPUFeatures.cpp
+@@ -9,6 +9,8 @@
+ #include <windows.h>
+ 
+ #include "CPUFeatures.h"
++#include "FEXUnixLib.h"
++#include <FEXCore/Utils/CacheAudit.h>
+ 
+ namespace {
+ 
+@@ -21,10 +23,11 @@
+   return Out;
+ }
+ 
+-uint64_t ReadRegU64(HKEY Key, const char* Name) {
++uint64_t ReadRegU64(HKEY Key, const char* Name, bool* Valid = nullptr) {
+   uint64_t Value = 0;
+   DWORD Size = sizeof(Value);
+-  RegGetValueA(Key, nullptr, Name, 0, nullptr, &Value, &Size);
++  const auto Status = RegGetValueA(Key, nullptr, Name, 0, nullptr, &Value, &Size);
++  if (Valid) *Valid = Status == ERROR_SUCCESS && Size == sizeof(Value);
+   return Value;
+ }
+ 
+@@ -41,18 +44,21 @@
+ 
+ class CPUFeaturesFromRegistry final : public FEX::CPUFeatures {
+ public:
++  uint64_t Known {};
+   explicit CPUFeaturesFromRegistry(HKEY Key) {
+-    ISAR0.SetReg(ReadRegU64(Key, "CP 4030"));
+-    PFR0.SetReg(ReadRegU64(Key, "CP 4020"));
++    bool I0 {}, I1 {}, P0 {}, Z0 {};
++    ISAR0.SetReg(ReadRegU64(Key, "CP 4030", &I0));
++    PFR0.SetReg(ReadRegU64(Key, "CP 4020", &P0));
+     PFR1.SetReg(ReadRegU64(Key, "CP 4021"));
+-    ISAR1.SetReg(ReadRegU64(Key, "CP 4031"));
++    ISAR1.SetReg(ReadRegU64(Key, "CP 4031", &I1));
+     MMFR0.SetReg(ReadRegU64(Key, "CP 4038"));
+     MMFR2.SetReg(ReadRegU64(Key, "CP 403A"));
+-    ZFR0.SetReg(ReadRegU64(Key, "CP 4024"));
++    ZFR0.SetReg(ReadRegU64(Key, "CP 4024", &Z0));
+     MMFR1.SetReg(ReadRegU64(Key, "CP 4039"));
+     ISAR2.SetReg(ReadRegU64(Key, "CP 4032"));
+     DCZID.SetReg(Get_DCZID_EL0());
+     FillFeatureFlags();
++    Known = (I0 ? 1 | 64 : 0) | (I1 ? 2 | 4 | 32 : 0) | (P0 ? 16 : 0) | (P0 && Z0 ? 8 : 0);
+   }
+ };
+ 
+@@ -90,6 +96,20 @@
+     // AVX is unsupported for WOW64
+     HostFeatures.SupportsAVX = false;
+   }
++  FEXUnixLib_GetCpuAudit Native {};
++  if (IsWine && UnixLib::Call(FEXUnixLibFunctions::GetCpuAudit, &Native) == 0) {
++    AuraJit::ProcessAudit[AuraJit::NativeKnown] = Native.Known;
++    AuraJit::ProcessAudit[AuraJit::NativeBits] = Native.Bits;
++    AuraJit::ProcessAudit[AuraJit::SveVectorBits] = Native.SveVectorBits;
++  }
++  auto Has = [&](FEX::CPUFeatures::Feature F) { return uint64_t(Features.Supports(F)); };
++  using F = FEX::CPUFeatures::Feature;
++  AuraJit::ProcessAudit[AuraJit::WineKnown] = Features.Known;
++  AuraJit::ProcessAudit[AuraJit::WineBits] = Has(F::LSE) | (Has(F::LRCPC) << 1) | (Has(F::LRCPC2) << 2) |
++    (Has(F::SVE2) << 3) | (Has(F::SVE) << 4) | (Has(F::I8MM) << 5) | (Has(F::DotProd) << 6);
++  AuraJit::ProcessAudit[AuraJit::EffectiveBits] = uint64_t(HostFeatures.SupportsAtomics) | (uint64_t(HostFeatures.SupportsRCPC) << 1) |
++    (uint64_t(HostFeatures.SupportsTSOImm9) << 2) | (uint64_t(HostFeatures.SupportsSVE128) << 3) |
++    (uint64_t(HostFeatures.SupportsSVE()) << 4) | (uint64_t(HostFeatures.SupportsI8MM) << 5) | (uint64_t(HostFeatures.SupportsDotProd) << 6);
+   return HostFeatures;
+ }
+ 
+--- a/Source/Windows/UnixLib/FEXUnixLib.h
++++ b/Source/Windows/UnixLib/FEXUnixLib.h
+@@ -12,6 +12,7 @@
+   DeleteSHMStatsFile,
+   MapFile,
+   GetPID,
++  GetCpuAudit,
+   MAX,
+ };
+ 
+@@ -65,3 +66,8 @@
+   uint32_t Result;
+ };
+ static_assert(sizeof(FEXUnixLib_GetPID) == 4);
++
++struct FEXUnixLib_GetCpuAudit {
++  uint64_t Known, Bits, SveVectorBits;
++};
++static_assert(sizeof(FEXUnixLib_GetCpuAudit) == 24);
+--- a/Source/Windows/WOW64/Module.cpp
++++ b/Source/Windows/WOW64/Module.cpp
+@@ -9,6 +9,7 @@
+ // Thanks to André Zwing, whose ideas from https://github.com/AndreRH/hangover this code is based upon
+ 
+ #include "Windows/Common/SharedSmcPolicy.h"
++#include "Windows/Common/CacheBufferPolicy.h"
+ #include <FEXCore/fextl/fmt.h>
+ #include <FEXCore/Core/X86Enums.h>
+ #include <FEXCore/Core/SignalDelegator.h>
+@@ -549,6 +550,7 @@
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_INTERPRETER_INSTALLED, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_IS64BIT_MODE, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_FILENAME, ExecutablePath);
++  FEX::Windows::ConfigureCacheBuffer(ExecutablePath);
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_CONFIG_NAME, ExecutableName);
+ 
+   FEXCore::Profiler::Init("", "");

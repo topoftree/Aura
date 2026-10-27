@@ -1,0 +1,990 @@
+diff --git a/src/dxgi/dxgi_aura_display.h b/src/dxgi/dxgi_aura_display.h
+new file mode 100644
+index 0000000..19efe1e
+--- /dev/null
++++ b/src/dxgi/dxgi_aura_display.h
+@@ -0,0 +1,146 @@
++#pragma once
++
++#include "dxgi_include.h"
++#include "../util/util_env.h"
++#include <atomic>
++#include <cerrno>
++#include <cstdio>
++
++namespace dxvk {
++
++  // Startup-only BF3 request tracing. No Present hook, extra GPU/window query,
++  // addresses, paths or config text. A result is an API result, not visible pixels.
++  enum class AuraDisplayCall {
++    Create, CreateHwnd, CreateBase, Construct, ResizeBuffers, ResizeBuffers1,
++    ResizeTarget, Fullscreen, Enter, Leave, ChangeMode, RestoreMode, Closest, Closest1,
++  };
++  enum class AuraDisplayStage {
++    Begin, Request, Current, Resolved, Preferred, Active, Defaults, Matched,
++    ModeCount, WindowModeResult, Return, Unwound, TargetSpecified, ActiveResult, CountResult, ListResult,
++  };
++
++  class AuraDisplayTrace {
++    struct Errors {
++      int crt = errno;
++      DWORD win32 = GetLastError();
++      ~Errors() { SetLastError(win32); errno = crt; }
++    };
++    struct State {
++      bool enabled = false;
++      ULONGLONG start = 0;
++      std::atomic<uint32_t> rows { 0 }, calls { 0 };
++      State() noexcept {
++        try {
++          if (env::getEnvVar("AURA_BF3_DISPLAY_TRACE") != "1") return;
++          auto exe = env::getExeName();
++          for (char& ch : exe) if (ch >= 'A' && ch <= 'Z') ch += 'a' - 'A';
++          enabled = exe == "bf3.exe";
++          if (enabled) start = GetTickCount64();
++        } catch (...) { enabled = false; }
++      }
++    };
++    static State& state() { static State value; return value; }
++    static uint32_t& parent() { static thread_local uint32_t value = 0; return value; }
++    uint32_t m_id = 0, m_parent = 0, m_object = 0;
++    AuraDisplayCall m_call;
++    bool m_returned = false;
++
++    void emit(AuraDisplayStage stage, const DXGI_MODE_DESC1* mode = nullptr,
++              int windowed = -1, uint32_t flags = 0, bool flagsKnown = false,
++              uint32_t buffers = 0, uint32_t value = 0, bool resultKnown = false,
++              HRESULT result = 0) const noexcept {
++      if (!m_id) return;
++      Errors errors;
++      auto& s = state();
++      if (s.rows.load(std::memory_order_relaxed) >= 384) return;
++      auto now = GetTickCount64();
++      if (now - s.start >= 120000) return;
++      uint32_t row = s.rows.fetch_add(1, std::memory_order_relaxed);
++      if (row >= 384) return;
++      static const char* const calls[] = {
++        "CREATE", "CREATE_HWND", "CREATE_BASE", "CONSTRUCT", "RESIZE_BUFFERS", "RESIZE_BUFFERS1",
++        "RESIZE_TARGET", "FULLSCREEN", "ENTER", "LEAVE", "CHANGE_MODE", "RESTORE_MODE", "CLOSEST", "CLOSEST1",
++      };
++      static const char* const stages[] = {
++        "BEGIN", "REQUEST", "CURRENT", "RESOLVED", "PREFERRED", "ACTIVE", "DEFAULTS", "MATCHED",
++        "MODE_COUNT", "WINDOW_MODE_RESULT", "RETURN", "UNWOUND", "TARGET_SPECIFIED", "ACTIVE_RESULT", "COUNT_RESULT", "LIST_RESULT",
++      };
++      DXGI_MODE_DESC1 empty = {};
++      const auto& m = mode ? *mode : empty;
++      char line[640];
++      std::snprintf(line, sizeof(line),
++        "AURA_DXGI_MODE_V1 pid=%u; tid=%u; tick_ms=%llu; elapsed_ms=%llu; seq=%u; call=%u; parent=%u; object=%u; api=%s; stage=%s; mode_known=%u; width=%u; height=%u; hz_num=%u; hz_den=%u; format=%u; scan=%u; scaling=%u; stereo=%u; windowed=%d; flags_known=%u; flags=%u; buffers=%u; value=%u; result_known=%u; result=%d; budget_last=%u\n",
++        unsigned(GetCurrentProcessId()), unsigned(GetCurrentThreadId()),
++        (unsigned long long)now, (unsigned long long)(now - s.start), unsigned(row + 1),
++        unsigned(m_id), unsigned(m_parent), unsigned(m_object), calls[unsigned(m_call)], stages[unsigned(stage)],
++        unsigned(mode != nullptr), unsigned(m.Width), unsigned(m.Height), unsigned(m.RefreshRate.Numerator),
++        unsigned(m.RefreshRate.Denominator), unsigned(m.Format), unsigned(m.ScanlineOrdering), unsigned(m.Scaling),
++        unsigned(m.Stereo), windowed, unsigned(flagsKnown), unsigned(flags), unsigned(buffers), unsigned(value),
++        unsigned(resultKnown), int(result), unsigned(row == 383));
++      using WineOutput = int (__cdecl*)(const char*);
++      static const auto output = [] {
++        HMODULE module = GetModuleHandleA("ntdll.dll");
++        return module ? reinterpret_cast<WineOutput>(GetProcAddress(module, "__wine_dbg_output")) : nullptr;
++      }();
++      if (output) output(line);
++      else { std::fputs(line, stderr); std::fflush(stderr); }
++    }
++
++  public:
++    explicit AuraDisplayTrace(AuraDisplayCall call, uint32_t object = 0) noexcept : m_call(call) {
++      Errors errors;
++      auto& s = state();
++      if (!s.enabled || s.rows.load(std::memory_order_relaxed) >= 384 || GetTickCount64() - s.start >= 120000)
++        return;
++      m_id = s.calls.fetch_add(1, std::memory_order_relaxed) + 1;
++      m_parent = parent();
++      parent() = m_id;
++      m_object = object ? object : (call == AuraDisplayCall::Construct ? m_id : 0);
++      emit(AuraDisplayStage::Begin);
++    }
++    ~AuraDisplayTrace() {
++      if (!m_id) return;
++      Errors errors;
++      if (!m_returned) emit(AuraDisplayStage::Unwound);
++      parent() = m_parent;
++    }
++    AuraDisplayTrace(const AuraDisplayTrace&) = delete;
++    AuraDisplayTrace& operator=(const AuraDisplayTrace&) = delete;
++    uint32_t object() const { return m_object; }
++    HRESULT result(HRESULT hr) noexcept {
++      emit(AuraDisplayStage::Return, nullptr, -1, 0, false, 0, 0, true, hr);
++      m_returned = true;
++      return hr;
++    }
++    void point(AuraDisplayStage stage, uint32_t value) const noexcept {
++      emit(stage, nullptr, -1, 0, false, 0, value);
++    }
++    void status(AuraDisplayStage stage, HRESULT hr) const noexcept {
++      emit(stage, nullptr, -1, 0, false, 0, 0, true, hr);
++    }
++    void mode(AuraDisplayStage stage, const DXGI_MODE_DESC1* desc) const noexcept { emit(stage, desc); }
++    void mode(AuraDisplayStage stage, const DXGI_MODE_DESC* desc) const noexcept {
++      if (!m_id) return;
++      DXGI_MODE_DESC1 m = {};
++      if (desc) {
++        m.Width = desc->Width; m.Height = desc->Height; m.RefreshRate = desc->RefreshRate;
++        m.Format = desc->Format; m.ScanlineOrdering = desc->ScanlineOrdering; m.Scaling = desc->Scaling;
++      }
++      emit(stage, desc ? &m : nullptr);
++    }
++    void swap(AuraDisplayStage stage, const DXGI_SWAP_CHAIN_DESC1& desc,
++              const DXGI_SWAP_CHAIN_FULLSCREEN_DESC* fs = nullptr) const noexcept {
++      if (!m_id) return;
++      DXGI_MODE_DESC1 m = {};
++      m.Width = desc.Width; m.Height = desc.Height; m.Format = desc.Format; m.Stereo = desc.Stereo;
++      if (fs) { m.RefreshRate = fs->RefreshRate; m.ScanlineOrdering = fs->ScanlineOrdering; m.Scaling = fs->Scaling; }
++      emit(stage, &m, fs ? int(fs->Windowed) : -1, desc.Flags, true, desc.BufferCount);
++    }
++    void resize(UINT count, UINT width, UINT height, DXGI_FORMAT format, UINT flags) const noexcept {
++      if (!m_id) return;
++      DXGI_SWAP_CHAIN_DESC1 desc = {};
++      desc.Width = width; desc.Height = height; desc.Format = format; desc.Flags = flags; desc.BufferCount = count;
++      swap(AuraDisplayStage::Request, desc);
++    }
++  };
++}
+diff --git a/src/dxgi/dxgi_factory.cpp b/src/dxgi/dxgi_factory.cpp
+index d29ce4a..7098978 100644
+--- a/src/dxgi/dxgi_factory.cpp
++++ b/src/dxgi/dxgi_factory.cpp
+@@ -1,3 +1,4 @@
++#include "dxgi_aura_display.h"
+ #include <algorithm>
+ 
+ #include "dxgi_factory.h"
+@@ -212,8 +213,9 @@ namespace dxvk {
+           IUnknown*             pDevice,
+           DXGI_SWAP_CHAIN_DESC* pDesc,
+           IDXGISwapChain**      ppSwapChain) {
++    AuraDisplayTrace trace(AuraDisplayCall::Create);
+     if (!ppSwapChain || !pDesc || !pDesc->OutputWindow || !pDevice)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+     DXGI_SWAP_CHAIN_DESC1 desc;
+     desc.Width              = pDesc->BufferDesc.Width;
+@@ -234,13 +236,14 @@ namespace dxvk {
+     descFs.Scaling          = pDesc->BufferDesc.Scaling;
+     descFs.Windowed         = pDesc->Windowed;
+     
++    trace.swap(AuraDisplayStage::Request, desc, &descFs);
+     IDXGISwapChain1* swapChain = nullptr;
+ 
+     HRESULT hr = CreateSwapChainBase(pDevice,
+       pDesc->OutputWindow, &desc, &descFs, nullptr, &swapChain);
+ 
+     *ppSwapChain = swapChain;
+-    return hr;
++    return trace.result(hr);
+   }
+   
+   
+@@ -251,14 +254,16 @@ namespace dxvk {
+     const DXGI_SWAP_CHAIN_FULLSCREEN_DESC* pFullscreenDesc,
+           IDXGIOutput*          pRestrictToOutput,
+           IDXGISwapChain1**     ppSwapChain) {
++    AuraDisplayTrace trace(AuraDisplayCall::CreateHwnd);
+     InitReturnPtr(ppSwapChain);
+ 
+     if (!ppSwapChain || !pDesc || !hWnd || !pDevice)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+-    return CreateSwapChainBase(pDevice, hWnd,
++    trace.swap(AuraDisplayStage::Request, *pDesc, pFullscreenDesc);
++    return trace.result(CreateSwapChainBase(pDevice, hWnd,
+       pDesc, pFullscreenDesc, pRestrictToOutput,
+-      ppSwapChain);
++      ppSwapChain));
+   }
+ 
+ 
+@@ -524,6 +529,8 @@ namespace dxvk {
+     const DXGI_SWAP_CHAIN_FULLSCREEN_DESC* pFullscreenDesc,
+           IDXGIOutput*          pRestrictToOutput,
+           IDXGISwapChain1**     ppSwapChain) {
++    AuraDisplayTrace trace(AuraDisplayCall::CreateBase);
++    trace.swap(AuraDisplayStage::Request, *pDesc, pFullscreenDesc);
+     // Make sure the back buffer size is not zero
+     DXGI_SWAP_CHAIN_DESC1 desc = *pDesc;
+ 
+@@ -546,6 +553,7 @@ namespace dxvk {
+       fsDesc.Windowed         = TRUE;
+     }
+ 
++    trace.swap(AuraDisplayStage::Resolved, desc, &fsDesc);
+     // Probe various modes to create the swap chain object
+     Com<IDXGISwapChain4> frontendSwapChain;
+ 
+@@ -560,18 +568,18 @@ namespace dxvk {
+ 
+       if (FAILED(hr)) {
+         Logger::err(str::format("DXGI: CreateSwapChainForHwnd: Failed to create swap chain, hr ", hr));
+-        return hr;
++        return trace.result(hr);
+       }
+ 
+       frontendSwapChain = new DxgiSwapChain(this, presenter.ptr(), hWnd, &desc, &fsDesc, pDevice);
+     } else {
+       Logger::err("DXGI: CreateSwapChainForHwnd: Unsupported device type");
+-      return DXGI_ERROR_UNSUPPORTED;
++      return trace.result(DXGI_ERROR_UNSUPPORTED);
+     }
+ 
+     // Wrap object in swap chain dispatcher
+     *ppSwapChain = new DxgiSwapChainDispatcher(frontendSwapChain.ref(), pDevice);
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+ 
+ 
+diff --git a/src/dxgi/dxgi_main.cpp b/src/dxgi/dxgi_main.cpp
+index 17530f5..cbeb76a 100644
+--- a/src/dxgi/dxgi_main.cpp
++++ b/src/dxgi/dxgi_main.cpp
+@@ -1,5 +1,6 @@
+ #include "dxgi_factory.h"
+ #include "dxgi_include.h"
++#include "../util/util_aura_init.h"
+ 
+ namespace dxvk {
+   
+@@ -9,6 +10,7 @@ namespace dxvk {
+     try {
+       Com<DxgiFactory> factory = new DxgiFactory(Flags);
+       HRESULT hr = factory->QueryInterface(riid, ppFactory);
++      auraInitTrace(AuraInitStage::FactoryResult, hr);
+ 
+       if (FAILED(hr))
+         return hr;
+@@ -16,6 +18,7 @@ namespace dxvk {
+       return S_OK;
+     } catch (const DxvkError& e) {
+       Logger::err(e.message());
++      auraInitTrace(AuraInitStage::FactoryResult, E_FAIL);
+       return E_FAIL;
+     }
+   }
+@@ -54,4 +57,4 @@ extern "C" {
+     return E_NOINTERFACE;
+   }
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/src/dxgi/dxgi_output.cpp b/src/dxgi/dxgi_output.cpp
+index 8814f5c..b15e018 100644
+--- a/src/dxgi/dxgi_output.cpp
++++ b/src/dxgi/dxgi_output.cpp
+@@ -1,3 +1,4 @@
++#include "dxgi_aura_display.h"
+ #include <algorithm>
+ #include <numeric>
+ 
+@@ -80,9 +81,11 @@ namespace dxvk {
+     const DXGI_MODE_DESC *pModeToMatch,
+           DXGI_MODE_DESC *pClosestMatch,
+           IUnknown       *pConcernedDevice) {
++    AuraDisplayTrace trace(AuraDisplayCall::Closest);
+     if (!pModeToMatch || !pClosestMatch)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+     
++    trace.mode(AuraDisplayStage::Request, pModeToMatch);
+     DXGI_MODE_DESC1 modeToMatch;
+     modeToMatch.Width            = pModeToMatch->Width;
+     modeToMatch.Height           = pModeToMatch->Height;
+@@ -98,7 +101,7 @@ namespace dxvk {
+       &modeToMatch, &closestMatch, pConcernedDevice);
+     
+     if (FAILED(hr))
+-      return hr;
++      return trace.result(hr);
+     
+     pClosestMatch->Width            = closestMatch.Width;
+     pClosestMatch->Height           = closestMatch.Height;
+@@ -106,7 +109,7 @@ namespace dxvk {
+     pClosestMatch->Format           = closestMatch.Format;
+     pClosestMatch->ScanlineOrdering = closestMatch.ScanlineOrdering;
+     pClosestMatch->Scaling          = closestMatch.Scaling;
+-    return hr;
++    return trace.result(hr);
+   }
+   
+   
+@@ -114,20 +117,24 @@ namespace dxvk {
+     const DXGI_MODE_DESC1*      pModeToMatch,
+           DXGI_MODE_DESC1*      pClosestMatch,
+           IUnknown*             pConcernedDevice) {
++    AuraDisplayTrace trace(AuraDisplayCall::Closest1);
+     if (!pModeToMatch || !pClosestMatch)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
++    trace.mode(AuraDisplayStage::Request, pModeToMatch);
+     if (pModeToMatch->Format == DXGI_FORMAT_UNKNOWN && !pConcernedDevice)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+     // Both or neither must be zero
+     if ((pModeToMatch->Width == 0) ^ (pModeToMatch->Height == 0))
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+     wsi::WsiMode activeWsiMode = { };
+-    wsi::getCurrentDisplayMode(m_monitor, &activeWsiMode);
++    bool activeRead = wsi::getCurrentDisplayMode(m_monitor, &activeWsiMode);
++    trace.point(AuraDisplayStage::ActiveResult, activeRead);
+ 
+     DXGI_MODE_DESC1 activeMode = ConvertDisplayMode(activeWsiMode);
++    if (activeRead) trace.mode(AuraDisplayStage::Active, &activeMode);
+ 
+     DXGI_MODE_DESC1 defaultMode;
+     defaultMode.Width            = 0;
+@@ -161,16 +168,21 @@ namespace dxvk {
+       defaultMode.RefreshRate.Denominator = activeMode.RefreshRate.Denominator;
+     }
+ 
++    trace.mode(AuraDisplayStage::Defaults, &defaultMode);
+     UINT modeCount = 0;
+-    GetDisplayModeList1(targetFormat, DXGI_ENUM_MODES_SCALING, &modeCount, nullptr);
++    HRESULT countStatus = GetDisplayModeList1(targetFormat, DXGI_ENUM_MODES_SCALING, &modeCount, nullptr);
++    trace.status(AuraDisplayStage::CountResult, countStatus);
++    trace.point(AuraDisplayStage::ModeCount, modeCount);
+     
+     if (modeCount == 0) {
+       Logger::err("DXGI: FindClosestMatchingMode: No modes found");
+-      return DXGI_ERROR_NOT_FOUND;
++      return trace.result(DXGI_ERROR_NOT_FOUND);
+     }
+ 
+     std::vector<DXGI_MODE_DESC1> modes(modeCount);
+-    GetDisplayModeList1(targetFormat, DXGI_ENUM_MODES_SCALING, &modeCount, modes.data());
++    HRESULT listStatus = GetDisplayModeList1(targetFormat, DXGI_ENUM_MODES_SCALING, &modeCount, modes.data());
++    trace.status(AuraDisplayStage::ListResult, listStatus);
++    trace.point(AuraDisplayStage::ModeCount, modeCount);
+ 
+     const DxgiOptions* options = m_factory->GetOptions();
+ 
+@@ -178,13 +190,15 @@ namespace dxvk {
+     if (options->forceRefreshRate)
+       modeToMatch.RefreshRate = {options->forceRefreshRate, 1u};
+ 
++    trace.mode(AuraDisplayStage::Preferred, &modeToMatch);
+     FilterModesByDesc(modes, modeToMatch);
+     FilterModesByDesc(modes, defaultMode);
+ 
+     if (modes.empty())
+-      return DXGI_ERROR_NOT_FOUND;
++      return trace.result(DXGI_ERROR_NOT_FOUND);
+ 
+     *pClosestMatch = modes[0];
++    trace.mode(AuraDisplayStage::Matched, pClosestMatch);
+ 
+     Logger::debug(str::format(
+       "DXGI: For mode ",
+@@ -194,7 +208,7 @@ namespace dxvk {
+         pClosestMatch->Width, "x", pClosestMatch->Height, "@",
+         pClosestMatch->RefreshRate.Denominator ? (pClosestMatch->RefreshRate.Numerator / pClosestMatch->RefreshRate.Denominator) : 0));
+ 
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+ 
+ 
+diff --git a/src/dxgi/dxgi_swapchain.cpp b/src/dxgi/dxgi_swapchain.cpp
+index 9b9e4c3..22bc800 100644
+--- a/src/dxgi/dxgi_swapchain.cpp
++++ b/src/dxgi/dxgi_swapchain.cpp
+@@ -1,3 +1,4 @@
++#include "dxgi_aura_display.h"
+ #include "dxgi_factory.h"
+ #include "dxgi_output.h"
+ #include "dxgi_swapchain.h"
+@@ -24,6 +25,9 @@ namespace dxvk {
+     m_monitor   (wsi::getWindowMonitor(m_window)),
+     m_is_d3d12(SUCCEEDED(pDevice->QueryInterface(__uuidof(ID3D12CommandQueue), reinterpret_cast<void**>(&Com<ID3D12CommandQueue>())))),
+     m_destructionNotifier(this) {
++    AuraDisplayTrace trace(AuraDisplayCall::Construct);
++    m_auraDisplayObject = trace.object();
++    trace.swap(AuraDisplayStage::Request, m_desc, &m_descFs);
+ 
+     if (FAILED(m_presenter->GetAdapter(__uuidof(IDXGIAdapter), reinterpret_cast<void**>(&m_adapter))))
+       throw DxvkError("DXGI: Failed to get adapter for present device");
+@@ -52,6 +56,7 @@ namespace dxvk {
+       auto instance = pFactory->GetDXVKInstance();
+       m_hasLatencyControl = instance->options().latencySleep == Tristate::True;
+     }
++    trace.result(S_OK);
+   }
+   
+   
+@@ -407,8 +412,10 @@ namespace dxvk {
+           UINT                      Height,
+           DXGI_FORMAT               NewFormat,
+           UINT                      SwapChainFlags) {
+-    return ResizeBuffers1(BufferCount, Width, Height,
+-      NewFormat, SwapChainFlags, nullptr, nullptr);
++    AuraDisplayTrace trace(AuraDisplayCall::ResizeBuffers, m_auraDisplayObject);
++    trace.resize(BufferCount, Width, Height, NewFormat, SwapChainFlags);
++    return trace.result(ResizeBuffers1(BufferCount, Width, Height,
++      NewFormat, SwapChainFlags, nullptr, nullptr));
+   }
+ 
+ 
+@@ -420,13 +427,15 @@ namespace dxvk {
+           UINT                      SwapChainFlags,
+     const UINT*                     pCreationNodeMask,
+           IUnknown* const*          ppPresentQueue) {
++    AuraDisplayTrace trace(AuraDisplayCall::ResizeBuffers1, m_auraDisplayObject);
++    trace.resize(BufferCount, Width, Height, Format, SwapChainFlags);
+     if (m_window && !wsi::isWindow(m_window))
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+     constexpr UINT PreserveFlags = DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT;
+ 
+     if ((m_desc.Flags & PreserveFlags) != (SwapChainFlags & PreserveFlags))
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+     
+     std::lock_guard<dxvk::mutex> lock(m_lockBuffer);
+     m_desc.Width  = Width;
+@@ -444,25 +453,29 @@ namespace dxvk {
+     if (Format != DXGI_FORMAT_UNKNOWN)
+       m_desc.Format = Format;
+     
++    trace.swap(AuraDisplayStage::Resolved, m_desc);
+     HRESULT hr = m_presenter->ChangeProperties(&m_desc, pCreationNodeMask, ppPresentQueue);
+ 
+     if (FAILED(hr))
+-      return hr;
++      return trace.result(hr);
+ 
+     UpdateColorSpace(m_desc.Format, m_colorSpace);
+-    return hr;
++    return trace.result(hr);
+   }
+ 
+ 
+   HRESULT STDMETHODCALLTYPE DxgiSwapChain::ResizeTarget(const DXGI_MODE_DESC* pNewTargetParameters) {
++    AuraDisplayTrace trace(AuraDisplayCall::ResizeTarget, m_auraDisplayObject);
+     std::lock_guard<dxvk::recursive_mutex> lock(m_lockWindow);
+ 
+     if (!pNewTargetParameters)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+     
+     if (!wsi::isWindow(m_window))
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
++    trace.mode(AuraDisplayStage::Request, pNewTargetParameters);
++    trace.swap(AuraDisplayStage::Current, m_desc, &m_descFs);
+     // Promote display mode
+     DXGI_MODE_DESC1 newDisplayMode = { };
+     newDisplayMode.Width = pNewTargetParameters->Width;
+@@ -489,7 +502,7 @@ namespace dxvk {
+       
+       if (FAILED(GetOutputFromMonitor(m_monitor, &output))) {
+         Logger::err("DXGI: ResizeTarget: Failed to query containing output");
+-        return E_FAIL;
++        return trace.result(E_FAIL);
+       }
+       
+       ChangeDisplayMode(output.ptr(), &newDisplayMode);
+@@ -497,17 +510,21 @@ namespace dxvk {
+       wsi::updateFullscreenWindow(m_monitor, m_window, false);
+     }
+     
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+   HRESULT STDMETHODCALLTYPE DxgiSwapChain::SetFullscreenState(
+           BOOL          Fullscreen,
+           IDXGIOutput*  pTarget) {
++    AuraDisplayTrace trace(AuraDisplayCall::Fullscreen, m_auraDisplayObject);
+     std::lock_guard<dxvk::recursive_mutex> lock(m_lockWindow);
+ 
++    trace.point(AuraDisplayStage::Request, UINT(Fullscreen));
++    trace.point(AuraDisplayStage::TargetSpecified, pTarget != nullptr);
++    trace.swap(AuraDisplayStage::Current, m_desc, &m_descFs);
+     if (!Fullscreen && pTarget)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+ 
+     Com<IDXGIOutput1> target;
+ 
+@@ -520,16 +537,16 @@ namespace dxvk {
+       if (!m_descFs.Windowed && Fullscreen && m_monitor != desc.Monitor) {
+         HRESULT hr = this->LeaveFullscreenMode();
+         if (FAILED(hr))
+-          return hr;
++          return trace.result(hr);
+       }
+     }
+ 
+     if (m_descFs.Windowed && Fullscreen)
+-      return this->EnterFullscreenMode(target.ptr());
++      return trace.result(this->EnterFullscreenMode(target.ptr()));
+     else if (!m_descFs.Windowed && !Fullscreen)
+-      return this->LeaveFullscreenMode();
++      return trace.result(this->LeaveFullscreenMode());
+     
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+@@ -690,21 +707,22 @@ namespace dxvk {
+ 
+ 
+   HRESULT DxgiSwapChain::EnterFullscreenMode(IDXGIOutput1* pTarget) {
++    AuraDisplayTrace trace(AuraDisplayCall::Enter, m_auraDisplayObject);
+     if (m_ModeChangeInProgress) {
+       Logger::warn("Nested EnterFullscreenMode");
+-      return DXGI_STATUS_MODE_CHANGE_IN_PROGRESS;
++      return trace.result(DXGI_STATUS_MODE_CHANGE_IN_PROGRESS);
+     }
+     scoped_bool in_progress(m_ModeChangeInProgress);
+ 
+     Com<IDXGIOutput1> output = pTarget;
+ 
+     if (!wsi::isWindow(m_window))
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+     
+     if (output == nullptr) {
+       if (FAILED(GetOutputFromMonitor(wsi::getWindowMonitor(m_window), &output))) {
+         Logger::err("DXGI: EnterFullscreenMode: Cannot query containing output");
+-        return E_FAIL;
++        return trace.result(E_FAIL);
+       }
+     }
+ 
+@@ -720,7 +738,7 @@ namespace dxvk {
+     
+     if (FAILED(ChangeDisplayMode(output.ptr(), &displayMode))) {
+       Logger::err("DXGI: EnterFullscreenMode: Failed to change display mode");
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+     }
+     
+     // Update swap chain description
+@@ -734,7 +752,7 @@ namespace dxvk {
+ 
+     if (!wsi::enterFullscreenMode(desc.Monitor, m_window, &m_windowState, modeSwitch)) {
+       Logger::err("DXGI: EnterFullscreenMode: Failed to enter fullscreen mode");
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+     }
+     
+     m_monitor = desc.Monitor;
+@@ -751,14 +769,15 @@ namespace dxvk {
+       ReleaseMonitorData();
+     }
+ 
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+   HRESULT DxgiSwapChain::LeaveFullscreenMode() {
++    AuraDisplayTrace trace(AuraDisplayCall::Leave, m_auraDisplayObject);
+     if (m_ModeChangeInProgress) {
+       Logger::warn("Nested LeaveFullscreenMode");
+-      return DXGI_STATUS_MODE_CHANGE_IN_PROGRESS;
++      return trace.result(DXGI_STATUS_MODE_CHANGE_IN_PROGRESS);
+     }
+     scoped_bool in_progress(m_ModeChangeInProgress);
+ 
+@@ -782,23 +801,26 @@ namespace dxvk {
+     m_monitor = wsi::getWindowMonitor(m_window);
+     
+     if (!wsi::isWindow(m_window))
+-      return S_OK;
++      return trace.result(S_OK);
+     
+     if (!wsi::leaveFullscreenMode(m_window, &m_windowState, true)) {
+       Logger::err("DXGI: LeaveFullscreenMode: Failed to exit fullscreen mode");
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+     }
+     
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+   HRESULT DxgiSwapChain::ChangeDisplayMode(
+           IDXGIOutput1*           pOutput,
+     const DXGI_MODE_DESC1*        pDisplayMode) {
++    AuraDisplayTrace trace(AuraDisplayCall::ChangeMode, m_auraDisplayObject);
+     if (!pOutput)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+     
++    trace.mode(AuraDisplayStage::Request, pDisplayMode);
++    trace.swap(AuraDisplayStage::Current, m_desc, &m_descFs);
+     // Find a mode that the output supports
+     DXGI_OUTPUT_DESC outputDesc;
+     pOutput->GetDesc(&outputDesc);
+@@ -814,6 +836,7 @@ namespace dxvk {
+     if (preferredMode.Format == DXGI_FORMAT_UNKNOWN)
+       preferredMode.Format = m_desc.Format;
+     
++    trace.mode(AuraDisplayStage::Preferred, &preferredMode);
+     HRESULT hr = pOutput->FindClosestMatchingMode1(
+       &preferredMode, &selectedMode, nullptr);
+ 
+@@ -823,14 +846,17 @@ namespace dxvk {
+         "\n  Format: ", preferredMode.Format,
+         "\n  Mode:   ", preferredMode.Width, "x", preferredMode.Height,
+           "@", preferredMode.RefreshRate.Numerator / std::max(preferredMode.RefreshRate.Denominator, 1u)));
+-      return hr;
++      return trace.result(hr);
+     }
+ 
+     if (!selectedMode.RefreshRate.Denominator)
+       selectedMode.RefreshRate.Denominator = 1;
+ 
+-    if (!wsi::setWindowMode(outputDesc.Monitor, m_window, &m_windowState, ConvertDisplayMode(selectedMode)))
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++    trace.mode(AuraDisplayStage::Matched, &selectedMode);
++    bool changed = wsi::setWindowMode(outputDesc.Monitor, m_window, &m_windowState, ConvertDisplayMode(selectedMode));
++    trace.point(AuraDisplayStage::WindowModeResult, changed);
++    if (!changed)
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+ 
+     DXGI_VK_MONITOR_DATA* monitorData = nullptr;
+ 
+@@ -852,19 +878,20 @@ namespace dxvk {
+ 
+     m_frameRateRefresh = double(selectedMode.RefreshRate.Numerator)
+                        / double(selectedMode.RefreshRate.Denominator);
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+   HRESULT DxgiSwapChain::RestoreDisplayMode(HMONITOR hMonitor) {
++    AuraDisplayTrace trace(AuraDisplayCall::RestoreMode, m_auraDisplayObject);
+     if (!hMonitor)
+-      return DXGI_ERROR_INVALID_CALL;
++      return trace.result(DXGI_ERROR_INVALID_CALL);
+     
+     if (!wsi::restoreDisplayMode())
+-      return DXGI_ERROR_NOT_CURRENTLY_AVAILABLE;
++      return trace.result(DXGI_ERROR_NOT_CURRENTLY_AVAILABLE);
+ 
+     m_frameRateRefresh = 0.0;
+-    return S_OK;
++    return trace.result(S_OK);
+   }
+   
+   
+diff --git a/src/dxgi/dxgi_swapchain.h b/src/dxgi/dxgi_swapchain.h
+index 85857ac..1e8d2c4 100644
+--- a/src/dxgi/dxgi_swapchain.h
++++ b/src/dxgi/dxgi_swapchain.h
+@@ -176,6 +176,7 @@ namespace dxvk {
+     dxvk::recursive_mutex           m_lockWindow;
+     dxvk::mutex                     m_lockBuffer;
+ 
++    uint32_t                       m_auraDisplayObject = 0;
+     Com<DxgiFactory>                m_factory;
+     Com<IDXGIAdapter>               m_adapter;
+     Com<IDXGIOutput1>               m_target;
+diff --git a/src/dxvk/dxvk_device_filter.cpp b/src/dxvk/dxvk_device_filter.cpp
+index bb7e7c4..ea97c19 100644
+--- a/src/dxvk/dxvk_device_filter.cpp
++++ b/src/dxvk/dxvk_device_filter.cpp
+@@ -1,4 +1,5 @@
+ #include "dxvk_device_filter.h"
++#include "../util/util_aura_init.h"
+ #include <iomanip>
+ #include <sstream>
+ 
+@@ -58,6 +59,7 @@ namespace dxvk {
+     if (m_flags.test(DxvkDeviceFilterFlag::MatchDeviceName)) {
+       if (std::string(properties.core.properties.deviceName).find(m_matchDeviceName) == std::string::npos) {
+         Logger::info("  Skipping: Device filter");
++        auraInitTrace(AuraInitStage::RejectNameFilter, 0);
+         return false;
+       }
+     }
+@@ -67,6 +69,7 @@ namespace dxvk {
+ 
+       if (uuidStr.find(m_matchDeviceUUID) == std::string::npos) {
+         Logger::info("  Skipping: UUID filter");
++        auraInitTrace(AuraInitStage::RejectUuidFilter, 0);
+         return false;
+       }
+     }
+@@ -74,6 +77,7 @@ namespace dxvk {
+     if (m_flags.test(DxvkDeviceFilterFlag::SkipCpuDevices)) {
+       if (properties.core.properties.deviceType == VK_PHYSICAL_DEVICE_TYPE_CPU) {
+         Logger::info("  Skipping: Software driver");
++        auraInitTrace(AuraInitStage::RejectSoftwareDevice, 0);
+         return false;
+       }
+     }
+diff --git a/src/dxvk/dxvk_device_info.cpp b/src/dxvk/dxvk_device_info.cpp
+index 9a45f10..b9a774e 100644
+--- a/src/dxvk/dxvk_device_info.cpp
++++ b/src/dxvk/dxvk_device_info.cpp
+@@ -7,6 +7,7 @@
+ #include "dxvk_device_info.h"
+ #include "dxvk_instance.h"
+ #include "dxvk_limits.h"
++#include "../util/util_aura_init.h"
+ 
+ namespace dxvk {
+ 
+@@ -628,16 +629,29 @@ namespace dxvk {
+ 
+   std::optional<std::string> DxvkDeviceCapabilities::checkDeviceCompatibility() {
+     if (m_properties.core.properties.apiVersion < DxvkVulkanApiVersion) {
++      auraInitTrace(AuraInitStage::RejectApi, DxvkVulkanApiVersion,
++        m_properties.core.properties.apiVersion);
+       return str::format("Device does not support Vulkan ",
+         VK_API_VERSION_MAJOR(DxvkVulkanApiVersion), ".",
+         VK_API_VERSION_MINOR(DxvkVulkanApiVersion));
+     }
+ 
+-    if (m_queueMapping.graphics.family == VK_QUEUE_FAMILY_IGNORED)
++    if (m_queueMapping.graphics.family == VK_QUEUE_FAMILY_IGNORED) {
++      auraInitTrace(AuraInitStage::RejectGraphicsQueue, 0);
+       return std::string("Device does not have a graphics queue");
++    }
+ 
++    uint32_t featureIndex = 0;
+     for (const auto& f : getFeatureList()) {
++      ++featureIndex;
+       if (f.featureRequired && !(*f.featureEnabled)) {
++        // One-based entry in the pinned feature list, recorded in build metadata.
++        // Read only values already queried by DXVK; never request extra GPU data.
++        uint32_t flags = (*f.featureSupported ? 1u : 0u)
++          | (f.extensionSupported ? 2u : 0u)
++          | (f.extensionSupported && f.extensionSupported->specVersion ? 4u : 0u)
++          | (f.extensionEnabled && f.extensionEnabled->specVersion ? 8u : 0u);
++        auraInitTrace(AuraInitStage::RejectFeature, flags, featureIndex);
+         std::string message = str::format("Device does not support required feature '", f.readableName, "'");
+ 
+         if (f.extensionEnabled)
+@@ -647,8 +661,11 @@ namespace dxvk {
+       }
+     }
+ 
+-    if (m_properties.core.properties.limits.maxPushConstantsSize < MaxTotalPushDataSize)
++    if (m_properties.core.properties.limits.maxPushConstantsSize < MaxTotalPushDataSize) {
++      auraInitTrace(AuraInitStage::RejectPushConstants, MaxTotalPushDataSize,
++        m_properties.core.properties.limits.maxPushConstantsSize);
+       return str::format("Device does not support ", MaxTotalPushDataSize, " of push data");
++    }
+ 
+     return std::nullopt;
+   }
+diff --git a/src/dxvk/dxvk_instance.cpp b/src/dxvk/dxvk_instance.cpp
+index 541caaf..8009a43 100644
+--- a/src/dxvk/dxvk_instance.cpp
++++ b/src/dxvk/dxvk_instance.cpp
+@@ -9,6 +9,7 @@
+ #include "../wsi/wsi_platform.h"
+ 
+ #include "../vulkan/vulkan_util.h"
++#include "../util/util_aura_init.h"
+ 
+ #include <algorithm>
+ #include <set>
+@@ -106,7 +107,9 @@ namespace dxvk {
+       ? new vk::LibraryFn(args.loaderProc)
+       : new vk::LibraryFn();
+ 
+-    return m_vkl->getLoaderProc() != nullptr;
++    bool ready = m_vkl->getLoaderProc() != nullptr;
++    auraInitTrace(AuraInitStage::Loader, 0, ready);
++    return ready;
+   }
+ 
+ 
+@@ -116,7 +119,8 @@ namespace dxvk {
+     std::set<std::string> layersEnabled;
+ 
+     uint32_t layerCount = 0u;
+-    m_vkl->vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
++    VkResult layerStatus = m_vkl->vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
++    auraInitTrace(AuraInitStage::InstanceLayers, layerStatus, layerCount);
+ 
+     std::vector<VkLayerProperties> layers(layerCount);
+     m_vkl->vkEnumerateInstanceLayerProperties(&layerCount, layers.data());
+@@ -129,10 +133,12 @@ namespace dxvk {
+     std::set<VkExtensionProperties, vk::SortExtension> extensionsEnabled;
+ 
+     uint32_t extensionNameCount = 0u;
+-    m_vkl->vkEnumerateInstanceExtensionProperties(nullptr, &extensionNameCount, nullptr);
++    VkResult extensionStatus = m_vkl->vkEnumerateInstanceExtensionProperties(nullptr, &extensionNameCount, nullptr);
++    auraInitTrace(AuraInitStage::InstanceExtensionsCount, extensionStatus, extensionNameCount);
+ 
+     std::vector<VkExtensionProperties> extensionNamesSupported(extensionNameCount);
+-    m_vkl->vkEnumerateInstanceExtensionProperties(nullptr, &extensionNameCount, extensionNamesSupported.data());
++    extensionStatus = m_vkl->vkEnumerateInstanceExtensionProperties(nullptr, &extensionNameCount, extensionNamesSupported.data());
++    auraInitTrace(AuraInitStage::InstanceExtensionsList, extensionStatus, extensionNameCount);
+ 
+     // When importing an instance, filter by enabled instance extensions
+     if (args.instance) {
+@@ -246,6 +252,7 @@ namespace dxvk {
+       info.ppEnabledExtensionNames  = extensionNames.data();
+ 
+       VkResult status = m_vkl->vkCreateInstance(&info, nullptr, &instance);
++      auraInitTrace(AuraInitStage::CreateInstance, status, appInfo.apiVersion);
+ 
+       if (status != VK_SUCCESS) {
+         Logger::err("DxvkInstance::createInstance: Failed to create Vulkan instance");
+@@ -276,11 +283,15 @@ namespace dxvk {
+ 
+   bool DxvkInstance::initAdapters() {
+     uint32_t numAdapters = 0;
+-    if (m_vki->vkEnumeratePhysicalDevices(m_vki->instance(), &numAdapters, nullptr) != VK_SUCCESS)
++    VkResult status = m_vki->vkEnumeratePhysicalDevices(m_vki->instance(), &numAdapters, nullptr);
++    auraInitTrace(AuraInitStage::AdaptersCount, status, numAdapters);
++    if (status != VK_SUCCESS)
+       throw DxvkError("DxvkInstance::enumAdapters: Failed to enumerate adapters");
+     
+     std::vector<VkPhysicalDevice> adapters(numAdapters);
+-    if (m_vki->vkEnumeratePhysicalDevices(m_vki->instance(), &numAdapters, adapters.data()) != VK_SUCCESS)
++    status = m_vki->vkEnumeratePhysicalDevices(m_vki->instance(), &numAdapters, adapters.data());
++    auraInitTrace(AuraInitStage::AdaptersList, status, numAdapters);
++    if (status != VK_SUCCESS)
+       throw DxvkError("DxvkInstance::enumAdapters: Failed to enumerate adapters");
+ 
+     std::vector<VkPhysicalDeviceProperties> deviceProperties(numAdapters);
+@@ -288,6 +299,7 @@ namespace dxvk {
+ 
+     for (uint32_t i = 0; i < numAdapters; i++) {
+       m_vki->vkGetPhysicalDeviceProperties(adapters[i], &deviceProperties[i]);
++      auraInitTrace(AuraInitStage::AdapterApi, 0, deviceProperties[i].apiVersion);
+ 
+       if (deviceProperties[i].deviceType != VK_PHYSICAL_DEVICE_TYPE_CPU)
+         filterFlags.set(DxvkDeviceFilterFlag::SkipCpuDevices);
+@@ -301,7 +313,9 @@ namespace dxvk {
+     for (uint32_t i = 0; i < numAdapters; i++) {
+       Rc<DxvkAdapter> adapter = new DxvkAdapter(*this, adapters[i]);
+ 
+-      if (filter.testAdapter(*adapter)) {
++      bool accepted = filter.testAdapter(*adapter);
++      auraInitTrace(AuraInitStage::AdapterAccepted, 0, accepted);
++      if (accepted) {
+         if (deviceProperties[i].deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
+           numDGPU += 1;
+         else if (deviceProperties[i].deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU)
+@@ -335,6 +349,7 @@ namespace dxvk {
+       numIGPU = 0;
+     }
+ 
++    auraInitTrace(AuraInitStage::AdaptersAccepted, 0, uint32_t(m_adapters.size()));
+     if (m_adapters.empty()) {
+       Logger::warn(str::format(
+         "DXVK: No adapters found. Please check your device filter settings\n"
+diff --git a/src/util/util_aura_init.h b/src/util/util_aura_init.h
+new file mode 100644
+index 0000000..abbdde5
+--- /dev/null
++++ b/src/util/util_aura_init.h
+@@ -0,0 +1,69 @@
++#pragma once
++
++#include <atomic>
++#include <cerrno>
++#include <cstdint>
++#include <cstdio>
++
++#include "util_env.h"
++
++namespace dxvk {
++
++  // Fixed fields only, opt-in before Wine starts. No paths, names, handles,
++  // addresses, environment dumps or frame-time logging. This is not proof
++  // that a game is ready. The host retains output only for its active capture.
++  enum class AuraInitStage : uint32_t {
++    Loader, InstanceLayers, InstanceExtensionsCount, InstanceExtensionsList,
++    CreateInstance, AdaptersCount, AdaptersList, AdapterApi, AdapterAccepted,
++    AdaptersAccepted, FactoryResult,
++    RejectApi, RejectGraphicsQueue, RejectFeature, RejectPushConstants,
++    RejectNameFilter, RejectUuidFilter, RejectSoftwareDevice,
++  };
++
++  inline void auraInitTrace(AuraInitStage stage, int32_t result, uint32_t value = 0) {
++#ifdef _WIN32
++    struct SavedErrors {
++      int crt = errno;
++      DWORD win32 = GetLastError();
++      ~SavedErrors() { errno = crt; SetLastError(win32); }
++    } savedErrors;
++    static const bool enabled = env::getEnvVar("AURA_DXVK_INIT_TRACE") == "1";
++    if (!enabled)
++      return;
++
++    static const ULONGLONG started = GetTickCount64();
++    static std::atomic<uint32_t> lines { 0u };
++    if (GetTickCount64() - started >= 120000u || lines.load() >= 64u)
++      return;
++    if (lines.fetch_add(1u) >= 64u)
++      return;
++
++    static const char* const names[] = {
++      "LOADER", "INSTANCE_LAYERS", "INSTANCE_EXTENSIONS_COUNT", "INSTANCE_EXTENSIONS_LIST",
++      "CREATE_INSTANCE", "ADAPTERS_COUNT", "ADAPTERS_LIST", "ADAPTER_API", "ADAPTER_ACCEPTED",
++      "ADAPTERS_ACCEPTED", "FACTORY_RESULT",
++      "REJECT_API", "REJECT_GRAPHICS_QUEUE", "REJECT_FEATURE", "REJECT_PUSH_CONSTANTS",
++      "REJECT_NAME_FILTER", "REJECT_UUID_FILTER", "REJECT_SOFTWARE_DEVICE",
++    };
++    uint32_t index = uint32_t(stage);
++    if (index >= sizeof(names) / sizeof(names[0]))
++      return;
++
++    char line[192];
++    std::snprintf(line, sizeof(line), "AURA_DXVK_INIT_V1 pid=%u; stage=%s; result=%d; value=%u\n",
++      unsigned(GetCurrentProcessId()), names[index], int(result), unsigned(value));
++    using WineOutput = int (__cdecl*)(const char*);
++    static const auto output = [] {
++      HMODULE module = GetModuleHandleA("ntdll.dll");
++      return module ? reinterpret_cast<WineOutput>(GetProcAddress(module, "__wine_dbg_output")) : nullptr;
++    }();
++    if (output)
++      output(line);
++    else {
++      std::fputs(line, stderr);
++      std::fflush(stderr);
++    }
++#endif
++  }
++
++}
+diff --git a/src/util/util_singleton.h b/src/util/util_singleton.h
+index ee5fe56..ba58781 100644
+--- a/src/util/util_singleton.h
++++ b/src/util/util_singleton.h
+@@ -20,9 +20,12 @@ public:
+   Rc<T> acquire(Args... constantArgs) {
+     std::lock_guard lock(m_mutex);
+ 
+-    if (!(m_useCount++))
++    // Commit the acquisition only after construction succeeds. Otherwise a
++    // caught constructor exception makes the next caller receive a null Rc.
++    if (!m_useCount)
+       m_object = new T(constantArgs...);
+ 
++    ++m_useCount;
+     return m_object;
+   }
+ 

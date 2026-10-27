@@ -1,0 +1,45 @@
+{
+  "source_sha256": "11c19f28cddf05357d6e54a9feedddd42ee85387ddc113db6603411a7ca00f76",
+  "proxy_source_sha256": "7fe4e4254e745e5ba2b307c8d96a27331a4cff03fa2851e99552b196752b02aa",
+  "readiness_source_sha256": "e749c077de202d0ee1c80f1307d72b331ed738337cd5d403ff656cca4d1857f6",
+  "pe_sha256": "005251d3bed9cadf2b658aee3c1e7841a81b43c887e0c0a837d4edb476d9c90d",
+  "bytes": 14336,
+  "imports": {
+    "kernel32": [
+      "GetEnvironmentVariableW",
+      "SetEnvironmentVariableW",
+      "CreateProcessW",
+      "OpenProcess",
+      "GetExitCodeProcess",
+      "TerminateProcess",
+      "WaitForSingleObject",
+      "GetModuleFileNameW",
+      "LoadLibraryExW",
+      "GetProcAddress",
+      "QueryFullProcessImageNameW",
+      "CloseHandle",
+      "CreateFileW",
+      "WriteFile",
+      "ReadFile",
+      "FlushFileBuffers",
+      "Sleep",
+      "ExitProcess",
+      "CreateToolhelp32Snapshot",
+      "Process32FirstW",
+      "Process32NextW",
+      "GlobalFree"
+    ],
+    "advapi32": [
+      "RegOpenKeyExW",
+      "RegQueryValueExW",
+      "RegCloseKey",
+      "RegCreateKeyExW",
+      "RegSetValueExW"
+    ],
+    "winhttp": [
+      "WinHttpGetIEProxyConfigForCurrentUser"
+    ]
+  },
+  "architecture": "AMD64",
+  "runtime_validation": "NOT_RUN_ON_ANDROID"
+}

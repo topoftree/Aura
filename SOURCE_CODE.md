@@ -1,5 +1,15 @@
 # Source availability and library recombination
 
+## Aura 0.1.149 / version code 150
+
+[Winlator source and relinking kit](winlator-source-and-relink/v0.1.149/README.md) · [Runtime materials](runtime-source/v0.1.149/README.md) · [Release](https://github.com/topoftree/Aura/releases/tag/v0.1.149)
+
+This version supplies 1,067 editable Winlator engine source/resource records (697 unchanged, 109 modified, 261 added), pre-obfuscated independent application objects (1,915 classes, 1,890 renamed), dependency objects, resources, stable IDs, manifests, build rules and offline notices. The library source remains readable and editable. [Permissions](winlator-source-and-relink/v0.1.149/NOTICE.md) and [verification](winlator-source-and-relink/v0.1.149/VALIDATION.md) cover baseline and Java/native/resource-modified recombination with recipient signing.
+
+The runtime supplement includes current FEX/Wine/DXVK/Mesa/shared-image/helper patches and build inputs, 14 pinned complete source archives (including Mesa 26.2.5) and a checksum-verifying archive-restoration tool. All new materials use ordinary Git, with larger source archives split into 32 MiB parts; no new Git LFS objects are needed. Older kits retain their documented LFS requirements. Release assets contain only the official APK and checksum; matching source materials live on main.
+
+Independent Aura application source/history, raw application objects, mappings, signing material and user captures are excluded. These materials do not expand source-coverage claims to all other prebuilt runtime components; the existing outstanding items below remain. The original 0.1.149 APK bytes are unchanged by publication/relink verification.
+
 ## Aura 0.1.118 / version code 119
 
 [Winlator source and relinking kit](winlator-source-and-relink/v0.1.118/README.md) · [Runtime sources and build inputs](runtime-source/v0.1.118/README.md) · [Release](https://github.com/topoftree/Aura/releases/tag/v0.1.118)

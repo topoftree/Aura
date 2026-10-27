@@ -1,0 +1,59 @@
+{
+  "schema": "AURA_DXVK_BATCH_BUILD_V1",
+  "version": "v2.7.1-arm64ec-aura-batch1",
+  "source_url": "https://github.com/doitsujin/dxvk",
+  "source_commit": "c3dd74be6baec53786d4e064a572185b70347a17",
+  "submodules": {
+    "include/native/directx": "9df86f2341616ef1888ae59919feaa6d4fad693d",
+    "include/spirv": "8b246ff75c6615ba4532fe4fde20f1be090c3764",
+    "include/vulkan": "234c4b7370a8ea3239a214c9e871e4b17c89f4ab",
+    "subprojects/libdisplay-info": "275e6459c7ab1ddd4b125f28d0440716e4888078"
+  },
+  "patch_sha256": "df7f1c319f8551dabc725d9e7ad056658efad97819f8848138809f17d442afe2",
+  "script_sha256": "986dcfb666e19149e714eb8f8a5489db1246702a01ea4d2b0675ae91858b6167",
+  "source_date_epoch": "1756549193",
+  "files": {
+    "syswow64/d3d11.dll": {
+      "bytes": 4214784,
+      "sha256": "25cf6408ca39431de44414028e103da480ef680bcbc25f3abac988fc9bd5266f",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      }
+    },
+    "system32/d3d11.dll": {
+      "bytes": 4083712,
+      "sha256": "d06a276ff1ba1ed11473c0f6fe7cf6ed828f0f290c72ff9667f0e5a433a50012",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      }
+    }
+  },
+  "default_enabled": false,
+  "policy": "HINTS_6_PENDING_2",
+  "android_game_execution": "not run",
+  "source_files": {
+    "src/d3d11/d3d11_context_imm.cpp": "42e4aaf79a8747818664ae8fb6f5be77b572de59550d4453fd4243d7f443b91b",
+    "src/d3d11/d3d11_context_imm.h": "e891a1f50098f4de37f4d43b37c6af070ba711481a8ae00eb211725accc7c266",
+    "src/d3d11/d3d11_options.cpp": "eeb1cd47bac41fb136402e3a49ab9923a5b86f435bc102cc100df993eb26564a",
+    "src/d3d11/d3d11_options.h": "7d993159743def19981c1750c6541a19cd90f41d2c6a6f99827caa8b8be17e89",
+    "src/util/util_flush.cpp": "1988f032c4218b883a5ab2710fc27bfbeb276958b3b11fcae26ef262987d73e7",
+    "src/util/util_flush.h": "ffec6f08790ddc2f8037dabec084dbf5f2f77148af24d9a6897c7f0b93a8d796"
+  },
+  "tools": {
+    "clang": "53ecfc8ecab60eb880eb363b6df85d87d962f65dfe6c92abf3d6f26a8f77cf85",
+    "lld": "de7372c9e31ccb006c2d6cc1e545b11586ca924b0df40b72ddec8e208526d9dd",
+    "strip": "6f13c831b435f28018514b826ff5e2094ba490904556a2453ea4f1a6f90edd59",
+    "glslang": "0ab9891802851a523a645befbbd894072979631bfe811ef1e684ee968df540bc",
+    "ninja": "6fa84be1efc3ab25d1cf397d0bb35891e5f99316a35d89cd8c04be5898730174"
+  },
+  "compiler_version": "clang version 21.1.0 (https://github.com/bylaws/llvm-project.git c5668510b7c8a1881d5764d6a67ff253523d21e9)",
+  "meson": "1.9.1"
+}

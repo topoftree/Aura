@@ -1,0 +1,23 @@
+diff --git a/dlls/ntdll/signal_arm64ec.c b/dlls/ntdll/signal_arm64ec.c
+--- a/dlls/ntdll/signal_arm64ec.c
++++ b/dlls/ntdll/signal_arm64ec.c
+@@ -2170,14 +2170,17 @@ void WINAPI LdrInitializeThunk( CONTEXT *arm_context, ULONG_PTR unk2, ULONG_PTR unk3,
+ /***********************************************************************
+  *           process_breakpoint
+  */
++/* SEH receives an AMD64-compatible EC context, not an ARM64_NT_CONTEXT. */
++C_ASSERT( FIELD_OFFSET( ARM64EC_NT_CONTEXT, Pc ) == 0xf8 );
++C_ASSERT( FIELD_OFFSET( CONTEXT, Rip ) == 0xf8 );
+ __ASM_GLOBAL_FUNC( "#process_breakpoint",
+                    ".seh_endprologue\n\t"
+                    ".seh_handler process_breakpoint_handler, @except\n\t"
+                    "brk #0xf000\n\t"
+                    "ret\n"
+                    "process_breakpoint_handler:\n\t"
+-                   "ldr x4, [x2, #0x108]\n\t" /* context->Pc */
++                   "ldr x4, [x2, #0xf8]\n\t" /* context->Rip / ARM64EC_NT_CONTEXT.Pc */
+                    "add x4, x4, #4\n\t"
+-                   "str x4, [x2, #0x108]\n\t"
++                   "str x4, [x2, #0xf8]\n\t"
+                    "mov w0, #0\n\t"           /* ExceptionContinueExecution */
+                    "ret" )

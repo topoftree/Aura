@@ -1,0 +1,38 @@
+{
+  "revision": "mesa-zink-bocache1",
+  "method": "EXACT_ARM64_INSTRUCTION_TRANSFORM",
+  "originalSha256": "73a212ba59c5fe3f13a932a685750f7601941a3c708a95569eea573b9106b7de",
+  "sha256": "811def9def371c60396b4f9430ffaf4d47e4dc5c45fb08c27a799938736b8e9c",
+  "bytes": 15834760,
+  "edits": [
+    {
+      "va": 12968020,
+      "offset": 12951636,
+      "before": "1811899a",
+      "after": "0c11899a"
+    },
+    {
+      "va": 12968044,
+      "offset": 12951660,
+      "before": "e13300bd",
+      "after": "e11b00fd"
+    },
+    {
+      "va": 12968048,
+      "offset": 12951664,
+      "before": "ff3700b9",
+      "after": "d80005aa"
+    },
+    {
+      "va": 12968052,
+      "offset": 12951668,
+      "before": "f88700a9",
+      "after": "ec8700a9"
+    }
+  ],
+  "buildId": null,
+  "builderSha256": "7405ecdc6fc5f8bc812a415b01a5740bb0b6c20710c498e94c5770486cdb1649",
+  "sourcePatchSha256": "22665a02d4a9e0a8fa394ac3079deadabbed05b74595396962a34e904af26dbf",
+  "sourceReference": "Pipetto-crypto/mesa@ccacc8abc043de9766f4341079d06bac5f3a1824",
+  "deviceTested": false
+}

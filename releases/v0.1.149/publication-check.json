@@ -1,0 +1,53 @@
+{
+  "version": "0.1.149",
+  "versionCode": 150,
+  "publicationCandidates": 1749,
+  "kitFiles": 1437,
+  "runtimeFiles": 312,
+  "privacyFindings": [],
+  "relinkMaterialsLocation": "main/winlator-source-and-relink/v0.1.149",
+  "releaseAssetsOnlyApkAndChecksum": true,
+  "temporaryProbeSourcesRestored": true,
+  "assets": [
+    {
+      "name": "Aura-0.1.149-arm64-release.apk",
+      "bytes": 405044703,
+      "sha256": "530f734c3ea7f8480b147f67f30e32472c9bdf0804b2b5a65f0fefd1c32b3e26"
+    }
+  ],
+  "hardwareValidation": "not performed for new 0.1.149 workflows",
+  "comparisonBaseline": "0.1.118",
+  "cumulativeVersions": [
+    "0.1.119",
+    "0.1.120",
+    "0.1.121",
+    "0.1.122",
+    "0.1.123",
+    "0.1.124",
+    "0.1.125",
+    "0.1.126",
+    "0.1.127",
+    "0.1.128",
+    "0.1.129",
+    "0.1.130",
+    "0.1.131",
+    "0.1.132",
+    "0.1.133",
+    "0.1.134",
+    "0.1.135",
+    "0.1.136",
+    "0.1.137",
+    "0.1.138",
+    "0.1.139",
+    "0.1.140",
+    "0.1.141",
+    "0.1.142",
+    "0.1.143",
+    "0.1.144",
+    "0.1.145",
+    "0.1.146",
+    "0.1.147",
+    "0.1.148",
+    "0.1.149"
+  ]
+}

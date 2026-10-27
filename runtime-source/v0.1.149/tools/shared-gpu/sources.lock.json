@@ -1,0 +1,424 @@
+{
+  "mesa": {
+    "commit": "ccacc8abc043de9766f4341079d06bac5f3a1824",
+    "url": "https://codeload.github.com/Pipetto-crypto/mesa/tar.gz/ccacc8abc043de9766f4341079d06bac5f3a1824",
+    "sha256": "0d05ddf3abb3e02fba343f69e1b90c5b1519c3b7b28e3b48e9078b92acc5adf9"
+  },
+  "ndk": "28.2.13676358",
+  "api": 34,
+  "pythonPackages": [
+    "meson==1.5.2",
+    "mako==1.3.5",
+    "ply==3.11",
+    "MarkupSafe==3.0.4"
+  ],
+  "packages": [
+    {
+      "package": "bison",
+      "version": "2:3.8.2+dfsg-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/b/bison/bison_3.8.2+dfsg-1+b1_amd64.deb",
+      "sha256": "a414afd7519c53bfa33415ba5b951bc8b4906877004c49723ffda50a6033c3e8",
+      "role": "host-tool"
+    },
+    {
+      "package": "flex",
+      "version": "2.6.4-8.2",
+      "url": "https://deb.debian.org/debian/pool/main/f/flex/flex_2.6.4-8.2_amd64.deb",
+      "sha256": "da3fd55dbb6aff4f7b3187580813e0ef707d0c596402e37c8fd144df60003636",
+      "role": "host-tool"
+    },
+    {
+      "package": "libdrm-dev",
+      "version": "2.4.114-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-dev_2.4.114-1+b1_amd64.deb",
+      "sha256": "073e7ac28672c7fb55141cf39ba1daa25667bd578c76dc43eb4f911b8d3a259a",
+      "role": "headers-only"
+    },
+    {
+      "package": "libfl2",
+      "version": "2.6.4-8.2",
+      "url": "https://deb.debian.org/debian/pool/main/f/flex/libfl2_2.6.4-8.2_amd64.deb",
+      "sha256": "bd878478de2e95bbac86c15658b9fde713233999e0bcf7f1e6771df6ff4dcf7a",
+      "role": "host-tool"
+    },
+    {
+      "package": "libx11-dev",
+      "version": "2:1.8.4-2+deb12u2",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libx11/libx11-dev_1.8.4-2+deb12u2_amd64.deb",
+      "sha256": "8493220d4309af1907a1f2f6eeb204c8103dafcc368394fbc4a0858c28612ff9",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxau-dev",
+      "version": "1:1.0.9-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxau/libxau-dev_1.0.9-1_amd64.deb",
+      "sha256": "d1a7f5d484e0879b3b2e8d512894744505e53d078712ce65903fef2ecfd824bb",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-composite0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-composite0-dev_1.15-1_amd64.deb",
+      "sha256": "f35e2ae33ed3b632e69ed8b04bb8461b68eb97f7326757cdfbaa255bab20bab6",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-cursor-dev",
+      "version": "0.1.4-1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-cursor/libxcb-cursor-dev_0.1.4-1_amd64.deb",
+      "sha256": "e104658c985ddd0ee04038a6e230eb5301a8480df76f93ee40560cdf5adb754e",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-damage0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-damage0-dev_1.15-1_amd64.deb",
+      "sha256": "573223251b06ebd3996e91b9715a984d1619a8fb1b9e3efa154c8cb4a3e81a9e",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-dpms0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-dpms0-dev_1.15-1_amd64.deb",
+      "sha256": "6ef1b0e2d19e427306a611344e24b39881f6564f5c60ac9cd2bf0b11e34263d0",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-dri2-0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-dri2-0-dev_1.15-1_amd64.deb",
+      "sha256": "567f582d15c19b485afe12609b7e46253c5cf3639c5f3cfe4af949eadfe5b83a",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-dri3-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-dri3-dev_1.15-1_amd64.deb",
+      "sha256": "1329fc8cdc7d0e47278dc44551642c040fdedd9ae6ea63c776e4f5ea4fc5dc8c",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-ewmh-dev",
+      "version": "0.4.1-1.1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-wm/libxcb-ewmh-dev_0.4.1-1.1_amd64.deb",
+      "sha256": "ce8840c9b9887b23fae6ff43684c05e6df0028d0e528d38c4076f94708290b50",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-glx0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-glx0-dev_1.15-1_amd64.deb",
+      "sha256": "20dc55646f1fad3bd15514d3b18cb8bfa6fdde75cce17e69d36d984e902ef591",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-icccm4-dev",
+      "version": "0.4.1-1.1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-wm/libxcb-icccm4-dev_0.4.1-1.1_amd64.deb",
+      "sha256": "60969fba904dbec8b6858270188ba5e5924a1330ea41672564961c9b7b924aa5",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-image0-dev",
+      "version": "0.4.0-2",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-image/libxcb-image0-dev_0.4.0-2_amd64.deb",
+      "sha256": "57bc1ced1ec3e6314c0fd75c39ae6cb2994cea6845cee9b57543cb75659eb2bb",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-imdkit-dev",
+      "version": "1.0.4-3",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-imdkit/libxcb-imdkit-dev_1.0.4-3_amd64.deb",
+      "sha256": "f938731a3a270b182d9af107634482265e658752c92bd5cf9a74ea29e9faa909",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-keysyms1-dev",
+      "version": "0.4.0-1+b2",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/libxcb-keysyms1-dev_0.4.0-1+b2_amd64.deb",
+      "sha256": "ea00c08dbf0a3f129d61db8a10adf701fc976c47d92f27b1331eb0229f2def87",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-present-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-present-dev_1.15-1_amd64.deb",
+      "sha256": "f3be9b96ede37178dca387ae74a07ac001313421ec85263707fa23d371d57740",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-randr0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-randr0-dev_1.15-1_amd64.deb",
+      "sha256": "ea3e93cdf20687861da320a2f90dc26ec16faed49a80d75032b91ad49de209f9",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-record0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-record0-dev_1.15-1_amd64.deb",
+      "sha256": "c1bc906eab5fc1f5f7fdd2373fec469970a2061250295bde8580ee6e0b5d864b",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-render-util0-dev",
+      "version": "0.3.9-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-renderutil/libxcb-render-util0-dev_0.3.9-1+b1_amd64.deb",
+      "sha256": "030dd6f3eaed77cd71228e52f7ab687ca57561d968a4e6bf85252b8d4afeffeb",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-render0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-render0-dev_1.15-1_amd64.deb",
+      "sha256": "eabdcd126833ed7f5016196c10dab72b894f75431d63ff35d2d5c8c3eada3246",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-res0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-res0-dev_1.15-1_amd64.deb",
+      "sha256": "3ee2ae59ce917a550af0fab9167922310aed82b095851228125658c0de0c9358",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-screensaver0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-screensaver0-dev_1.15-1_amd64.deb",
+      "sha256": "14ff205e7b0734f885b8f96e81da0b9b815ac73e9db85cbb77078ed070121cd3",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-shape0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-shape0-dev_1.15-1_amd64.deb",
+      "sha256": "6cffe4974f739228e085ec53b285244b9923c12d1feb1ed3f791f8527922a4a9",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-shm0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-shm0-dev_1.15-1_amd64.deb",
+      "sha256": "bed1448eb87d6b5d7236e74d71c9d16a2fa5a4c36f2268d6b7204eb829a066b6",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-sync-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-sync-dev_1.15-1_amd64.deb",
+      "sha256": "201ce793165b001ed5755578bfa0a03893425e9d3726577df8a605200045f921",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-util-dev",
+      "version": "0.4.0-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util/libxcb-util-dev_0.4.0-1+b1_amd64.deb",
+      "sha256": "0ba0b4d7618982b81169772f50776477785a0d154b80e607f79226ab8f2550f1",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-util0-dev",
+      "version": "0.4.0-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util/libxcb-util0-dev_0.4.0-1+b1_amd64.deb",
+      "sha256": "74ca37081fc59bb497ef7d2b259abea88ec815d90d7fb32010e44a710d455e17",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xf86dri0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xf86dri0-dev_1.15-1_amd64.deb",
+      "sha256": "9f05f9b8b29534b43b6014b6bace5d19933b72e51689f3493466112654ad7d70",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xfixes0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xfixes0-dev_1.15-1_amd64.deb",
+      "sha256": "07c010bf0eced5d33fa6f19e474e47011d9a6491d825ca82d58e9b3bf5de3974",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xinerama0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xinerama0-dev_1.15-1_amd64.deb",
+      "sha256": "d80b8de75a2519f4683ce295f5ff692025470db11f3579eaab74fa75eab16e17",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xinput-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xinput-dev_1.15-1_amd64.deb",
+      "sha256": "71d47f639ed59c0ac8bdfa11f99db47997fc972e7ca2ec42c8dd51614bfddf47",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xkb-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xkb-dev_1.15-1_amd64.deb",
+      "sha256": "0ee023339a7dbaa8f11def0ceaca7c4700419266445db30c8cf441eca9980328",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xrm-dev",
+      "version": "1.0-3+b1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-xrm/libxcb-xrm-dev_1.0-3+b1_amd64.deb",
+      "sha256": "b3173a1ac12de18ae2a3c9da5e5bad14d46d690904e100220af5e518e08f4664",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xtest0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xtest0-dev_1.15-1_amd64.deb",
+      "sha256": "44633b60f61d11572afc72addddfb2ebfb0b3ba8cc9bf51ba4b63c6bc31af865",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xv0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xv0-dev_1.15-1_amd64.deb",
+      "sha256": "7d4db42fb1ed5b7e8d0b852748ef2a0d2c9a9e216ac3c4c161c12546e89cef4c",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb-xvmc0-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb-xvmc0-dev_1.15-1_amd64.deb",
+      "sha256": "71752de91809e4f864a9812c96187bff109c97d738d8547e73ad013a8bf66f7e",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxcb1-dev",
+      "version": "1.15-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb1-dev_1.15-1_amd64.deb",
+      "sha256": "c078c024114fdada06d3158af1771d7ed8763ab434cfbcbe6a334aa8a9cae358",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxdmcp-dev",
+      "version": "1:1.1.2-3",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp-dev_1.1.2-3_amd64.deb",
+      "sha256": "c6733e5f6463afd261998e408be6eb37f24ce0a64b63bed50a87ddb18ebc1699",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxext-dev",
+      "version": "2:1.3.4-1+b1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxext/libxext-dev_1.3.4-1+b1_amd64.deb",
+      "sha256": "591456aba90eeed7a1c1b044d469fd7704bf7d83af9dc574bbe2efc4a2fd1dba",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxfixes-dev",
+      "version": "1:6.0.0-2",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes-dev_6.0.0-2_amd64.deb",
+      "sha256": "75fd16d0f67f5d4eb718d81bfa15d0b2163637293e48f1e24e2c11f9af590dda",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxrandr-dev",
+      "version": "2:1.5.2-2+b1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr-dev_1.5.2-2+b1_amd64.deb",
+      "sha256": "a0048d088226403419d9b0856e2d6d29a4facdd1708b6ceda095d7190f819ff3",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxrender-dev",
+      "version": "1:0.9.10-1.1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxrender/libxrender-dev_0.9.10-1.1_amd64.deb",
+      "sha256": "51be2e92b7bb9a81f8dbcad7a0086a58c779761c17f8aa13893b843bced0ae9b",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxshmfence-dev",
+      "version": "1.3-1",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence-dev_1.3-1_amd64.deb",
+      "sha256": "7fcd7bb466a106e6f79a0cdf403559857c0fc20e6a55bdc2b963cfccee0256f9",
+      "role": "headers-only"
+    },
+    {
+      "package": "libxxf86vm-dev",
+      "version": "1:1.1.4-1+b2",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm-dev_1.1.4-1+b2_amd64.deb",
+      "sha256": "2fb753a7c2c2fd6b74b8429d180b259af9c2b4201f8c777621ac88c63d43cea7",
+      "role": "headers-only"
+    },
+    {
+      "package": "m4",
+      "version": "1.4.19-3",
+      "url": "https://deb.debian.org/debian/pool/main/m/m4/m4_1.4.19-3_amd64.deb",
+      "sha256": "b2dd7bfca426712416e651bb5ff6dabe7d05e4caebbac61d714dbe261b31e4c3",
+      "role": "host-tool"
+    },
+    {
+      "package": "x11proto-dev",
+      "version": "2022.1-1",
+      "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/x11proto-dev_2022.1-1_all.deb",
+      "sha256": "3cab66a6591774188a568f9b54c4e7956f18da76e0e0fc4a779db5f6bcc3f148",
+      "role": "headers-only"
+    },
+    {
+      "package": "libexpat1-dev",
+      "version": "2.5.0-1+deb12u2",
+      "url": "https://deb.debian.org/debian/pool/main/e/expat/libexpat1-dev_2.5.0-1+deb12u2_amd64.deb",
+      "sha256": "757279c1ce56ca88ca519e4c01cffd94e8480ce936f53fe9b0d61dc1bab20394",
+      "role": "headers-only"
+    },
+    {
+      "package": "libzstd-dev",
+      "version": "1.5.4+dfsg2-5",
+      "url": "https://deb.debian.org/debian/pool/main/libz/libzstd/libzstd-dev_1.5.4+dfsg2-5_amd64.deb",
+      "sha256": "5d079cf5f96b724c97a611630ea428a1ebe793746db7bbf6e1455803b962b4ea",
+      "role": "headers-only"
+    }
+  ],
+  "androidLibraries": {
+    "libX11.so": {
+      "bytes": 1187752,
+      "sha256": "e0406f14858ecb77a4f636f5e845cffb38c0314cd09bde7372d9eca8919b2c2d"
+    },
+    "libXext.so": {
+      "bytes": 65648,
+      "sha256": "7f88c476b781f69d7a73b1f12423101443a88367edd76ab5532c97d96bbf6aa0"
+    },
+    "libxcb.so": {
+      "bytes": 136584,
+      "sha256": "b9eccb1595376e723b4ebd6eba9c5d3104e3d01d627fa6c39b1e064b9a4b02e3"
+    },
+    "libxcb-randr.so": {
+      "bytes": 53896,
+      "sha256": "ce217a736b2cc43360e06229cdc9fa700d07377481c7f9960b14071219dd6e75"
+    },
+    "libXrandr.so": {
+      "bytes": 37584,
+      "sha256": "b19f805cb4e9465e3e8d5ccc8bcff2a7768494951464059692884ef2abc0f524"
+    },
+    "libXrender.so": {
+      "bytes": 34824,
+      "sha256": "f92c232d2886fa76e1a9887881d93b159711b4214b0a567e0c1ff872f8d6d84e"
+    },
+    "libXau.so": {
+      "bytes": 9904,
+      "sha256": "a677efde653a5686608e35130f5c818ca4f042e272d3fa8619ac8928e04a6ee8"
+    },
+    "libXdmcp.so": {
+      "bytes": 18920,
+      "sha256": "f8c4c2565d2f234e93f3775e9f425829198fac3828339fbe155badebfa9c87ff"
+    },
+    "libdrm.so": {
+      "bytes": 75792,
+      "sha256": "24a5dc642e839cb4bf36785d76ba08e5dac28ed6c538c2a99ea7a6a866853293"
+    },
+    "libzstd.so.1": {
+      "bytes": 820840,
+      "sha256": "1d4f691a46c43be5be0915479970379621a7410a9e3f99af2064f33aecddff17"
+    },
+    "libexpat.so.1": {
+      "bytes": 139144,
+      "sha256": "636c0a164c60db308c41a9da59dbd82aac85c4089153f4b831af05385caa2e6e"
+    },
+    "libandroid-sysvshm.so": {
+      "bytes": 10680,
+      "sha256": "c0c6a00c7592546248b63617c9844c986a5bf31fa2e79885dae94b98d7f0b55f"
+    }
+  }
+}

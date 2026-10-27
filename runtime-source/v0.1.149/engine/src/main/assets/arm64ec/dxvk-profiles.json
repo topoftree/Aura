@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "standardRevision": "2.7.1-arm64ec-aura-flow1-batch1-init3",
+  "compatRevision": "2.6.2-arm64ec-aura-qcom3",
+  "profiles": {
+    "standard": {
+      "archive": "arm64ec/directx.tzst",
+      "files": {
+        "system32/d3d10core.dll": {
+          "bytes": 286720,
+          "sha256": "0f53133f4f2c13c8be2048136dd2ad8e2dff8c1e03f283695fc689fb499e9cfd",
+          "previousSha256": [
+            "7d8d30ada393dc9103fa9231dc010b964d46eb9ab2e4b2020fc2005c78922b2d"
+          ]
+        },
+        "system32/d3d11.dll": {
+          "bytes": 4083712,
+          "sha256": "d06a276ff1ba1ed11473c0f6fe7cf6ed828f0f290c72ff9667f0e5a433a50012",
+          "previousSha256": [
+            "11ad1bc7d5b82d28b2e10e453268acc4a8b5a09e97b5f89692e5c32324918fb1",
+            "9d564ab4b5ef6d3d299271b545e5d97afb3dac7b60783846ae7a3f7cca8facdf",
+            "ccd44c8dd5f860e370e90618ede413a0d07fdfc3358e0c029e66dcb4bafebc1a",
+            "e5d155c0cb937b7df69a1276b0ed2f43015ad0070f0e97c455738aced9f39cf7"
+          ]
+        },
+        "system32/d3d8.dll": {
+          "bytes": 1265664,
+          "sha256": "f4555bff42d83d60c04806a42f797ee813524c53aa88cb83d97ba300a2379f30",
+          "previousSha256": [
+            "59ae73d88cc054353c4c9b16949a61dd9a67caead9569149034414d666e53371"
+          ]
+        },
+        "system32/d3d9.dll": {
+          "bytes": 3715072,
+          "sha256": "7c7cb0eeb9eeb4669fed9be485e29e89b4bce0485ed6cb284160fe3c9ea6fcad",
+          "previousSha256": [
+            "5ac67f5b67ddf7b432308fcdb81028b8a7f318bf9ee10cdaf6bf9892cf861c1e",
+            "a62e1cf65e9ae994983d7b291a4aee97f037be78aa8ff4a32ad82886ed6c1f53",
+            "c9b43f9da2f95f8043bdf9bc0f0368389b75a9560b75f74fec78cec8aa1157a9",
+            "dfbe9df61c5a915f65078cbd076bdaee86115ed8db3290e12acd4fd044ccbfc8",
+            "f94ec4d64c56d856d3b36a7dfc0e420a9f767c5d70572d271a3dd8c473c56952"
+          ]
+        },
+        "system32/dxgi.dll": {
+          "bytes": 2596864,
+          "sha256": "60c9d6c12c098557469f3f6da491624bb7846c005344b55e10dd0a0cef4c115a",
+          "previousSha256": [
+            "1f6ffbd79f8f6bf7a4ad477130c89c7cd1803713ab6b79586abed7b180dc91ec",
+            "313a921c0bc01eff84123e428d97e9a79899869081bd17b0e6d1001aae41cbea",
+            "7dcfdfc56ff9af70dec45e86b41949e3dcf51e618b4139d066b9b197db5cae62",
+            "866773429baee99b2255daaecf09b3f730eb2be7ff58dcfb479941ac490c68c6",
+            "ef5bfacada425fab08a1b87dd5afb3dd53d17e745502fae85bfcb2a1c7a04d30",
+            "fbfdd5cac00aa83d4440a4c502c0d58904015c1a705402a93bd37eaa05952992"
+          ]
+        },
+        "syswow64/d3d10core.dll": {
+          "bytes": 282624,
+          "sha256": "c52c05cd2347ad058198f002804e6d9b466c1ee9793d65110ed86edb1842eb8f",
+          "previousSha256": [
+            "90cce377a6093ce4c0de15e7231763f423f5823821a87cbeef91b8862218ff99"
+          ]
+        },
+        "syswow64/d3d11.dll": {
+          "bytes": 4214784,
+          "sha256": "25cf6408ca39431de44414028e103da480ef680bcbc25f3abac988fc9bd5266f",
+          "previousSha256": [
+            "4416a1cd4e669f231432da9c99b8ada4aa1da79e78c2c99319e594e5fa447a71",
+            "457feb56ad736be4f94482f6913e7e725f3375760adbbfbfda5ca60df57a7f55",
+            "4f8676530bb3f1a78cab363992e2de75557ce84378fb7829ba4e51fc445bcc6e",
+            "bb4f198730cf6eddcfaea9365013fd633a5ab6e759453070c4c78a98c06ecfbd"
+          ]
+        },
+        "syswow64/d3d8.dll": {
+          "bytes": 1323008,
+          "sha256": "a38e859327d8dc07f0e4f5da4cc73ed6400a4ad4dbcc8385a58333528862730b",
+          "previousSha256": [
+            "33354d5dbb89cce7147efb27261000df624d8d606851b29d6dd40ed62b2b554d"
+          ]
+        },
+        "syswow64/d3d9.dll": {
+          "bytes": 3911680,
+          "sha256": "31cb8e1da96f4c7343af36dedfe70c0a5aa9f846ebf62c333e4a1ed90f89d455",
+          "previousSha256": [
+            "233c79e1416ac01b1e831def0641cb29ffa9e9a36358298f1b024ddee8afc986",
+            "627b14c48404aedbc987e5e012285db387460f94ac46251fd93f49e190a90dcf",
+            "9c84ea6282bc44b443075af24af4c357f2a7b51e680e943f061e8f1b6eade4a7",
+            "d1069ea69417e098f8ef2259067cb5ea18372ed5dc8a7a8edb31ef0fd9dd30ac",
+            "ec168be5ce5a10f80b624bb38923ac57bd4db7196a13e1a7d10db280bdac8f34"
+          ]
+        },
+        "syswow64/dxgi.dll": {
+          "bytes": 2744320,
+          "sha256": "09c26358b6e3282c1a53138f34ba313172bc70df7d0f6d582c202ddd1ebf12f6",
+          "previousSha256": [
+            "57aeae5ae22b357a6836cbf37b94a636047231442466b1ba10d881b9d85f181f",
+            "64062ce6275643192b7bcc86af6aaf22da5d810e4c6de8221345f8678939bf7c",
+            "9b3760c2998011ff571ee8e9718daaed62e0bf9195895465c258a77f9e736e53",
+            "9d7bca3c26929d1db6ffc73025b674e23f00a01b1968da4f0ae402dd2f63099f",
+            "d8e487aeb4029e83f21f2eaaadc053a5c829ff432ddbe35164adf7af6199a0db",
+            "f582c08b361244084592a730309c3dc91113887b6b1219a2c0b3033f61bc9e09"
+          ]
+        }
+      }
+    },
+    "qualcomm": {
+      "archive": "arm64ec/dxvk-qualcomm.tzst",
+      "files": {
+        "system32/d3d10core.dll": {
+          "bytes": 286720,
+          "sha256": "7d8d30ada393dc9103fa9231dc010b964d46eb9ab2e4b2020fc2005c78922b2d",
+          "previousSha256": [
+            "0f53133f4f2c13c8be2048136dd2ad8e2dff8c1e03f283695fc689fb499e9cfd"
+          ]
+        },
+        "system32/d3d11.dll": {
+          "bytes": 4071424,
+          "sha256": "ccd44c8dd5f860e370e90618ede413a0d07fdfc3358e0c029e66dcb4bafebc1a",
+          "previousSha256": [
+            "11ad1bc7d5b82d28b2e10e453268acc4a8b5a09e97b5f89692e5c32324918fb1",
+            "9d564ab4b5ef6d3d299271b545e5d97afb3dac7b60783846ae7a3f7cca8facdf",
+            "d06a276ff1ba1ed11473c0f6fe7cf6ed828f0f290c72ff9667f0e5a433a50012",
+            "e5d155c0cb937b7df69a1276b0ed2f43015ad0070f0e97c455738aced9f39cf7"
+          ]
+        },
+        "system32/d3d8.dll": {
+          "bytes": 1273856,
+          "sha256": "59ae73d88cc054353c4c9b16949a61dd9a67caead9569149034414d666e53371",
+          "previousSha256": [
+            "f4555bff42d83d60c04806a42f797ee813524c53aa88cb83d97ba300a2379f30"
+          ]
+        },
+        "system32/d3d9.dll": {
+          "bytes": 3702784,
+          "sha256": "5ac67f5b67ddf7b432308fcdb81028b8a7f318bf9ee10cdaf6bf9892cf861c1e",
+          "previousSha256": [
+            "7c7cb0eeb9eeb4669fed9be485e29e89b4bce0485ed6cb284160fe3c9ea6fcad",
+            "a62e1cf65e9ae994983d7b291a4aee97f037be78aa8ff4a32ad82886ed6c1f53",
+            "c9b43f9da2f95f8043bdf9bc0f0368389b75a9560b75f74fec78cec8aa1157a9",
+            "dfbe9df61c5a915f65078cbd076bdaee86115ed8db3290e12acd4fd044ccbfc8",
+            "f94ec4d64c56d856d3b36a7dfc0e420a9f767c5d70572d271a3dd8c473c56952"
+          ]
+        },
+        "system32/dxgi.dll": {
+          "bytes": 2568192,
+          "sha256": "fbfdd5cac00aa83d4440a4c502c0d58904015c1a705402a93bd37eaa05952992",
+          "previousSha256": [
+            "1f6ffbd79f8f6bf7a4ad477130c89c7cd1803713ab6b79586abed7b180dc91ec",
+            "313a921c0bc01eff84123e428d97e9a79899869081bd17b0e6d1001aae41cbea",
+            "60c9d6c12c098557469f3f6da491624bb7846c005344b55e10dd0a0cef4c115a",
+            "7dcfdfc56ff9af70dec45e86b41949e3dcf51e618b4139d066b9b197db5cae62",
+            "866773429baee99b2255daaecf09b3f730eb2be7ff58dcfb479941ac490c68c6",
+            "ef5bfacada425fab08a1b87dd5afb3dd53d17e745502fae85bfcb2a1c7a04d30"
+          ]
+        },
+        "syswow64/d3d10core.dll": {
+          "bytes": 282624,
+          "sha256": "90cce377a6093ce4c0de15e7231763f423f5823821a87cbeef91b8862218ff99",
+          "previousSha256": [
+            "c52c05cd2347ad058198f002804e6d9b466c1ee9793d65110ed86edb1842eb8f"
+          ]
+        },
+        "syswow64/d3d11.dll": {
+          "bytes": 4202496,
+          "sha256": "4f8676530bb3f1a78cab363992e2de75557ce84378fb7829ba4e51fc445bcc6e",
+          "previousSha256": [
+            "25cf6408ca39431de44414028e103da480ef680bcbc25f3abac988fc9bd5266f",
+            "4416a1cd4e669f231432da9c99b8ada4aa1da79e78c2c99319e594e5fa447a71",
+            "457feb56ad736be4f94482f6913e7e725f3375760adbbfbfda5ca60df57a7f55",
+            "bb4f198730cf6eddcfaea9365013fd633a5ab6e759453070c4c78a98c06ecfbd"
+          ]
+        },
+        "syswow64/d3d8.dll": {
+          "bytes": 1318912,
+          "sha256": "33354d5dbb89cce7147efb27261000df624d8d606851b29d6dd40ed62b2b554d",
+          "previousSha256": [
+            "a38e859327d8dc07f0e4f5da4cc73ed6400a4ad4dbcc8385a58333528862730b"
+          ]
+        },
+        "syswow64/d3d9.dll": {
+          "bytes": 3907584,
+          "sha256": "233c79e1416ac01b1e831def0641cb29ffa9e9a36358298f1b024ddee8afc986",
+          "previousSha256": [
+            "31cb8e1da96f4c7343af36dedfe70c0a5aa9f846ebf62c333e4a1ed90f89d455",
+            "627b14c48404aedbc987e5e012285db387460f94ac46251fd93f49e190a90dcf",
+            "9c84ea6282bc44b443075af24af4c357f2a7b51e680e943f061e8f1b6eade4a7",
+            "d1069ea69417e098f8ef2259067cb5ea18372ed5dc8a7a8edb31ef0fd9dd30ac",
+            "ec168be5ce5a10f80b624bb38923ac57bd4db7196a13e1a7d10db280bdac8f34"
+          ]
+        },
+        "syswow64/dxgi.dll": {
+          "bytes": 2715648,
+          "sha256": "f582c08b361244084592a730309c3dc91113887b6b1219a2c0b3033f61bc9e09",
+          "previousSha256": [
+            "09c26358b6e3282c1a53138f34ba313172bc70df7d0f6d582c202ddd1ebf12f6",
+            "57aeae5ae22b357a6836cbf37b94a636047231442466b1ba10d881b9d85f181f",
+            "64062ce6275643192b7bcc86af6aaf22da5d810e4c6de8221345f8678939bf7c",
+            "9b3760c2998011ff571ee8e9718daaed62e0bf9195895465c258a77f9e736e53",
+            "9d7bca3c26929d1db6ffc73025b674e23f00a01b1968da4f0ae402dd2f63099f",
+            "d8e487aeb4029e83f21f2eaaadc053a5c829ff432ddbe35164adf7af6199a0db"
+          ]
+        }
+      }
+    }
+  }
+}

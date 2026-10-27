@@ -1,0 +1,72 @@
+{
+  "schema": "WINE_GPU_MEMORY_BUILD_V1",
+  "revision": "11.0-2-aura-gpu-memory1",
+  "sourceCommit": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+  "baselineSourceSha256": "0545c2b1233d7a85d3fca6dd27c3748b57cf08ee07b1359a4491ee2918ced61c",
+  "sourceAndHeadersSha256": "ebfa5ddd165669078deb3bc15097557a29255f9cc1684b571f8408332ed3ef41",
+  "packagedBeforeSha256": "ff422e00fb0be1505f33e51a4fe38edef0ae0ae684c9bf99313dc7082c482672",
+  "baseConfigurationSha256": "8934196afb1355610b63e16359a258304e8436a34a662ccbc5765aeff3aa2f74",
+  "sourcePatchSha256": "4f05f7b1077db075c47efa35c7633b3ce9aa8389eae744839b98d6d68dbc5129",
+  "builderSha256": "9620ee0eaf902fb94733043fbde0b67e07f054bf048e9db766b1427464183382",
+  "ndk": "28.2.13676358",
+  "androidApi": 34,
+  "headers": {
+    "freetype": {
+      "sha256": "bc5c898e4756d373e0d991bab053036c5eb2aa7c0d5c67e8662ddc6da40c4103",
+      "url": "https://codeload.github.com/freetype/freetype/tar.gz/refs/tags/VER-2-13-3"
+    },
+    "fontconfig": {
+      "sha256": "cdebb4b805d33e9bdefcc0ef9743db638d2acb21139bbe1a6a85878d4c3e8c9e",
+      "url": "https://codeload.github.com/fontconfig/fontconfig/tar.gz/refs/tags/2.15.0"
+    }
+  },
+  "outputs": {
+    "baseline": {
+      "bytes": 2200976,
+      "sha256": "e32a68c1d822a250af1073cb735d781955ab74099650fe1ef530af3d195658b7",
+      "symbolsSha256": "8f77a99c6b444e7b07ef36830965eb8d905c704f98dc0b24d35057a22f098787"
+    },
+    "fixed": {
+      "bytes": 2200976,
+      "sha256": "1adc95435684af0cee099d9a0d6faecf13f99902acf76400f9f0e38fbd9d8afc",
+      "symbolsSha256": "5e51944503fe418984fc3862029e6f3ee2b3a371f8ae870212abebdd4b8e9845"
+    }
+  },
+  "providers": {
+    "SONAME_LIBFREETYPE": "\"libfreetype.so\"",
+    "SONAME_LIBFONTCONFIG": "\"libfontconfig.so\"",
+    "SONAME_LIBEGL": "\"libEGL.so.1\"",
+    "SONAME_LIBVULKAN": "\"libvulkan.so.1\"",
+    "HAVE_FT2BUILD_H": "1"
+  },
+  "nativeCompanionSha256": "091586ec99aa9aa25e1cb786d5a8c1215b7673da1afb753740d8f4b09d53aeac",
+  "elf": {
+    "format": "ELF64",
+    "machine": "0xb7",
+    "abi": "bionic",
+    "interpreter": null,
+    "needed": [
+      "ntdll.so",
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "soname": [
+      "win32u.so"
+    ],
+    "searchPaths": [
+      "/data/data/com.android.aura/f/r/lib"
+    ],
+    "minimumLoadAlignment": 16384
+  },
+  "samePublicImportsAndExports": true,
+  "importVersionChanges": {
+    "memfd_create": [
+      "memfd_create",
+      "memfd_create@LIBC_R"
+    ]
+  },
+  "peAndNtdllUnchanged": true,
+  "originalToolchainReproduced": false,
+  "androidDeviceTested": false
+}

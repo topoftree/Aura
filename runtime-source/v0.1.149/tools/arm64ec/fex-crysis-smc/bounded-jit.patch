@@ -1,0 +1,20 @@
+--- a/Source/Windows/WOW64/Module.cpp
++++ b/Source/Windows/WOW64/Module.cpp
+@@ -524,6 +524,17 @@
+                      CrysisFastSMC ? "ACTIVE" : "OFF");
+   }
+ 
++  const bool CrysisBoundedJit = FEX::Windows::CrysisBoundedJitEnabled(CrysisInlineSMC, getenv("AURA_FEX_CRYSIS2_BOUNDED_JIT"));
++  if (CrysisInlineSMC) {
++    FEX_CONFIG_OPT(ExistingMaxInst, MAXINST);
++    const auto Budget = FEX::Windows::CrysisJitInstructionBudget(CrysisBoundedJit, ExistingMaxInst());
++    if (CrysisBoundedJit) {
++      FEXCore::Config::Set(FEXCore::Config::CONFIG_MAXINST, std::to_string(Budget));
++    }
++    LogMan::Msg::IFmt("AURA_FEX_CRYSIS2_JIT_BUDGET_V1 state={}; max_instructions={}; checks=FULL_INSTRUCTION; cache_size=UNCHANGED; game_ready=UNCONFIRMED",
++                     CrysisBoundedJit ? "ACTIVE" : "OFF", Budget);
++  }
++
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_INTERPRETER_INSTALLED, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_IS64BIT_MODE, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_FILENAME, ExecutablePath);

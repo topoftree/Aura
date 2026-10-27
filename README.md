@@ -8,36 +8,32 @@ Run supported Windows PC games on Android, with a library and launcher designed 
 
 ## Download
 
-[**Download Aura 0.1.118 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.118/Aura-0.1.118-arm64-release.apk) · [Release notes and assets](https://github.com/topoftree/Aura/releases/tag/v0.1.118) · [Checksums](releases/v0.1.118/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
+[**Download Aura 0.1.149 APK**](https://github.com/topoftree/Aura/releases/download/v0.1.149/Aura-0.1.149-arm64-release.apk) · [Release notes and assets](https://github.com/topoftree/Aura/releases/tag/v0.1.149) · [Checksums](releases/v0.1.149/SHA256SUMS) · [All releases](https://github.com/topoftree/Aura/releases)
 
-**Android 14+ · ARM64 · version code 119 · `com.android.aura`**
+**Android 14+ · ARM64 · version code 150 · `com.android.aura`**
 
 The APK is a signed Gradle Release build with R8 optimization, obfuscation and resource shrinking. It uses the existing upgrade signing certificate. Fully exit any game before installing the update; keep the existing installation and app data.
 
-The matching [Winlator source and relinking kit](winlator-source-and-relink/v0.1.118/README.md) and [runtime source/build materials](runtime-source/v0.1.118/README.md) are available separately. Use materials matching your APK version. Aura's independent application source remains private, subject to the scope in [Source availability](SOURCE_CODE.md).
+The matching [Winlator source and relinking kit](winlator-source-and-relink/v0.1.149/README.md) and [runtime source/build materials](runtime-source/v0.1.149/README.md) are available separately. Use materials matching your APK version. Aura's independent application source remains private, subject to the scope in [Source availability](SOURCE_CODE.md).
 
-## New since 0.1.101
+## New since 0.1.118
 
-[Read the complete cumulative release notes](releases/v0.1.118/README.md), covering every version from 0.1.102 through 0.1.118, including changed defaults and removed options.
+[Complete cumulative release notes](releases/v0.1.149/README.md) cover all **31 versions from 0.1.119 through 0.1.149**, including changed defaults, removed settings and continuing compatibility limits.
 
-| Area | Current behavior |
+| Area | Current changes |
 | --- | --- |
-| Local import | Covers appear immediately in Library with progress; details provide pause/resume, retry, cancel, speed and ETA. Browse more folders while copying. Imports resume after restart, and original files remain untouched. Add queue is removed. |
-| Storage and scanning | Aura's own internal/SD/USB browser, multi-game checklists, duplicate detection, clearer access errors, valid Chinese/Aura filenames and precise rejected-path explanations. Import already-extracted games. |
-| Steam downloads | Stay on game details, show cover progress, and move newly queued downloads to the front of Library without continually reshuffling it. |
-| Game management | Separate Steam/Local games; aspect-aware per-game resolution capped by the current Wine container; conservative first-launch defaults and grouped Optimization controls. |
-| Resolution settings | Screen settings edits the current platform's actual container default. Steam and Local save separately. Explicit per-game choices take priority. |
-| Patch import | Select multiple extracted files/folders, choose a destination within the game, review replacements, retain backups and undo the last batch. |
-| Clients and accounts | Cached Steam metadata and verified/local evidence show required client/account marks on covers, including uninstalled games. Supported missing clients have official installer download/import flows. New games default to Skip Steam; existing choices remain. |
-| Notifications | Shared top-right solid panels, ten-second concise titles, double-Select focus, detailed actions, spring motion, first-use hint and soft chime. Undecided performance suggestions remain in Messages with Ignore. |
-| Controls and presentation | Mapped Library/search pills; aligned elastic Launcher actions; improved controller drawings and breathing hints; softer page/game fades; semibold clock; monochrome octopus header and installed stamp. |
-| In-game input | Finger movement reveals the mouse; gamepad input hides it. Keyboard focus/retries improved. Stretch to fill removed. |
-| Runtime and performance | Generic graphics diagnostics, lower-overhead observation, automatic compatible Mesa frame-copy and X11 geometry improvements; optional D3D11 submission batching, off by default. No promised native-resolution 60 FPS. |
-| Settings | Wine English/Simplified Chinese choice; Audio driver label; three sound-effect volume levels; About with offline Copyright/License. Runtime performance removed; cache/thread controls are per-game and sampling controls are in Debug. |
+| Translation | Compact code generation enabled by default per game, targeted Crysis 2 validation improvements, IR bookkeeping improvements, optional cache RAM buffers and capability diagnostics. Hardware TSO remains experimental; SVE remains disabled. |
+| Graphics | Selective shared-memory copies, safer buffer ownership and wait scheduling, targeted Qualcomm compatibility, full-source Turnip 26.2.5 and selected-driver Shared GPU images for supported R8/26.2.5 configurations. |
+| Optimization | Driver-specific availability and explanations in both menus, conservative defaults and per-game Restore defaults. Smart performance suggestions default off. |
+| Mods and patches | Separate pages, SMAPI command entry and optional after-save commands, result/timing diagnostics, patch imports/backups and supported catalogs. Cuphead UltraWide links to the original author; no mirrored third-party DLL. |
+| Interface | Transparent mascot, Manrope/Noto Sans SC, Phosphor focused-fill icons, balanced Kenney controller hints, morphing-line loaders, deeper/wallpaper-dynamic colors, readable wrapping game titles and wallpaper fades. |
+| In-game menu | Right-side poster/title and coordinated loading/gameplay backdrop blur; continuous Gaussian fallback fixes separated blur bands. |
+| Steam and files | Managed startup/readiness, native DNS fallback, certificate FD repair, clearer runtime upgrade errors and simpler controller-friendly file navigation. |
+| Diagnostics | Bounded complete performance window before PC sampling; CPU/thread, JIT/cache, Vulkan, command ancestry, color, X11 and presentation/wait observations. Unknown evidence stays unknown. |
 
-The official APK passed **1,725 host tests**, with no failures/errors/skips; release lint has **0 errors and 77 warnings**. It is 369,681,621 bytes (about 3.06% smaller than 0.1.101). Phone performance and compatibility remain separate from host validation. The matching [relink validation](winlator-source-and-relink/v0.1.118/VALIDATION.md) documents baseline and modified-engine builds.
+The official APK passed **217 fresh JVM tests and six Python tests**; Release Lint reports **0 errors and 97 warnings**. The matching [relink checks](winlator-source-and-relink/v0.1.149/VALIDATION.md) cover baseline and modified-engine builds plus recipient-key signing. Phone performance remains separate: original Qualcomm-driver Cuphead dark output and Ground Zeroes loading/device-loss behavior are still being investigated.
 
-The Release contains only the APK and its checksum file. Source/relinking and runtime materials live in their versioned folders on **main**.
+Release assets are the APK and checksum only. The matching source/relink/runtime materials live on **main** and use ordinary Git for this version.
 
 ## Getting started
 
@@ -60,7 +56,7 @@ Back up important saves before updating. Uninstalling Aura or clearing app data 
 | In a game | Single press | Forwarded to the game after the approximately 0.3-second double-press window. |
 | In a game | Double press | Focus a visible right-side notice; otherwise open or close Aura's floating menu. |
 | In a game | Hold approximately 0.7 seconds | Return to Aura with the session paused. |
-| In Aura with a retained game | Single press | Focus the running-game entry at the bottom of Launcher; confirm to resume. |
+| Launcher selected cover | Single press | Open/close that cover’s action menu; Left or Back closes it. |
 | Floating menu | Up on the first item / down on the last | Wrap to the opposite end. |
 
 Ordinary loading screens show the mapped menu/return button on a controller outline for ten seconds. Debug loading screens omit that guide. Library uses mapped Y / triangle for its category or Local Add Game, and the header uses mapped X / square for search.
@@ -69,19 +65,20 @@ Ordinary loading screens show the mapped menu/return button on a controller outl
 
 Open **Settings → Games Management** and choose a game. Settings are saved per game. Fully exit and restart to apply launch options; resuming a retained session keeps its original settings.
 
-- **Optimization:** Thread waiting and x87 reduced precision are separate checkboxes; both default off. x87 changes precision and needs game-specific comparison. Managed shader caches, experimental translation cache, smart suggestions, background transfer pausing, low-latency DXVK queues and Vulkan overrides are also per-game. Shader compiler threads are configured per game.
-- **D3D11 submission batching (experimental):** Off by default. Trial it with a full restart for eligible DXVK D3D11 games; disable it if behavior regresses. It is not a universal FPS improvement.
-- **ESync:** Changes Wine synchronization; it is separate from VSync/frame presentation. Neither guarantees higher FPS.
-- **Game default resolution / frame limit:** Choices use the screen aspect ratio and stay within the Wine container size. Aura's limit does not remove a game's own VSync or frame target. Screen settings changes only the current Steam/Local container's default.
-- **Smart performance suggestions:** Proposed changes require the user's decision and apply on the next full launch. First-launch file/device assessment saves conservative defaults, not benchmark-derived tuning.
-- **Import patch:** Import already-extracted files/folders, review matching-file replacements and backups, and choose targets only within the game's directory. Patch compatibility is not inferred automatically.
-- **Startup compatibility:** Targeted Mirror's Edge and optional Ground Zeroes settings remain separate from general CPU tuning. The Ground Zeroes candidate is off by default and is not a confirmed playable-game fix.
+- **Optimization defaults:** Compact translation and pausing Aura background downloads/scans are on. Smart suggestions and experimental cache, RAM-buffer, hardware-TSO, shared-image and D3D11 batching options are off. Existing saved choices are preserved. Every option has a focused explanation of purpose, tradeoffs, availability and restart requirements.
+- **Restore defaults:** Resets only this game's Optimization settings, preserving resolution, frame limit, compatibility, patches and other games. CPU/driver changes need a full restart; resuming does not apply them.
+- **Driver options:** Shared GPU images is selectable for supported R8/26.2.5 selections and still needs successful runtime buffer import/synchronization. The three Turnip 26.2.5 tuning options require that driver. Unavailable settings are disabled with a reason. Generic CPU/cache controls remain separate.
+- **Cache RAM buffer:** Optional 32/64 MiB choices use additional memory to reduce disk-cache reading/processing. They require translation caching, are mutually exclusive and can be skipped for low memory or incompatible modes. They do not guarantee higher FPS.
+- **Resolution / frame limit:** Screen settings changes the current Steam/Local container default; explicit per-game choices take priority. Aura's limiter does not remove a game's own frame target or VSync.
+- **ESync / x87 / thread waiting:** Distinct options with different compatibility/performance tradeoffs. x87 reduced precision can affect results; hardware TSO needs real kernel support and preserves software fallback. None universally improves FPS.
+- **Patch / Mod:** Import into the selected game with replacement review/backups. Supported mod commands can be sent manually or saved for after loading a save; automatic execution is opt-in. `fps 120` is a SMAPI command with a space, not proof the game can reach that rate.
+- **Startup compatibility:** Game-specific behavior remains separate from generic tuning. Current OEM Ground Zeroes changes are a compatibility trial, not a confirmed playable-game fix.
 
 After changing Mirror's Edge PhysX settings, completely exit the session and relaunch from Aura if the game's internal restart causes flickering. This release does not claim a universal fix for that internal restart path.
 
 ## Dependencies, updates and storage
 
-Concise dependency download/installation progress appears at the bottom of the loading screen with a plain segmented spinner. Completion is remembered after validation and sustained output from the selected game; a static startup poster or installer alone does not qualify. Later launches of that version skip the full scan. Game updates, relevant executable/dependency changes or container reconstruction invalidate the record. Ordinary graphics settings and saves do not by themselves count as a game update.
+Concise dependency download/installation progress appears at the bottom of the loading screen with the morphing-line loading animation. Completion is remembered after validation and sustained output from the selected game; a static startup poster or installer alone does not qualify. Later launches of that version skip the full scan. Game updates, relevant executable/dependency changes or container reconstruction invalidate the record. Ordinary graphics settings and saves do not by themselves count as a game update.
 
 Open **Settings → Updates** for **Game updates** and **Built-in components and drivers**. Run a manual batch check or enable daily game checks. Checks do not automatically download updates, and game files are not replaced while the game is running. Background checks depend on Android scheduling and an available Steam session. Imported Local games have no universal update provider. Only catalog-supported components update separately; other pinned runtime changes arrive through APK updates.
 
@@ -94,7 +91,7 @@ Open **Settings → Updates** for **Game updates** and **Built-in components and
 | [Winlator 11.2](https://github.com/brunodev85/winlator-app/tree/3981d86efa4f333b2a34a7da8b6521476cd8c8b9) | Android runtime, display, input, container and native integration, with Aura modifications. |
 | [Wine / Proton 11.0-2 ARM64EC](https://github.com/The412Banner/proton-wine) | Windows API compatibility, including the supplied Aura Wine patches. |
 | [FEXCore 2610](https://github.com/FEX-Emu/FEX) | CPU translation alongside Wine. |
-| [DXVK 2.7.1 ARM64EC](https://github.com/doitsujin/dxvk) | Direct3D translation; D3D9 includes the empty-rectangle backport; D3D11 includes optional submission batching. |
+| [DXVK 2.7.1 / Qualcomm 2.6.2 ARM64EC](https://github.com/doitsujin/dxvk) | Driver-selected Direct3D translation, compatibility fixes, optional batching and bounded diagnostics. |
 | [VKD3D-Proton 3.0.1 ARM64EC](https://github.com/HansKristian-Work/vkd3d-proton) | Direct3D 12 translation. |
 | [Mesa](https://www.mesa3d.org/) / [AdrenoTools](https://github.com/bylaws/libadrenotools) | Supported graphics drivers, OpenGL-on-Vulkan and Android driver-loading integration. |
 | [JavaSteam 1.8.0](https://github.com/Longi94/JavaSteam) | Steam protocol integration for accounts, libraries and content. |
@@ -112,21 +109,21 @@ Host tests do not establish compatibility with every game, controller or device.
 
 ## APK verification
 
-SHA-256 for `Aura-0.1.118-arm64-release.apk`:
+SHA-256 for `Aura-0.1.149-arm64-release.apk`:
 
 ```text
-cfb0e55e580d09e97c2aa2a7b09a0b74284b4b544e21036a1e3b26c3f650df44
+530f734c3ea7f8480b147f67f30e32472c9bdf0804b2b5a65f0fefd1c32b3e26
 ```
 
-Run `sha256sum Aura-0.1.118-arm64-release.apk`, or PowerShell's `Get-FileHash -Algorithm SHA256`. Match the exact filename against [the release checksums](releases/v0.1.118/SHA256SUMS). Android separately verifies the APK signature.
+Run `sha256sum Aura-0.1.149-arm64-release.apk`, or PowerShell's `Get-FileHash -Algorithm SHA256`. Match the exact filename against [the release checksums](releases/v0.1.149/SHA256SUMS). Android separately verifies the APK signature.
 
 ## Source availability
 
-The [0.1.118 Winlator kit](winlator-source-and-relink/v0.1.118/README.md) supplies editable LGPL-covered engine source, its modification record, build scripts, independently obfuscated application objects, resources and dependency objects. Users can modify the engine, recombine it with the application and sign their build with their own key.
+The [0.1.149 Winlator kit](winlator-source-and-relink/v0.1.149/README.md) supplies editable LGPL-covered engine source, its modification record, build scripts, independently obfuscated application objects, resources and dependency objects. Users can modify the engine, recombine it with the application and sign their build with their own key.
 
 Independent Aura Kotlin UI/business source, private obfuscation mappings, production signing material and user diagnostic archives are not included. Obfuscation does not prevent decompilation or restrict applicable modification and debugging rights.
 
-[Runtime materials](runtime-source/v0.1.118/README.md) cover supplied Wine/ntsync changes and additional runtime build inputs. Other components retain separate obligations. The package is not a certification of the entire APK's legal compliance; [SOURCE_CODE.md](SOURCE_CODE.md) records coverage and outstanding items.
+[Runtime materials](runtime-source/v0.1.149/README.md) cover supplied Wine/ntsync changes and additional runtime build inputs. Other components retain separate obligations. The package is not a certification of the entire APK's legal compliance; [SOURCE_CODE.md](SOURCE_CODE.md) records coverage and outstanding items.
 
 ## Feedback and copyright
 

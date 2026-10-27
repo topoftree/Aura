@@ -1,0 +1,48 @@
+{
+  "schema": "WINE_CRYPT32_FD_BUILD_V1",
+  "sourceCommit": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+  "baselineSourceSha256": "e22614c94c1482659747afcfc60be6993435d9c33a98bb0cae9d302e79926c34",
+  "packagedBeforeSha256": "e24450a3b0da2cd28ac4f989d57d80be3e5e3904e1d66de1d9441b72db7c39e3",
+  "sourceHeadersSha256": "9b3a5e2c093667a0176a3d0260016cee818c4407d6f9b5b69f2c85eed797843a",
+  "gnutlsHeadersSha256": "4be1f0e91c687ba1ba94bdf7467bc2549ec0eb5d0cc47e0f3bd4b11ccaf2e3cd",
+  "configSha256": "42c8130ba9cfa68b66cf093875478f43d20f2b3e6495f33c5e965fba702e265d",
+  "builderSha256": "58f3cda531f882e97fffb3d94dfdb51267e09829c28a8cb3569bc7a85f2f563f",
+  "sourcePatchSha256": "fc1bcb3583f96db2d65cd100c57492f40721d305604bdb1537af50d74cd58e19",
+  "nativeCompanionSha256": "091586ec99aa9aa25e1cb786d5a8c1215b7673da1afb753740d8f4b09d53aeac",
+  "ndk": "28.2.13676358",
+  "androidApi": 34,
+  "samePublicImportsAndExports": true,
+  "gnutlsProvider": "libgnutls.so",
+  "outputs": {
+    "baseline": {
+      "bytes": 20728,
+      "sha256": "688a1bc8ba42d7c044eaa7c3490d9d02cb5413605b083ed0f06d27f6bfa4a9bc",
+      "symbolsSha256": "035c4bf94c6e64af195843fb3938d43b6f0092426b323c5e07e6b55dda1b3d01"
+    },
+    "fixed": {
+      "bytes": 20728,
+      "sha256": "96aa3db4317b4e354da164c43498fb47702a6ce2285c4478af519a6189443454",
+      "symbolsSha256": "1dcf22a6d1aa4ec989972deff2ad76a4ecc2ee6573939c9529a6ab3a2d96200b"
+    }
+  },
+  "elf": {
+    "format": "ELF64",
+    "machine": "0xb7",
+    "abi": "bionic",
+    "interpreter": null,
+    "needed": [
+      "ntdll.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "soname": [
+      "crypt32.so"
+    ],
+    "searchPaths": [
+      "/data/data/com.android.aura/f/r/lib"
+    ],
+    "minimumLoadAlignment": 16384
+  },
+  "originalToolchainReproduced": false,
+  "androidDeviceTested": false
+}

@@ -1,0 +1,46 @@
+{
+  "source": {
+    "tag": "mesa-26.2.5",
+    "commit": "ddaf85e353442d9d7f192fdcf1823e652e3f2ee3",
+    "url": "https://archive.mesa3d.org/mesa-26.2.5.tar.xz",
+    "sha256": "794b3d1729075dae7ebd47c7283b7ca0cdb5dec668f7f11cc0a5d82f6138a0a5",
+    "binaryVersion": "Mesa 26.2.5 (git-ddaf85e353)",
+    "deviceTableSha256": "c15a9af47e83a92b82581e66890471eaad107ec27c7ed9a9b6770c3769279a96"
+  },
+  "files": {
+    "app/src/main/assets/licenses/turnip-26-2-5/Apache-2.0": {
+      "bytes": 10045,
+      "sha256": "7e4d3fba250d15e9e0afa380d4b611828fa2560cc8fdebe95bcf2f01a487de12"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/BSL-1.0": {
+      "bytes": 1649,
+      "sha256": "9b9fea7520a816107fcac2598b7c0155222f16bc430e989706b22f4367f1df7d"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/GPL-1.0-or-later": {
+      "bytes": 13047,
+      "sha256": "8ff76f1528e6e4e9400c0f6b1f2d19d4979aaac3bcc44bb707a55389132825c4"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/GPL-2.0-only": {
+      "bytes": 18424,
+      "sha256": "6667ad4063569cd53b13500550d93fcd3dc11bcf82c5514296af013a0b720ba5"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/MIT": {
+      "bytes": 1372,
+      "sha256": "323c587d0ccf10e376f8bf9a7f31fb4ca6078105194b42e0b1e0ee2bc9bde71f"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/SGI-B-2.0": {
+      "bytes": 1822,
+      "sha256": "686bf035a1fd22076416fd3b90370ac67771e884bf57f55693d51f8ce7c710a7"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/license.rst": {
+      "bytes": 1816,
+      "sha256": "0d1a0472ecc81830e75c20d59b0ea02841e3db21255e0ebad97ab682c54d6615"
+    },
+    "app/src/main/assets/licenses/turnip-26-2-5/mesa-source-notices.txt": {
+      "bytes": 1811538,
+      "sha256": "fc02d81f39cdb0715dd5e94748c1c88a2c3f36d86575522de8eb0ec476e4815d"
+    }
+  },
+  "uniqueCommentBlocks": 2060,
+  "scope": "Source notice superset, not a linked component list"
+}

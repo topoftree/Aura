@@ -1,0 +1,48 @@
+{
+  "schema": "WINE_VIRTUAL_MODES_BUILD_V1",
+  "revision": "11.0-2-aura-aspect-modes1",
+  "sourceCommit": "dcc50c55e2a4dbd06610e5b45d8872bc6f048633",
+  "sourceAndHeadersSha256": "a94aeb8ccc67e4c9d78785f977d3fc812aaa9407949b94d3aee76fbd22dd12d2",
+  "packagedBeforeSha256": "1adc95435684af0cee099d9a0d6faecf13f99902acf76400f9f0e38fbd9d8afc",
+  "builderSha256": "f8d04d2aeb724719a185abc9948551a5cd6a94d667f3c0278d93cf5dcae2f6ff",
+  "sourcePatchSha256": "49e63b6af210ceaec5fff90b52c4d1436fff3690d5327c734177b374de59eb37",
+  "baseConfigurationSha256": "cc65ad16442bb0b6f0b3bce9c65ce92c89ab152ee7e73a5c07e1bc0d82781e8a",
+  "ndk": "28.2.13676358",
+  "androidApi": 34,
+  "baselineReproduced": true,
+  "samePublicImportsAndExports": true,
+  "sameImportVersions": true,
+  "outputs": {
+    "baseline": {
+      "bytes": 2200976,
+      "sha256": "1adc95435684af0cee099d9a0d6faecf13f99902acf76400f9f0e38fbd9d8afc",
+      "symbolsSha256": "5e51944503fe418984fc3862029e6f3ee2b3a371f8ae870212abebdd4b8e9845"
+    },
+    "fixed": {
+      "bytes": 2201368,
+      "sha256": "78f5f104dea687e8d70bb499e799f8ba3382ee166ea5ff32d2719172d40f5d46",
+      "symbolsSha256": "560503087d0c760431b8a1388ce38843823a28b715d5039bd0b35b4371395062"
+    }
+  },
+  "elf": {
+    "format": "ELF64",
+    "machine": "0xb7",
+    "abi": "bionic",
+    "interpreter": null,
+    "needed": [
+      "ntdll.so",
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "soname": [
+      "win32u.so"
+    ],
+    "searchPaths": [
+      "/data/data/com.android.aura/f/r/lib"
+    ],
+    "minimumLoadAlignment": 16384
+  },
+  "preservesGpuMemoryFix": true,
+  "androidDeviceTested": false
+}

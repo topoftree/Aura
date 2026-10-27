@@ -1,0 +1,6 @@
+Aura downstream Wine virtual-display mode addition.
+Base: The412Banner/proton-wine dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+with the existing Aura gpu-memory correction retained.
+Adds bounded, deduplicated lower resolutions at the virtual desktop's aspect
+ratio. Does not change game settings, stretching or DXGI mode-selection rules.
+Wine is distributed under LGPL-2.1-or-later; see COPYING.LIB and source diff.

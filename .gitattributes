@@ -2,3 +2,7 @@
 winlator-source-and-relink/**/objects/*.jar filter=lfs diff=lfs merge=lfs -text
 winlator-source-and-relink/archives/*.zip filter=lfs diff=lfs merge=lfs -text
 runtime-source/**/sources/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# 0.1.149 materials use ordinary Git; large source archives are split.
+winlator-source-and-relink/v0.1.149/objects/* -filter -diff -merge -text
+runtime-source/v0.1.149/sources/* -filter -diff -merge -text

@@ -1,0 +1,20 @@
+Wine kernelbase native system information correction
+
+Base: The412Banner/proton-wine, proton_11.0-2,
+commit dcc50c55e2a4dbd06610e5b45d8872bc6f048633.
+https://github.com/The412Banner/proton-wine
+
+Upstream correction by Brendan Shanks, committed by Alexandre Julliard:
+kernelbase: Fix GetNativeSystemInfo() in an x86_64 process on ARM64.
+https://github.com/wine-mirror/wine/commit/c5a96a0b6c635995718602ca0d0792833de1f46f
+
+Wine and this backport are LGPL-2.1-or-later. See COPYING.LIB and the
+included, unmodified upstream patch for authorship and exact changes.
+The ARM64X DLL contains both native ARM64 and ARM64EC views. The i386
+DLL, native ntdll, FEX, graphics drivers, and game files are unchanged.
+
+Reproduction: tools/arm64ec/build_system_info.py, package_system_info.py,
+system-info/build.json, and docs/WINE_SYSTEM_INFO_SMAPI.md in Aura source.
+The builder verifies the pinned kernelbase sources and retains the base
+runtime's Android adaptations. Host instruction replay does not establish
+that SMAPI or a game has run successfully on an Android device.

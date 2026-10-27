@@ -1,0 +1,24 @@
+From: Robin Kertels
+Subject: [d3d9] Ignore zero extent stretch rect (backport to v2.7.1)
+Origin: https://github.com/doitsujin/dxvk/commit/d2762330fbc0d7921ed30a7f5069eca60f79456b
+
+Mirrors Edge does a call with src rect 0,0,0,0
+and dst rect 0,0,0,0.
+
+The upstream change is preserved; only the hunk line number is adjusted
+for v2.7.1. This is an Aura backport, not an upstream release artifact.
+License: zlib/libpng; see LICENSE.dxvk.
+
+--- a/src/d3d9/d3d9_device.cpp
++++ b/src/d3d9/d3d9_device.cpp
+@@ -1326,6 +1326,10 @@
+       uint32_t(blitInfo.dstOffsets[1].y - blitInfo.dstOffsets[0].y),
+       uint32_t(blitInfo.dstOffsets[1].z - blitInfo.dstOffsets[0].z) };
+ 
++    if (unlikely(srcCopyExtent.width == 0 || srcCopyExtent.height == 0
++      || dstCopyExtent.width == 0 || dstCopyExtent.height == 0))
++      return D3D_OK;
++
+     bool srcIsDS = IsDepthStencilFormat(srcFormat);
+     bool dstIsDS = IsDepthStencilFormat(dstFormat);
+     if (unlikely(srcIsDS || dstIsDS)) {

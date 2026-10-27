@@ -1,0 +1,86 @@
+diff --git a/FEXCore/Source/Interface/IR/IREmitter.cpp b/FEXCore/Source/Interface/IR/IREmitter.cpp
+--- a/FEXCore/Source/Interface/IR/IREmitter.cpp
++++ b/FEXCore/Source/Interface/IR/IREmitter.cpp
+@@ -94,6 +94,7 @@
+   InvalidNode = reinterpret_cast<Ref>(DualListData.ListAllocate(sizeof(OrderedNode)));
+   memset(InvalidNode, 0, sizeof(OrderedNode));
+   CurrentCodeBlock = nullptr;
++  CachedLastCodeBlock = nullptr;
+ }
+ 
+ void IREmitter::ReplaceAllUsesWithRange(Ref Node, Ref NewNode, AllNodesIterator Begin, AllNodesIterator End) {
+@@ -147,12 +148,18 @@
+ }
+ 
+ void IREmitter::RemovePostRA(Ref Node) {
++  if (Node == CachedLastCodeBlock) {
++    CachedLastCodeBlock = nullptr;
++  }
+   Node->Unlink(DualListData.ListBegin());
+ }
+ 
+ void IREmitter::Remove(Ref Node) {
+   RemoveArgUses(Node);
+ 
++  if (Node == CachedLastCodeBlock) {
++    CachedLastCodeBlock = nullptr;
++  }
+   Node->Unlink(DualListData.ListBegin());
+ }
+ 
+@@ -166,15 +173,18 @@
+   } else {
+     LOGMAN_THROW_A_FMT(CurrentCodeBlock != nullptr, "CurrentCodeBlock must not be null here");
+ 
+-    // Find last block
+-    auto LastBlock = CurrentCodeBlock;
+-
+-    while (LastBlock->Header.Next.GetNode(DualListData.ListBegin()) != InvalidNode) {
+-      LastBlock = LastBlock->Header.Next.GetNode(DualListData.ListBegin());
++    // FULL SMC appends an exit block for every instruction. Remember the tail
++    // instead of walking the growing list again for every exit. LinkCodeBlocks
++    // maintains the hint; reset/copy/removal invalidate it before reuse.
++    if (!CachedLastCodeBlock) {
++      CachedLastCodeBlock = CurrentCodeBlock;
++      while (CachedLastCodeBlock->Header.Next.GetNode(DualListData.ListBegin()) != InvalidNode) {
++        CachedLastCodeBlock = CachedLastCodeBlock->Header.Next.GetNode(DualListData.ListBegin());
++      }
+     }
+ 
+     // Append it after the last block
+-    LinkCodeBlocks(LastBlock, CodeNode);
++    LinkCodeBlocks(CachedLastCodeBlock, CodeNode);
+   }
+ 
+   SetWriteCursor(OldCursor);
+diff --git a/FEXCore/Source/Interface/IR/IREmitter.h b/FEXCore/Source/Interface/IR/IREmitter.h
+--- a/FEXCore/Source/Interface/IR/IREmitter.h
++++ b/FEXCore/Source/Interface/IR/IREmitter.h
+@@ -398,6 +398,7 @@
+     for (auto& CodeBlock : CodeBlocks) {
+       CodeBlock = CodeBlock->Wrapped(rhs.DualListData.ListBegin()).GetNode(DualListData.ListBegin());
+     }
++    CachedLastCodeBlock = nullptr;
+   }
+ 
+   void SetWriteCursor(Ref Node) {
+@@ -467,6 +468,9 @@
+ #endif
+ 
+     CodeNode->append(DualListData.ListBegin(), Next);
++    if (CodeNode == CachedLastCodeBlock) {
++      CachedLastCodeBlock = Next;
++    }
+   }
+ 
+   IRPair<IROp_CodeBlock> CreateNewCodeBlockAtEnd() {
+@@ -526,6 +530,9 @@
+   bool SupportsTSOImm9 {};
+ 
+ private:
++  // Non-owning, confined to this emitter's current linked IR block list.
++  // Never copy a raw pointer into another emitter or retain it across reset.
++  Ref CachedLastCodeBlock {};
+   void ResetWorkingList();
+ };
+ 

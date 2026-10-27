@@ -1,0 +1,40 @@
+{
+  "source_sha256": "1466f86696c756a21e2980c8d65a4ecd496f2f2999447673ebf84e84704d77be",
+  "pe_sha256": "567824e663af14d7fa1a9bc6cae988a28b581f68353c4c826312dbd6582e624d",
+  "bytes": 5632,
+  "imports": {
+    "kernel32": [
+      "GetStdHandle",
+      "WriteFile",
+      "GetLastError",
+      "GetTickCount64",
+      "ExitProcess"
+    ],
+    "ws2_32": [
+      "WSAStartup",
+      "WSACleanup",
+      "WSAGetLastError",
+      "getaddrinfo",
+      "freeaddrinfo",
+      "socket",
+      "ioctlsocket",
+      "connect",
+      "select",
+      "getsockopt",
+      "closesocket"
+    ],
+    "winhttp": [
+      "WinHttpOpen",
+      "WinHttpSetTimeouts",
+      "WinHttpSetOption",
+      "WinHttpConnect",
+      "WinHttpOpenRequest",
+      "WinHttpSendRequest",
+      "WinHttpReceiveResponse",
+      "WinHttpQueryHeaders",
+      "WinHttpCloseHandle"
+    ]
+  },
+  "architecture": "AMD64",
+  "runtime_validation": "NOT_RUN_ON_ANDROID"
+}

@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "Probe.cs": "3625987c9c93fd0581bb6d8092591040fe010ad985221623034cc566e184e787",
+    "manifest.json": "d7f1cba377418556f5ff8aded8b7dce480cf9a40dec35b9d6c086c0e5176e277",
+    "build.py": "bd617bbd853e6414a409f99b0f85c0f8f5bd696b94c8e8591e288966a6bb08c1",
+    "sources.json": "bf12fd4c32151d2e274049d182f22e9335c4e21f616dc8870e4b2fefee0994a9"
+  },
+  "assets": {
+    "Aura.Diagnostics.dll": "ca380b489ac200a6d5af9f74dc2e1b4dfd1f24adfa0cc3831b0b02d90b4bb3fe",
+    "manifest.json": "d7f1cba377418556f5ff8aded8b7dce480cf9a40dec35b9d6c086c0e5176e277"
+  },
+  "smapiVersion": "4.5.2",
+  "smapiSha256": "dd01ddca7b566bfe0d3b3d2d03833496abc56c53da976241f2ab443f5484acc4",
+  "compiler": "Microsoft.Net.Compilers.Toolset 4.11.0",
+  "targetFramework": "net6.0",
+  "deviceTested": false
+}

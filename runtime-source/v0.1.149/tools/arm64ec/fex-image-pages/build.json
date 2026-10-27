@@ -1,0 +1,252 @@
+{
+  "schema": "FEX_IMAGE_PAGES_BUILD_V1",
+  "revision": "FEX-2610-aura-ip1-smc2-ir1-ca1",
+  "sourceCommit": "14c92681f4d62cf84d901460e0358de09c8847a7",
+  "sourceFilesSha256": "16707d58ae8144284f92b11c9d5265156f1ca04aa4a99c0f3d5b332906e0bb6b",
+  "sources": [
+    {
+      "path": ".",
+      "repo": "FEX-Emu/FEX",
+      "revision": "14c92681f4d62cf84d901460e0358de09c8847a7",
+      "url": "https://codeload.github.com/FEX-Emu/FEX/tar.gz/14c92681f4d62cf84d901460e0358de09c8847a7",
+      "archive": "FEX-14c92681f4d62cf84d901460e0358de09c8847a7.tar.gz",
+      "bytes": 2845536,
+      "sha256": "76bb2fb0c1bed5713828c33fc79a82efdc06b20bd8267212b438bb60fa149713"
+    },
+    {
+      "path": "External/fmt",
+      "repo": "fmtlib/fmt",
+      "revision": "c07e2aa4b130b4fd359a1c6455a5201b17af01fa",
+      "url": "https://codeload.github.com/fmtlib/fmt/tar.gz/c07e2aa4b130b4fd359a1c6455a5201b17af01fa",
+      "archive": "fmt-c07e2aa4b130b4fd359a1c6455a5201b17af01fa.tar.gz",
+      "bytes": 750766,
+      "sha256": "e0099a9035521b29523915fae2e5f1b38229df896191e4a046f7b0d55a45c7d2"
+    },
+    {
+      "path": "External/xxhash",
+      "repo": "Cyan4973/xxHash",
+      "revision": "e626a72bc2321cd320e953a0ccf1584cad60f363",
+      "url": "https://codeload.github.com/Cyan4973/xxHash/tar.gz/e626a72bc2321cd320e953a0ccf1584cad60f363",
+      "archive": "xxHash-e626a72bc2321cd320e953a0ccf1584cad60f363.tar.gz",
+      "bytes": 1147772,
+      "sha256": "34e71c085636fbc1726482996d92719d0a16e6a6097970ecf2990a27b3821162"
+    },
+    {
+      "path": "External/unordered_dense",
+      "repo": "martinus/unordered_dense",
+      "revision": "3234af2c03549bc85656bfd3a86993bf1cd8aef1",
+      "url": "https://codeload.github.com/martinus/unordered_dense/tar.gz/3234af2c03549bc85656bfd3a86993bf1cd8aef1",
+      "archive": "unordered_dense-3234af2c03549bc85656bfd3a86993bf1cd8aef1.tar.gz",
+      "bytes": 914070,
+      "sha256": "aa68d77ef88475db710bf647017f5ccb13ceec6f55f3defa37e995b043eb990b"
+    },
+    {
+      "path": "External/rpmalloc",
+      "repo": "FEX-Emu/rpmalloc",
+      "revision": "09142d726429416bfa7b459151515fe3ab7622dd",
+      "url": "https://codeload.github.com/FEX-Emu/rpmalloc/tar.gz/09142d726429416bfa7b459151515fe3ab7622dd",
+      "archive": "rpmalloc-09142d726429416bfa7b459151515fe3ab7622dd.tar.gz",
+      "bytes": 76394,
+      "sha256": "3250fcc53532ed6161642b77f6179c7ba73173fb2130314aa7f019a574266ff6"
+    },
+    {
+      "path": "External/range-v3",
+      "repo": "ericniebler/range-v3",
+      "revision": "ca1388fb9da8e69314dda222dc7b139ca84e092f",
+      "url": "https://codeload.github.com/ericniebler/range-v3/tar.gz/ca1388fb9da8e69314dda222dc7b139ca84e092f",
+      "archive": "range-v3-ca1388fb9da8e69314dda222dc7b139ca84e092f.tar.gz",
+      "bytes": 585661,
+      "sha256": "57a6fca5d60a85b84e8efecc62f0ca064e6b1f89b97b513284fe7f5bd43d49eb"
+    },
+    {
+      "path": "Source/Common/cpp-optparse",
+      "repo": "Sonicadvance1/cpp-optparse",
+      "revision": "9f94388a339fcbb0bc95c17768eb786c85988f6e",
+      "url": "https://codeload.github.com/Sonicadvance1/cpp-optparse/tar.gz/9f94388a339fcbb0bc95c17768eb786c85988f6e",
+      "archive": "cpp-optparse-9f94388a339fcbb0bc95c17768eb786c85988f6e.tar.gz",
+      "bytes": 13218,
+      "sha256": "68e6b500890270517d226abbc3610135de1600ddde29f44c9b68cca5e2a17f60"
+    }
+  ],
+  "toolchain": {
+    "url": "https://github.com/bylaws/llvm-mingw/releases/download/20250920/llvm-mingw-20250920-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "sha256": "8dd8c34fc051a50c2fae86015f35057f8aae93fe1e19b34537ef1269a8b4c772",
+    "verifiedFiles": 7835
+  },
+  "flags": [
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DBUILD_TESTING=OFF",
+    "-DBUILD_THUNKS=OFF",
+    "-DBUILD_FEXCONFIG=OFF",
+    "-DENABLE_LTO=OFF",
+    "-DENABLE_ASSERTIONS=OFF",
+    "-DENABLE_GDB_SYMBOLS=OFF",
+    "-DENABLE_CCACHE=OFF",
+    "-DTUNE_ARCH=generic",
+    "-DTUNE_CPU=none",
+    "-DRANGES_NATIVE=OFF"
+  ],
+  "sourceDateEpoch": 0,
+  "inputs": {
+    "build_fex_image_pages.py": "23255ca8267cf873f7bf8c71996e033a4f40ebecd7d120aa5d66d56bca4efd4a",
+    "ImageExecutableRanges.h": "d249d35c4e85cb7751514ee7fc4b9e6cc687b56d972887b9482a36e085b97e01",
+    "image-pages.patch": "67b7185470de8b99828873cf4c214e597743b3a2b515a42c371c015c1c53b55c",
+    "test_image_pages.cpp": "75de26e059b7f74a02f7375778861a15a636cf00e6ea05c35f7bce8effcc1f00",
+    "fex-crysis-smc/CrysisSmcPolicy.h": "1a7d764d02df3f0dca2308a9cdee53eb2e52b794fee826f828506ce175cdb63b",
+    "fex-crysis-smc/inline-smc.patch": "b72c3448b0d37d5029b93f41e9dd8c6b1b86bf6411e344aa05d55bb37f83e5d8",
+    "fex-crysis-smc/test_policy.cpp": "53a090203ad09b5b1ca33774102e2eeb3ed6882d6d585eadc3b6ecabb827b2f0",
+    "fex-crysis-smc/fast-checks.patch": "6a12e99cea0ea35168f6bdf03c8595599b9860b1bb309115333afecfea4fe650",
+    "fex-crysis-smc/FastCodeValidation.h": "e1071eb8a870712a3ce35e8aa71e0509d88bc53b8022fc73a4a0542055a796eb",
+    "fex-crysis-smc/bounded-jit.patch": "0a27d71e5c3913961d455a17e12e80aa33da4da499ce72180896056252cb7356",
+    "fex-crysis-smc/shared-exits.patch": "1f3f20a4c99e1cb2d6d283bfe677557564c66d61976a719aa59c4a6a2dc87efb",
+    "fex-crysis-smc/test_shared_exits.py": "875ad75160052f37c4ab35d1689b14e95d527a13fe879c0b2d6c1f394ff941c3",
+    "fex-shared-exits/generalize.patch": "cfe343ec5904629f58827817b6dc0a035c5323576ba86b0520b046a26746ecc1",
+    "fex-shared-exits/SharedSmcPolicy.h": "b282e14f874180e3edcd045d1f6ead06fee6a0a56a2ac0fa2db3cfdc0d5853f8",
+    "fex-shared-exits/test_policy.cpp": "af0d6dfd778de96b2ddafa4c40a58e32decfd1dd2e57e288a4800350ed528ad1",
+    "fex-ir-block-tail/block-tail.patch": "5b45fd3346d272fb019e838a7d9472f9070ebd785cb3312945988b0d49040c40",
+    "fex-ir-block-tail/test_ir_block_tail.cpp": "92eccd9e695daa87db1e0b559122ab051258dac3db2ca09e8998b8841bf43b5e",
+    "fex-ir-block-tail/test_ir_block_tail.py": "132b92ba79e320c4e30e3de0aca870c11ea87e08c3cedbbf1aa1addd090ed3c5",
+    "fex-jit-capture/capture.patch": "73c284b32ac43614a1cbdf2c0bd266c7c7d3d0fcca30600150b8821a5b94435f",
+    "fex-jit-capture/JitCapture.h": "02dafc15d47fb6c4a8b58309939cb9110197244c52ec1335da5270092e365b5a",
+    "fex-jit-capture/JitCaptureFex.h": "1d64c410a58443968e5e776322a88ca7b676db2ea6fbaea7671c705588badcd0",
+    "fex-jit-capture/test_capture.cpp": "b8ba4f695cf3a0dc77c7e139595a425cced6a331735604b24a826d3d1eb54c8e",
+    "fex-jit-capture/test_adapter.py": "4a0dddd4a44694813664fefaa746f80d324e1028b03e012815ebbe4111396c73",
+    "fex-jit-capture/cache-audit.patch": "b70bc33e968c241ce419fc682f3274ad11351f141ccc44964ef893784bd7af21",
+    "fex-jit-capture/CacheAudit.h": "d41d0f5c99046a71396897de15bfe4b955d24e183bd5716cd349a414cf33777e",
+    "fex-jit-capture/CacheBufferPolicy.h": "bbccb7dc272cdf2287b2ea4693bd55e6153812ad5b279001441c87209da65ebc",
+    "fex-jit-capture/test_cache_audit.py": "05043521afd072e219ee19b2b2921b8206dfbf8b7d51ab5d81edc2ef6505e2c2"
+  },
+  "files": {
+    "libarm64ecfex.dll": {
+      "bytes": 5574656,
+      "sha256": "f27c1da343e14644b81f5549906f3ed735822e40fc31b7f3c64e43b658d1db4f",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "exportCount": 40,
+      "importCount": 1
+    },
+    "libwow64fex.dll": {
+      "bytes": 4993024,
+      "sha256": "e67b44d133cd4570695404325c3ad13d7002906b3af4d152d52ef40d29a39ec5",
+      "pe": {
+        "format": "PE",
+        "machine": "0xaa64",
+        "architecture": "arm64",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "exportCount": 46,
+      "importCount": 2
+    }
+  },
+  "defaultEnabled": false,
+  "process": "MgsGroundZeroes.exe",
+  "androidDeviceTested": false,
+  "crysisInlineSmc": {
+    "process": "Crysis2.exe",
+    "frontend": "WOW64",
+    "requestedBy": "AURA_FEX_CRYSIS2_INLINE_SMC",
+    "defaultEnabled": false,
+    "checks": "FULL_INSTRUCTION",
+    "diskCache": false,
+    "monoHacks": false,
+    "androidDeviceTested": false
+  },
+  "crysisFastSmc": {
+    "requestedBy": "AURA_FEX_CRYSIS2_FAST_SMC",
+    "defaultEnabled": false,
+    "requiresVerifiedInlineSmc": true,
+    "exactByteLengths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "fallback": "CRC",
+    "preservesNZCV": true,
+    "overread": false,
+    "androidDeviceTested": false
+  },
+  "crysisJitBudget": {
+    "requiresVerifiedInlineSmc": true,
+    "maxInstructions": 512,
+    "preservesSmallerUserLimit": true,
+    "rollback": "AURA_FEX_CRYSIS2_BOUNDED_JIT=0",
+    "checksUnchanged": true,
+    "cacheCapacityUnchanged": true,
+    "androidDeviceTested": false
+  },
+  "crysisSharedSmcExits": {
+    "requiresVerifiedInlineSmc": true,
+    "frontend": "WOW64",
+    "scope": "same translation attempt and ordered physical register pair",
+    "rollback": "AURA_FEX_CRYSIS2_SHARED_SMC_EXITS=0",
+    "checksUnchanged": true,
+    "spillSequenceUnchanged": true,
+    "cacheCapacityUnchanged": true,
+    "crossGenerationPointers": false,
+    "androidDeviceTested": false,
+    "supersededBy": "sharedSmcExits"
+  },
+  "sharedSmcExits": {
+    "frontends": [
+      "WOW64",
+      "ARM64EC"
+    ],
+    "appDefaultEnabled": true,
+    "nativeDefaultEnabled": false,
+    "requiresSelectedExecutable": true,
+    "requiresFullChecks": true,
+    "changesCheckMode": false,
+    "affectsCodeGenerationCacheKey": true,
+    "requestedBy": "AURA_FEX_SHARED_SMC_EXITS",
+    "executable": "AURA_FEX_SHARED_SMC_EXITS_EXE",
+    "scope": "same translation attempt and ordered physical register pair",
+    "checksUnchanged": true,
+    "spillSequenceUnchanged": true,
+    "cacheCapacityUnchanged": true,
+    "crossGenerationPointers": false,
+    "androidDeviceTested": false
+  },
+  "irBlockTail": {
+    "scope": "IREmitter linked block maintenance",
+    "checksUnchanged": true,
+    "cachePolicyUnchanged": true,
+    "androidDeviceTested": false
+  },
+  "jitCapture": {
+    "shmVersion": 4,
+    "headerBytes": 128,
+    "threadBytes": 1280,
+    "defaultEnabled": false,
+    "manualWindowSeconds": 10,
+    "operationsPerThread": 50000,
+    "repeatKeysPrivate": true,
+    "cachePolicyUnchanged": true,
+    "androidDeviceTested": false
+  },
+  "cacheAudit": {
+    "unixAbiSha256": "de2f8d54d0bb38aba07bb8bfff4173bae37db8e3d9111491ae971fef14391b71",
+    "cpuCapabilities": "ANDROID_AUXV_WINE_REGISTRY_FEX_EFFECTIVE",
+    "sveEnabled": false,
+    "cacheBufferMiB": [
+      0,
+      32,
+      64
+    ],
+    "defaultMiB": 0,
+    "targetProcessOnly": true,
+    "preservesSmcChecks": true,
+    "memoryCopyFix": true,
+    "androidDeviceTested": false
+  }
+}

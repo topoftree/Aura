@@ -1,0 +1,8 @@
+Optional Aura shared GPU Zink module
+
+Based on Pipetto-crypto/mesa commit ccacc8abc043de9766f4341079d06bac5f3a1824 (Mesa 24.3.0-devel).
+Aura adds zink_aura_present.c/h and the integration described in tools/shared-gpu/patch_mesa.py.
+Upstream files retain their copyrights and licences. mesa-source-notices.txt is a source notice superset, including unlinked components, not a binary link map.
+The Android X11, DRM, Zstandard and sysvshm libraries are reused from the existing runtime; their notices remain in the offline licence catalog.
+Static LLVM libc++, libc++abi and compiler-rt notices are included via the existing LLVM entries.
+Source URL, archive digest, Android dependency digests, host header inputs and build procedure are recorded in tools/shared-gpu/sources.lock.json and build.py.

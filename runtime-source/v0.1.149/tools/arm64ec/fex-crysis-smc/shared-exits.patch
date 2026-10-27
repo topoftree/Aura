@@ -1,0 +1,90 @@
+--- a/FEXCore/Source/Interface/Config/Config.json.in
++++ b/FEXCore/Source/Interface/Config/Config.json.in
+@@ -12,6 +12,12 @@
+         "Default": "false",
+         "AffectsCodeGen": "true",
+         "Desc": ["Exact-byte short instruction checks; gated by verified Crysis 2 WOW64 launch"]
++      },
++      "CrysisSharedSMCExits": {
++        "Type": "bool",
++        "Default": "false",
++        "AffectsCodeGen": "true",
++        "Desc": ["Share identical invalidation exits within verified Crysis 2 WOW64 FULL translation units"]
+       },
+       "Multiblock": {
+         "Type": "bool",
+--- a/FEXCore/Source/Interface/Context/Context.h
++++ b/FEXCore/Source/Interface/Context/Context.h
+@@ -359,6 +359,7 @@
+     FEX_CONFIG_OPT(MemcpySetTSOEnabled, MEMCPYSETTSOENABLED);
+     FEX_CONFIG_OPT(SMCChecks, SMCCHECKS);
+     FEX_CONFIG_OPT(CrysisFastSMC, CRYSISFASTSMC);
++    FEX_CONFIG_OPT(CrysisSharedSMCExits, CRYSISSHAREDSMCEXITS);
+     FEX_CONFIG_OPT(MaxInstPerBlock, MAXINST);
+     FEX_CONFIG_OPT(RootFSPath, ROOTFS);
+     FEX_CONFIG_OPT(GlobalJITNaming, GLOBALJITNAMING);
+--- a/FEXCore/Source/Interface/Core/JIT/BranchOps.cpp
++++ b/FEXCore/Source/Interface/Core/JIT/BranchOps.cpp
+@@ -380,6 +380,20 @@
+ DEF_OP(ThreadRemoveCodeEntry) {
+   auto Op = IROp->C<IR::IROp_ThreadRemoveCodeEntry>();
+ 
++  if (CTX->Config.CrysisSharedSMCExits() && !CTX->Config.Is64BitMode() &&
++      CTX->Config.SMCChecks() == FEXCore::Config::CONFIG_SMC_FULL) {
++    // Key the complete ordered operand pair after register allocation. Reuse
++    // only an identical exit, preserving the original spill/RIP/ABI order and
++    // all flags. The ordinary instruction checks and their branches stay put.
++    const uint16_t Key = (GetReg(Op->EntryToInvalidate).Idx() << 5) | GetReg(Op->NewRIP).Idx();
++    auto [Exit, First] = SharedSMCExits.try_emplace(Key);
++    if (!First) {
++      b_OrRestart(&Exit->second);
++      return;
++    }
++    BindOrRestart(&Exit->second);
++  }
++
+   SpillStaticRegs(TMP1);
+ 
+   // Store the new RIP to go to.
+--- a/FEXCore/Source/Interface/Core/JIT/JIT.cpp
++++ b/FEXCore/Source/Interface/Core/JIT/JIT.cpp
+@@ -907,6 +907,8 @@
+ 
+   uint32_t SSACount = IR->GetSSACount();
+   JumpTargets.clear();
++  // Also executed after branch-range/temporary-buffer compilation restarts.
++  SharedSMCExits.clear();
+   CallReturnTargets.clear();
+   PendingJumpThunks.clear();
+   JumpTargets.resize(IR->GetHeader()->BlockCount, {});
+--- a/FEXCore/Source/Interface/Core/JIT/JITClass.h
++++ b/FEXCore/Source/Interface/Core/JIT/JITClass.h
+@@ -93,6 +93,11 @@
+   CPUBackend::CompiledCode CodeData {};
+ 
+   fextl::vector<ARMEmitter::BiDirectionalLabel> JumpTargets;
++
++  // Same register operands imply the exact same state-spill and invalidation
++  // sequence. Labels belong only to this compilation attempt, never a cache
++  // generation or another block. No guest address/value is cached here.
++  fextl::map<uint16_t, ARMEmitter::BackwardLabel> SharedSMCExits;
+ 
+   ARMEmitter::BiDirectionalLabel* JumpTarget(IR::OrderedNodeWrapper Node) {
+     auto Block = IR->GetOp<IR::IROp_CodeBlock>(Node);
+--- a/Source/Windows/WOW64/Module.cpp
++++ b/Source/Windows/WOW64/Module.cpp
+@@ -524,6 +524,14 @@
+                      CrysisFastSMC ? "ACTIVE" : "OFF");
+   }
+ 
++  const bool CrysisSharedSMCExits =
++    FEX::Windows::CrysisSharedSmcExitsEnabled(CrysisInlineSMC, getenv("AURA_FEX_CRYSIS2_SHARED_SMC_EXITS"));
++  FEXCore::Config::Set(FEXCore::Config::CONFIG_CRYSISSHAREDSMCEXITS, CrysisSharedSMCExits ? "1" : "0");
++  if (CrysisInlineSMC) {
++    LogMan::Msg::IFmt("AURA_FEX_CRYSIS2_SHARED_SMC_EXITS_V1 state={}; scope=TRANSLATION_UNIT; checks=FULL_INSTRUCTION; cache_size=UNCHANGED; game_ready=UNCONFIRMED",
++                     CrysisSharedSMCExits ? "ACTIVE" : "OFF");
++  }
++
+   const bool CrysisBoundedJit = FEX::Windows::CrysisBoundedJitEnabled(CrysisInlineSMC, getenv("AURA_FEX_CRYSIS2_BOUNDED_JIT"));
+   if (CrysisInlineSMC) {
+     FEX_CONFIG_OPT(ExistingMaxInst, MAXINST);

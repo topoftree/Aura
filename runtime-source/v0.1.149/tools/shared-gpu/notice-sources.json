@@ -1,0 +1,10 @@
+{
+  "url": "https://codeload.github.com/Pipetto-crypto/mesa/tar.gz/ccacc8abc043de9766f4341079d06bac5f3a1824",
+  "archiveSha256": "0d05ddf3abb3e02fba343f69e1b90c5b1519c3b7b28e3b48e9078b92acc5adf9",
+  "sourceFiles": 6356,
+  "noticeBlocks": 6427,
+  "output": "app/src/main/assets/licenses/shared-gpu/mesa-source-notices.txt",
+  "bytes": 6298908,
+  "sha256": "9cf12d4f1dd61d80ac8bb57fa473d29d645c5ff98a3b6a39b236752d4d5d8202",
+  "scope": "Upstream source notice superset; not a binary link map"
+}

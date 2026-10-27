@@ -1,0 +1,139 @@
+{
+  "schema": "AURA_ADRENOTOOLS_BUILD_V1",
+  "revision": "libdl-handle-1",
+  "ndk": "28.2.13676358",
+  "androidApi": 34,
+  "builderSha256": "ae60226722ffe9f1ecce3eb055459f32c8666566b049a6c974dce82edfa78ffd",
+  "sourceRoot": "engine/src/main/cpp/libadrenotools",
+  "sources": {
+    "CMakeLists.txt": "47526f5e840e03548fff1e2a557d7afd93603e5e06709e6bd2bb81af8dbfbfbe",
+    "LICENSE": "7ea796e199e46093c2f5c391697bce5abeacd02b7216aa0a84e5839afb5584f3",
+    "gen/bcenabler_patch.h": "4add3192dcb3d9055d6b275a514d9d96f1cc6266bce16853f8fb5a05b8645b76",
+    "include/adrenotools/bcenabler.h": "c673107d06852b1266627c701297a3dc64ac6f1cb2933dbf9bc8b00bf2fd355a",
+    "include/adrenotools/driver.h": "fbcb34b75758a708058942d798c506065d362c9fa8e78371d9f2a76d6bceebdf",
+    "include/adrenotools/priv.h": "dfddff2cff43ec1154ad2e064fd9ba18bf671581f4ced927cec8e48fbe2173c3",
+    "lib/linkernsbypass/CMakeLists.txt": "91f2301b203f420fcfe8d40b4096585fa6add2cf48680a9ab7ec891d82c4b296",
+    "lib/linkernsbypass/LICENSE": "7ea796e199e46093c2f5c391697bce5abeacd02b7216aa0a84e5839afb5584f3",
+    "lib/linkernsbypass/android_linker_ns.cpp": "4fb2e5245b4e4784cbe052719cc7b628c6f60c6c0567c44e4bfe033ce2cf89d3",
+    "lib/linkernsbypass/android_linker_ns.h": "33943fcf302c09d7083a4c8f3e5660d76f13d5e34eacb404ba41e0250673fb60",
+    "lib/linkernsbypass/elf_soname_patcher.cpp": "5c3b935d2e1f6a716991174145b7999759042feee3636bec56b1bc87de51943f",
+    "lib/linkernsbypass/elf_soname_patcher.h": "8a431b3765c57aee5f82362688503cdcefef3eb9fe5d35f18029dc8a5320dac9",
+    "lib/linkernsbypass/system_linker.cpp": "334e9186f2224d7ecb9443f71256cac2f4fb33c1716160049ca691ea819745c2",
+    "lib/linkernsbypass/system_linker.h": "0715accf5d6edfb24d4c78ae64b97adb6fc7aed7f2bebc96b9af2da63a609da7",
+    "src/bcenabler.cpp": "aa0d0d7d548bee5389437904841fee822e130f69a5c25130282ecec032782f92",
+    "src/driver.cpp": "93d0a7b5f741f42e5b728f8eed941f46a3fd9e09e275f33f22c910473ecde6d7",
+    "src/hook/CMakeLists.txt": "1ff134d14bde530c818b90a3501ef50eedc9296e71a8b02d42f861d834828943",
+    "src/hook/file_redirect_hook.c": "45df9f280b2d6deb31d886fb633e69b3e8dd268e5bcd63d8b1a01043d0adc30d",
+    "src/hook/gsl_alloc_hook.c": "526438e98c041410872369efc7d4ba14a2af3337d6ab86c9b244d90b919a9f53",
+    "src/hook/hook_impl.cpp": "9fe168c32f575dd1520b1117d95dadb6a05f844b987f1227f4d264c08a360a34",
+    "src/hook/hook_impl.h": "ccd30d89b8056ddcb92242659b6e7c6b4da2079b4e8e04e7c7e5a59701438a48",
+    "src/hook/hook_impl_params.h": "356749bc0b1f38775c06bee92668e97ea117293c3343f4e43ac5888b642479aa",
+    "src/hook/kgsl.h": "258b127f4011c18496ea2557d57f58a8c2eeb7eb486d59ad949c8980a41aabc5",
+    "src/hook/main_hook.c": "3a28fbad443f0e057f317d481610f9c2d04abcc4abe3252022af7e79ea25825e",
+    "tools/acc-shim/vk_acc_shim.cpp": "325f630fb60874dbd50ae0d13e49f820a4cb064a26662406beae7090d679b30a",
+    "tools/qtimapper-shim/ext/QtiGrallocDefs.h": "75ea6d84f7b77be2faf93747b3c867a54423e5dc762326abebd5aed16a1d731e",
+    "tools/qtimapper-shim/ext/common.h": "f92de3482a97ddd71809e93aef1ce6c6463df4da099449b97f1fb26712c38318",
+    "tools/qtimapper-shim/ext/gr_adreno_info.cpp": "2879bc564c9105e6bca3b77585747a39c59c7bdb292f9562a2443c4d9d28e751",
+    "tools/qtimapper-shim/ext/gr_adreno_info.h": "5789c1affffa62c7246e670953355f1f6c9ea595936aeb9b58663b8903b4b594",
+    "tools/qtimapper-shim/ext/gr_priv_handle.h": "bddb0408af1296e01c39b4fdda5cefe58839a7062c8f031b859ee15950778d96",
+    "tools/qtimapper-shim/ext/gr_utils.cpp": "de0c79a67ed02661f81eb96e72a3b3a430a4160e5991175258a12202e39693d9",
+    "tools/qtimapper-shim/ext/gr_utils.h": "3be00c73dd6e445f0cccbe968ff446199243c5f5bdabb2b0ae97c33fc271feb7",
+    "tools/qtimapper-shim/ext/gralloc_priv.h": "ae03a4f0571a0229a3b7c0be6a4cbe8e6fe849e4f217ea6a45a4ed85ec2c62a9",
+    "tools/qtimapper-shim/ext/mapper.h": "5209f261c8a9562d11b00fc2cf05eec4401c0e98b15a84f9651007b1acafda20",
+    "tools/qtimapper-shim/ext/mapperextensions.h": "0a4cdef0651157ef778309849ae5851418ac38b0f587e0dd599da8fb99f4fc75",
+    "tools/qtimapper-shim/ext/types/common.h": "14eff0aea01a68b309e41f42ddac21fb0c107abc9a1e9b5a3433de03bd61381c",
+    "tools/qtimapper-shim/ext/types/mapper.h": "8c9151ab725569e32a5eabd76bcd397904db36ddcc7edf2a69e62e8e6cf219d0",
+    "tools/qtimapper-shim/ext/types/mapperextensions.h": "de591ae6b191931ec0a62aa9f08a3e20ff852e53ecf0123f5e5a681722abc233",
+    "tools/qtimapper-shim/shim.cpp": "ab5374b29c4b673a3fd720a0726bd671b51250006cefb3d998296f6fbdede46b"
+  },
+  "options": [
+    "-G",
+    "Ninja",
+    "-DCMAKE_MAKE_PROGRAM=${CMAKE_BIN}/ninja",
+    "-DCMAKE_TOOLCHAIN_FILE=${NDK}/build/cmake/android.toolchain.cmake",
+    "-DANDROID_ABI=arm64-v8a",
+    "-DANDROID_PLATFORM=android-34",
+    "-DANDROID_STL=c++_shared",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_CXX_STANDARD=17",
+    "-DBUILD_SHARED_LIBS=ON",
+    "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
+    "-DCMAKE_INSTALL_RPATH=/data/data/com.android.aura/f/r/lib",
+    "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-z,max-page-size=16384,-rpath,/data/data/com.android.aura/f/r/lib",
+    "-DCMAKE_C_FLAGS=-ffile-prefix-map=${ROOT}=.",
+    "-DCMAKE_CXX_FLAGS=-ffile-prefix-map=${ROOT}=."
+  ],
+  "outputs": {
+    "libadrenotools.so": {
+      "bytes": 46104,
+      "sha256": "112634b9761e6c056c189b5291135bf4df108ded9bfec45768147e0cd431cf67",
+      "previousSha256": "4939ec0ad71634cda4ac734fcfeffa91422ee4001612fc14a5ede3d040429d24",
+      "retainedPublicExports": [
+        "adrenotools_get_bcn_type",
+        "adrenotools_import_user_mem",
+        "adrenotools_mem_cpu_map",
+        "adrenotools_mem_gpu_allocate",
+        "adrenotools_open_libvulkan",
+        "adrenotools_patch_bcn",
+        "adrenotools_set_turbo",
+        "adrenotools_validate_gpu_mapping"
+      ],
+      "elf": {
+        "format": "ELF64",
+        "machine": "0xb7",
+        "abi": "bionic",
+        "interpreter": null,
+        "needed": [
+          "libandroid.so",
+          "libdl.so",
+          "libm.so",
+          "libc++_shared.so",
+          "libc.so"
+        ],
+        "soname": [
+          "libadrenotools.so"
+        ],
+        "searchPaths": [
+          "/data/data/com.android.aura/f/r/lib"
+        ],
+        "minimumLoadAlignment": 16384
+      }
+    },
+    "libhook_impl.so": {
+      "bytes": 41480,
+      "sha256": "996efd2833622d5d641aacbc56efc56c25ac9af097070adc1a42be8b4b793a8a",
+      "previousSha256": "4194de0221b4d6c66966a2b4c92207b65c85666bc588dc5b3981e0f188c49ae0",
+      "retainedPublicExports": [
+        "hook_android_dlopen_ext",
+        "hook_android_load_sphal_library",
+        "hook_fopen",
+        "hook_gsl_memory_alloc_pure_64",
+        "hook_gsl_memory_free_pure",
+        "init_gsl",
+        "init_hook_param"
+      ],
+      "elf": {
+        "format": "ELF64",
+        "machine": "0xb7",
+        "abi": "bionic",
+        "interpreter": null,
+        "needed": [
+          "liblog.so",
+          "libandroid.so",
+          "libdl.so",
+          "libm.so",
+          "libc++_shared.so",
+          "libc.so"
+        ],
+        "soname": [
+          "libhook_impl.so"
+        ],
+        "searchPaths": [
+          "/data/data/com.android.aura/f/r/lib"
+        ],
+        "minimumLoadAlignment": 16384
+      }
+    }
+  },
+  "androidDeviceTested": false
+}

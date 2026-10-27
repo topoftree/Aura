@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(aura_wine_dns C)
+add_library(aura_wine_dns SHARED wine_dns.c dns_answer.c)
+target_link_libraries(aura_wine_dns android dl)
+target_compile_options(aura_wine_dns PRIVATE -Wall -Wextra -Werror -fvisibility=hidden)
+target_link_options(aura_wine_dns PRIVATE -Wl,-z,max-page-size=16384 -Wl,--no-undefined)

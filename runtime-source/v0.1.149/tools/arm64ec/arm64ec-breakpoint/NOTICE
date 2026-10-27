@@ -1,0 +1,16 @@
+Aura ARM64EC loader breakpoint context correction
+SPDX-License-Identifier: LGPL-2.1-or-later
+
+Based on Wine / Proton Wine 11.0-2 at
+https://github.com/The412Banner/proton-wine/tree/dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+with its pinned Android ARM64EC vendor patches and Aura wait/tick patches.
+Wine and its contributors retain their copyright. This correction is by Aura
+contributors, 2026, under LGPL-2.1-or-later. See COPYING.LIB and
+wine-arm64ec-breakpoint.patch. Rebuild instructions and pinned inputs are in
+tools/arm64ec/arm64ec-breakpoint/README.md and build.json in the source tree.
+
+Wine's ARM64EC process_breakpoint SEH handler receives an AMD64-compatible
+context. Advance Rip / ARM64EC_NT_CONTEXT.Pc at 0xf8, instead of modifying the
+floating-point exception fields at 0x108. Retain the original four-byte ARM64
+instruction step, exception disposition, debug-port query and exception dispatch.
+No game file is modified or included. Android gameplay verification is pending.

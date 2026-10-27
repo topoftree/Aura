@@ -1,0 +1,49 @@
+{
+  "schema": "QUALCOMM_UUID_BUILD_V1",
+  "revision": "uuid1",
+  "ndk": "28.2.13676358",
+  "androidApi": 34,
+  "source": "engine/src/main/cpp/aura_qualcomm_uuid/uuid_shim.c",
+  "sourceSha256": "5639ac03b9b8cbc9288dee0f401ab4611707fa787f8cb5b87acb4935689f09b5",
+  "builderSha256": "81bc1b293f16eb80924af811098375f5051a350eec1668ac4b084f376b4a9cc3",
+  "originalArchiveSha256": "60a47c3c82c852a6beea3e0b039cca9957539fff31858ee9c798c923fce372dd",
+  "options": [
+    "-std=c11",
+    "-O2",
+    "-shared",
+    "-fPIC",
+    "-fvisibility=hidden",
+    "-fno-omit-frame-pointer",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wl,--no-undefined",
+    "-Wl,-z,max-page-size=16384",
+    "-Wl,-soname,adrenoutils_extra.so",
+    "-Wl,--exclude-libs,ALL",
+    "-ffile-prefix-map=${ROOT}=."
+  ],
+  "outputSha256": "df39a8ea3564321243158d7516293288b231e27e6c7464c94f7c21ca48500d9f",
+  "outputBytes": 7472,
+  "elf": {
+    "format": "ELF64",
+    "machine": "0xb7",
+    "abi": "bionic",
+    "interpreter": null,
+    "needed": [
+      "libdl.so",
+      "liblog.so",
+      "libc.so"
+    ],
+    "soname": [
+      "adrenoutils_extra.so"
+    ],
+    "searchPaths": [],
+    "minimumLoadAlignment": 16384
+  },
+  "exportedFunctions": [
+    "get_driver_uuid",
+    "get_override_device_uuid"
+  ],
+  "androidDeviceTested": false
+}

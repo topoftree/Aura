@@ -1,0 +1,204 @@
+--- a/src/d3d9/d3d9_device.cpp
++++ b/src/d3d9/d3d9_device.cpp
+@@ -1,4 +1,5 @@
+ #include "d3d9_device.h"
++#include "../util/aura_flow_trace.h"
+ 
+ #include "d3d9_annotation.h"
+ #include "d3d9_common_texture.h"
+@@ -4786,8 +4787,10 @@
+     }
+ 
+     // Wait for staging memory to get recycled.
+-    if (stagingBufferAllocated > MaxStagingMemoryInFlight)
++    if (stagingBufferAllocated > MaxStagingMemoryInFlight) {
++      aura_flow::Scope flow(aura_flow::StagingWait);
+       m_dxvkDevice->waitForFence(*m_stagingBufferFence, stagingBufferAllocated - MaxStagingMemoryInFlight);
++    }
+   }
+ 
+ 
+@@ -4821,6 +4824,7 @@
+ 
+     if (Resource.isInUse(access)) {
+       if (MapFlags & D3DLOCK_DONOTWAIT) {
++        aura_flow::Scope flow(aura_flow::MapBusyNoWait);
+         // We don't have to wait, but misbehaving games may
+         // still try to spin on `Map` until the resource is
+         // idle, so we should flush pending commands
+@@ -4833,6 +4837,7 @@
+         Flush();
+         SynchronizeCsThread(SequenceNumber);
+ 
++        aura_flow::Scope flow((MapFlags & D3DLOCK_READONLY) ? aura_flow::WaitMapRead : aura_flow::WaitMapWrite);
+         m_dxvkDevice->waitForResource(Resource, access);
+       }
+     }
+@@ -5797,12 +5802,22 @@
+     uint64_t chunkId = GetCurrentSequenceNumber();
+     uint64_t submissionId = m_submissionFence->value();
+ 
+-    if (m_flushTracker.considerFlush(FlushType, chunkId, submissionId))
++    if (m_flushTracker.considerFlush(FlushType, chunkId, submissionId)) {
++      uint32_t reason = aura_flow::FlushExplicit;
++      switch (FlushType) {
++        case GpuFlushType::ImplicitWeakHint: reason = aura_flow::FlushWeak; break;
++        case GpuFlushType::ImplicitStrongHint: reason = aura_flow::FlushStrong; break;
++        case GpuFlushType::ImplicitSynchronization: reason = aura_flow::FlushSync; break;
++        default: break;
++      }
++      aura_flow::Scope flow(reason);
+       Flush();
++    }
+   }
+ 
+ 
+   void D3D9DeviceEx::SynchronizeCsThread(uint64_t SequenceNumber) {
++    aura_flow::Scope flow(aura_flow::CommandThread);
+     D3D9DeviceLock lock = LockDevice();
+ 
+     // Dispatch current chunk so that all commands
+@@ -6187,6 +6202,7 @@
+ 
+   template <bool Synchronize9On12>
+   void D3D9DeviceEx::ExecuteFlush() {
++    aura_flow::Scope flow(aura_flow::Flush);
+     D3D9DeviceLock lock = LockDevice();
+ 
+     if constexpr (Synchronize9On12)
+@@ -7901,6 +7917,7 @@
+         VkShaderStageFlagBits ShaderStage,
+   const DWORD*                pShaderBytecode,
+   const DxsoModuleInfo*       pModuleInfo) {
++    aura_flow::Scope flow(aura_flow::ShaderModule);
+     try {
+       m_shaderModules->GetShaderModule(this, pShaderModule,
+         pLength, ShaderStage, pModuleInfo, pShaderBytecode);
+--- a/src/d3d9/d3d9_query.cpp
++++ b/src/d3d9/d3d9_query.cpp
+@@ -1,4 +1,5 @@
+ #include "d3d9_query.h"
++#include "../util/aura_flow_trace.h"
+ 
+ #include "d3d9_device.h"
+ 
+@@ -127,6 +128,7 @@
+ 
+ 
+   HRESULT STDMETHODCALLTYPE D3D9Query::GetData(void* pData, DWORD dwSize, DWORD dwGetDataFlags) {
++    aura_flow::Scope flow((dwGetDataFlags & D3DGETDATA_FLUSH) ? aura_flow::QueryFlush : aura_flow::QueryGetData);
+     D3D9DeviceLock lock = m_parent->LockDevice();
+ 
+     bool flush = dwGetDataFlags & D3DGETDATA_FLUSH;
+--- a/src/d3d9/d3d9_swapchain.cpp
++++ b/src/d3d9/d3d9_swapchain.cpp
+@@ -1,4 +1,5 @@
+ #include "d3d9_swapchain.h"
++#include "../util/aura_flow_trace.h"
+ #include "d3d9_surface.h"
+ #include "d3d9_monitor.h"
+ 
+@@ -109,6 +110,7 @@
+           HWND     hDestWindowOverride,
+     const RGNDATA* pDirtyRegion,
+           DWORD    dwFlags) {
++    aura_flow::Scope flow(aura_flow::Present);
+     D3D9DeviceLock lock = m_parent->LockDevice();
+ 
+     m_parent->SetMostRecentlyUsedSwapchain(this);
+--- a/src/dxvk/dxvk_queue.cpp
++++ b/src/dxvk/dxvk_queue.cpp
+@@ -1,4 +1,5 @@
+ #include "dxvk_device.h"
++#include "../util/aura_flow_trace.h"
+ #include "dxvk_queue.h"
+ 
+ namespace dxvk {
+@@ -162,8 +163,11 @@
+               trackedSubmitId = entry.latency.frameId;
+           }
+ 
+-          entry.result = entry.submit.cmdList->submit(
+-            m_semaphores, m_timelines, trackedSubmitId);
++          {
++            aura_flow::Scope flow(aura_flow::QueueSubmit);
++            entry.result = entry.submit.cmdList->submit(
++              m_semaphores, m_timelines, trackedSubmitId);
++          }
+           entry.timelines = m_timelines;
+         } else if (entry.present.presenter != nullptr) {
+           if (entry.latency.tracker)
+@@ -259,7 +263,10 @@
+           waitInfo.pSemaphores = semaphores.data();
+           waitInfo.pValues = timelines.data();
+ 
+-          status = vk->vkWaitSemaphores(vk->device(), &waitInfo, ~0ull);
++          {
++            aura_flow::Scope flow(aura_flow::GpuCompletion);
++            status = vk->vkWaitSemaphores(vk->device(), &waitInfo, ~0ull);
++          }
+ 
+           if (entry.latency.tracker && status == VK_SUCCESS)
+             entry.latency.tracker->notifyGpuExecutionEnd(entry.latency.frameId);
+--- a/src/dxvk/dxvk_graphics.cpp
++++ b/src/dxvk/dxvk_graphics.cpp
+@@ -1,4 +1,5 @@
+ #include <iomanip>
++#include "../util/aura_flow_trace.h"
+ 
+ #include "../util/util_time.h"
+ 
+@@ -248,8 +249,12 @@
+     info.pDynamicState        = &dyInfo;
+     info.basePipelineIndex    = -1;
+ 
+-    VkResult vr = vk->vkCreateGraphicsPipelines(vk->device(),
++    VkResult vr;
++    {
++      aura_flow::Scope flow(aura_flow::PipelineCompile);
++      vr = vk->vkCreateGraphicsPipelines(vk->device(),
+       VK_NULL_HANDLE, 1, &info, nullptr, &m_pipeline);
++    }
+ 
+     if (vr)
+       throw DxvkError("Failed to create vertex input pipeline library");
+@@ -523,8 +528,12 @@
+     info.pDynamicState        = &dyInfo;
+     info.basePipelineIndex    = -1;
+ 
+-    VkResult vr = vk->vkCreateGraphicsPipelines(vk->device(),
++    VkResult vr;
++    {
++      aura_flow::Scope flow(aura_flow::PipelineCompile);
++      vr = vk->vkCreateGraphicsPipelines(vk->device(),
+       VK_NULL_HANDLE, 1, &info, nullptr, &m_pipeline);
++    }
+ 
+     if (vr)
+       throw DxvkError("Failed to create vertex input pipeline library");
+@@ -1356,7 +1365,11 @@
+     info.basePipelineIndex  = -1;
+ 
+     VkPipeline pipeline = VK_NULL_HANDLE;
+-    VkResult vr = vk->vkCreateGraphicsPipelines(vk->device(), VK_NULL_HANDLE, 1, &info, nullptr, &pipeline);
++    VkResult vr;
++    {
++      aura_flow::Scope flow(aura_flow::PipelineCompile);
++      vr = vk->vkCreateGraphicsPipelines(vk->device(), VK_NULL_HANDLE, 1, &info, nullptr, &pipeline);
++    }
+ 
+     if (vr && vr != VK_PIPELINE_COMPILE_REQUIRED_EXT)
+       Logger::err(str::format("DxvkGraphicsPipeline: Failed to create base pipeline: ", vr));
+@@ -1434,7 +1447,11 @@
+       info.pTessellationState = nullptr;
+     
+     VkPipeline pipeline = VK_NULL_HANDLE;
+-    VkResult vr = vk->vkCreateGraphicsPipelines(vk->device(), VK_NULL_HANDLE, 1, &info, nullptr, &pipeline);
++    VkResult vr;
++    {
++      aura_flow::Scope flow(aura_flow::PipelineCompile);
++      vr = vk->vkCreateGraphicsPipelines(vk->device(), VK_NULL_HANDLE, 1, &info, nullptr, &pipeline);
++    }
+ 
+     if (vr != VK_SUCCESS) {
+       Logger::err(str::format("DxvkGraphicsPipeline: Failed to compile pipeline: ", vr));

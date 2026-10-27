@@ -1,0 +1,15 @@
+Wine i386 address-wait completion candidate
+
+Base: The412Banner/proton-wine
+Commit: dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+Prerequisite: ../wait-queue/wine-wait-queue-lifetime.patch
+Candidate: wine-wait-completion.patch
+
+Wine and this modification are distributed under LGPL-2.1-or-later.
+The full license is retained in COPYING.LIB.
+The patch preserves the existing source copyright notices.
+
+The added private Unix-call entry requires matching native and i386 Wine
+components. Do not install the i386 DLL into an older native runtime alone.
+Aura 0.1.100 packages both components together after host scheduling, native
+linking and ABI checks. It has not been verified with the user's game on Android.

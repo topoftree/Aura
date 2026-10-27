@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "wineSourceCommit": "256288853b206373cbf65b775143d33bb11035dd",
+  "wineSourceSha256": "9776c760f250926d777224ed662a30b32a6a3fc241c680c58e280ffe1bcefae5",
+  "ntsyncSourceCommit": "7ce6435e5979b1cb5341aa4b299f31e8937fe121",
+  "ntsyncSourceSha256": "f90f38be286eb6867b43269630c3683f6a62cf809f6e433e3e30a513e2649cbf",
+  "ndk": "28.2.13676358",
+  "rust": "1.90.0",
+  "abi": "android-aarch64-api34",
+  "patchSha256": "481728d8bed0e928787d84ecb7cd78c693a02ce6653c6a422e9f95d025bfd229",
+  "buildScriptSha256": "4d3418230f903b4c9dab169c10dca24159444d35242ee9835228d2a627ab01fd",
+  "vendorPatches": [
+    {
+      "file": "server_protocol.def.patch",
+      "sha256": "2ede1390adc0cdca01d6f80bea68d199bdd2576aaab112e9a8fc0dd86ca6b245"
+    },
+    {
+      "file": "dlls_advapi32_advapi.c.patch",
+      "sha256": "5a4a9c12afc0af308e1d467c21fbe621a8d463729044dfef18abd913a407c72d"
+    },
+    {
+      "file": "dlls_amd_ags_x64_unixlib.c.patch",
+      "sha256": "c889e42eb5b18faebde9b3373674dde8c18951e0e198be793edbb1cd80151c76"
+    },
+    {
+      "file": "dlls_dnsapi_libresolv.c.patch",
+      "sha256": "3b36da5ce9c60f234d53d7ae85c25138c11e3c36be8dec0d87ea3529c336cc85"
+    },
+    {
+      "file": "dlls_dnsapi_record.c.patch",
+      "sha256": "19c374dbd38ef309f4b5383a41ca7add26c8fab453eeef37d0b14a8abf5c2e65"
+    },
+    {
+      "file": "dlls_ws2_32_unixlib.c.patch",
+      "sha256": "7809d7e71d18a800bbb62b39685756c8210964df8c0bde970841cb38e675eff2"
+    },
+    {
+      "file": "dlls_gdiplus_region.c.patch",
+      "sha256": "f3e4f86e5ba176c51716e0133455f8d5f06533da4617e2867d18b185767e8075"
+    },
+    {
+      "file": "dlls_xinput1_3_main.c.patch",
+      "sha256": "4574552beb8c8ea030b2936cc2184def0c90ac0ae31eed2bcdd0ba2a6261bd78"
+    },
+    {
+      "file": "dlls_midimap_Makefile.in.patch",
+      "sha256": "20ac71433507dd62c6348f8972ccddfd3128f23c3d679a96c53bda0e7ea0845c"
+    },
+    {
+      "file": "dlls_midimap_midimap.c.patch",
+      "sha256": "be27684c7b11e3c1d45c2d2f9c7a7031827ca5aa9a83e07893ef45d9032e695a"
+    },
+    {
+      "file": "dlls_nsiproxy.sys_nsi_common.h.patch",
+      "sha256": "c9c6459e4efb6d9400b0fa249e1c417f214c4bfa09fd3f0ed24ecbf8c42d2c5d"
+    },
+    {
+      "file": "dlls_nsiproxy.sys_ip.c.patch",
+      "sha256": "fd25272fc153f80c711ce58d76fa8afaeaafc839b27da6af95430f8f2dfd407b"
+    },
+    {
+      "file": "dlls_nsiproxy.sys_ndis.c.patch",
+      "sha256": "452563b0c23709deaef4ce8e491ce03780c6d064b86a028b7c81684b2c21172e"
+    },
+    {
+      "file": "dlls_ntdll_Makefile.in.patch",
+      "sha256": "c8cb7a4d9febaa8ec62a8cbc38366f610d67b2fcc00a05f2e961a6620768cd89"
+    },
+    {
+      "file": "dlls_ntdll_unix_fsync.c.patch",
+      "sha256": "a66d1fea17b8675280a36ca0e1c324959ce03738f40c2eb4eb07a96871924ff9"
+    },
+    {
+      "file": "dlls_ntdll_unix_loader.c.patch",
+      "sha256": "a783a47315cf0b5ca107e07e7c3e01811dbed1bebb35bfdc2bf9be1053009b54"
+    },
+    {
+      "file": "dlls_ntdll_unix_server.c.patch",
+      "sha256": "4c2340bea079a2d0fa8b167bd463d3ae6e87da38ddfbd085d5cb411c00d5d7f6"
+    },
+    {
+      "file": "dlls_ntdll_unix_sync.c.patch",
+      "sha256": "058125925873357677773ebb6cdf95eea4d769ab77cdc9b9a8a54d0e117d7cd3"
+    },
+    {
+      "file": "dlls_ntdll_unix_virtual.c.patch",
+      "sha256": "57b11de1673aff5705ac4723f6ca217c42adcbf0f9fbc0005b86a32658863244"
+    },
+    {
+      "file": "dlls_ntdll_unix_env.c.patch",
+      "sha256": "053035bf130a7dc37a62ed00dce46a132946c27522ff734e30201c7541ec45c1"
+    },
+    {
+      "file": "dlls_ntdll_unix_unix_private.h.patch",
+      "sha256": "30b60bf23ce6a105a335a647264eedcb7ff22cbd68b2a3f241f642aeb6978fd2"
+    },
+    {
+      "file": "dlls_wow64_virtual.c.patch",
+      "sha256": "8d0c985397b35f6ba3f5b34cb89503615578fdc8358efb64984b203e84b37dcf"
+    },
+    {
+      "file": "include_wine_unixlib.h.patch",
+      "sha256": "2125caff1a247247e208142094466ca8bf3402c03b949b264e00b944e0ee5fa8"
+    },
+    {
+      "file": "include_winternl.h.patch",
+      "sha256": "c74fe567b02af098b9f4d0f732f3f69f1784e848737a36f926912bec3e6bf003"
+    },
+    {
+      "file": "dlls_ntdll_unix_signal_x86_64.c.patch",
+      "sha256": "d4cee84aad931ac2fe6c1a4ecec4b161dc298bb187a9cbe2022c0ab10ac4af67"
+    },
+    {
+      "file": "dlls_opengl32_unix_wgl.c.patch",
+      "sha256": "274ce7655251e939d09cae820aed722ab636679a95b3719115a3982fa3cf06d5"
+    },
+    {
+      "file": "dlls_shell32_shlfileop.c.patch",
+      "sha256": "a1b410019398b42091cfa1e06e093dbfb3d510f3c9d49656b2d37724334e5556"
+    },
+    {
+      "file": "dlls_user32_Makefile.in.patch",
+      "sha256": "e2f425970e6e27d0278b0b843c8383f6b3eba4e305907d19ca35b5d50f2fe124"
+    },
+    {
+      "file": "dlls_win32u_clipboard.c.patch",
+      "sha256": "8db738adefda7825b5e804a93b6b8be0778fccbeb06822a0541c4732555cc8b4"
+    },
+    {
+      "file": "dlls_winebus.sys_bus_sdl.c.patch",
+      "sha256": "ddd1e61445032c0a48044fa926e383d4ca99d0024b368a616c3f2cad23b16286"
+    },
+    {
+      "file": "dlls_winepulse.drv_pulse.c.patch",
+      "sha256": "0a630e6056b18fc510dffb759f3131f4802d40c3dde7ae28edd985a539cfcee4"
+    },
+    {
+      "file": "dlls_winex11.drv_bitblt.c.patch",
+      "sha256": "9cabbe8846677d1886708f69d0765aad3d5c4dd79931f5dd48c3994e65276003"
+    },
+    {
+      "file": "dlls_winex11.drv_keyboard.c.patch",
+      "sha256": "87a6362f3c2dcbe39a51774cbcae8b4c1d14e4f1d9951cdc694dbd3ef6e1d588"
+    },
+    {
+      "file": "dlls_winex11.drv_mouse.c.patch",
+      "sha256": "4faec7206d6571f88d2d275d7e2bcb6401066cc9b3ccc2d62dd6bb44b623b0f8"
+    },
+    {
+      "file": "dlls_winex11.drv_opengl.c.patch",
+      "sha256": "82d1785de45c7a1bbf09bebf460e223c74eef3d6cab6b781a176d244ef00d9bf"
+    },
+    {
+      "file": "dlls_winex11.drv_window.c.patch",
+      "sha256": "44a6d5524b6c71cf73d107fffe2bdd82b059ec11ad9bb7e6ceca35c3fcf89438"
+    },
+    {
+      "file": "dlls_winex11.drv_x11drv.h.patch",
+      "sha256": "a5b4b06605b5b2920243be45f818282db0ff4ae4c9d81f816c0675c1482cc641"
+    },
+    {
+      "file": "dlls_winex11.drv_x11drv_main.c.patch",
+      "sha256": "d8f633a67006c8bdad267dfbbcc066eba4557b5d26ff2157320cbf7d5f1ebc5b"
+    },
+    {
+      "file": "dlls_wow64_syscall.c.patch",
+      "sha256": "9c232e55f6a19d52d2ef80d0e1adfc2cdb50b2a0534e8d6fc216ca0afe74fabd"
+    },
+    {
+      "file": "loader_preloader.c.patch",
+      "sha256": "5c8214adcb2dfff5518ebf64f94de16e417600496415bea6cfb6f08eb971a066"
+    },
+    {
+      "file": "programs_explorer_desktop.c.patch",
+      "sha256": "e146678d682a12985784e4f8886fe7d4ab8c4aeebac550d4eefccfacebd32d1a"
+    },
+    {
+      "file": "programs_wineboot_wineboot.c.patch",
+      "sha256": "7966d48a479f8ced1377189a356e4ad9f706c892898bf7e69cfce9e7fcd9a5a7"
+    },
+    {
+      "file": "programs_winebrowser_Makefile.in.patch",
+      "sha256": "48c37543fc74e05fb434440161083e8955225b284108b73c78cb45efc1903f5a"
+    },
+    {
+      "file": "programs_winebrowser_main.c.patch",
+      "sha256": "521063d4f74d00f638bcb6671ae268fc50ef15e9baa0ec508781c9a296221f41"
+    },
+    {
+      "file": "programs_winemenubuilder_winemenubuilder.c.patch",
+      "sha256": "ed59a2a9e80c8089ac2cff3ae86951421355c65b5e92387a73f46bdc80491f53"
+    },
+    {
+      "file": "server_Makefile.in.patch",
+      "sha256": "5f3b54b11e430f3b4d3592f012ff3ee71e890e9096475b476bd3c87f86b4e8ae"
+    },
+    {
+      "file": "server_fsync.c.patch",
+      "sha256": "ffe780c4238b1f135fb8ebdaa46af29cbae0c8c72066e0b7f497a23de3cc1f5d"
+    },
+    {
+      "file": "server_inproc_sync.c.patch",
+      "sha256": "afff21e6723f2d56cbdc4549703dddfa0262c2e9b29127cc17d59eb4bd99d7bf"
+    },
+    {
+      "file": "server_main.c.patch",
+      "sha256": "111714c89e00750ca04d4c3907205f9b26190137c56ae4dee332c393e2dde8d8"
+    },
+    {
+      "file": "server_thread.c.patch",
+      "sha256": "dbf266b7d28b13e19e99a244528adc3ea4ba2258fba4ffcd5b3005c97031d753"
+    },
+    {
+      "file": "server_unicode.c.patch",
+      "sha256": "53997eceb957e0aa59e33f04d0834e7d9e38415e9bdc387410230c15e28dc31d"
+    },
+    {
+      "file": "dlls_ntdll_unix_esync.c.patch",
+      "sha256": "d26939ee149bc79400f875f36ed6bcf02ef592a7633effb0cde632e9ed54c778"
+    },
+    {
+      "file": "dlls_ntdll_unix_esync.h.patch",
+      "sha256": "f188277d180446481d47cd49e02ec7239918f4f61b2905b268398bd4132b851f"
+    },
+    {
+      "file": "server_esync.c.patch",
+      "sha256": "fc5238adb3badc7f3cdda43b2f01b84c43f546d5f8ad7a0e76d326747b269876"
+    },
+    {
+      "file": "server_esync.h.patch",
+      "sha256": "6ebcff67625248afc07040ae39eeae1a5d536ac54b137c49e5f786e64e32a141"
+    },
+    {
+      "file": "ntsync_userspace.patch",
+      "sha256": "9ee80fd120a76c77bc6ca8e7b94add0cbe0f81053f3cda65d29648bc2f1303a1"
+    }
+  ],
+  "file": "opt/wine/lib/wine/aarch64-unix/ntdll.so",
+  "bytes": 2385872,
+  "sha256": "5ef66c18e9e32ce9c6ea515a13567af5e9bbbfd759d2ecafd49e5e85eb461ea7",
+  "symbolsSha256": "6681013dc33de8f2bd115f1f911aa1ecb5c6e712ffa7aecff2a67ac6fbb686ce",
+  "baselineSha256": "e0d0ff2743821e8b2ae9cc84599f133c1551e80e37456a33f756f21e672878e8",
+  "initialArm64EcStackReserve": 48,
+  "nativeArm64AndWow64": "UNCHANGED",
+  "androidDeviceTested": false,
+  "southParkMainMenuVerified": false
+}

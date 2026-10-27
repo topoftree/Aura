@@ -1,0 +1,34 @@
+Aura PanVK integration
+
+Driver: PanVK Kbase Android 0.1.0 RC3 (Mesa 26.3.0-devel).
+Community source: https://github.com/zenithblue-oss/panvk-kbase-android/tree/fd6ed91eff1c8d3a83307a2348b959bb93797011
+Mesa source: https://gitlab.freedesktop.org/mesa/mesa/-/tree/5a07217f034b3e50d8c7c7794f97a2df1742613b
+Exact release and binary hashes are in assets/drivers/panvk-rc3.json.
+
+The driver is shipped byte-for-byte unchanged as libaura_panvk.so. Aura provides
+an independent process for startup checks and an X11 ICD configuration. Aura
+does not import the upstream launcher's application code or test applications.
+The retained upstream NOTICE also describes parts of its repository which are
+not included here (notably the launcher and optional BCn reference layer).
+
+Mesa and derived driver patches retain their individual licences and copyright
+notices. Included upstream licence guides and texts describe these terms; there
+is no blanket relicensing under Aura's or Winlator's licence.
+mesa-source-notices.txt retains original source copyright/licence comments
+from the pinned Mesa tree, including components not linked into this driver.
+It is a notice superset, not a binary link map.
+
+LLVM runtime licence texts (libc++, libc++abi, libunwind and compiler-rt) are
+retained as llvm-*-LICENSE.txt from the official llvmorg-19.1.7 source tag:
+https://github.com/llvm/llvm-project/tree/llvmorg-19.1.7
+These include Apache-2.0 WITH LLVM-exception and their legacy notices. The
+licence-text snapshot does not identify the driver's exact compiler revision;
+the upstream build uses a static C++ runtime and its build metadata is retained.
+
+The additional libxcb-xfixes 1.17.0-1 is an unchanged Android binary from the
+official Termux libxcb package; see libxcb-copyright.txt and the pinned package
+record in assets/drivers/panvk-rc3.json. Other X11 libraries are the existing
+Aura/Winlator runtime libraries. Their existing notices remain applicable.
+
+This is a community preview driver. Upstream device reports are not Aura device
+tests, Vulkan conformance certification, or a guarantee of game compatibility.

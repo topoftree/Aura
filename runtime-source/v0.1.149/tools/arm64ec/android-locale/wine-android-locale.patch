@@ -1,0 +1,19 @@
+--- a/dlls/ntdll/unix/env.c
++++ b/dlls/ntdll/unix/env.c
+@@ -741,6 +741,16 @@
+     if (!(messages = setlocale( LC_MESSAGES, "" )) && (messages = getenv( "LC_MESSAGES" )))
+         FIXME_(nls)( "Failed to set LC_MESSAGES to %s, is the locale supported?\n", debugstr_a(messages) );
+ 
++#ifdef __ANDROID__
++    /* Bionic reports C.UTF-8 even when LC_MESSAGES requests another language.
++     * Keep the Unix codepage UTF-8; select Wine's Windows locale explicitly. */
++    {
++        const char *android_locale = getenv( "AURA_WINE_LOCALE" );
++        if (android_locale && (!strcmp( android_locale, "en-US" ) || !strcmp( android_locale, "zh-CN" )))
++            ctype = messages = android_locale;
++    }
++#endif
++
+     if (!unix_to_win_locale( ctype, system_locale )) system_locale[0] = 0;
+     TRACE_(nls)( "Unix LC_CTYPE is %s, setting system locale to %s\n", debugstr_a(ctype), debugstr_a(user_locale) );
+ 

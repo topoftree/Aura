@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "version": "26.2.5",
+  "component": "Aura-Turnip-26-2-5",
+  "choice": "turnip-26.2.5",
+  "distribution": {
+    "release": "https://archive.mesa3d.org/mesa-26.2.5.tar.xz",
+    "archive": "app/src/main/assets/drivers/turnip-26-2-5.zip",
+    "bytes": 2677354,
+    "sha256": "db32a45a7e261688be6fa776fb64bd71d69f99c91a0342e756c945de3cc13925",
+    "unmodified": false,
+    "provenance": "Local full source build; not an upstream binary release"
+  },
+  "mesa": {
+    "tag": "mesa-26.2.5",
+    "commit": "ddaf85e353442d9d7f192fdcf1823e652e3f2ee3",
+    "url": "https://archive.mesa3d.org/mesa-26.2.5.tar.xz",
+    "sha256": "794b3d1729075dae7ebd47c7283b7ca0cdb5dec668f7f11cc0a5d82f6138a0a5",
+    "binaryVersion": "Mesa 26.2.5 (git-ddaf85e353)",
+    "deviceTableSha256": "c15a9af47e83a92b82581e66890471eaad107ec27c7ed9a9b6770c3769279a96"
+  },
+  "builder": {
+    "revision": "26.2.5-aura-ext1",
+    "script": "tools/turnip-stable/build.py",
+    "receipt": "tools/turnip-stable/build.json",
+    "ndk": "28.2.13676358",
+    "api": 34,
+    "platform": "android",
+    "backend": "kgsl",
+    "androidStrict": false,
+    "mesaPatches": []
+  },
+  "library": "libvulkan_freedreno.so",
+  "ui": {
+    "minApi": 34,
+    "pageSizes": [
+      4096
+    ],
+    "adrenoRange": [
+      600,
+      799
+    ],
+    "excludedAdreno": [
+      710,
+      720,
+      722
+    ]
+  },
+  "locallyRebuilt": true,
+  "androidExecution": "not run",
+  "upstreamDistribution": {
+    "release": "https://github.com/brayan-kelly/mesa-turnip-builder/releases/tag/mesa-26.2.5",
+    "url": "https://github.com/brayan-kelly/mesa-turnip-builder/releases/download/mesa-26.2.5/Mesa-Turnip-AdrenoTools.26.2.5.zip",
+    "bytes": 2634131,
+    "sha256": "18bcf0af9e11b6a702f16995fe4dacf5710ee7979ae5d250e450291e67819871",
+    "publishedAt": "2026-10-18T08:15:14Z",
+    "unmodified": true,
+    "formerBundledArchive": "app/src/main/assets/drivers/turnip-26-2-5.zip",
+    "filename": "Mesa-Turnip-AdrenoTools.26.2.5.zip"
+  },
+  "upstreamBuilder": {
+    "repository": "https://github.com/brayan-kelly/mesa-turnip-builder",
+    "commit": "2fa2130bbda2db9bc7ba4521280086ee899f929d",
+    "ndk": "r29",
+    "api": 34,
+    "platform": "android",
+    "backend": "kgsl",
+    "mesaPatches": [],
+    "sources": {
+      "tools/turnip-stable/upstream/build.sh": {
+        "sha256": "fb34ffcfdac253b3e07ea908260d2f182af4447accc009e866de4d8185a4562b",
+        "url": "https://raw.githubusercontent.com/brayan-kelly/mesa-turnip-builder/2fa2130bbda2db9bc7ba4521280086ee899f929d/build.sh"
+      },
+      "tools/turnip-stable/upstream/Dockerfile": {
+        "sha256": "cca85b95aa4357383aeaf59fc67009e67193ed46741608581a10fff8d416afbb",
+        "url": "https://raw.githubusercontent.com/brayan-kelly/mesa-turnip-builder/2fa2130bbda2db9bc7ba4521280086ee899f929d/Dockerfile"
+      },
+      "tools/turnip-stable/upstream/LICENSE": {
+        "sha256": "5c4668275cffd64a4c96bd4b306454ada12ef0c58bfe41546fd6d30ec553d09a",
+        "url": "https://raw.githubusercontent.com/brayan-kelly/mesa-turnip-builder/2fa2130bbda2db9bc7ba4521280086ee899f929d/LICENSE"
+      },
+      "tools/turnip-stable/upstream/.github-workflows-build.yml": {
+        "sha256": "7fbf11b29c3bfce0a9d270ed6daa640e6fc730d4b9d7b5be1034f467ae198cc6",
+        "url": "https://raw.githubusercontent.com/brayan-kelly/mesa-turnip-builder/2fa2130bbda2db9bc7ba4521280086ee899f929d/.github/workflows/build.yml"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+Aura Ground Zeroes GetTickCount entry adapter
+SPDX-License-Identifier: LGPL-2.1-or-later
+
+Based on Wine / Proton Wine 11.0-2 at
+https://github.com/The412Banner/proton-wine/tree/dcc50c55e2a4dbd06610e5b45d8872bc6f048633
+with its pinned Android ARM64EC vendor patches and Aura wait patches.
+Wine and its contributors retain their copyright. The new helper and loader
+integration are by Aura contributors, 2026, under LGPL-2.1-or-later.
+See COPYING.LIB, wine-mgs-tick-thunk.patch and aura_mgs_tick_thunk.h.
+Rebuild instructions and pinned inputs: tools/arm64ec/build_mgs_tick_thunk.py
+and tools/arm64ec/mgs-tick-thunk/build.json in the matching source tree.
+
+Opt-in only: AURA_MGS_TICK_THUNK=1 and main executable MgsGroundZeroes.exe.
+Only builtin kernel32!GetTickCount export resolution is adapted. Its clock
+implementation and results are unchanged; no game file is modified or included.
+This is a compatibility candidate; Android gameplay verification is pending.

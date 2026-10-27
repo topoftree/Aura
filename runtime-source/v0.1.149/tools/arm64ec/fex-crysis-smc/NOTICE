@@ -1,0 +1,28 @@
+Aura downstream Crysis 2 inline SMC experiment
+
+Based on FEX-Emu/FEX, revision 14c92681f4d62cf84d901460e0358de09c8847a7 (FEX-2610), MIT.
+Upstream source: https://github.com/FEX-Emu/FEX/tree/14c92681f4d62cf84d901460e0358de09c8847a7
+
+This downstream Aura adaptation is not an upstream FEX contribution. It retains
+the existing image-page compatibility patch. The WOW64-only Crysis 2 request uses
+upstream FULL instruction-content validation, disables persistent translation
+cache and Mono-specific transformations, and avoids synthetic page write traps.
+Normal protection notifications and genuine access exceptions remain intact.
+An additional explicit per-game experiment selects exact-byte comparison for
+1-8 byte instructions while retaining upstream CRC checks for longer instructions
+and persistent-cache relocation paths. All instruction bytes remain checked;
+the comparison preserves NZCV and never reads beyond the instruction. The new
+request defaults off and is only accepted with the verified inline-SMC launch.
+The Aura launch path requires the exact supported executable SHA-256. No game
+code, resource, authorization check or save is modified or redistributed.
+
+Sources and reproducible build inputs are included with the Aura runtime source.
+Android game startup and performance remain unverified until device testing.
+
+The se1 revision shares identical ThreadRemoveCodeEntry exit sequences only
+within one translation attempt in the verified WOW64 FULL mode. The ordered
+physical operand-register pair keys each label; the original spill, saved RIP,
+ABI arguments and dispatcher target remain unchanged. Labels are reset before
+each compile attempt, including restarts. Every instruction check remains;
+cache capacity, invalidation and code-buffer ownership are unchanged.
+AURA_FEX_CRYSIS2_SHARED_SMC_EXITS=0 disables this optimization on next launch.

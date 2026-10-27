@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(aura_abort_trace C)
+add_library(aura_abort_trace SHARED abort_trace.c)
+target_link_libraries(aura_abort_trace dl)
+target_compile_options(aura_abort_trace PRIVATE -Wall -Wextra -Werror -fno-omit-frame-pointer -fno-optimize-sibling-calls)
+target_link_options(aura_abort_trace PRIVATE -Wl,-z,max-page-size=16384 -Wl,--no-undefined)

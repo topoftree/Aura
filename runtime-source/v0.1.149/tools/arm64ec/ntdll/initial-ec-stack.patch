@@ -1,0 +1,30 @@
+Subject: ntdll: leave initial ARM64EC stack headroom
+
+Base: The412Banner/proton-wine dcc50c55e2a4dbd06610e5b45d8872bc6f048633 (proton_11.0-2)
+
+An x64 startup injector can retain the suspended thread's RSP and redirect RIP
+to a LoadLibraryW call. Native x64 starts below StackBase; the ARM64 path currently
+starts at StackBase. The supplied Ubisoft stub then reaches the EC LoadLibraryW
+entry with RSP = StackBase - 16 and writes to RSP + 32, outside the stack.
+
+Reserve the x64 startup home space and return slot, rounded up to preserve ARM64
+SP alignment. Keep native ARM64 and WOW64 startup unchanged. Offline tests cover the compiled initial context setup and the injector entry
+write. Android thread transitions and South Park gameplay still require device
+validation. The patch is built and packaged by build_ntdll.py/package_ntdll.py.
+
+diff --git a/dlls/ntdll/unix/signal_arm64.c b/dlls/ntdll/unix/signal_arm64.c
+--- a/dlls/ntdll/unix/signal_arm64.c
++++ b/dlls/ntdll/unix/signal_arm64.c
+@@ -1532,6 +1532,11 @@ void init_syscall_frame( LPTHREAD_START_ROUTINE entry, void *arg, BOOL suspend, TEB
+     context.X18 = (DWORD64)teb;
+     context.Sp  = (DWORD64)teb->Tib.StackBase;
+     context.Pc  = (DWORD64)pRtlUserThreadStart;
+-
++    /* Leave room for x64 startup code that redirects the initial PC without
++     * allocating its own home space. RtlUserThreadStart is a native ARM64
++     * entry here, so round the x64 0x28-byte reservation to 16-byte alignment.
++     */
++    if (is_arm64ec()) context.Sp -= 0x30;
++
+     if ((i386_context = get_cpu_area( IMAGE_FILE_MACHINE_I386 )))
+     {

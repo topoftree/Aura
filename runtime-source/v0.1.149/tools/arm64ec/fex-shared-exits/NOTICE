@@ -1,0 +1,6 @@
+Aura downstream change to FEX-2610 (14c92681f4d62cf84d901460e0358de09c8847a7).
+Generalizes the existing identical invalidation-exit sharing to selected games
+in WOW64 and ARM64EC FULL-check translation units. Native default remains off;
+Aura's per-game preference defaults on. Includes executable matching and rollback.
+Instruction checks, exception handling, cache lifetime and Crysis compatibility
+policies are unchanged. MIT license; not an upstream FEX contribution.

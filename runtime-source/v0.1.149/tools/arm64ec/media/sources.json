@@ -1,0 +1,20 @@
+{
+  "gstreamer": {
+    "file": "gstreamer-1.28.0.tar.gz",
+    "url": "https://codeload.github.com/GStreamer/gstreamer/tar.gz/refs/tags/1.28.0",
+    "bytes": 39691857,
+    "sha256": "06629bc45465ac6676357ef10dcdd0cbe2bdafa267b37bbac35beb432f872c45"
+  },
+  "termux": {
+    "url": "https://github.com/GameNative/termux-on-gha/releases/download/build-20260218/termuxfs-aarch64.tar",
+    "sha256": "b088df560c9395d7c2cc797d208d8a727d1f06fc70e5ea34eef6118ef64a7e42",
+    "bytes": 1190645760,
+    "file": "termuxfs-aarch64.tar"
+  },
+  "glib-mkenums": {
+    "file": "glib-mkenums.in",
+    "url": "https://raw.githubusercontent.com/GNOME/glib/2.86.3/gobject/glib-mkenums.in",
+    "bytes": 31426,
+    "sha256": "dcc4d88bcb3a32174c282dce96124ec96c867d2ec7a85a816a02223c1667e017"
+  }
+}

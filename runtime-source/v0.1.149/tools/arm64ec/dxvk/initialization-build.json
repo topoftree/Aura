@@ -1,0 +1,131 @@
+{
+  "schema": "AURA_DXGI_INIT_BUILD_V1",
+  "version": "v2.7.1-arm64ec-aura-init3",
+  "source_url": "https://github.com/doitsujin/dxvk",
+  "source_commit": "c3dd74be6baec53786d4e064a572185b70347a17",
+  "submodules": {
+    "include/native/directx": "9df86f2341616ef1888ae59919feaa6d4fad693d",
+    "include/spirv": "8b246ff75c6615ba4532fe4fde20f1be090c3764",
+    "include/vulkan": "234c4b7370a8ea3239a214c9e871e4b17c89f4ab",
+    "subprojects/libdisplay-info": "275e6459c7ab1ddd4b125f28d0440716e4888078"
+  },
+  "patch_sha256": "e85071b7b2fcbdf0fe9b02e130670b989d48bf385b076cee219d6d779aec7f22",
+  "script_sha256": "5744a2d3aefbccd7f1b197389d839ebd309ccf13814522f23cff70f27d60b9cb",
+  "source_date_epoch": "1756549193",
+  "files": {
+    "syswow64/dxgi.dll": {
+      "bytes": 2744320,
+      "sha256": "09c26358b6e3282c1a53138f34ba313172bc70df7d0f6d582c202ddd1ebf12f6",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "d740b23c482bf390f247fa8837d56b4659f6b77e638020b2b7b5f8c924cf9aeb"
+    },
+    "system32/dxgi.dll": {
+      "bytes": 2596864,
+      "sha256": "60c9d6c12c098557469f3f6da491624bb7846c005344b55e10dd0a0cef4c115a",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "cf58ecc361fd984d3a1108f3861ce4a603b65f7ae49e81d82dcc2819017151d7"
+    }
+  },
+  "fix": "SINGLETON_EXCEPTION_RETRY",
+  "trace_default": false,
+  "trace_limit_lines": 64,
+  "trace_limit_ms": 120000,
+  "android_game_execution": "not run",
+  "adapter_rejection": {
+    "schema": "AURA_DXVK_INIT_V1",
+    "feature_ids": {
+      "1": "depthBiasClamp",
+      "3": "depthClamp",
+      "5": "dualSrcBlend",
+      "6": "fillModeNonSolid",
+      "8": "fullDrawIndexUint32",
+      "9": "geometryShader",
+      "10": "imageCubeArray",
+      "11": "independentBlend",
+      "13": "multiDrawIndirect",
+      "14": "multiViewport",
+      "15": "occlusionQueryPrecise",
+      "17": "robustBufferAccess",
+      "18": "sampleRateShading",
+      "20": "shaderClipDistance",
+      "21": "shaderCullDistance",
+      "23": "shaderImageGatherExtended",
+      "25": "shaderInt64",
+      "26": "shaderSampledImageArrayDynamicIndexing",
+      "39": "textureCompressionBC",
+      "43": "shaderDrawParameters",
+      "45": "bufferDeviceAddress",
+      "46": "descriptorIndexing",
+      "47": "descriptorBindingSampledImageUpdateAfterBind",
+      "48": "descriptorBindingUpdateUnusedWhilePending",
+      "49": "descriptorBindingPartiallyBound",
+      "51": "hostQueryReset",
+      "52": "runtimeDescriptorArray",
+      "54": "samplerMirrorClampToEdge",
+      "58": "timelineSemaphore",
+      "59": "uniformBufferStandardLayout",
+      "60": "vulkanMemoryModel",
+      "61": "dynamicRendering",
+      "62": "maintenance4",
+      "65": "shaderDemoteToHelperInvocation",
+      "66": "shaderZeroInitializeWorkgroupMemory",
+      "67": "synchronization2",
+      "95": "robustBufferAccess2",
+      "97": "nullDescriptor",
+      "109": "maintenance5",
+      "112": "khrPipelineLibrary",
+      "115": "khrSwapchain"
+    },
+    "feature_id_scope": "ONE_BASED_PINNED_FEATURE_LIST",
+    "extra_gpu_queries": false,
+    "feature_result_bits": {
+      "0": "FEATURE_SUPPORTED",
+      "1": "EXTENSION_GATED",
+      "2": "EXTENSION_SUPPORTED",
+      "3": "EXTENSION_ENABLED"
+    }
+  },
+  "display_trace": {
+    "schema": "AURA_DXGI_MODE_V1",
+    "default_enabled": false,
+    "executable": "bf3.exe",
+    "limit_rows": 384,
+    "limit_ms": 120000,
+    "line_bytes": 640,
+    "per_frame": false
+  },
+  "source_files": {
+    "src/dxgi/dxgi_aura_display.h": "82ecdc62cb2153aeff7e857978ca0fe79701864e89b7f30cf5c1bf86439bb731",
+    "src/dxgi/dxgi_factory.cpp": "6b0b4395a47936ccca179005c0f2225491d5fa19a95919d5fad8f9bc5e9d4791",
+    "src/dxgi/dxgi_main.cpp": "bfc8e7653f039e6ed60a498bae092cfe1d514c90819fba32bff151d6ce0689f1",
+    "src/dxgi/dxgi_output.cpp": "2261faa42e411419f74f1ab58e9b366cfff12149eb588272d82b34854abab548",
+    "src/dxgi/dxgi_swapchain.cpp": "cdde88062e1c11ed06e685eec056d611ffccafa216c480cb3b8f3d20f3d99059",
+    "src/dxgi/dxgi_swapchain.h": "193b3e878fdb64c5470a7af0e69701e981aa122b88916e8cd67b718a923e17ef",
+    "src/dxvk/dxvk_device_filter.cpp": "69d11c8f8028faa3abe8f9379c26ce001b1200502996cfd20a3cd3cdd86dd940",
+    "src/dxvk/dxvk_device_info.cpp": "bbbacf0a505c892bcf0932240abe25d6614755dc985d919a735224bd3677d764",
+    "src/dxvk/dxvk_instance.cpp": "15102604117eb275e18d3a5f9b44613ed7455e57fa015c44531d528c8da38226",
+    "src/util/util_aura_init.h": "3ad6221ef1ba439d96854dcd962f7354618a32404c0e7bb41b745e501b6335db",
+    "src/util/util_singleton.h": "0951c34f34ac712ee90824717a264d835fcc67ea169cfcf3a6ed372bfc7c2162"
+  },
+  "tools": {
+    "clang": "53ecfc8ecab60eb880eb363b6df85d87d962f65dfe6c92abf3d6f26a8f77cf85",
+    "lld": "de7372c9e31ccb006c2d6cc1e545b11586ca924b0df40b72ddec8e208526d9dd",
+    "strip": "6f13c831b435f28018514b826ff5e2094ba490904556a2453ea4f1a6f90edd59",
+    "glslang": "0ab9891802851a523a645befbbd894072979631bfe811ef1e684ee968df540bc",
+    "ninja": "6fa84be1efc3ab25d1cf397d0bb35891e5f99316a35d89cd8c04be5898730174"
+  },
+  "compiler_version": "clang version 21.1.0 (https://github.com/bylaws/llvm-project.git c5668510b7c8a1881d5764d6a67ff253523d21e9)",
+  "meson": "1.9.1"
+}

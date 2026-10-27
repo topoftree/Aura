@@ -1,0 +1,190 @@
+--- a/FEXCore/Source/Interface/Core/CPUBackend.cpp
++++ b/FEXCore/Source/Interface/Core/CPUBackend.cpp
+@@ -313,6 +313,8 @@
+ 
+     // Resize the code buffer and reallocate our code size
+     CurrentCodeBuffer = SharedCodeBuffers.StartLargerCodeBuffer();
++    AuraJit::RecordEvent(ThreadState->ThreadStats, AuraJit::BufferCreated, CurrentCodeBuffer->UsableSize(),
++                         CurrentCodeBuffer->AllocatedSpaceUsed(), CurrentCodeBuffer->DiagnosticGeneration);
+ 
+     RegisterForSignalHandler(std::move(PrevCodeBuffer));
+     return CurrentCodeBuffer.get();
+@@ -332,6 +334,8 @@
+   fextl::shared_ptr<CodeBuffer> CPUBackend::CheckCodeBufferUpdate() {
+     auto NewCodeBuffer = SharedCodeBuffers.GetLatest();
+     if (CurrentCodeBuffer != NewCodeBuffer) {
++      AuraJit::RecordEvent(ThreadState->ThreadStats, AuraJit::BufferAdopted, NewCodeBuffer->UsableSize(),
++                           NewCodeBuffer->AllocatedSpaceUsed(), NewCodeBuffer->DiagnosticGeneration);
+       RegisterForSignalHandler(CurrentCodeBuffer);
+       return std::exchange(CurrentCodeBuffer, NewCodeBuffer);
+     }
+--- a/FEXCore/Source/Interface/Core/CPUBackend.h
++++ b/FEXCore/Source/Interface/Core/CPUBackend.h
+@@ -138,6 +138,8 @@
+     [[nodiscard]]
+     fextl::shared_ptr<CodeBuffer> CheckCodeBufferUpdate();
+ 
++    const CodeBuffer* DiagnosticCodeBuffer() const { return CurrentCodeBuffer.get(); }
++
+   protected:
+     // Max spill slot size in bytes. We need at most 32 bytes
+     // to be able to handle a 256-bit vector store to a slot.
+--- a/FEXCore/Source/Interface/Core/Core.cpp
++++ b/FEXCore/Source/Interface/Core/Core.cpp
+@@ -494,6 +494,7 @@
+ 
+ void ContextImpl::ClearCodeCache(FEXCore::Core::InternalThreadState* Thread, bool NewCodeBuffer) {
+   FEXCORE_PROFILE_INSTANT("ClearCodeCache");
++  AuraJit::RecordEvent(Thread->ThreadStats, AuraJit::ClearRequested, NewCodeBuffer);
+ 
+   if (NewCodeBuffer) {
+     // Allocate new CodeBuffer + L3 LookupCache and clear L1+L2 caches
+@@ -928,7 +929,11 @@
+   // Accumulate a JIT count now, as even if another thread raced us, it should count as a compile.
+   FEXCORE_PROFILE_INSTANT_INCREMENT(Thread, AccumulatedJITCount, 1);
+ 
++  AuraJit::Compilation AuraCompile(Thread->ThreadStats, Thread->AuraCapture, GuestRIP, MaxInst);
+   auto [CompiledCode, DebugData, StartAddr, Length, NeedsAddGuestCodeRanges] = CompileCode(Thread, GuestRIP, MaxInst);
++  if (auto Buffer = Thread->CPUBackend->DiagnosticCodeBuffer()) {
++    AuraCompile.Finish(Buffer->DiagnosticGeneration, Buffer->UsableSize(), Buffer->AllocatedSpaceUsed(), !DebugData);
++  }
+   auto CodePtr = CompiledCode.EntryPoints[GuestRIP];
+   if (CodePtr == nullptr) {
+     return 0;
+@@ -1073,6 +1078,8 @@
+ void ContextImpl::InvalidateThreadCachedCodeRange(FEXCore::Core::InternalThreadState* Thread, uint64_t Start, uint64_t Length) {
+   LOGMAN_THROW_A_FMT(CodeInvalidationMutex.try_lock() == false, "CodeInvalidationMutex needs to be unique_locked here");
+ 
++  AuraJit::RecordEvent(Thread->ThreadStats, AuraJit::RangeInvalidated, Length);
++
+   // Ensures now-modified mappings aren't cached as being in their previous non-executable state.
+   // Accessing FrontendDecoder is safe as the thread's code invalidation mutex must be locked here.
+   Thread->FrontendDecoder->ResetExecutableRangeCache();
+@@ -1086,6 +1093,7 @@
+ }
+ 
+ void ContextImpl::ThreadRemoveCodeEntryFromJit(FEXCore::Core::CpuStateFrame* Frame, uint64_t GuestRIP) {
++  AuraJit::RecordEvent(Frame->Thread->ThreadStats, AuraJit::InlineExit);
+   static_cast<ContextImpl*>(Frame->Thread->CTX)->SyscallHandler->InvalidateGuestCodeRange(Frame->Thread, GuestRIP, 1);
+ }
+ 
+--- a/FEXCore/Source/Interface/Core/JIT/JIT.cpp
++++ b/FEXCore/Source/Interface/Core/JIT/JIT.cpp
+@@ -866,6 +866,8 @@
+     AllocatedInfo = CurrentCodeBuffer->AtomicAllocateBuffer(Size);
+ 
+     if (AllocatedInfo.BufferAllocationOffset == nullptr) {
++      AuraJit::RecordEvent(ThreadState->ThreadStats, AuraJit::AllocationFailed, CurrentCodeBuffer->UsableSize(),
++                           CurrentCodeBuffer->AllocatedSpaceUsed(), Size);
+       // If it didn't fit then clear the buffer and try again.
+       // This has the possibility of migrating the SharedCodeBuffer. See above in `Arm64JITCore::ClearCache()`
+       CTX->ClearCodeCache(ThreadState);
+--- a/FEXCore/Source/Interface/Core/SharedCodeBufferManager.cpp
++++ b/FEXCore/Source/Interface/Core/SharedCodeBufferManager.cpp
+@@ -81,6 +81,7 @@
+ 
+   auto Buffer = fextl::make_shared<CodeBuffer>(Size, NameJITBuffers);
+ 
++  Buffer->DiagnosticGeneration = DiagnosticGeneration.fetch_add(1, std::memory_order_relaxed) + 1;
+   Latest = Buffer;
+ 
+   OnCodeBufferAllocated(Buffer);
+--- a/FEXCore/Source/Interface/Core/SharedCodeBufferManager.h
++++ b/FEXCore/Source/Interface/Core/SharedCodeBufferManager.h
+@@ -22,6 +22,8 @@
+ namespace FEXCore::CPU {
+ struct CodeBuffer {
+   fextl::unique_ptr<GuestToHostMap> LookupCache;
++
++  uint64_t DiagnosticGeneration {};
+ 
+   CodeBuffer(size_t Size, bool ShouldBeNamed);
+   CodeBuffer(const CodeBuffer&) = delete;
+@@ -134,5 +136,6 @@
+   fextl::shared_ptr<CodeBuffer> AllocateNew(size_t Size);
+ 
+   bool NameJITBuffers {true};
++  std::atomic<uint64_t> DiagnosticGeneration {};
+ };
+ } // namespace FEXCore::CPU
+--- a/FEXCore/include/FEXCore/Debug/InternalThreadState.h
++++ b/FEXCore/include/FEXCore/Debug/InternalThreadState.h
+@@ -2,6 +2,7 @@
+ #pragma once
+ 
+ #include <FEXCore/Core/CoreState.h>
++#include <FEXCore/Utils/JitCaptureFex.h>
+ #include <FEXCore/Utils/AllocatorHooks.h>
+ #include <FEXCore/Utils/TypeDefines.h>
+ #include <FEXCore/Utils/LongJump.h>
+@@ -118,6 +119,8 @@
+   uint64_t JITGuardOverflowArgument {};
+   FEXCore::UncheckedLongJump::JumpBuf RestartJump;
+ 
++  AuraJit::PrivateState AuraCapture;
++
+   // BaseFrameState should always be at the end, directly before the interrupt fault page
+   FEXCore::Core::CpuStateFrame BaseFrameState {};
+ 
+--- a/FEXCore/include/FEXCore/Utils/SHMStats.h
++++ b/FEXCore/include/FEXCore/Utils/SHMStats.h
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: MIT
+ #pragma once
++#include <FEXCore/Utils/JitCapture.h>
+ #include <atomic>
+ #include <cstddef>
+ #include <cstdint>
+@@ -32,7 +33,7 @@
+ }
+ #endif
+ // FEXCore live-stats
+-constexpr uint8_t STATS_VERSION = 2;
++constexpr uint8_t STATS_VERSION = 3;
+ enum class AppType : uint8_t {
+   LINUX_32,
+   LINUX_64,
+@@ -50,6 +51,7 @@
+   std::atomic<uint32_t> Head;
+   std::atomic<uint32_t> Size;
+   uint32_t Pad;
++  AuraJit::Control Aura;
+ };
+ 
+ struct ThreadStats {
+@@ -75,7 +77,10 @@
+   uint64_t AccumulatedDiskCacheMissCount;
+   uint64_t AccumulatedDiskCacheLookupTime;
+   uint64_t Padding;
++  AuraJit::Record Aura;
+ };
++
++static_assert(sizeof(ThreadStatsHeader) == 128 && sizeof(ThreadStats) == 1024);
+ 
+ // Ensure 16-byte alignment to take advantage of ARM single-copy atomicity.
+ static_assert(sizeof(ThreadStats) % 16 == 0, "Needs to be 16-byte aligned!");
+--- a/Source/Common/SHMStats.cpp
++++ b/Source/Common/SHMStats.cpp
+@@ -18,6 +18,12 @@
+ 
+   std::string_view GitString = GIT_DESCRIBE_STRING;
+   strncpy(Head->fex_version, GitString.data(), std::min(GitString.size(), sizeof(Head->fex_version)));
++
++  Head->Aura.MagicValue = AuraJit::Magic;
++  Head->Aura.Capabilities = 1;
++#ifdef ARCHITECTURE_arm64
++  __asm volatile("mrs %0, cntfrq_el0" : "=r"(Head->Aura.Frequency));
++#endif
+ 
+   Stats = reinterpret_cast<FEXCore::SHMStats::ThreadStats*>(reinterpret_cast<uint64_t>(Base) + sizeof(FEXCore::SHMStats::ThreadStatsHeader));
+ 
+@@ -61,6 +67,9 @@
+ 
+   // Slot might be reused, just zero it now.
+   memset(AllocatedSlot, 0, sizeof(*AllocatedSlot));
++
++  AllocatedSlot->Aura.Values[AuraJit::Slot] = OffsetFromStat(AllocatedSlot);
++  AllocatedSlot->Aura.Values[AuraJit::Serial] = std::atomic_ref(Head->Aura.NextSerial).fetch_add(1, std::memory_order_relaxed) + 1;
+ 
+   // TID != 0 means slot is allocated.
+   AllocatedSlot->TID.store(TID, std::memory_order_relaxed);

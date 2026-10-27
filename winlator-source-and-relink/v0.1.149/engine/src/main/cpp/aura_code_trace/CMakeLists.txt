@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(aura_code_trace C)
+add_library(aura_code_trace SHARED code_trace.c)
+target_link_libraries(aura_code_trace dl)
+target_compile_options(aura_code_trace PRIVATE -Wall -Wextra -Werror -fno-omit-frame-pointer)
+target_link_options(aura_code_trace PRIVATE -Wl,-z,max-page-size=16384 -Wl,--no-undefined)

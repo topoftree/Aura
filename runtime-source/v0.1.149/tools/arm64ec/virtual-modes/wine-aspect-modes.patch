@@ -1,0 +1,40 @@
+--- a/dlls/win32u/sysparams.c
++++ b/dlls/win32u/sysparams.c
+@@ -2238,6 +2238,7 @@
+         /* 5:4 */
+         {1280, 1024},
+     };
++    static const UINT aspect_heights[] = {540, 648, 720, 900, 1080, 1440, 2160};
+     UINT max_width = devmode_get( maximum, DM_PELSWIDTH ), max_height = devmode_get( maximum, DM_PELSHEIGHT );
+     SIZE *sizes, max_size = {.cx = max( max_width, max_height ), .cy = min( max_width, max_height )};
+     const DEVMODEW *mode;
+@@ -2246,7 +2247,7 @@
+ 
+     const char *env;
+ 
+-    count = 1 + ARRAY_SIZE(default_sizes) + ARRAY_SIZE(lowres_sizes) + modes_count;
++    count = 1 + ARRAY_SIZE(default_sizes) + ARRAY_SIZE(lowres_sizes) + ARRAY_SIZE(aspect_heights) + modes_count;
+     if (!(sizes = malloc( count * sizeof(*sizes) ))) return NULL;
+ 
+     count = add_screen_size( sizes, 0, max_size );
+@@ -2269,6 +2270,20 @@
+         SIZE size = {.cx = max( width, height ), .cy = min( width, height )};
+         if (!size.cx || (size.cx < 800 && !enable_lowres) || size.cx > max_size.cx) continue;
+         if (!size.cy || (size.cy < 600 && !enable_lowres) || size.cy > max_size.cy) continue;
++        count += add_screen_size( sizes, count, size );
++    }
++
++    /* Keep lower Aura tiers at the virtual desktop's aspect ratio. These are
++     * additional modes, never a forced size or a change to closest-mode policy.
++     * Append after existing modes so LimitNumberOfResolutions retains its order. */
++    for (i = 0; i < ARRAY_SIZE(aspect_heights); i++)
++    {
++        UINT height = aspect_heights[i];
++        SIZE size;
++        if (height >= max_size.cy || (!enable_lowres && height < 600)) continue;
++        size.cx = (((ULONGLONG)height * max_size.cx + max_size.cy) / (2ull * max_size.cy)) * 2;
++        size.cy = height;
++        if (size.cx <= 0 || size.cx > max_size.cx || (!enable_lowres && size.cx < 800)) continue;
+         count += add_screen_size( sizes, count, size );
+     }
+ 

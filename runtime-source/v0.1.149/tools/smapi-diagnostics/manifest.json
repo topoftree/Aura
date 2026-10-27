@@ -1,0 +1,10 @@
+{
+  "Name": "Aura diagnostics",
+  "Author": "Aura",
+  "Version": "1.0.0",
+  "Description": "Bounded, opt-in command readback and game-loop measurements. Does not change game timing.",
+  "UniqueID": "Aura.Diagnostics",
+  "EntryDll": "Aura.Diagnostics.dll",
+  "MinimumApiVersion": "4.5.2",
+  "UpdateKeys": []
+}

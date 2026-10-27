@@ -1,0 +1,18 @@
+{
+  "smapi.zip": {
+    "url": "https://github.com/Pathoschild/SMAPI/releases/download/4.5.2/SMAPI-4.5.2-installer.zip",
+    "sha256": "dd01ddca7b566bfe0d3b3d2d03833496abc56c53da976241f2ab443f5484acc4"
+  },
+  "compiler.zip": {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.compilers.toolset/4.11.0/microsoft.net.compilers.toolset.4.11.0.nupkg",
+    "sha256": "db165c75f0d0386d078d01448f96c93f8222320633e4fe828f5d1bf8c99b7d6f"
+  },
+  "net6ref.zip": {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg",
+    "sha256": "f4b66056820517ca8dc94bbc91d26b6062eeb4c17f70bd8af361cddb2c30971f"
+  },
+  "runtime.tar.gz": {
+    "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.21/dotnet-runtime-8.0.21-linux-x64.tar.gz",
+    "sha256": "1d7a338cada885183b54d43247604e05b8719a08861e47dd032e2a3b8171b3ce"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "AURA_DXVK_ZERO_EXTENT_BACKPORT_V1",
+  "status": "BUILT_AND_INTEGRATED_IN_AURA_0_1_91_PENDING_DEVICE_TEST",
+  "upstream_commit": "d2762330fbc0d7921ed30a7f5069eca60f79456b",
+  "upstream_url": "https://github.com/doitsujin/dxvk/commit/d2762330fbc0d7921ed30a7f5069eca60f79456b",
+  "upstream_author": "Robin Kertels",
+  "upstream_commit_date": "2026-08-04T16:56:37Z",
+  "upstream_subject": "[d3d9] Ignore zero extent stretch rect",
+  "upstream_message": "[d3d9] Ignore zero extent stretch rect\n\nMirrors Edge does a call with src rect 0,0,0,0\nand dst rect 0,0,0,0.",
+  "base_tag": "v2.7.1",
+  "source_files": {
+    "d3d9_device.cpp": {
+      "url": "https://raw.githubusercontent.com/doitsujin/dxvk/v2.7.1/src/d3d9/d3d9_device.cpp",
+      "sha256": "6cab742e207d10249334555516ed2c075a9205d1da0fb13976e41dc186464350",
+      "bytes": 319643
+    },
+    "d3d9_util.h": {
+      "url": "https://raw.githubusercontent.com/doitsujin/dxvk/v2.7.1/src/d3d9/d3d9_util.h",
+      "sha256": "ece606c091f98bf096b768dd095b9678c1c34401850c1be22e0386c952671486",
+      "bytes": 12464
+    }
+  },
+  "patch": "zero-extent-stretch-rect.patch",
+  "patch_sha256": "d97cef673b1547b937d7c4e869b62ce6e9dae10a21f0e9981893065d397d741e",
+  "upstream_added_lines_preserved": true,
+  "added_lines": 4,
+  "patched_device_source_sha256": "c679ee6ee413f94142981cdc999d72155535be3cc97d4234bcf42690a5e78e1c",
+  "license": "zlib/libpng",
+  "license_file": "LICENSE.dxvk",
+  "license_sha256": "a5cb1a6ded7d2d7e92d550ba28edd21be2d1d4044662b399887351023e30ce64",
+  "built_runtime_dll": true,
+  "android_game_verified": false,
+  "build_manifest": "build.json"
+}

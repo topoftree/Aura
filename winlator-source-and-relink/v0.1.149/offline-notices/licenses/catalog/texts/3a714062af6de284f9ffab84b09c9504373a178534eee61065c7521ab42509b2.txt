@@ -1,0 +1,13 @@
+Wine win32u GPU memory report correction
+Base: Pipetto-crypto Wine proton_11.0-2, commit
+dcc50c55e2a4dbd06610e5b45d8872bc6f048633, with the existing Android vendor patches.
+Wine is distributed under LGPL-2.1-or-later; see COPYING.LIB.
+
+Aura change: replace native ULONG_MAX with Windows MAXDWORD when saturating
+HardwareInformation.MemorySize. HardwareInformation.qwMemorySize stays 64-bit.
+The editable source patch, builder, pinned input metadata and instruction tests
+are in tools/arm64ec/gpu-memory and the adjacent build/audit/package scripts.
+No game executable, game asset, mod or user diagnostic is included.
+
+Build headers: FreeType 2.13.3 (FreeType Project License) and Fontconfig 2.15.0
+(MIT-style license). This does not replace their packaged runtime libraries.

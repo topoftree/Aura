@@ -1,0 +1,6 @@
+Wine crypt32 Unix certificate import descriptor ownership correction.
+Base source: The412Banner/proton-wine dcc50c55e2a4dbd06610e5b45d8872bc6f048633.
+Original unixlib.c copyright 2019 Hans Leidekker for CodeWeavers.
+Wine and this modification are licensed LGPL-2.1-or-later; see COPYING.LIB.
+The source patch, build script, native hashes and host test are supplied here.
+The correction retains certificate parsing, trust providers and Android fdsan.

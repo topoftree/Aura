@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "revision": "26.2.5-aura-ext1",
+  "sourceArchiveSha256": "794b3d1729075dae7ebd47c7283b7ca0cdb5dec668f7f11cc0a5d82f6138a0a5",
+  "sourceFilesVerified": 12808,
+  "sourceCommit": "ddaf85e353442d9d7f192fdcf1823e652e3f2ee3",
+  "sourcePatches": [],
+  "androidApi": 34,
+  "androidStrict": false,
+  "backend": "kgsl",
+  "ndk": "28.2.13676358",
+  "compiler": "Android (13624864, +pgo, +bolt, +lto, +mlgo, based on r530567e) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project 97a699bf4812a18fb657c2779f5296a4ab2694d2)",
+  "meson": "1.5.2",
+  "options": [
+    "-Dbuildtype=release",
+    "-Db_ndebug=true",
+    "-Dstrip=true",
+    "-Dplatforms=android",
+    "-Dplatform-sdk-version=34",
+    "-Dandroid-stub=true",
+    "-Dandroid-strict=false",
+    "-Dandroid-libbacktrace=disabled",
+    "-Degl=disabled",
+    "-Dgallium-drivers=",
+    "-Dvulkan-drivers=freedreno",
+    "-Dvulkan-beta=true",
+    "-Dfreedreno-kmds=kgsl",
+    "-Dvideo-codecs=",
+    "-Dzstd=disabled"
+  ],
+  "libraryBytes": 14783304,
+  "librarySha256": "2ccef7aeb0d39c79e8e0a731d101b33d2a974c0d74d3ca8a1d41ebee4aeddb7c",
+  "buildScriptSha256": "fe2f75c46cec9e855da7f208cf55297a8035c99f797dbc0b98332c2e26d15089",
+  "hostTools": {
+    "glslangValidator": {
+      "sha256": "3a4fb1feabbe3f2a61a42f067d67c0d2ee6a982ea863fb02c66b7aa271f830eb",
+      "version": "Glslang Version: 11:15.2.0"
+    },
+    "bison": {
+      "sha256": "6243e56f0cad02bfa253fc7ed38132297f909822dacd1060c71afab75cebd4a9",
+      "version": "bison (GNU Bison) 3.8.2"
+    },
+    "flex": {
+      "sha256": "c4635f64b06ab06a01c67eee32f612dc4e28dc743ecb5cd88797e29693b88426",
+      "version": "flex 2.6.4"
+    },
+    "ninja": {
+      "sha256": "6fa84be1efc3ab25d1cf397d0bb35891e5f99316a35d89cd8c04be5898730174",
+      "version": "1.10.2"
+    }
+  },
+  "androidExecution": "not run"
+}

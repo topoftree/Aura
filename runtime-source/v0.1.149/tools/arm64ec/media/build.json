@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "gstreamer": "1.28.0",
+  "abi": "android-aarch64-api34",
+  "ndk": "28.2.13676358",
+  "meson": "1.9.1",
+  "ninja": "1.13.0",
+  "sources": {
+    "gstreamer": {
+      "file": "gstreamer-1.28.0.tar.gz",
+      "url": "https://codeload.github.com/GStreamer/gstreamer/tar.gz/refs/tags/1.28.0",
+      "bytes": 39691857,
+      "sha256": "06629bc45465ac6676357ef10dcdd0cbe2bdafa267b37bbac35beb432f872c45"
+    },
+    "termux": {
+      "url": "https://github.com/GameNative/termux-on-gha/releases/download/build-20260218/termuxfs-aarch64.tar",
+      "sha256": "b088df560c9395d7c2cc797d208d8a727d1f06fc70e5ea34eef6118ef64a7e42",
+      "bytes": 1190645760,
+      "file": "termuxfs-aarch64.tar"
+    },
+    "glib-mkenums": {
+      "file": "glib-mkenums.in",
+      "url": "https://raw.githubusercontent.com/GNOME/glib/2.86.3/gobject/glib-mkenums.in",
+      "bytes": 31426,
+      "sha256": "dcc4d88bcb3a32174c282dce96124ec96c867d2ec7a85a816a02223c1667e017"
+    }
+  },
+  "files": {
+    "usr/lib/gstreamer-1.0/libgstlibav.so": {
+      "bytes": 237440,
+      "sha256": "abfe200ab191b1167ae1e636de0034287da0cbc50f6f6e828b20ecb73586b833"
+    },
+    "usr/lib/gstreamer-1.0/libgstvideoparsersbad.so": {
+      "bytes": 324912,
+      "sha256": "cd250b6760e1a1a3893b87c69c613f866f00b4adaa79e805b27bff3f0862b560"
+    },
+    "usr/lib/libgstcodecparsers-1.0.so": {
+      "bytes": 773464,
+      "sha256": "fb97e05848e0b1fbcecdaf73fe4d491d8281fffd0881bf3f7ddd2697d3486b8e"
+    }
+  },
+  "patch_sha256": "25452529c7ac32a635de8d14ca7f44373e0ad1de810fe0ef26023da77ce8be0e",
+  "build_script_sha256": "032f20980a51d9ebffe491d0e44b7a9c7fa3e476f585c6eb2584e1f19517796c",
+  "limitations": "Cross-compiled and statically checked; no Android playback validation."
+}

@@ -1,0 +1,36 @@
+--- a/dlls/crypt32/unixlib.c
++++ b/dlls/crypt32/unixlib.c
+@@ -503,7 +503,7 @@
+     return TRUE;
+ }
+ 
+-/* Reads the file fd, and imports any certificates in it into store. */
++/* Consumes fd, including when fdopen fails, and imports its certificates. */
+ static void import_certs_from_file( int fd )
+ {
+     FILE *fp = fdopen(fd, "r");
+@@ -512,7 +512,11 @@
+     struct DynamicBuffer saved_cert = { 0, 0, NULL };
+     int num_certs = 0;
+ 
+-    if (!fp) return;
++    if (!fp)
++    {
++        close(fd);
++        return;
++    }
+     TRACE("\n");
+     while (fgets(line, sizeof(line), fp))
+     {
+@@ -602,7 +606,11 @@
+         if (fstat(fd, &st) == 0)
+         {
+             if (S_ISREG(st.st_mode))
++            {
+                 import_certs_from_file(fd);
++                /* The stream (or failed fdopen cleanup) already consumed fd. */
++                return;
++            }
+             else if (S_ISDIR(st.st_mode))
+             {
+                 if (allow_dir)

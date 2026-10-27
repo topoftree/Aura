@@ -1,0 +1,202 @@
+{
+  "schema": "AURA_DXVK_COMPAT_BUILD_V1",
+  "version": "v2.6.2-arm64ec-aura-qcom3",
+  "source_url": "https://github.com/doitsujin/dxvk",
+  "source_commit": "9d6f54a1ade20d1d27dd421024717a636f3d8c68",
+  "submodules": {
+    "include/native/directx": "9df86f2341616ef1888ae59919feaa6d4fad693d",
+    "include/spirv": "8b246ff75c6615ba4532fe4fde20f1be090c3764",
+    "include/vulkan": "234c4b7370a8ea3239a214c9e871e4b17c89f4ab",
+    "subprojects/libdisplay-info": "275e6459c7ab1ddd4b125f28d0440716e4888078"
+  },
+  "source_date_epoch": "1749555707",
+  "patch_sha256": "2ccf561d550291a81012ee8f63df098b94da175e179682e892fd0407e9efa5b9",
+  "script_sha256": "296a360b81c98b7adbd3030ea0f82aa6d27557c438815ea2c4600de20827e50f",
+  "files": {
+    "syswow64/d3d8.dll": {
+      "bytes": 1318912,
+      "sha256": "33354d5dbb89cce7147efb27261000df624d8d606851b29d6dd40ed62b2b554d",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "568ec55140f47a933b5756aee6c36e09143e22b40ffa65f716467834ab7c673b"
+    },
+    "syswow64/d3d9.dll": {
+      "bytes": 3907584,
+      "sha256": "233c79e1416ac01b1e831def0641cb29ffa9e9a36358298f1b024ddee8afc986",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "7a2d48832681d52711ecc5151780b5cec97707e5738808d39328e0e9b94686da"
+    },
+    "syswow64/d3d10core.dll": {
+      "bytes": 282624,
+      "sha256": "90cce377a6093ce4c0de15e7231763f423f5823821a87cbeef91b8862218ff99",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "08d4915547507661ac9e65bfe062fd9dcd49f87da863d16df5baf09b613d3537"
+    },
+    "syswow64/d3d11.dll": {
+      "bytes": 4202496,
+      "sha256": "4f8676530bb3f1a78cab363992e2de75557ce84378fb7829ba4e51fc445bcc6e",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "8f9dd9e2ed409eea619b45e74e0c6773986fe1946b57b2cb0eb391f9bf7e4b6a"
+    },
+    "syswow64/dxgi.dll": {
+      "bytes": 2715648,
+      "sha256": "f582c08b361244084592a730309c3dc91113887b6b1219a2c0b3033f61bc9e09",
+      "pe": {
+        "format": "PE",
+        "machine": "0x14c",
+        "architecture": "x86",
+        "chpeMetadata": false,
+        "dll": true
+      },
+      "unstripped_sha256": "959455855e62601b05f6b3002d49066d9470fbd6fd2b2fdb26847bf710afad2d"
+    },
+    "system32/d3d8.dll": {
+      "bytes": 1273856,
+      "sha256": "59ae73d88cc054353c4c9b16949a61dd9a67caead9569149034414d666e53371",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "533fbdbe8d6b2b3f51ad7fe13b48030edee262886be1783b333eb2fe525dc82f"
+    },
+    "system32/d3d9.dll": {
+      "bytes": 3702784,
+      "sha256": "5ac67f5b67ddf7b432308fcdb81028b8a7f318bf9ee10cdaf6bf9892cf861c1e",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "2ef00d67df947a1bec95cd3b686f460ddeb42df230bf8365172c51cd06698079"
+    },
+    "system32/d3d10core.dll": {
+      "bytes": 286720,
+      "sha256": "7d8d30ada393dc9103fa9231dc010b964d46eb9ab2e4b2020fc2005c78922b2d",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "be4c7ed2206032442440822b3f2b2987b7cbe26a3241d13fdaf0e67aef82e880"
+    },
+    "system32/d3d11.dll": {
+      "bytes": 4071424,
+      "sha256": "ccd44c8dd5f860e370e90618ede413a0d07fdfc3358e0c029e66dcb4bafebc1a",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "c05495e019d9c9a5f0d134cfdb09f5eed379a191434921363dfbf0e1cea0b68f"
+    },
+    "system32/dxgi.dll": {
+      "bytes": 2568192,
+      "sha256": "fbfdd5cac00aa83d4440a4c502c0d58904015c1a705402a93bd37eaa05952992",
+      "pe": {
+        "format": "PE",
+        "machine": "0x8664",
+        "architecture": "x64",
+        "chpeMetadata": true,
+        "dll": true
+      },
+      "unstripped_sha256": "4770c68e2d4eda0efa0166014b9d3de32946da66253b40239bdaee7b34e0a713"
+    }
+  },
+  "source_files": {
+    "src/d3d11/d3d11_context_imm.cpp": "526bb20760e98e83c6b564f25b618f0ef26708cd8fc7efc4476137aa6e202184",
+    "src/d3d11/d3d11_context_imm.h": "bd677c0841f2657abbc0b636d87fcfedc6fae92217323f8849f2e7f8d070ab43",
+    "src/d3d11/d3d11_options.cpp": "368e91cf321c42ec8d1772d0f49901544178551e7e44266a156f74a0b9de2140",
+    "src/d3d11/d3d11_options.h": "b0e0a3f29d39859eb527e5a4b226c7762e0ed5019a6125e96e642c0d96f5f47e",
+    "src/d3d11/d3d11_swapchain.cpp": "0863c1fe634337f9c257656fae7a710d557192ac1e0f64c86fef825fa8290fb3",
+    "src/d3d11/d3d11_swapchain.h": "3081218e30bdaeff0a1a4921761e0a1d572f7e222a784e92204ff7ffb0c174ef",
+    "src/d3d9/d3d9_device.cpp": "c4a95e9408a2221ce122581742b1d4a2e21fe8081ae47c1f8efb31ee0d610055",
+    "src/d3d9/d3d9_format_helpers.cpp": "d5a215baef88a6d95340f5bba3ed0a6b78caf620e298bb387b16ef2eebaea105",
+    "src/d3d9/d3d9_query.cpp": "5616cae7eb0671fedf545aafe589dd272edbca98651e72f75f8106b2e542d1ef",
+    "src/d3d9/d3d9_swapchain.cpp": "fa2f2159aec72cc425d355f2dcc5d25d40f4ecb70455a797a72075fb32d0f4f9",
+    "src/dxgi/dxgi_aura_display.h": "82ecdc62cb2153aeff7e857978ca0fe79701864e89b7f30cf5c1bf86439bb731",
+    "src/dxgi/dxgi_factory.cpp": "94f04978ed5a5781121ad36e2616eb76c471d2798091b0ca3db7e084f1baf9c8",
+    "src/dxgi/dxgi_main.cpp": "bfc8e7653f039e6ed60a498bae092cfe1d514c90819fba32bff151d6ce0689f1",
+    "src/dxgi/dxgi_output.cpp": "6637614c4338a5e0e89787c7cdecf5230f7747848e6fc419afd6117df7cc3670",
+    "src/dxgi/dxgi_swapchain.cpp": "4bd85e13d8184c801958eb560bdf4629c98f4be1f9bc89a4264f4628f694a6bb",
+    "src/dxgi/dxgi_swapchain.h": "bdfee866284264422183efbf05d013461dc9921147f1bf4fda56fcad1710fda9",
+    "src/dxvk/dxvk_adapter.cpp": "dc094eb50514a9554e599f31a870748edcc7434a8b00f02a00d8f0f7e04f04dd",
+    "src/dxvk/dxvk_compute.cpp": "ad7ebd20006b0ae2110c6c3adc88382fb6833f22f6326e4c9227d9cf5cc376db",
+    "src/dxvk/dxvk_graphics.cpp": "ad9e3a31da510f5ac8ab466b9c996579972bb19df1c527f72faea37ea6f0092e",
+    "src/dxvk/dxvk_instance.cpp": "3bca8bc90ee0b0a75ec7942167a31440e23e21f1564aab5941e9f1e80bed2b52",
+    "src/dxvk/dxvk_meta_blit.cpp": "fdb34f61c58bc74822c52017ec4bcf95b1b303304e911272ab0220a5acec3777",
+    "src/dxvk/dxvk_meta_clear.cpp": "f8069df7e50f213816502017bdac968fb3b74188d4c762a066edb7e87ee0c277",
+    "src/dxvk/dxvk_meta_copy.cpp": "ee980ad507f31b06a1b432cf6e448cd371de01104c3ba7214d60d9293b443874",
+    "src/dxvk/dxvk_meta_resolve.cpp": "afd6ced9a79a64d77d967af2eef06c86654f993c9fe55153b9d2d24b8033ca9e",
+    "src/dxvk/dxvk_queue.cpp": "413660d9a6a104edd0e89b37f4169c12c852cfe93df287328c0a30c6a99dd5da",
+    "src/dxvk/dxvk_shader.cpp": "e47c2e5d9bcd9a8033b81d146064ef58cb8dfc284607203885cfdad281059f06",
+    "src/dxvk/dxvk_swapchain_blitter.cpp": "0e0718c97acc649dc1d5ba76c335fd43d6136f18180673baf3d0dfca36ef8fb7",
+    "src/dxvk/hud/dxvk_hud_item.cpp": "f1334a4a77ac2379aaa9cec572f22b06c8f551ebbac26063c7ab25f1412b16bb",
+    "src/dxvk/hud/dxvk_hud_renderer.cpp": "f173f224ad045173e06297d849fd08f838a634c19c0378e99a774620033b5f30",
+    "src/util/aura_color_core.h": "7700aeb43f5973372ac6d1e0b9f76c94b562a3a076de05a24e6be4c00f4d924e",
+    "src/util/aura_color_trace.h": "a6ca06cd1d05ada9667982bf92e40aba14b283f022d5ded378e4f43241465a88",
+    "src/util/aura_flow_core.h": "b5ecc2b8478a067257f695a5a1d9de45e68c66a4b4de62f1da9cd56fd3398470",
+    "src/util/aura_flow_trace.h": "a3a028c9f776494130ad72fb64e036e1ed21c48b13224a6a4d6e48a30f54d537",
+    "src/util/aura_pipeline_core.h": "0f9cb82bf2d8e5a21e9a7a5c367895ba33a02eee974f2087070ecbec6b951b86",
+    "src/util/aura_pipeline_trace.h": "ee48679b94e2766216533fb0086152b300a2901fc7acce9a27c806e79230b9ee",
+    "src/util/util_aura_init.h": "3270af564c8776454332a029ed4d310ff822450e87d5a1c8de0c58c8a898625c",
+    "src/util/util_flush.cpp": "3e6a2d08d7e2de9865c560ecf384bb3349099f53237fe2c04bc4e7646f5d0858",
+    "src/util/util_flush.h": "9f4c1fe3a979779a205a0af3e39f5980d7226678e4dc3f622b0af812d5de3aa0",
+    "src/util/util_singleton.h": "0951c34f34ac712ee90824717a264d835fcc67ea169cfcf3a6ed372bfc7c2162"
+  },
+  "optional_extensions": [
+    "VK_KHR_maintenance5",
+    "VK_KHR_pipeline_library"
+  ],
+  "preserved_fixes": [
+    "ZERO_EXTENT_STRETCH_RECT",
+    "SINGLETON_EXCEPTION_RETRY",
+    "OPT_IN_BATCH_HINTS",
+    "MANUAL_D3D9_FLOW",
+    "STARTUP_DXGI_DISPLAY",
+    "STARTUP_PIPELINE_RING",
+    "MANUAL_PRE_PRESENT_COLOR"
+  ],
+  "compatibility_fix": "EXPLICIT_SHADER_MODULE_WITHOUT_INLINE_PNEXT",
+  "android_game_execution": "not run",
+  "tools": {
+    "clang": "53ecfc8ecab60eb880eb363b6df85d87d962f65dfe6c92abf3d6f26a8f77cf85",
+    "lld": "de7372c9e31ccb006c2d6cc1e545b11586ca924b0df40b72ddec8e208526d9dd",
+    "strip": "6f13c831b435f28018514b826ff5e2094ba490904556a2453ea4f1a6f90edd59",
+    "glslang": "0ab9891802851a523a645befbbd894072979631bfe811ef1e684ee968df540bc",
+    "ninja": "6fa84be1efc3ab25d1cf397d0bb35891e5f99316a35d89cd8c04be5898730174"
+  },
+  "compiler_version": "clang version 21.1.0 (https://github.com/bylaws/llvm-project.git c5668510b7c8a1881d5764d6a67ff253523d21e9)",
+  "meson": "1.9.1"
+}

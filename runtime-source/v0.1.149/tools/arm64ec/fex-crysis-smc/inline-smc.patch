@@ -1,0 +1,99 @@
+--- a/Source/Windows/Common/InvalidationTracker.h
++++ b/Source/Windows/Common/InvalidationTracker.h
+@@ -22,7 +22,7 @@
+  */
+ class InvalidationTracker {
+ public:
+-  InvalidationTracker(FEXCore::Context::Context& CTX, const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads);
++  InvalidationTracker(FEXCore::Context::Context& CTX, const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads, bool RequestedInlineSMC = false);
+   void HandleMemoryProtectionNotification(uint64_t Address, uint64_t Size, ULONG Prot);
+   void HandleProcessExecuteFlagsChange(ULONG Flags);
+   void HandleImageMap(std::string_view Name, uint64_t Address);
+@@ -64,6 +64,7 @@
+   FEXCore::Context::Context& CTX;
+   const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads;
+   bool UseImagePages {false};
++  bool InlineSMCChecks {false}; // Immutable after construction; requires FULL instruction validation.
+   bool SMCDetectionDisabled {false};                    // Protected by IntervalsLock
+   bool DEPDisabled {false};                             // Protected by IntervalsLock
+   FEXCore::IntervalList<uint64_t> DEPPromotedIntervals; // Protected by IntervalsLock
+--- a/Source/Windows/Common/InvalidationTracker.cpp
++++ b/Source/Windows/Common/InvalidationTracker.cpp
+@@ -8,17 +8,20 @@
+ #include <FEXCore/Debug/InternalThreadState.h>
+ #include "InvalidationTracker.h"
+ #include "ImageExecutableRanges.h"
++#include "CrysisSmcPolicy.h"
+ #include "Module.h"
+ #include <windef.h>
+ #include <winternl.h>
+ 
+ namespace FEX::Windows {
+-InvalidationTracker::InvalidationTracker(FEXCore::Context::Context& CTX, const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads)
++InvalidationTracker::InvalidationTracker(FEXCore::Context::Context& CTX, const std::unordered_map<DWORD, FEXCore::Core::InternalThreadState*>& Threads, bool RequestedInlineSMC)
+   : CTX {CTX}
+   , Threads {Threads} {
+   FEX_CONFIG_OPT(ImagePages, WINDOWSIMAGEPAGES);
+   UseImagePages = MgsImagePagesEnabled(ImagePages(), GetExecutableFilePath());
+   FEX_CONFIG_OPT(SMCChecks, SMCCHECKS);
++  FEX_CONFIG_OPT(MonoHacks, MONOHACKS);
++  InlineSMCChecks = CrysisInlineSmcActive(RequestedInlineSMC, SMCChecks == FEXCore::Config::CONFIG_SMC_FULL, MonoHacks());
+   SMCDetectionDisabled = (SMCChecks == FEXCore::Config::CONFIG_SMC_NONE);
+ 
+   MEMORY_BASIC_INFORMATION Info;
+@@ -242,6 +245,8 @@
+ }
+ 
+ bool InvalidationTracker::HandleRWXAccessViolation(FEXCore::Core::InternalThreadState* Thread, uint64_t HostPc, uint64_t FaultAddress) {
++  // No synthetic write traps are installed in this mode. Preserve real access violations.
++  if (InlineSMCChecks) return false;
+   const auto [NeedsInvalidate, UntrapProt] = [&](uint64_t Address) -> std::pair<bool, ULONG> {
+     std::shared_lock Lock(IntervalsLock);
+     if (!RWXIntervals.Query(Address).Enclosed) {
+@@ -367,7 +372,9 @@
+   const auto End = Address + Size;
+   std::shared_lock Lock(IntervalsLock);
+ 
+-  if (SMCDetectionDisabled) {
++  // FULL checks validate guest instruction bytes before execution. Keep guest page
++  // permissions intact instead of trapping every byte written to a page containing code.
++  if (SMCDetectionDisabled || InlineSMCChecks) {
+     return false;
+   }
+ 
+--- a/Source/Windows/WOW64/Module.cpp
++++ b/Source/Windows/WOW64/Module.cpp
+@@ -30,6 +30,7 @@
+ #include <FEXCore/Utils/SignalScopeGuards.h>
+ 
+ #include "Windows/Common/Allocator.h"
++#include "Windows/Common/CrysisSmcPolicy.h"
+ #include "Windows/Common/EnvironmentVariablesHandling.h"
+ #include "Windows/Common/FEXUnixLib.h"
+ #include "Common/CallRetStack.h"
+@@ -504,6 +505,16 @@
+   FEXCore::Config::ReloadMetaLayer();
+   FEX::Windows::Logging::Init();
+ 
++  const bool CrysisInlineSMC = FEX::Windows::CrysisInlineSmcRequested(getenv("AURA_FEX_CRYSIS2_INLINE_SMC"), ExecutablePath);
++  if (CrysisInlineSMC) {
++    // Selected before Context construction: every compiled instruction retains the
++    // upstream FULL code-content check, including single-step and multiblock paths.
++    FEXCore::Config::Set(FEXCore::Config::CONFIG_SMCCHECKS, "2");
++    FEXCore::Config::Set(FEXCore::Config::CONFIG_MONOHACKS, "0");
++    FEXCore::Config::Set(FEXCore::Config::CONFIG_DISKCACHE, "0");
++    LogMan::Msg::IFmt("AURA_FEX_CRYSIS2_SMC_V1 state=ACTIVE; checks=FULL_INSTRUCTION; write_traps=OFF; disk_cache=OFF; game_ready=UNCONFIRMED");
++  }
++
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_INTERPRETER_INSTALLED, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_IS64BIT_MODE, "0");
+   FEXCore::Config::Set(FEXCore::Config::CONFIG_APP_FILENAME, ExecutablePath);
+@@ -533,7 +544,7 @@
+   CTX->SetSyscallHandler(SyscallHandler.get());
+   CTX->InitCore();
+   Context::HandlerConfig.emplace(*CTX);
+-  InvalidationTracker.emplace(*CTX, Threads);
++  InvalidationTracker.emplace(*CTX, Threads, CrysisInlineSMC);
+   ImageTracker.emplace(*CTX, false);
+ 
+   auto MainModule = reinterpret_cast<__TEB*>(NtCurrentTeb())->Peb->ImageBaseAddress;

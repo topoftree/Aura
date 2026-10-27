@@ -1,0 +1,27 @@
+{
+  "sourceSha256": "231720ac54f21e41f7446f7d8a840297ee9d0d476631f26147ccf538aa8d6cb8",
+  "buildSha256": "7acca12e86a84fdcffd3083a88d93335c2ddde74f4815f97b58a881a11ebebe4",
+  "binarySha256": "3a46bcc6c2bebb18ae55b98333bf23feb256e3b26e0261ce2758ec6718e25fa4",
+  "bytes": 4096,
+  "imports": [
+    "GetModuleFileNameW",
+    "CreateFileW",
+    "ReadFile",
+    "WriteFile",
+    "CloseHandle",
+    "CreateToolhelp32Snapshot",
+    "Process32FirstW",
+    "Process32NextW",
+    "OpenProcess",
+    "QueryFullProcessImageNameW",
+    "GetProcessTimes",
+    "WaitForSingleObject",
+    "AttachConsole",
+    "FreeConsole",
+    "GetConsoleProcessList",
+    "WriteConsoleInputW",
+    "GetSystemTimeAsFileTime",
+    "ExitProcess"
+  ],
+  "deviceTested": false
+}

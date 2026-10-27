@@ -1,0 +1,15 @@
+Aura downstream Crysis 2 inline SMC experiment
+
+Based on FEX-Emu/FEX, revision 14c92681f4d62cf84d901460e0358de09c8847a7 (FEX-2610), MIT.
+Upstream source: https://github.com/FEX-Emu/FEX/tree/14c92681f4d62cf84d901460e0358de09c8847a7
+
+This downstream Aura adaptation is not an upstream FEX contribution. It retains
+the existing image-page compatibility patch. The WOW64-only Crysis 2 request uses
+upstream FULL instruction-content validation, disables persistent translation
+cache and Mono-specific transformations, and avoids synthetic page write traps.
+Normal protection notifications and genuine access exceptions remain intact.
+The Aura launch path requires the exact supported executable SHA-256. No game
+code, resource, authorization check or save is modified or redistributed.
+
+Sources and reproducible build inputs are included with the Aura runtime source.
+Android game startup and performance remain unverified until device testing.
